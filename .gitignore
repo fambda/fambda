@@ -1,0 +1,16 @@
+## Ignore
+
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studo cache/options directory
+.vs/
+
+# NCrunch
+*.ncrunchsolution
+*.ncrunchproject
+*ncrunch*
