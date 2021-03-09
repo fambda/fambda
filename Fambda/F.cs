@@ -1,6 +1,4 @@
 ﻿namespace Fambda
 {
-    public static partial class F
-    {
-    }
+    public static partial class F { }
 }
