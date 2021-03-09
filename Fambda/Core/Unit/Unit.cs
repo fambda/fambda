@@ -3,7 +3,7 @@ using System.Diagnostics.Contracts;
 
 namespace Fambda
 {
-    public struct Unit : IEquatable<Unit>, IComparable<Unit> 
+    public struct Unit : IEquatable<Unit>, IComparable<Unit>
     {
         public static readonly Unit Default = new Unit();
         private static readonly int _zero = 0;
