@@ -1,7 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <PackageId>Fambda</PackageId>
+    <Title>Fambda</Title>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Pattern Driven (@patterndriven)</Authors>
+    <Company>fambda.net</Company>
+    <PackageProjectUrl>https://github.com/fambda/fambda</PackageProjectUrl>
+    <Description>Fambda - advanced, purely functional programming library for C# language. 
+
+Supported .NET Standard 2.0+</Description>
+    <Summary>Fambda - advanced, purely functional programming library for C# language.</Summary>
+    <RepositoryUrl>https://github.com/fambda/fambda</RepositoryUrl>
+    <PackageTags>fambda</PackageTags>
+    <PackageReleaseNotes>Bridge between Action and Func.</PackageReleaseNotes>
+    <Version>1.0.0</Version>
+    <AssemblyName>Fambda</AssemblyName>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
 </Project>
