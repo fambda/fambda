@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <LangVersion>8.0</LangVersion>
     <PackageId>Fambda</PackageId>
     <Title>Fambda</Title>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
