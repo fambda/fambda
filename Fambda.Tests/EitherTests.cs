@@ -7,45 +7,45 @@ namespace Fambda.Tests
     [TestClass]
     public class EitherTests
     {
-        #region EitherLeftHolder<L>
+        #region EitherLeft<L>
 
         [TestMethod]
-        public void EitherLeftHolderCtorShouldSucceed()
+        public void EitherLeftCtorShouldSucceed()
         {
             // Arrange
             var value = "left";
 
             // Act
-            Action ctor = () => { new EitherLeftHolder<string>(value); };
+            Action ctor = () => { new EitherLeft<string>(value); };
 
             // Assert
             ctor.Should().NotThrow();
         }
 
         [TestMethod]
-        public void EitherLeftHolderShouldHaveExpectedValue()
+        public void EitherLeftShouldHaveExpectedValue()
         {
             // Arrange
             var value = "left";
-            var eitherLeftHolder = new EitherLeftHolder<string>(value);
+            var eitherLeft = new EitherLeft<string>(value);
 
             // Act
-            var result = eitherLeftHolder.Value;
+            var result = eitherLeft.Value;
 
             // Assert
             result.Should().Be(value);
         }
 
         [TestMethod]
-        public void EitherLeftHolderToStringShouldProvideExpectedRepresentation()
+        public void EitherLeftToStringShouldProvideExpectedRepresentation()
         {
             // Arrange
             var value = "left";
             var expectedResult = $"Left({value})";
-            var eitherLeftHolder = new EitherLeftHolder<string>(value);
+            var eitherLeft = new EitherLeft<string>(value);
 
             // Act
-            var result = eitherLeftHolder.ToString();
+            var result = eitherLeft.ToString();
 
             // Assert
             result.Should().Be(expectedResult);
@@ -53,45 +53,45 @@ namespace Fambda.Tests
 
         #endregion
 
-        #region EitherRightHolder<R>
+        #region EitherRight<R>
 
         [TestMethod]
-        public void EitherRightHolderCtorShouldSucceed()
+        public void EitherRightCtorShouldSucceed()
         {
             // Arrange
             var value = "right";
 
             // Act
-            Action ctor = () => { new EitherRightHolder<string>(value); };
+            Action ctor = () => { new EitherRight<string>(value); };
 
             // Assert
             ctor.Should().NotThrow();
         }
 
         [TestMethod]
-        public void EitherRightHolderShouldHaveExpectedValue()
+        public void EitherRightShouldHaveExpectedValue()
         {
             // Arrange
             var value = "right";
-            var eitherRightHolder = new EitherRightHolder<string>(value);
+            var eitherRight = new EitherRight<string>(value);
 
             // Act
-            var result = eitherRightHolder.Value;
+            var result = eitherRight.Value;
 
             // Assert
             result.Should().Be(value);
         }
 
         [TestMethod]
-        public void EitherRightHolderToStringShouldProvideExpectedRepresentation()
+        public void EitherRightToStringShouldProvideExpectedRepresentation()
         {
             // Arrange
             var value = "right";
             var expectedResult = $"Right({value})";
-            var eitherRightHolder = new EitherRightHolder<string>(value);
+            var eitherRight = new EitherRight<string>(value);
 
             // Act
-            var result = eitherRightHolder.ToString();
+            var result = eitherRight.ToString();
 
             // Assert
             result.Should().Be(expectedResult);
