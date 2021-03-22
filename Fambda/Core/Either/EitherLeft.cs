@@ -1,10 +1,10 @@
 namespace Fambda
 {
-    public struct EitherLeftHolder<L>
+    public struct EitherLeft<L>
     {
         internal L Value { get; }
 
-        internal EitherLeftHolder(L value) { Value = value; }
+        internal EitherLeft(L value) { Value = value; }
 
         public override string ToString() => $"Left({Value})";
     }
