@@ -69,5 +69,56 @@ namespace Fambda.Tests
         }
 
         #endregion
+
+        #region Option
+
+        [TestMethod]
+        public void OptionCtorThroughImplicitOperatorOverloadingShouldSucceedWithOptionSome()
+        {
+            // Arrange
+            var value = "value";
+            var optionSome = new OptionSome<string>(value);
+
+            // Act
+            Option<string> option = optionSome;
+            var result = option.ToString();
+
+            // Assert
+            result.Should().Be("Some(value)");
+        }
+
+        [TestMethod]
+        public void OptionCtorThroughImplicitOperatorOverloadingShouldSucceedWithOptionNone()
+        {
+            // Arrange
+            var optionNone = new OptionNone();
+
+            // Act
+            Option<string> option = optionNone;
+            var result = option.ToString();
+
+            // Assert
+            result.Should().Be("None");
+        }
+
+        [DataTestMethod]
+        [DataRow("value", "Some(value)")]
+        [DataRow(null, "None")]
+        public void OptionCtorThroughImplicitOperatorOverloadingShouldSucceedWithValue(string input, string expected)
+        {
+            // Arrange
+            var value = input;
+
+            // Act
+            Option<string> option = value;
+            var result = option.ToString();
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+
+
+        #endregion
     }
 }

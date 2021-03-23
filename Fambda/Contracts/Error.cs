@@ -11,5 +11,10 @@ namespace Fambda.Contracts
         {
             return new OptionSomeValueMustNotBeNullException();
         }
+
+        internal static OptionValueMustNotBeNullException OptionValueMustNotBeNull()
+        {
+            return new OptionValueMustNotBeNullException();
+        }
     }
 }
