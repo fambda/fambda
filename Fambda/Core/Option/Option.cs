@@ -1,3 +1,4 @@
+using System;
 using Fambda.Contracts;
 
 namespace Fambda
@@ -32,6 +33,9 @@ namespace Fambda
                 return OptionNone.Default;
             }
         }
+
+        public Res Match<Res>(Func<T, Res> Some, Func<Res> None)
+            => _isSome ? Some(_value) : None();
 
         public override string ToString()
             => _isSome ? $"Some({_value})" : "None";
