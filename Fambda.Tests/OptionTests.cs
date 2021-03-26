@@ -3,6 +3,8 @@ using Fambda.Contracts;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+using static Fambda.F;
+
 namespace Fambda.Tests
 {
     [TestClass]
@@ -117,7 +119,84 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
+        #endregion
 
+        #region OptionMatch
+
+        [TestMethod]
+        public void OptionMatchShouldSucceedWhenSome()
+        {
+            // Arrange
+            Option<int> option = Some(1);
+
+            // Act
+            var result = option.Match(
+                                    Some: (i) => $"Result=Some({i})",
+                                    None: () => "Result=None"
+                                );
+
+            // Assert
+            result.Should().Be("Result=Some(1)");
+        }
+
+        [TestMethod]
+        public void OptionMatchShouldSucceedWhenNone()
+        {
+            // Arrange
+            Option<int> option = None;
+
+            // Act
+            var result = option.Match(
+                                    Some: (i) => $"Result=Some({i})",
+                                    None: () => "Result=None"
+                                );
+
+            // Assert
+            result.Should().Be("Result=None");
+        }
+
+        #endregion
+
+        #region Option.F
+
+        [TestMethod]
+        public void FSomeShouldSucceed()
+        {
+            // Arrange
+            var value = "value";
+
+            // Act
+            Option<string> option = Some(value);
+
+            // Assert
+            option.ToString().Should().Be("Some(value)");
+        }
+
+        [TestMethod]
+        public void FSomeShouldFail()
+        {
+            // Arrange
+            string value = null;
+
+            // Act
+            Action act = () => { Option<string> option = Some(value); };
+
+            // Assert
+            act.Should().Throw<OptionSomeValueMustNotBeNullException>();
+        }
+
+        [TestMethod]
+        public void FNoneShouldSucceed()
+        {
+            // Arrange
+            var none = None;
+
+            // Act
+            Option<string> option = none;
+
+            // Assert
+            option.ToString().Should().Be("None");
+        }
 
         #endregion
     }
