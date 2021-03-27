@@ -199,5 +199,44 @@ namespace Fambda.Tests
         }
 
         #endregion
+
+        #region OptionExt
+
+        #region Map
+
+        [TestMethod]
+        public void OptionMapShouldSucceedWhenSome()
+        {
+            // Arrange
+            var value = 1;
+            Option<int> option = Some(value);
+            Func<int, string> toString = i => i.ToString();
+
+            // Act
+            var result = option.Map(toString);
+
+            // Assert
+            option.ToString().Should().Be("Some(1)");
+        }
+
+        [TestMethod]
+        public void OptionMapShouldSucceedWhenNone()
+        {
+            // Arrange
+            Option<int> option = None;
+            Func<int, string> toString = i => i.ToString();
+
+            // Act
+            var result = option.Map(toString);
+
+            // Assert
+            option.ToString().Should().Be("None");
+        }
+
+        #endregion
+
+
+
+        #endregion
     }
 }
