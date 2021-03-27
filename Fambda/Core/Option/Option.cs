@@ -3,7 +3,7 @@ using Fambda.Contracts;
 
 namespace Fambda
 {
-    public struct Option<T>
+    public struct Option<T> : IEquatable<Option<T>>, IEquatable<OptionNone>
     {
         private readonly T _value;
         private readonly bool _isSome;
@@ -37,10 +37,19 @@ namespace Fambda
         public Res Match<Res>(Func<T, Res> Some, Func<Res> None)
             => _isSome ? Some(_value) : None();
 
+        public bool Equals(Option<T> other)
+            => (_isSome && _isSome == other._isSome && _value.Equals(other._value))
+               || (!_isSome && !other._isSome);
+
+        public bool Equals(OptionNone other)
+            => !_isSome;
+
         public override string ToString()
             => _isSome ? $"Some({_value})" : "None";
 
         public override int GetHashCode()
             => ToString().GetHashCode();
+
+
     }
 }
