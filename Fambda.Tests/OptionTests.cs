@@ -216,7 +216,7 @@ namespace Fambda.Tests
             var result = option.Map(toString);
 
             // Assert
-            option.ToString().Should().Be("Some(1)");
+            result.ToString().Should().Be("Some(1)");
         }
 
         [TestMethod]
@@ -230,7 +230,7 @@ namespace Fambda.Tests
             var result = option.Map(toString);
 
             // Assert
-            option.ToString().Should().Be("None");
+            result.ToString().Should().Be("None");
         }
 
         #endregion
