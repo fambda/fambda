@@ -11,9 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{BC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "world-of-fambda", "world-of-fambda", "{B6541A33-E019-4EA1-903E-E956F13C6A52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldOfFambda.Domain.Tests", "examples\world-of-fambda\WorldOfFambda.Domain.Tests\WorldOfFambda.Domain.Tests.csproj", "{B1237F5C-6E87-49DA-922F-42BAE07D95BB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldOfFambda.Domain", "examples\world-of-fambda\WorldOfFambda.Domain\WorldOfFambda.Domain.csproj", "{A4DC7669-95B4-42E2-A8B1-C9DCFC12D47C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldOfFambda.Domain.Tests", "examples\world-of-fambda\WorldOfFambda.Domain.Tests\WorldOfFambda.Domain.Tests.csproj", "{DAF4F06A-0140-4527-A17F-D22C8C781167}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,14 +29,14 @@ Global
 		{E76F725F-50DC-4C46-8D53-EEABCB1EBBB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E76F725F-50DC-4C46-8D53-EEABCB1EBBB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E76F725F-50DC-4C46-8D53-EEABCB1EBBB2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B1237F5C-6E87-49DA-922F-42BAE07D95BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B1237F5C-6E87-49DA-922F-42BAE07D95BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B1237F5C-6E87-49DA-922F-42BAE07D95BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B1237F5C-6E87-49DA-922F-42BAE07D95BB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A4DC7669-95B4-42E2-A8B1-C9DCFC12D47C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A4DC7669-95B4-42E2-A8B1-C9DCFC12D47C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4DC7669-95B4-42E2-A8B1-C9DCFC12D47C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4DC7669-95B4-42E2-A8B1-C9DCFC12D47C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAF4F06A-0140-4527-A17F-D22C8C781167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAF4F06A-0140-4527-A17F-D22C8C781167}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAF4F06A-0140-4527-A17F-D22C8C781167}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAF4F06A-0140-4527-A17F-D22C8C781167}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,7 +46,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6541A33-E019-4EA1-903E-E956F13C6A52} = {BCCE4F36-E500-4ED0-AB9D-DA38F051443A}
-		{B1237F5C-6E87-49DA-922F-42BAE07D95BB} = {B6541A33-E019-4EA1-903E-E956F13C6A52}
 		{A4DC7669-95B4-42E2-A8B1-C9DCFC12D47C} = {B6541A33-E019-4EA1-903E-E956F13C6A52}
+		{DAF4F06A-0140-4527-A17F-D22C8C781167} = {B6541A33-E019-4EA1-903E-E956F13C6A52}
 	EndGlobalSection
 EndGlobal
