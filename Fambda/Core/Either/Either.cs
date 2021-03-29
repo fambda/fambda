@@ -25,6 +25,12 @@ namespace Fambda
             _isLeft = false;
         }
 
+        public static implicit operator Either<L, R>(EitherLeft<L> left)
+            => new Either<L, R>(left.Value);
+
+        public static implicit operator Either<L, R>(EitherRight<R> right)
+            => new Either<L, R>(right.Value);
+
         public Res Match<Res>(Func<L, Res> Left, Func<R, Res> Right)
            => _isLeft ? Left(this.Left) : Right(this.Right);
 

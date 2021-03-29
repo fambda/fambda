@@ -3,6 +3,8 @@ using Fambda.Tests.DataTypes;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+using static Fambda.F;
+
 namespace Fambda.Tests
 {
     [TestClass]
@@ -103,6 +105,36 @@ namespace Fambda.Tests
         #region Either
 
         [TestMethod]
+        public void EitherCtorThroughImplicitOperatorOverloadingShouldSucceedWithEitherLeft()
+        {
+            // Arrange
+            var value = "value";
+            var eitherLeft = new EitherLeft<string>(value);
+
+            // Act
+            Either<string, int> either = eitherLeft;
+            var result = either.ToString();
+
+            // Assert
+            result.Should().Be("Left(value)");
+        }
+
+        [TestMethod]
+        public void EitherCtorThroughImplicitOperatorOverloadingShouldSucceedWithEitherRight()
+        {
+            // Arrange
+            var value = 1;
+            var eitherRight = new EitherRight<int>(value);
+
+            // Act
+            Either<string, int> either = eitherRight;
+            var result = either.ToString();
+
+            // Assert
+            result.Should().Be("Right(1)");
+        }
+
+        [TestMethod]
         public void EitherMatchThroughFuncShouldMatchLeft()
         {
             // Arrange
@@ -191,7 +223,77 @@ namespace Fambda.Tests
         }
 
 
-        
+
+
+        #endregion
+
+        #region Either.F
+
+        [TestMethod]
+        public void FLeftShouldSucceed()
+        {
+            // Arrange
+            var value = "value";
+
+            // Act
+            EitherLeft<string> left = Left<string>(value);
+
+            // Assert
+            left.ToString().Should().Be("Left(value)");
+        }
+
+        [TestMethod]
+        public void FRightShouldSucceed()
+        {
+            // Arrange
+            var value = "value";
+
+            // Act
+            EitherRight<string> right = Right<string>(value);
+
+            // Assert
+            right.ToString().Should().Be("Right(value)");
+        }
+
+        #endregion
+
+        #region EitherExt
+
+        #region Map
+
+        [TestMethod]
+        public void EitherMapShouldSucceedWhenRight()
+        {
+            // Arrange
+            var value = 1;
+            Either<string, int> either = Right(value);
+            Func<int, string> toString = i => i.ToString();
+
+            // Act
+            var result = either.Map(toString);
+
+            // Assert
+            result.ToString().Should().Be("Right(1)");
+        }
+
+        [TestMethod]
+        public void EitherMapShouldSucceedWhenLeft()
+        {
+            // Arrange
+            var value = "left";
+            Either<string, int> either = Left(value);
+            Func<int, string> toString = i => i.ToString();
+
+            // Act
+            var result = either.Map(toString);
+
+            // Assert
+            result.ToString().Should().Be("Left(left)");
+        }
+
+        #endregion
+
+
 
         #endregion
     }
