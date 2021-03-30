@@ -293,6 +293,66 @@ namespace Fambda.Tests
 
         #endregion
 
+        #region Bind
+
+        [TestMethod]
+        public void EitherBindShouldSucceedWhenRight()
+        {
+            // Arrange
+            var value = 1;
+            Either<string, int> either = Right(value);
+
+            Func<int, Either<string, bool>> toTrueBoolWhenEitherRightAndIntOne = (i) =>
+            {
+                if (i.Equals(1))
+                {
+                    return Right(true);
+                }
+                else
+                {
+                    return Left("false");
+
+                };
+            };
+
+            // Act
+            var result = either.Bind(toTrueBoolWhenEitherRightAndIntOne);
+
+
+            // Assert
+            result.Right.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void EitherBindShouldSucceedWhenLeft()
+        {
+            // Arrange
+            var value = "value";
+            var left = Left(value);
+            Either<string, int> either = left;
+
+            Func<int, Either<string, bool>> toTrueBoolWhenEitherRightAndIntOne = (i) =>
+            {
+                if (i.Equals(1))
+                {
+                    return Right(true);
+                }
+                else
+                {
+                    return Left("false");
+
+                };
+            };
+
+            // Act
+            var result = either.Bind(toTrueBoolWhenEitherRightAndIntOne);
+
+
+            // Assert
+            result.Left.Should().Be("value");
+        }
+
+        #endregion
 
 
         #endregion
