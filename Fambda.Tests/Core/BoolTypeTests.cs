@@ -1,5 +1,3 @@
-using System;
-using System.Globalization;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static Fambda.F;
@@ -18,10 +16,10 @@ namespace Fambda.Tests
         [DataRow("False", false)]
         [DataRow("false", false)]
         [DataRow("fAlse", false)]
-        public void ParseShouldReturnOptionBoolSome(string str, bool expectedBool)
+        public void ParseShouldReturnOptionBoolSome(string stringBool, bool expectedBool)
         {
             // Arrange
-            var value = str;
+            var value = stringBool;
             Option<bool> expected = Some(expectedBool);
 
             // Act

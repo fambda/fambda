@@ -1,5 +1,3 @@
-using System;
-using Fambda.Tests.DataTypes;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,7 +9,7 @@ namespace Fambda.Tests
     public class EitherFTests
     {
         [TestMethod]
-        public void FLeftShouldSucceed()
+        public void LeftShouldSucceed()
         {
             // Arrange
             var value = "value";
@@ -24,7 +22,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void FRightShouldSucceed()
+        public void RightShouldSucceed()
         {
             // Arrange
             var value = "value";

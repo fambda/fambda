@@ -1,5 +1,4 @@
 using System;
-using Fambda.Tests.DataTypes;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,7 +10,7 @@ namespace Fambda.Tests
     public class EitherLeftTests
     {
         [TestMethod]
-        public void EitherLeftCtorShouldSucceed()
+        public void CtorShouldSucceed()
         {
             // Arrange
             var value = "left";
@@ -24,7 +23,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void EitherLeftShouldHaveExpectedValue()
+        public void CtorShouldSetCorrectValue()
         {
             // Arrange
             var value = "left";
@@ -38,7 +37,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void EitherLeftToStringShouldProvideExpectedRepresentation()
+        public void ToStringShouldProvideExpectedRepresentation()
         {
             // Arrange
             var value = "left";
