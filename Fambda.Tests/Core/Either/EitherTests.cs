@@ -1,17 +1,16 @@
-using System;
 using Fambda.Tests.DataTypes;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-using static Fambda.F;
 
 namespace Fambda.Tests
 {
     [TestClass]
     public class EitherTests
     {
+        #region Either
+
         [TestMethod]
-        public void EitherCtorThroughImplicitOperatorOverloadingShouldSucceedWithEitherLeft()
+        public void ImplicitOperatorOverloadingShouldSucceedWithEitherLeft()
         {
             // Arrange
             var value = "value";
@@ -26,7 +25,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void EitherCtorThroughImplicitOperatorOverloadingShouldSucceedWithEitherRight()
+        public void ImplicitOperatorOverloadingShouldSucceedWithEitherRight()
         {
             // Arrange
             var value = 1;
@@ -40,8 +39,12 @@ namespace Fambda.Tests
             result.Should().Be("Right(1)");
         }
 
+        #endregion
+
+        #region Match
+
         [TestMethod]
-        public void EitherMatchThroughFuncShouldMatchLeft()
+        public void MatchThroughFuncShouldMatchLeft()
         {
             // Arrange
             var either = new Either<string, int>("left");
@@ -54,7 +57,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void EitherMatchThroughFuncShouldMatchRight()
+        public void MatchThroughFuncShouldMatchRight()
         {
             // Arrange
             var either = new Either<string, int>(5);
@@ -67,7 +70,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void EitherMatchThroughActionShouldMatchLeft()
+        public void MatchThroughActionShouldMatchLeft()
         {
             // Arrange
             Log.Init();
@@ -85,7 +88,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void EitherMatchThroughActionShouldMatchRight()
+        public void MatchThroughActionShouldMatchRight()
         {
             // Arrange
             Log.Init();
@@ -102,8 +105,12 @@ namespace Fambda.Tests
             result.Should().Be("MatchRight(5)");
         }
 
+        #endregion
+
+        #region ToString
+
         [TestMethod]
-        public void EitherToStringShouldReturnLeftRepresentation()
+        public void ToStringShouldReturnLeftRepresentation()
         {
             // Arrange
             var either = new Either<string, int>("left");
@@ -116,7 +123,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void EitherToStringShouldReturnRightRepresentation()
+        public void ToStringShouldReturnRightRepresentation()
         {
             // Arrange
             var either = new Either<string, int>(5);
@@ -127,5 +134,7 @@ namespace Fambda.Tests
             // Assert
             result.Should().Be("Right(5)");
         }
+
+        #endregion
     }
 }

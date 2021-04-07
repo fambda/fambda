@@ -9,7 +9,7 @@ namespace Fambda.Tests
     public class OptionSomeTests
     {
         [TestMethod]
-        public void OptionSomeCreateShouldSucceed()
+        public void CtorShouldSucceed()
         {
             // Arrange
             var value = "value";
@@ -22,7 +22,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void OptionSomeCreateShouldFail()
+        public void CtorShouldFail()
         {
             // Arrange
             string value = null;
@@ -35,7 +35,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void OptionSomeShouldHaveExpectedValue()
+        public void CtorShouldSetCorrectValue()
         {
             // Arrange
             var value = "value";
@@ -47,7 +47,7 @@ namespace Fambda.Tests
             result.Value.Should().Be(value);
         }
 
-        public void OptionSomeEqualsObjectShouldReturnTrue()
+        public void EqualsObjectShouldReturnTrue()
         {
             // Arrange
             var first = new OptionSome<string>("value");
@@ -60,7 +60,7 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
-        public void OptionSomeEqualsObjectShouldReturnFalse()
+        public void EqualsObjectShouldReturnFalse()
         {
             // Arrange
             var first = new OptionSome<string>("value1");
@@ -74,7 +74,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void OptionSomeEqualsOptionSomeShouldReturnTrue()
+        public void EqualsOptionSomeShouldReturnTrue()
         {
             // Arrange
             var first = new OptionSome<string>("value");
@@ -88,7 +88,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void OptionSomeEqualsOptionSomeShouldReturnFalse()
+        public void EqualsOptionSomeShouldReturnFalse()
         {
             // Arrange
             var first = new OptionSome<string>("value1");

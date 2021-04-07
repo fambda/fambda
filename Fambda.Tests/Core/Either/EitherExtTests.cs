@@ -1,5 +1,4 @@
 using System;
-using Fambda.Tests.DataTypes;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -13,7 +12,7 @@ namespace Fambda.Tests
         #region Map
 
         [TestMethod]
-        public void EitherMapShouldSucceedWhenRight()
+        public void MapShouldSucceedWhenRight()
         {
             // Arrange
             var value = 1;
@@ -28,7 +27,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void EitherMapShouldSucceedWhenLeft()
+        public void MapShouldSucceedWhenLeft()
         {
             // Arrange
             var value = "left";
@@ -47,7 +46,7 @@ namespace Fambda.Tests
         #region Bind
 
         [TestMethod]
-        public void EitherBindShouldSucceedWhenRight()
+        public void BindShouldSucceedWhenRight()
         {
             // Arrange
             var value = 1;
@@ -75,7 +74,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void EitherBindShouldSucceedWhenLeft()
+        public void BindShouldSucceedWhenLeft()
         {
             // Arrange
             var value = "value";

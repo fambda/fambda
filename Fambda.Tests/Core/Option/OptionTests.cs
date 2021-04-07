@@ -1,5 +1,3 @@
-using System;
-using Fambda.Contracts;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -13,7 +11,7 @@ namespace Fambda.Tests
         #region Option
 
         [TestMethod]
-        public void OptionCtorThroughImplicitOperatorOverloadingShouldSucceedWithOptionSome()
+        public void ImplicitOperatorOverloadingShouldSucceedWithOptionSome()
         {
             // Arrange
             var value = "value";
@@ -28,7 +26,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void OptionCtorThroughImplicitOperatorOverloadingShouldSucceedWithOptionNone()
+        public void ImplicitOperatorOverloadingShouldSucceedWithOptionNone()
         {
             // Arrange
             var optionNone = new OptionNone();
@@ -44,7 +42,7 @@ namespace Fambda.Tests
         [DataTestMethod]
         [DataRow("value", "Some(value)")]
         [DataRow(null, "None")]
-        public void OptionCtorThroughImplicitOperatorOverloadingShouldSucceedWithValue(string input, string expected)
+        public void ImplicitOperatorOverloadingShouldSucceedWithValue(string input, string expected)
         {
             // Arrange
             var value = input;
@@ -59,10 +57,10 @@ namespace Fambda.Tests
 
         #endregion
 
-        #region OptionEquals
+        #region Equals
 
         [TestMethod]
-        public void OptionEqualsOptionSomeShouldReturnTrue()
+        public void EqualsOptionSomeShouldReturnTrue()
         {
             // Arrange
             OptionSome<int> optionSome = new OptionSome<int>(1);
@@ -76,7 +74,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void OptionEqualsOptionSomeShouldReturnFalse()
+        public void EqualsOptionSomeShouldReturnFalse()
         {
             // Arrange
             OptionSome<int> optionSome = new OptionSome<int>(2);
@@ -90,7 +88,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void OptionEqualsOptionNoneShouldReturnTrue()
+        public void EqualsOptionNoneShouldReturnTrue()
         {
             // Arrange
             OptionNone optionNone = OptionNone.Default;
@@ -104,7 +102,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void OptionEqualsOptionNoneShouldReturnFalse()
+        public void EqualsOptionNoneShouldReturnFalse()
         {
             // Arrange
             OptionNone optionNone = OptionNone.Default;
@@ -119,10 +117,10 @@ namespace Fambda.Tests
 
         #endregion
 
-        #region OptionMatch
+        #region Match
 
         [TestMethod]
-        public void OptionMatchShouldSucceedWhenSome()
+        public void MatchShouldSucceedWhenSome()
         {
             // Arrange
             Option<int> option = Some(1);
@@ -138,7 +136,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void OptionMatchShouldSucceedWhenNone()
+        public void MatchShouldSucceedWhenNone()
         {
             // Arrange
             Option<int> option = None;
