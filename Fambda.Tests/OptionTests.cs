@@ -27,6 +27,34 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
+        [TestMethod]
+        public void OptionNoneEqualsObjectShouldSucceed()
+        {
+            // Arrange
+            var first = new OptionNone();
+            var second = new OptionNone();
+
+            // Act
+            var result = Equals(first, second);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void OptionNoneEqualsOptionNoneShouldSucceed()
+        {
+            // Arrange
+            var first = new OptionNone();
+            var second = new OptionNone();
+
+            // Act
+            var result = first.Equals(second);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
         #endregion
 
         #region OptionSome
@@ -68,6 +96,60 @@ namespace Fambda.Tests
 
             // Assert
             result.Value.Should().Be(value);
+        }
+
+        public void OptionSomeEqualsObjectShouldReturnTrue()
+        {
+            // Arrange
+            var first = new OptionSome<string>("value");
+            var second = new OptionSome<string>("value");
+
+            // Act
+            var result = Equals(first, second);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        public void OptionSomeEqualsObjectShouldReturnFalse()
+        {
+            // Arrange
+            var first = new OptionSome<string>("value1");
+            var second = new OptionSome<string>("value2");
+
+            // Act
+            var result = Equals(first, second);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void OptionSomeEqualsOptionSomeShouldReturnTrue()
+        {
+            // Arrange
+            var first = new OptionSome<string>("value");
+            var second = new OptionSome<string>("value");
+
+            // Act
+            var result = first.Equals(second);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void OptionSomeEqualsOptionSomeShouldReturnFalse()
+        {
+            // Arrange
+            var first = new OptionSome<string>("value1");
+            var second = new OptionSome<string>("value2");
+
+            // Act
+            var result = first.Equals(second);
+
+            // Assert
+            result.Should().BeFalse();
         }
 
         #endregion
@@ -117,6 +199,66 @@ namespace Fambda.Tests
 
             // Assert
             result.Should().Be(expected);
+        }
+
+        #endregion
+
+        #region OptionEquals
+
+        [TestMethod]
+        public void OptionEqualsOptionSomeShouldReturnTrue()
+        {
+            // Arrange
+            OptionSome<int> optionSome = new OptionSome<int>(1);
+            Option<int> option = Some(1);
+
+            // Act
+            var result = option.Equals(optionSome);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void OptionEqualsOptionSomeShouldReturnFalse()
+        {
+            // Arrange
+            OptionSome<int> optionSome = new OptionSome<int>(2);
+            Option<int> option = Some(1);
+
+            // Act
+            var result = option.Equals(optionSome);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void OptionEqualsOptionNoneShouldReturnTrue()
+        {
+            // Arrange
+            OptionNone optionNone = OptionNone.Default;
+            Option<int> option = None;
+
+            // Act
+            var result = option.Equals(optionNone);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void OptionEqualsOptionNoneShouldReturnFalse()
+        {
+            // Arrange
+            OptionNone optionNone = OptionNone.Default;
+            Option<int> option = Some(1);
+
+            // Act
+            var result = option.Equals(optionNone);
+
+            // Assert
+            result.Should().BeFalse();
         }
 
         #endregion

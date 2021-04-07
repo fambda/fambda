@@ -44,6 +44,14 @@ namespace Fambda
         public bool Equals(OptionNone other)
             => !_isSome;
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            else if (obj is OptionNone) return Equals((OptionNone)obj);
+            else if (obj is OptionSome<T> optionSome) return Equals(optionSome);
+            return base.Equals(obj);
+        }
+
         public override string ToString()
             => _isSome ? $"Some({_value})" : "None";
 
