@@ -1,15 +1,13 @@
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using static Fambda.F;
-
 namespace Fambda.Tests
 {
     [TestClass]
     public class OptionNoneTests
     {
         [TestMethod]
-        public void OptionNoneShouldEqualWithDefault()
+        public void CtorShouldEqualWithDefault()
         {
             // Arrange
             var first = new OptionNone();
@@ -24,7 +22,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void OptionNoneEqualsObjectShouldSucceed()
+        public void EqualsObjectShouldSucceed()
         {
             // Arrange
             var first = new OptionNone();
@@ -38,7 +36,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void OptionNoneEqualsOptionNoneShouldSucceed()
+        public void EqualsOptionNoneShouldSucceed()
         {
             // Arrange
             var first = new OptionNone();
