@@ -10,5 +10,11 @@ namespace Fambda
                         Some: (t) => Some(func(t)),
                         None: () => None
                       );
+
+        public static Option<Res> Bind<T, Res>(this Option<T> option, Func<T, Option<Res>> func)
+            => option.Match(
+                        Some: (t) => func(t),
+                        None: () => None
+                      );
     }
 }
