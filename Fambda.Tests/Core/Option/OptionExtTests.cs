@@ -41,5 +41,62 @@ namespace Fambda.Tests
         }
 
         #endregion
+
+        #region Bind
+
+        [TestMethod]
+        public void BindShouldReturnSome()
+        {
+            // Arrange
+            var value = 1;
+            Option<int> option = Some(value);
+
+            Func<int, Option<bool>> toTrueBoolWhenOptionIntOne = (i) =>
+            {
+                if (i.Equals(1))
+                {
+                    return Some(true);
+                }
+                else
+                {
+                    return None;
+                };
+            };
+
+            // Act
+            var result = option.Bind(toTrueBoolWhenOptionIntOne);
+
+
+            // Assert
+            result.Should().Be(Some(true));
+        }
+
+        [TestMethod]
+        public void BindShouldReturnNone()
+        {
+            // Arrange
+            Option<int> option = None;
+
+            Func<int, Option<bool>> toTrueBoolWhenOptionIntOne = (i) =>
+            {
+                if (i.Equals(1))
+                {
+                    return Some(true);
+                }
+                else
+                {
+                    return None;
+                };
+            };
+
+            // Act
+            var result = option.Bind(toTrueBoolWhenOptionIntOne);
+
+
+            // Assert
+            result.Should().Be(None);
+        }
+
+        #endregion
     }
 }
