@@ -15,8 +15,8 @@ Supported .NET Standard 2.0+</Description>
     <Summary>Fambda - advanced, purely functional programming library for C# language.</Summary>
     <RepositoryUrl>https://github.com/fambda/fambda</RepositoryUrl>
     <PackageTags>fambda</PackageTags>
-    <PackageReleaseNotes>Map Option and Either types.</PackageReleaseNotes>
-    <Version>1.0.1</Version>
+    <PackageReleaseNotes>Parse for basic types. Bind for Option and Either.</PackageReleaseNotes>
+    <Version>1.0.2</Version>
     <AssemblyName>Fambda</AssemblyName>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
