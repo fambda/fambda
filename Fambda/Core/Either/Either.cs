@@ -37,7 +37,6 @@ namespace Fambda
         public Unit Match(Action<L> Left, Action<R> Right)
            => Match(Left.ToFunc(), Right.ToFunc());
 
-
         public override string ToString() => Match(l => $"Left({l})", r => $"Right({r})");
     }
 }
