@@ -45,5 +45,18 @@ namespace Fambda.Tests.Contracts
             // Assert
             exception.Should().BeOfType(expectedExceptionType);
         }
+
+        [TestMethod]
+        public void ExceptionalExceptionMustNotBeNullReturnsExpectedException()
+        {
+            // Arrange
+            var expectedExceptionType = typeof(ExceptionalExceptionMustNotBeNullException);
+
+            // Act
+            var exception = Error.ExceptionalExceptionMustNotBeNull();
+
+            // Assert
+            exception.Should().BeOfType(expectedExceptionType);
+        }
     }
 }
