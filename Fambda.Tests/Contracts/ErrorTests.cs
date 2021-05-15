@@ -58,5 +58,70 @@ namespace Fambda.Tests.Contracts
             // Assert
             exception.Should().BeOfType(expectedExceptionType);
         }
+
+        [TestMethod]
+        public void EnumerationKeyMustNotBeNullReturnsExpectedException()
+        {
+            // Arrange
+            var expectedExceptionType = typeof(EnumerationKeyMustNotBeNullException);
+
+            // Act
+            var exception = Error.EnumerationKeyMustNotBeNull();
+
+            // Assert
+            exception.Should().BeOfType(expectedExceptionType);
+        }
+
+        [TestMethod]
+        public void EnumerationKeyMustNotBeEmptyReturnsExpectedException()
+        {
+            // Arrange
+            var expectedExceptionType = typeof(EnumerationKeyMustNotBeEmptyException);
+
+            // Act
+            var exception = Error.EnumerationKeyMustNotBeEmpty();
+
+            // Assert
+            exception.Should().BeOfType(expectedExceptionType);
+        }
+
+        [TestMethod]
+        public void EnumerationKeyMustNotBeWhiteSpaceReturnsExpectedException()
+        {
+            // Arrange
+            var expectedExceptionType = typeof(EnumerationKeyMustNotBeWhiteSpaceException);
+
+            // Act
+            var exception = Error.EnumerationKeyMustNotBeWhiteSpace();
+
+            // Assert
+            exception.Should().BeOfType(expectedExceptionType);
+        }
+
+        [TestMethod]
+        public void EnumerationKeyMustNotContainLeadingSpaceReturnsExpectedException()
+        {
+            // Arrange
+            var expectedExceptionType = typeof(EnumerationKeyMustNotContainLeadingSpaceException);
+
+            // Act
+            var exception = Error.EnumerationKeyMustNotContainLeadingSpace();
+
+            // Assert
+            exception.Should().BeOfType(expectedExceptionType);
+        }
+
+        [TestMethod]
+        public void EnumerationKeyMustNotContainTrailingSpaceReturnsExpectedException()
+        {
+            // Arrange
+            var expectedExceptionType = typeof(EnumerationKeyMustNotContainTrailingSpaceException);
+
+            // Act
+            var exception = Error.EnumerationKeyMustNotContainTrailingSpace();
+
+            // Assert
+            exception.Should().BeOfType(expectedExceptionType);
+        }
     }
 }
