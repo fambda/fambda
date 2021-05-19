@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using Fambda.Contracts;
 
-namespace Fambda.Core
+namespace Fambda
 {
     public abstract class Enumeration : IEquatable<Enumeration>
     {

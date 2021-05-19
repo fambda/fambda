@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Fambda.Core;
 using Fambda.Tests.DataTypes;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

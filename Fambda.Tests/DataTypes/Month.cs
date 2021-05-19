@@ -1,5 +1,3 @@
-using Fambda.Core;
-
 namespace Fambda.Tests.DataTypes
 {
     public class Month : Enumeration
