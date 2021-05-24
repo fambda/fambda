@@ -1,3 +1,5 @@
+using System;
+using Fambda.Contracts;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -149,6 +151,48 @@ namespace Fambda.Tests
 
             // Assert
             result.Should().Be("Result=None");
+        }
+
+        [TestMethod]
+        public void MatchShouldFailWhenReturnValueIsNullThroughSome()
+        {
+            // Arrange
+            Option<int> option = Some(1);
+            Func<int, string> some = (int x) => (string)null;
+            Func<string> none = () => null;
+
+            // Act
+            Action act = () =>
+            {
+                option.Match(
+                            Some: some,
+                            None: none
+                        );
+            };
+
+            // Assert
+            act.Should().Throw<OptionMatchReturnMustNotBeNullException>();
+        }
+
+        [TestMethod]
+        public void MatchShouldFailWhenReturnValueIsNullThroughNone()
+        {
+            // Arrange
+            Option<int> option = None;
+            Func<int, string> some = (i) => $"Result=Some({i})";
+            Func<string> none = () => null;
+
+            // Act
+            Action act = () =>
+            {
+                option.Match(
+                    Some: some,
+                    None: none
+                );
+            };
+
+            // Assert
+            act.Should().Throw<OptionMatchReturnMustNotBeNullException>();
         }
 
         #endregion

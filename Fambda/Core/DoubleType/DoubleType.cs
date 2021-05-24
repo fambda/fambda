@@ -5,6 +5,9 @@ using static Fambda.F;
 
 namespace Fambda
 {
+    /// <summary>
+    /// Represents DoubleType type.
+    /// </summary>
     public static class DoubleType
     {
         /// <summary>
@@ -15,7 +18,7 @@ namespace Fambda
         [Pure]
         public static Option<double> Parse(string s)
         {
-            if(double.TryParse(s, out var parseResult))
+            if (double.TryParse(s, out var parseResult))
             {
                 return Some(parseResult);
             }
@@ -54,7 +57,8 @@ namespace Fambda
         [Pure]
         public static Option<double> Parse(string s, IFormatProvider provider)
         {
-            try {
+            try
+            {
                 var parseResult = double.Parse(s, provider);
                 return Some(parseResult);
             }
@@ -74,8 +78,8 @@ namespace Fambda
         [Pure]
         public static Option<double> Parse(string s, NumberStyles style, IFormatProvider provider)
         {
-            if(double.TryParse(s, style, provider, out var parseResult))
-            { 
+            if (double.TryParse(s, style, provider, out var parseResult))
+            {
                 return Some(parseResult);
             }
             else

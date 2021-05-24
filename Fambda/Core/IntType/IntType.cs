@@ -5,6 +5,9 @@ using static Fambda.F;
 
 namespace Fambda
 {
+    /// <summary>
+    /// Represents IntType type.
+    /// </summary>
     public static class IntType
     {
         /// <summary>
@@ -15,7 +18,7 @@ namespace Fambda
         [Pure]
         public static Option<int> Parse(string s)
         {
-            if(int.TryParse(s, out var parseResult))
+            if (int.TryParse(s, out var parseResult))
             {
                 return Some(parseResult);
             }
@@ -54,7 +57,8 @@ namespace Fambda
         [Pure]
         public static Option<int> Parse(string s, IFormatProvider provider)
         {
-            try {
+            try
+            {
                 var parseResult = int.Parse(s, provider);
                 return Some(parseResult);
             }
@@ -74,8 +78,8 @@ namespace Fambda
         [Pure]
         public static Option<int> Parse(string s, NumberStyles style, IFormatProvider provider)
         {
-            if(int.TryParse(s, style, provider, out var parseResult))
-            { 
+            if (int.TryParse(s, style, provider, out var parseResult))
+            {
                 return Some(parseResult);
             }
             else

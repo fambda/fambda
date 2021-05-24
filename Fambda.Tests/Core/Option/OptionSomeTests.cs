@@ -100,5 +100,20 @@ namespace Fambda.Tests
             // Assert
             result.Should().BeFalse();
         }
+
+        [TestMethod]
+        public void ToStringShouldProvideExpectedRepresentation()
+        {
+            // Arrange
+            var value = "value";
+            var expectedResult = $"Some({value})";
+            var optionSome = new OptionSome<string>(value);
+
+            // Act
+            var result = optionSome.ToString();
+
+            // Assert
+            result.Should().Be(expectedResult);
+        }
     }
 }

@@ -7,6 +7,9 @@ using Fambda.Contracts;
 
 namespace Fambda
 {
+    /// <summary>
+    /// Represents Enumeration type.
+    /// </summary>
     public abstract class Enumeration : IEquatable<Enumeration>
     {
         public string Key { get; }

@@ -17,6 +17,11 @@ namespace Fambda.Contracts
             return new OptionValueMustNotBeNullException();
         }
 
+        internal static OptionMatchReturnMustNotBeNullException OptionMatchReturnMustNotBeNull()
+        {
+            return new OptionMatchReturnMustNotBeNullException();
+        }
+
         internal static ExceptionalExceptionMustNotBeNullException ExceptionalExceptionMustNotBeNull()
         {
             return new ExceptionalExceptionMustNotBeNullException();
