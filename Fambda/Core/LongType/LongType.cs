@@ -5,6 +5,9 @@ using static Fambda.F;
 
 namespace Fambda
 {
+    /// <summary>
+    /// Represents LongType type.
+    /// </summary>
     public static class LongType
     {
         /// <summary>

@@ -3,6 +3,9 @@ using static Fambda.F;
 
 namespace Fambda
 {
+    /// <summary>
+    /// Represents CharType type.
+    /// </summary>
     public static class CharType
     {
         /// <summary>

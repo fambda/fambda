@@ -5,6 +5,9 @@ using static Fambda.F;
 
 namespace Fambda
 {
+    /// <summary>
+    /// Represents FloatType type.
+    /// </summary>
     public static class FloatType
     {
         /// <summary>
@@ -15,7 +18,7 @@ namespace Fambda
         [Pure]
         public static Option<float> Parse(string s)
         {
-            if(float.TryParse(s, out var parseResult))
+            if (float.TryParse(s, out var parseResult))
             {
                 return Some(parseResult);
             }
@@ -54,7 +57,8 @@ namespace Fambda
         [Pure]
         public static Option<float> Parse(string s, IFormatProvider provider)
         {
-            try {
+            try
+            {
                 var parseResult = float.Parse(s, provider);
                 return Some(parseResult);
             }
@@ -74,8 +78,8 @@ namespace Fambda
         [Pure]
         public static Option<float> Parse(string s, NumberStyles style, IFormatProvider provider)
         {
-            if(float.TryParse(s, style, provider, out var parseResult))
-            { 
+            if (float.TryParse(s, style, provider, out var parseResult))
+            {
                 return Some(parseResult);
             }
             else

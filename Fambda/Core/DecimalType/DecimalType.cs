@@ -5,6 +5,9 @@ using static Fambda.F;
 
 namespace Fambda
 {
+    /// <summary>
+    /// Represents DecimalType type.
+    /// </summary>
     public static class DecimalType
     {
         /// <summary>

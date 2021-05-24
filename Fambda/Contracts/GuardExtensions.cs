@@ -1,3 +1,5 @@
+using System;
+using System.Reflection;
 using Fambda.Extensions;
 
 namespace Fambda.Contracts
@@ -6,7 +8,11 @@ namespace Fambda.Contracts
     {
         public static void AgainstNull<T>(this Guard<T> guard)
         {
-            if (guard.Value == null)
+            var isReferenceType = !typeof(T).GetTypeInfo().IsValueType;
+            var isNullableType = Nullable.GetUnderlyingType(typeof(T)) != null;
+
+            var isNull = (isReferenceType && ReferenceEquals(guard.Value, null)) || (isNullableType && guard.Value.Equals(default));
+            if (isNull)
             {
                 throw guard.GuardException;
             }

@@ -48,5 +48,19 @@ namespace Fambda.Tests
             // Assert
             result.Should().BeTrue();
         }
+
+        [TestMethod]
+        public void ToStringShouldProvideExpectedRepresentation()
+        {
+            // Arrange
+            var expectedResult = "None";
+            var optionNone = new OptionNone();
+
+            // Act
+            var result = optionNone.ToString();
+
+            // Assert
+            result.Should().Be(expectedResult);
+        }
     }
 }
