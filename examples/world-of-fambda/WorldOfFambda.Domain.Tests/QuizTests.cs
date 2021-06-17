@@ -20,7 +20,7 @@ namespace WorldOfFambda.Domain.Tests
 
             // Act
             var result = quiz.Answer.Match(
-                    Some: (a) => $"Quiz answer: '{a.Value=="4"}'",
+                    Some: (a) => $"Quiz answer: '{a.Value == "4"}'",
                     None: () => "Quiz answer: 'Not given'"
                     );
 

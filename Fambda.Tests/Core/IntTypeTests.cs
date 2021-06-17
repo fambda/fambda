@@ -2,6 +2,7 @@ using System;
 using System.Globalization;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using static Fambda.F;
 
 namespace Fambda.Tests
