@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Fambda.Contracts;
 using Fambda.Tests.DataTypes;
 using FluentAssertions;
@@ -25,7 +25,7 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void ImplicitOperatorOverloadingShouldThrowWhenExceptionIsNotNull()
+        public void ImplicitOperatorOverloadingShouldThrowWhenExceptionIsNull()
         {
             // Arrange
             SomeException exception = null;
@@ -48,6 +48,34 @@ namespace Fambda.Tests
 
             // Assert
             act.Should().NotThrow();
+        }
+
+        [TestMethod]
+        public void ImplicitOperatorOverloadingShouldSetCorrectDataWhenExceptionIsNotNull()
+        {
+            // Arrange
+            var exception = new SomeException();
+
+            // Act
+            Exceptional<string> exceptional = exception;
+
+            // Assert
+            exceptional.Exception.Should().Be(exception);
+            exceptional.Value.Should().BeNull();
+        }
+
+        [TestMethod]
+        public void ImplicitOperatorOverloadingShouldSetCorrectDataWhenNotAnExceptionIsPassed()
+        {
+            // Arrange
+            var value = "any value of any type besides Exception";
+
+            // Act
+            Exceptional<string> exceptional = value;
+
+            // Assert
+            exceptional.Exception.Should().BeNull();
+            exceptional.Value.Should().Be(value);
         }
 
         #endregion
