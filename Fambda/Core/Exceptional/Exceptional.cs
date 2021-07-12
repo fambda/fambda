@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Fambda.Contracts;
 
 namespace Fambda
@@ -38,5 +38,14 @@ namespace Fambda
         /// <param name="value">T value.</param>
         public static implicit operator Exceptional<T>(T value)
             => new Exceptional<T>(value);
+
+        /// <summary>
+        /// Match the Exception and Success of the <see cref="Exceptional{T}"/> and return Res.
+        /// </summary>
+        /// <typeparam name="Res">Return type.</typeparam>
+        /// <param name="Exception">Exception match operation.</param>
+        /// <param name="Success">Success match operation.</param>
+        public Res Match<Res>(Func<Exception, Res> Exception, Func<T, Res> Success)
+            => this.Exception != null ? Exception(this.Exception) : Success(this.Value);
     }
 }
