@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Fambda.Contracts;
 using Fambda.Tests.DataTypes;
 using FluentAssertions;
@@ -79,5 +79,44 @@ namespace Fambda.Tests
         }
 
         #endregion
+
+        #region Match
+
+        [TestMethod]
+        public void MatchShouldReturnException()
+        {
+            // Arrange
+            var exception = new SomeException();
+            Exceptional<string> exceptional = exception;
+
+            // Act
+            var result = exceptional.Match(
+                                    Exception: (x) => $"Result=Exception({x.GetType().Name})",
+                                    Success: (x) => $"Result=Success({x})"
+                                );
+
+            // Assert
+            result.Should().Be("Result=Exception(SomeException)");
+        }
+
+        [TestMethod]
+        public void MatchShouldReturnSuccess()
+        {
+            // Arrange
+            var value = "value";
+            Exceptional<string> exceptional = value;
+
+            // Act
+            var result = exceptional.Match(
+                                    Exception: (x) => $"Result=Exception({x.GetType().Name})",
+                                    Success: (x) => $"Result=Success({x})"
+                                );
+
+            // Assert
+            result.Should().Be("Result=Success(value)");
+        }
+
+        #endregion
+
     }
 }
