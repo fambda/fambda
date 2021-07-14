@@ -26,9 +26,12 @@ namespace Fambda.Extensions
         {
             if (str != null)
             {
-                for (var i = 0; i < str.Length; i++)
+                foreach (var c in str)
                 {
-                    if (!char.IsWhiteSpace(str[i])) return false;
+                    if (!char.IsWhiteSpace(c))
+                    {
+                        return false;
+                    }
                 }
                 return true;
             }
