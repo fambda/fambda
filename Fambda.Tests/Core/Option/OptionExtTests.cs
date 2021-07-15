@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -193,6 +194,39 @@ namespace Fambda.Tests
 
             // Assert
             result.Should().Be(expectedResult);
+        }
+
+        #endregion
+
+        #region AsEnumerable
+
+        [TestMethod]
+        public void AsEnumerableShouldReturnOneItemWhenSome()
+        {
+            // Arrange
+            IEnumerable<int> expected = new List<int>() { 1 };
+            var value = 1;
+            Option<int> option = Some(value);
+
+            // Act
+            var result = option.AsEnumerable();
+
+            // Assert
+            result.Should().BeEquivalentTo(expected);
+        }
+
+        [TestMethod]
+        public void MapShouldReturnNoItemWhenNone()
+        {
+            // Arrange
+            IEnumerable<int> expected = new List<int>() { };
+            Option<int> option = None;
+
+            // Act
+            var result = option.AsEnumerable();
+
+            // Assert
+            result.Should().BeEquivalentTo(expected);
         }
 
         #endregion

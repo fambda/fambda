@@ -1,4 +1,6 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using static Fambda.F;
 
 namespace Fambda
@@ -55,6 +57,20 @@ namespace Fambda
             => option.Match(
                          Some: (t) => pred(t) ? option : None,
                          None: () => None
+                      );
+
+        #endregion
+
+        #region AsEnumerable
+
+        /// <summary>
+        /// Converts <see cref="Option{T}"/> into <see cref="IEnumerable{T}"/> with one or no items.
+        /// </summary>
+        /// <returns><see cref="IEnumerable{T}"/> with one or no items.</returns>
+        public static IEnumerable<T> AsEnumerable<T>(this Option<T> option)
+            => option.Match(
+                        Some: (t) => { return new List<T>() { t }; },
+                        None: () => Enumerable.Empty<T>()
                       );
 
         #endregion
