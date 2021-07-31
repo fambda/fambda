@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Fambda.Contracts;
 
 namespace Fambda
@@ -47,6 +47,13 @@ namespace Fambda
         /// <param name="Success">Success match operation.</param>
         public Res Match<Res>(Func<Exception, Res> Exception, Func<T, Res> Success)
             => this.Exception != null ? Exception(this.Exception) : Success(this.Value);
+
+        /// <summary>
+        /// Calculates the hash-code based on whether <see cref="Exceptional{T}"/> is in Some or None.
+        /// </summary>
+        /// <returns>A hash code for the current <see cref="Exceptional{T}"/> object.</returns>
+        public override int GetHashCode()
+            => ToString().GetHashCode();
 
         /// <summary>
         /// Returns a string that represents the current <see cref="Exceptional{T}"/> object.

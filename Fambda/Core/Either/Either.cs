@@ -62,6 +62,13 @@ namespace Fambda
            => Match(Left.ToFunc(), Right.ToFunc());
 
         /// <summary>
+        /// Calculates the hash-code based on whether <see cref="Either{L,R}"/> is in Some or None.
+        /// </summary>
+        /// <returns>A hash code for the current <see cref="Either{L,R}"/> object.</returns>
+        public override int GetHashCode()
+            => ToString().GetHashCode();
+
+        /// <summary>
         /// Returns a string that represents the current <see cref="Either{L,R}"/> object.
         /// </summary>
         /// <returns>A string that represents the current <see cref="Either{L,R}"/> object.</returns>
