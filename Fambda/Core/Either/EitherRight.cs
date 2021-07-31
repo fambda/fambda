@@ -28,7 +28,7 @@ namespace Fambda
         /// <returns>true if the current <see cref="EitherRight{R}"/> object is equal to the other parameter; otherwise, false.</returns>
         [Pure]
         public bool Equals(EitherRight<R> other)
-            => Value.Equals(other.Value);
+            => Equals(Value, other.Value);
 
         /// <summary>
         /// Determines whether specified object is equal to the current <see cref="EitherRight{R}"/> object.
@@ -37,7 +37,7 @@ namespace Fambda
         /// <returns>true if the specified object is equal to the current <see cref="EitherRight{R}"/> object; otherwise, false.</returns>
         [Pure]
         public override bool Equals(object obj)
-            => obj is EitherRight<R> eitherRight && Value.Equals(eitherRight.Value);
+            => !object.ReferenceEquals(obj, null) && obj is EitherRight<R> eitherRight && Equals(eitherRight);
 
         /// <summary>
         /// Returns a string that represents the current <see cref="EitherRight{R}"/> object.

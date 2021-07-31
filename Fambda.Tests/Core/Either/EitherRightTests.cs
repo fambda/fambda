@@ -34,7 +34,7 @@ namespace Fambda.Tests
             result.Should().Be(value);
         }
 
-        public void EqualsObjectShouldReturnTrue()
+        public void EqualsObjectShouldReturnTrueWhenBothValueSameNotNull()
         {
             // Arrange
             var first = new EitherRight<string>("value");
@@ -47,7 +47,21 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
-        public void EqualsObjectShouldReturnFalse()
+        [TestMethod]
+        public void EqualsObjectShouldReturnTrueWhenBothValueNull()
+        {
+            // Arrange
+            var first = new EitherRight<string>(null);
+            var second = new EitherRight<string>(null);
+
+            // Act
+            var result = Equals(first, second);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        public void EqualsObjectShouldReturnFalseWhenSameTypeAndDifferentValues()
         {
             // Arrange
             var first = new EitherRight<string>("value1");
@@ -61,11 +75,67 @@ namespace Fambda.Tests
         }
 
         [TestMethod]
-        public void EqualsEitherRightShouldReturnTrue()
+        public void EqualsObjectShouldReturnFalseWhenDifferentTypes()
+        {
+            // Arrange
+            var first = new EitherRight<string>("1");
+            var second = new EitherRight<int>(1);
+
+            // Act
+            var result = Equals(first, second);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void EqualsObjectShouldReturnFalseWhenFirstValueNull()
+        {
+            // Arrange
+            var first = new EitherRight<string>(null);
+            var second = new EitherRight<string>("value");
+
+            // Act
+            var result = Equals(first, second);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void EqualsObjectShouldReturnFalseWhenSecondValueNull()
+        {
+            // Arrange
+            var first = new EitherRight<string>("value");
+            var second = new EitherRight<string>(null);
+
+            // Act
+            var result = Equals(first, second);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void EqualsEitherLeftShouldReturnTrueWhenBothValueSameNotNull()
         {
             // Arrange
             var first = new EitherRight<string>("value");
             var second = new EitherRight<string>("value");
+
+            // Act
+            var result = first.Equals(second);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void EqualsEitherLeftShouldReturnTrueWhenBothValueNull()
+        {
+            // Arrange
+            var first = new EitherRight<string>(null);
+            var second = new EitherRight<string>(null);
 
             // Act
             var result = first.Equals(second);
@@ -80,6 +150,34 @@ namespace Fambda.Tests
             // Arrange
             var first = new EitherRight<string>("value1");
             var second = new EitherRight<string>("value2");
+
+            // Act
+            var result = first.Equals(second);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void EqualsEitherLeftShouldReturnFalseWhenFirstValueNull()
+        {
+            // Arrange
+            var first = new EitherRight<string>(null);
+            var second = new EitherRight<string>("value");
+
+            // Act
+            var result = first.Equals(second);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void EqualsEitherLeftShouldReturnFalseWhenSecondValueNull()
+        {
+            // Arrange
+            var first = new EitherRight<string>("value");
+            var second = new EitherRight<string>(null);
 
             // Act
             var result = first.Equals(second);
