@@ -20,7 +20,7 @@ namespace Fambda
         public static readonly Unit Default = new Unit();
 
         /// <summary>
-        /// Returns zero.
+        /// Returns the hash-code based on <see cref="Unit"/> that is always zero.
         /// </summary>
         [Pure]
         public override int GetHashCode()
