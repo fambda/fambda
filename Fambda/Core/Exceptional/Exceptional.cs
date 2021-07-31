@@ -11,7 +11,7 @@ namespace Fambda
         internal Exception Exception { get; }
         internal T Value { get; }
 
-        private Exceptional(Exception exception)
+        internal Exceptional(Exception exception)
         {
             Guard.On(exception, Error.ExceptionalExceptionMustNotBeNull()).AgainstNull();
 
@@ -19,7 +19,7 @@ namespace Fambda
             Value = default(T);
         }
 
-        private Exceptional(T value)
+        internal Exceptional(T value)
         {
             Exception = null;
             Value = value;
@@ -47,5 +47,17 @@ namespace Fambda
         /// <param name="Success">Success match operation.</param>
         public Res Match<Res>(Func<Exception, Res> Exception, Func<T, Res> Success)
             => this.Exception != null ? Exception(this.Exception) : Success(this.Value);
+
+        /// <summary>
+        /// Returns a string that represents the current <see cref="Exceptional{T}"/> object.
+        /// </summary>
+        /// <returns>A string that represents the current <see cref="Exceptional{T}"/> object.</returns>
+        public override string ToString()
+            => Match(
+                Exception: (x) => $"Exception({x.Message})",
+                Success: (x) => $"Success({x})"
+               );
     }
+
+
 }

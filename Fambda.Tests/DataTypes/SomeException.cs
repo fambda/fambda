@@ -8,6 +8,8 @@ namespace Fambda.Tests.DataTypes
     {
         public SomeException() : base() { }
 
+        public SomeException(string message) : base(message) { }
+
         protected SomeException(SerializationInfo info, StreamingContext context) : base(info, context) { }
     }
 }
