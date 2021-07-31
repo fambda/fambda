@@ -34,6 +34,61 @@ namespace Fambda.Tests
             result.Should().Be(value);
         }
 
+
+        public void EqualsObjectShouldReturnTrue()
+        {
+            // Arrange
+            var first = new EitherLeft<string>("value");
+            var second = new EitherLeft<string>("value");
+
+            // Act
+            var result = Equals(first, second);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        public void EqualsObjectShouldReturnFalse()
+        {
+            // Arrange
+            var first = new EitherLeft<string>("value1");
+            var second = new EitherLeft<string>("value2");
+
+            // Act
+            var result = Equals(first, second);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [TestMethod]
+        public void EqualsEitherLeftShouldReturnTrue()
+        {
+            // Arrange
+            var first = new EitherLeft<string>("value");
+            var second = new EitherLeft<string>("value");
+
+            // Act
+            var result = first.Equals(second);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [TestMethod]
+        public void EqualsEitherLeftShouldReturnFalse()
+        {
+            // Arrange
+            var first = new EitherLeft<string>("value1");
+            var second = new EitherLeft<string>("value2");
+
+            // Act
+            var result = first.Equals(second);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
         [TestMethod]
         public void ToStringShouldProvideExpectedRepresentation()
         {
