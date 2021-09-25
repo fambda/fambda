@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Reflection;
 using Fambda.Extensions;
 
@@ -15,6 +16,17 @@ namespace Fambda.Contracts
             if (isNull)
             {
                 throw guard.GuardException;
+            }
+        }
+
+        public static void EachAgainstNull(this Guard<object[]> guard)
+        {
+            foreach (var guardValue in guard.Values)
+            {
+                if (guard.Values.Any(o => object.ReferenceEquals(o, null)))
+                {
+                    throw guard.GuardException;
+                }
             }
         }
 

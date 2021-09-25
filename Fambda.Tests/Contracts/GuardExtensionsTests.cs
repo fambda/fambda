@@ -71,5 +71,44 @@ namespace Fambda.Tests.Contracts
             // Assert
             act.Should().Throw<GuardException>().WithMessage(guardExceptionMessage);
         }
+
+
+
+        [TestMethod]
+        public void EachAgainstNullMustNotThrowWhenEachObjectIsNotNull()
+        {
+            // Arrange
+            object[] value = new object[] { new object(), new object() };
+
+
+            var guardExceptionMessage = "Value must not be null.";
+            var guardException = new GuardException(guardExceptionMessage);
+            var guard = new Guard<object[]>(value, guardException);
+
+            // Act
+            Action act = () => { guard.EachAgainstNull(); };
+
+            // Assert
+            act.Should().NotThrow();
+        }
+
+
+        [TestMethod]
+        public void EachAgainstNullMustNotThrowWhenSomeObjectIsNull()
+        {
+            // Arrange
+            object[] value = new object[] { new object(), null, new object() };
+
+
+            var guardExceptionMessage = "Value must not be null.";
+            var guardException = new GuardException(guardExceptionMessage);
+            var guard = new Guard<object[]>(value, guardException);
+
+            // Act
+            Action act = () => { guard.EachAgainstNull(); };
+
+            // Assert
+            act.Should().Throw<GuardException>().WithMessage(guardExceptionMessage);
+        }
     }
 }

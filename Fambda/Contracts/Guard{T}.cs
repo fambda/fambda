@@ -1,4 +1,4 @@
-﻿namespace Fambda.Contracts
+namespace Fambda.Contracts
 {
     /// <summary>
     /// Represents Guard 'T' type.
@@ -9,6 +9,7 @@
         /// Value to guard.
         /// </summary>
         public T Value { get; }
+        public object[] Values { get; }
 
         /// <summary>
         /// <see cref="GuardException"/>
@@ -28,6 +29,17 @@
             }
 
             Value = value;
+            GuardException = guardException;
+        }
+
+        public Guard(object[] values, GuardException guardException)
+        {
+            if (guardException == null)
+            {
+                throw Error.GuardExceptionMustNotBeNull();
+            }
+
+            Values = values;
             GuardException = guardException;
         }
     }
