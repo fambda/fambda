@@ -1,4 +1,4 @@
-﻿namespace Fambda.Contracts
+namespace Fambda.Contracts
 {
     /// <summary>
     /// Represents contract guard.
@@ -15,6 +15,17 @@
         public static Guard<T> On<T>(T value, GuardException guardException)
         {
             return new Guard<T>(value, guardException);
+        }
+
+        /// <summary>
+        /// Guard on 'object[]'.
+        /// </summary>
+        /// <param name="values">object values</param>
+        /// <param name="guardException"><see cref="GuardException"/></param>
+        /// <returns></returns>
+        public static Guard<object[]> On(object[] values, GuardException guardException)
+        {
+            return new Guard<object[]>(values, guardException);
         }
     }
 }
