@@ -8,10 +8,7 @@ namespace Fambda.Tests.Helpers
 {
     internal class EqResultsAssertions : ReferenceTypeAssertions<EqResults, EqResultsAssertions>
     {
-        public EqResultsAssertions(EqResults instance)
-        {
-            Subject = instance;
-        }
+        public EqResultsAssertions(EqResults instance) : base(instance) { }
 
         protected override string Identifier => "EqResults";
 
