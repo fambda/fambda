@@ -9,7 +9,22 @@ namespace Fambda.Tests
     {
         [TestMethod]
         [TestCategory("Equable")]
-        public void EquableNullMustPass()
+        public void EquableNullMustPassWhenSuccess()
+        {
+            // Arrange
+            var value = "any value of any type besides Exception";
+            Exceptional<string> exceptional = value;
+
+            // Act
+            var result = new Equable().Null(exceptional);
+
+            // Assert
+            result.Should().Pass();
+        }
+
+        [TestMethod]
+        [TestCategory("Equable")]
+        public void EquableNullMustPassWhenException()
         {
             // Arrange
             var exception = new SomeException();
@@ -24,7 +39,25 @@ namespace Fambda.Tests
 
         [TestMethod]
         [TestCategory("Equable")]
-        public void EquableEqualMustPass()
+        public void EquableEqualMustPassWhenBothSuccess()
+        {
+            // Arrange
+            var firstValue = "any value of any type besides Exception";
+            Exceptional<string> first = firstValue;
+
+            var secondValue = "any value of any type besides Exception";
+            Exceptional<string> second = secondValue;
+
+            // Act
+            var result = new Equable().Equal(first, second);
+
+            // Assert
+            result.Should().Pass();
+        }
+
+        [TestMethod]
+        [TestCategory("Equable")]
+        public void EquableEqualMustPassWhenBothException()
         {
             // Arrange
             var firstException = new SomeException();
@@ -42,7 +75,25 @@ namespace Fambda.Tests
 
         [TestMethod]
         [TestCategory("Equable")]
-        public void EquableUnequalMustPass()
+        public void EquableUnequalMustPassWhenFirstSuccessAndSecondException()
+        {
+            // Arrange
+            var value = "any value of any type besides Exception";
+            Exceptional<string> first = value;
+
+            var secondException = new SomeException();
+            Exceptional<string> second = secondException;
+
+            // Act
+            var result = new Equable().Unequal(first, second);
+
+            // Assert
+            result.Should().Pass();
+        }
+
+        [TestMethod]
+        [TestCategory("Equable")]
+        public void EquableUnequalMustPassWhenFirstExceptionAndSecondSuccess()
         {
             // Arrange
             var firstException = new SomeException();
@@ -57,6 +108,5 @@ namespace Fambda.Tests
             // Assert
             result.Should().Pass();
         }
-
     }
 }

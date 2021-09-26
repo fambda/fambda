@@ -1,4 +1,3 @@
-using System;
 using Fambda.Tests.Helpers;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -53,6 +52,5 @@ namespace Fambda.Tests
                                     "Equality operator returned 'true' on expected non-equal objects.",
                                     "Inequality operator returned 'false' on expected non-equal objects.");
         }
-
     }
 }

@@ -24,7 +24,7 @@ namespace Fambda.Tests
 
         [TestMethod]
         [TestCategory("Equable")]
-        public void EquableEqualMustPass()
+        public void EquableEqualMustPassWhenSome()
         {
             // Arrange
             Option<int> first = Some(1);
@@ -39,11 +39,41 @@ namespace Fambda.Tests
 
         [TestMethod]
         [TestCategory("Equable")]
-        public void EquableUnequalMustPass()
+        public void EquableEqualMustPassWhenNone()
+        {
+            // Arrange
+            Option<int> first = None;
+            Option<int> second = None;
+
+            // Act
+            var result = new Equable().Equal(first, second);
+
+            // Assert
+            result.Should().Pass();
+        }
+
+        [TestMethod]
+        [TestCategory("Equable")]
+        public void EquableUnequalMustPassWhenSome()
         {
             // Arrange
             Option<int> first = Some(1);
             Option<int> second = Some(2);
+
+            // Act
+            var result = new Equable().Unequal(first, second);
+
+            // Assert
+            result.Should().Pass();
+        }
+
+        [TestMethod]
+        [TestCategory("Equable")]
+        public void EquableUnequalMustPassWhenSomeAndNone()
+        {
+            // Arrange
+            Option<int> first = Some(1);
+            Option<int> second = None;
 
             // Act
             var result = new Equable().Unequal(first, second);
