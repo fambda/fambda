@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Diagnostics.Contracts;
 using Fambda.Contracts;
 
 namespace Fambda
@@ -6,7 +7,7 @@ namespace Fambda
     /// <summary>
     /// Represents Exceptional 'T' type.
     /// </summary>
-    public struct Exceptional<T>
+    public struct Exceptional<T> : IEquatable<Exceptional<T>>
     {
         internal Exception Exception { get; }
         internal T Value { get; }
@@ -56,6 +57,44 @@ namespace Fambda
             => ToString().GetHashCode();
 
         /// <summary>
+        /// Indicates whether the current <see cref="Exceptional{T}"/> is equal to another <see cref="Exceptional{T}"/>
+        /// </summary>
+        /// <param name="other">An <see cref="Exceptional{T}"/> to compare with this <see cref="Exceptional{T}"/>.</param>
+        /// <returns>true if the current <see cref="Exceptional{T}"/> object is equal to the other parameter; otherwise, false.</returns>
+        public bool Equals(Exceptional<T> other)
+        {
+            bool result;
+
+            if (object.Equals(Exception, null) && object.Equals(other.Exception, null))
+            {
+                result = true;
+            }
+            else if (object.Equals(Exception, null) || object.Equals(other.Exception, null))
+            {
+                result = false;
+            }
+            else
+            {
+                var typeBased = Exception.GetType() == other.Exception.GetType();
+                result = typeBased && object.Equals(Value, other.Value);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Determines whether specified object is equal to the current <see cref="Exceptional{T}"/> object.
+        /// </summary>
+        /// <param name="obj">The object to compare with the current <see cref="Exceptional{T}"/> object.</param>
+        /// <returns>true if the specified object is equal to the current <see cref="Exceptional{T}"/> object; otherwise, false.</returns>
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            else if (obj is Exceptional<T> exceptional) return Equals(exceptional);
+            else return false;
+        }
+
+        /// <summary>
         /// Returns a string that represents the current <see cref="Exceptional{T}"/> object.
         /// </summary>
         /// <returns>A string that represents the current <see cref="Exceptional{T}"/> object.</returns>
@@ -64,7 +103,25 @@ namespace Fambda
                 Exception: (x) => $"Exception({x.Message})",
                 Success: (x) => $"Success({x})"
                );
+
+        /// <summary>
+        /// Compares two <see cref="Exceptional{T}"/> objects through equality operator.
+        /// </summary>
+        /// <param name="lhs"><see cref="Exceptional{T}"/> left hand side object.</param>
+        /// <param name="rhs"><see cref="Exceptional{T}"/> right hand side object.</param>
+        /// <returns>true if lhs is equal to the rhs; otherwise, false.</returns>
+        [Pure]
+        public static bool operator ==(Exceptional<T> lhs, Exceptional<T> rhs)
+            => Equals(lhs, rhs);
+
+        /// <summary>
+        /// Compares two <see cref="Exceptional{T}"/> objects through inequality operator.
+        /// </summary>
+        /// <param name="lhs"><see cref="Exceptional{T}"/> left hand side object.</param>
+        /// <param name="rhs"><see cref="Exceptional{T}"/> right hand side object.</param>
+        /// <returns>true if the lhs object is not equal to rhs; otherwise, false.</returns>
+        [Pure]
+        public static bool operator !=(Exceptional<T> lhs, Exceptional<T> rhs)
+            => !Equals(lhs, rhs);
     }
-
-
 }

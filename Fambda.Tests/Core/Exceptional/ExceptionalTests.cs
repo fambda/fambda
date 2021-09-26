@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Fambda.Tests
 {
     [TestClass]
-    public class ExceptionalTests
+    public partial class ExceptionalTests
     {
         #region Exceptional
 
