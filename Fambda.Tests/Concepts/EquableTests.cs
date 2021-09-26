@@ -8,7 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Fambda.Tests.Concepts
 {
     [TestClass]
-    public class EqCheckerTests
+    public class EquableTests
     {
         [TestMethod]
         public void NullMustThrow()
@@ -17,7 +17,7 @@ namespace Fambda.Tests.Concepts
             BikeClassObject obj = null;
 
             // Act
-            Action act = () => { new EqChecker().Null(obj); };
+            Action act = () => { new Equable().Null(obj); };
 
             // Assert
             act.Should().Throw<EachParamMustNotBeNullException>();
@@ -30,7 +30,7 @@ namespace Fambda.Tests.Concepts
             var obj = new BikeClassObject("Giant", "Revolt", 2020);
 
             // Act
-            var result = new EqChecker().Null(obj);
+            var result = new Equable().Null(obj);
 
             // Assert
             result.Should().Pass();
@@ -45,7 +45,7 @@ namespace Fambda.Tests.Concepts
             BikeClassObject second = null;
 
             // Act
-            Action act = () => { new EqChecker().Equal(first, second); };
+            Action act = () => { new Equable().Equal(first, second); };
 
             // Assert
             act.Should().Throw<EachParamMustNotBeNullException>();
@@ -59,7 +59,7 @@ namespace Fambda.Tests.Concepts
             var second = new BikeClassObject("Giant", "Revolt", 2020);
 
             // Act
-            Action act = () => { new EqChecker().Equal(first, second); };
+            Action act = () => { new Equable().Equal(first, second); };
 
             // Assert
             act.Should().Throw<EachParamMustNotBeNullException>();
@@ -73,7 +73,7 @@ namespace Fambda.Tests.Concepts
             BikeClassObject second = null;
 
             // Act
-            Action act = () => { new EqChecker().Equal(first, second); };
+            Action act = () => { new Equable().Equal(first, second); };
 
             // Assert
             act.Should().Throw<EachParamMustNotBeNullException>();
@@ -87,7 +87,7 @@ namespace Fambda.Tests.Concepts
             var second = new BikeClassObject("Giant", "Revolt", 2020);
 
             // Act
-            var result = new EqChecker().Equal(first, second);
+            var result = new Equable().Equal(first, second);
 
             // Assert
             result.Should().Pass();
@@ -101,7 +101,7 @@ namespace Fambda.Tests.Concepts
             BikeClassObject second = null;
 
             // Act
-            Action act = () => { new EqChecker().Unequal(first, second); };
+            Action act = () => { new Equable().Unequal(first, second); };
 
             // Assert
             act.Should().Throw<EachParamMustNotBeNullException>();
@@ -115,7 +115,7 @@ namespace Fambda.Tests.Concepts
             var second = new BikeClassObject("Giant", "Revolt", 2020);
 
             // Act
-            Action act = () => { new EqChecker().Unequal(first, second); };
+            Action act = () => { new Equable().Unequal(first, second); };
 
             // Assert
             act.Should().Throw<EachParamMustNotBeNullException>();
@@ -129,7 +129,7 @@ namespace Fambda.Tests.Concepts
             BikeClassObject second = null;
 
             // Act
-            Action act = () => { new EqChecker().Unequal(first, second); };
+            Action act = () => { new Equable().Unequal(first, second); };
 
             // Assert
             act.Should().Throw<EachParamMustNotBeNullException>();
@@ -143,7 +143,7 @@ namespace Fambda.Tests.Concepts
             var second = new BikeClassObject("Giant", "Touran", 2020);
 
             // Act
-            var result = new EqChecker().Unequal(first, second);
+            var result = new Equable().Unequal(first, second);
 
             // Assert
             result.Should().Pass();

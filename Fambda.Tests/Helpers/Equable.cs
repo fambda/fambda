@@ -3,7 +3,7 @@ using Fambda.Contracts;
 
 namespace Fambda.Tests.Helpers
 {
-    internal class EqChecker
+    internal class Equable
     {
         internal EqResults Null<T>(T obj)
         {
