@@ -109,5 +109,25 @@ namespace Fambda
         /// <returns>A string that represents the current <see cref="Option{T}"/> object.</returns>
         public override string ToString()
             => _isSome ? $"Some({_value})" : "None";
+
+        /// <summary>
+        /// Compares two <see cref="Option{T}"/> objects through equality operator.
+        /// </summary>
+        /// <param name="lhs"><see cref="Option{T}"/> left hand side object.</param>
+        /// <param name="rhs"><see cref="Option{T}"/> right hand side object.</param>
+        /// <returns>true if lhs is equal to the rhs; otherwise, false.</returns>
+        [Pure]
+        public static bool operator ==(Option<T> lhs, Option<T> rhs)
+            => Equals(lhs, rhs);
+
+        /// <summary>
+        /// Compares two <see cref="Option{T}"/> objects through inequality operator.
+        /// </summary>
+        /// <param name="lhs"><see cref="Option{T}"/> left hand side object.</param>
+        /// <param name="rhs"><see cref="Option{T}"/> right hand side object.</param>
+        /// <returns>true if the lhs object is not equal to rhs; otherwise, false.</returns>
+        [Pure]
+        public static bool operator !=(Option<T> lhs, Option<T> rhs)
+            => !Equals(lhs, rhs);
     }
 }

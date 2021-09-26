@@ -51,10 +51,10 @@ namespace Fambda
             => "()";
 
         /// <summary>
-        /// Compares two <see cref="Unit"/> objects.
+        /// Compares two <see cref="Unit"/> objects through equality operator.
         /// </summary>
-        /// <param name="lhs"><see cref="Unit"/> object.</param>
-        /// <param name="rhs"><see cref="Unit"/> object.</param>
+        /// <param name="lhs"><see cref="Unit"/> left hand side object.</param>
+        /// <param name="rhs"><see cref="Unit"/> right hand side object.</param>
         /// <returns>Always true.</returns>
         /// <remarks><see cref="Unit"/> objects are always equal.</remarks>
         [Pure]
@@ -62,10 +62,10 @@ namespace Fambda
             => true;
 
         /// <summary>
-        /// Compares two <see cref="Unit"/> objects.
+        /// Compares two <see cref="Unit"/> objects through inequality operator.
         /// </summary>
-        /// <param name="lhs"><see cref="Unit"/> object.</param>
-        /// <param name="rhs"><see cref="Unit"/> object.</param>
+        /// <param name="lhs"><see cref="Unit"/> left hand side object.</param>
+        /// <param name="rhs"><see cref="Unit"/> right hand side object.</param>
         /// <returns>Always false.</returns>
         /// <remarks><see cref="Unit"/> objects are always equal.</remarks>
         [Pure]

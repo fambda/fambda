@@ -1,25 +1,13 @@
-﻿using System;
+using System;
+using Fambda.Tests.Helpers;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Fambda.Tests
 {
     [TestClass]
-    public class UnitTests
+    public partial class UnitTests
     {
-        [TestMethod]
-        public void EqualsShouldReturnTrue()
-        {
-            // Arrange
-            var first = new Unit();
-            var second = new Unit();
-
-            // Act
-            var result = first.Equals(second);
-
-            // Assert
-            result.Should().BeTrue();
-        }
 
         [TestMethod]
         public void GetHashCodeShouldReturnZero()
@@ -45,48 +33,6 @@ namespace Fambda.Tests
 
             // Assert
             result.Should().Be("()");
-        }
-
-        [TestMethod]
-        public void UnitsShouldEqual()
-        {
-            // Arrange
-            var first = new Unit();
-            var second = new Unit();
-
-            // Act
-            var result = Equals(first, second);
-
-            // Assert
-            result.Should().BeTrue();
-        }
-
-        [TestMethod]
-        public void OperatorEqualToOverloadingShouldReturnTrue()
-        {
-            // Arrange
-            var first = new Unit();
-            var second = new Unit();
-
-            // Act
-            var result = first == second;
-
-            // Assert
-            result.Should().BeTrue();
-        }
-
-        [TestMethod]
-        public void OperatorNotEqualToOverloadingShouldReturnFalse()
-        {
-            // Arrange
-            var first = new Unit();
-            var second = new Unit();
-
-            // Act
-            var result = first != second;
-
-            // Assert
-            result.Should().BeFalse();
         }
 
         [TestMethod]
@@ -218,18 +164,5 @@ namespace Fambda.Tests
             result.Should().Be(expectedResult);
         }
 
-        [TestMethod]
-        public void UnitViaCtorAndViaFShouldEqual()
-        {
-            // Arrange
-            var unit = new Unit();
-            var expected = F.Unit();
-
-            // Act
-            var result = Equals(unit, expected);
-
-            // Assert
-            result.Should().BeTrue();
-        }
     }
 }
