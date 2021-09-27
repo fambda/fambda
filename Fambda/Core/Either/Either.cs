@@ -7,7 +7,7 @@ namespace Fambda
     /// </summary>
     /// <typeparam name="L">Left</typeparam>
     /// <typeparam name="R">Right</typeparam>
-    public struct Either<L, R>
+    public struct Either<L, R> : IEquatable<Either<L, R>>
     {
         internal L Left { get; }
         internal R Right { get; }
@@ -67,6 +67,49 @@ namespace Fambda
         /// <returns>A hash code for the current <see cref="Either{L,R}"/> object.</returns>
         public override int GetHashCode()
             => ToString().GetHashCode();
+
+        /// <summary>
+        /// Indicates whether the current <see cref="Either{L,R}"/> is equal to another <see cref="Either{L,R}"/>
+        /// </summary>
+        /// <param name="other">An <see cref="Either{L,R}"/> to compare with this <see cref="Either{L,R}"/>.</param>
+        /// <returns>true if the current <see cref="Either{L,R}"/> object is equal to the other parameter; otherwise, false.</returns>
+        public bool Equals(Either<L, R> other)
+        {
+            bool result;
+
+            if (_isLeft)
+            {
+                if (object.Equals(Left, null) && object.Equals(other.Left, null))
+                {
+                    result = true;
+                }
+                else if (object.Equals(Left, null) || object.Equals(other.Left, null))
+                {
+                    result = false;
+                }
+                else
+                {
+                    result = object.Equals(Left, other.Left);
+                }
+            }
+            else
+            {
+                if (object.Equals(Right, null) && object.Equals(other.Right, null))
+                {
+                    result = true;
+                }
+                else if (object.Equals(Right, null) || object.Equals(other.Right, null))
+                {
+                    result = false;
+                }
+                else
+                {
+                    result = object.Equals(Right, other.Right);
+                }
+            }
+
+            return result;
+        }
 
         /// <summary>
         /// Returns a string that represents the current <see cref="Either{L,R}"/> object.
