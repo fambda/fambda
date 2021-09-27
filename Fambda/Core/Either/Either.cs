@@ -112,6 +112,18 @@ namespace Fambda
         }
 
         /// <summary>
+        /// Determines whether specified object is equal to the current <see cref="Either{L,R}"/> object.
+        /// </summary>
+        /// <param name="obj">The object to compare with the current <see cref="Either{L,R}"/> object.</param>
+        /// <returns>true if the specified object is equal to the current <see cref="Either{L,R}"/> object; otherwise, false.</returns>
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            else if (obj is Either<L, R> either) return Equals(either);
+            else return false;
+        }
+
+        /// <summary>
         /// Returns a string that represents the current <see cref="Either{L,R}"/> object.
         /// </summary>
         /// <returns>A string that represents the current <see cref="Either{L,R}"/> object.</returns>
