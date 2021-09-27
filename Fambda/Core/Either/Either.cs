@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.Contracts;
 
 namespace Fambda
 {
@@ -128,5 +129,25 @@ namespace Fambda
         /// </summary>
         /// <returns>A string that represents the current <see cref="Either{L,R}"/> object.</returns>
         public override string ToString() => Match(l => $"Left({l})", r => $"Right({r})");
+
+        /// <summary>
+        /// Compares two <see cref="Either{L,R}"/> objects through equality operator.
+        /// </summary>
+        /// <param name="lhs"><see cref="Either{L,R}"/> left hand side object.</param>
+        /// <param name="rhs"><see cref="Either{L,R}"/> right hand side object.</param>
+        /// <returns>true if lhs is equal to the rhs; otherwise, false.</returns>
+        [Pure]
+        public static bool operator ==(Either<L, R> lhs, Either<L, R> rhs)
+            => Equals(lhs, rhs);
+
+        /// <summary>
+        /// Compares two <see cref="Either{L,R}"/> objects through inequality operator.
+        /// </summary>
+        /// <param name="lhs"><see cref="Either{L,R}"/> left hand side object.</param>
+        /// <param name="rhs"><see cref="Either{L,R}"/> right hand side object.</param>
+        /// <returns>true if the lhs object is not equal to rhs; otherwise, false.</returns>
+        [Pure]
+        public static bool operator !=(Either<L, R> lhs, Either<L, R> rhs)
+            => !Equals(lhs, rhs);
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Fambda.Tests
 {
     [TestClass]
-    public class EitherTests
+    public partial class EitherTests
     {
         #region Either
 
