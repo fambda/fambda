@@ -9,6 +9,10 @@ namespace Fambda.Contracts
         /// Value to guard.
         /// </summary>
         public T Value { get; }
+
+        /// <summary>
+        /// Object values to guard.
+        /// </summary>
         public object[] Values { get; }
 
         /// <summary>
@@ -32,6 +36,11 @@ namespace Fambda.Contracts
             GuardException = guardException;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Guard"/>.
+        /// </summary>
+        /// <param name="values">Object values</param>
+        /// <param name="guardException"><see cref="GuardException"/></param>
         public Guard(object[] values, GuardException guardException)
         {
             if (guardException == null)
