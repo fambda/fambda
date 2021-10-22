@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <DebugType>Full</DebugType>
+    <ProjectGuid>70726f6a-7064-6164-6c69-46616d626461</ProjectGuid>
     <LangVersion>8.0</LangVersion>
     <PackageId>Fambda</PackageId>
     <Title>Fambda</Title>
