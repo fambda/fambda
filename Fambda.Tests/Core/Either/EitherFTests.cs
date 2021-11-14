@@ -1,14 +1,13 @@
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 using static Fambda.F;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public class EitherFTests
     {
-        [TestMethod]
+        [Fact]
         public void LeftShouldSucceed()
         {
             // Arrange
@@ -21,7 +20,7 @@ namespace Fambda.Tests
             left.ToString().Should().Be("Left(value)");
         }
 
-        [TestMethod]
+        [Fact]
         public void RightShouldSucceed()
         {
             // Arrange

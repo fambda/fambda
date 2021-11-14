@@ -2,16 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public class EnumerableTests
     {
         #region Map
 
-        [TestMethod]
+        [Fact]
         public void MapShouldSucceed()
         {
             // Arrange
@@ -27,7 +26,7 @@ namespace Fambda.Tests
             result.Should().HaveElementAt(2, "3");
         }
 
-        [TestMethod]
+        [Fact]
         public void MapShouldReturnEmptyEnumerable()
         {
             // Arrange
@@ -41,7 +40,7 @@ namespace Fambda.Tests
             result.Should().HaveCount(0);
         }
 
-        [TestMethod]
+        [Fact]
         public void MapShouldReturnNestedEnumerable()
         {
             // Arrange
@@ -67,7 +66,7 @@ namespace Fambda.Tests
 
         #region Bind
 
-        [TestMethod]
+        [Fact]
         public void BindShouldSucceed()
         {
             // Arrange

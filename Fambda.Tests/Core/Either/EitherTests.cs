@@ -1,15 +1,14 @@
 using Fambda.Tests.DataTypes;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public partial class EitherTests
     {
         #region Either
 
-        [TestMethod]
+        [Fact]
         public void ImplicitOperatorOverloadingShouldSucceedWithEitherLeft()
         {
             // Arrange
@@ -24,7 +23,7 @@ namespace Fambda.Tests
             result.Should().Be("Left(value)");
         }
 
-        [TestMethod]
+        [Fact]
         public void ImplicitOperatorOverloadingShouldSucceedWithEitherRight()
         {
             // Arrange
@@ -43,7 +42,7 @@ namespace Fambda.Tests
 
         #region Match
 
-        [TestMethod]
+        [Fact]
         public void MatchThroughFuncShouldMatchLeft()
         {
             // Arrange
@@ -56,7 +55,7 @@ namespace Fambda.Tests
             result.Should().Be("MatchLeft(left)");
         }
 
-        [TestMethod]
+        [Fact]
         public void MatchThroughFuncShouldMatchRight()
         {
             // Arrange
@@ -69,7 +68,7 @@ namespace Fambda.Tests
             result.Should().Be("MatchRight(5)");
         }
 
-        [TestMethod]
+        [Fact]
         public void MatchThroughActionShouldMatchLeft()
         {
             // Arrange
@@ -87,7 +86,7 @@ namespace Fambda.Tests
             result.Should().Be("MatchLeft(left)");
         }
 
-        [TestMethod]
+        [Fact]
         public void MatchThroughActionShouldMatchRight()
         {
             // Arrange
@@ -109,7 +108,7 @@ namespace Fambda.Tests
 
         #region ToString
 
-        [TestMethod]
+        [Fact]
         public void ToStringShouldReturnLeftRepresentation()
         {
             // Arrange
@@ -122,7 +121,7 @@ namespace Fambda.Tests
             result.Should().Be("Left(left)");
         }
 
-        [TestMethod]
+        [Fact]
         public void ToStringShouldReturnRightRepresentation()
         {
             // Arrange

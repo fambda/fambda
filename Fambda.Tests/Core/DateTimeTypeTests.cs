@@ -1,18 +1,17 @@
 using System;
 using System.Globalization;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 using static Fambda.F;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public class DateTimeTypeTests
     {
         #region Parse
 
-        [TestMethod]
+        [Fact]
         public void ParseShouldReturnOptionDateTimeSome()
         {
             // Arrange
@@ -27,7 +26,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseShouldReturnOptionDateTimeNone()
         {
             // Arrange
@@ -42,7 +41,7 @@ namespace Fambda.Tests
         }
 
 
-        [TestMethod]
+        [Fact]
         public void ParseWithFormatProviderShouldReturnOptionDateTimeSome()
         {
             // Arrange
@@ -58,7 +57,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseWithFormatProviderShouldReturnOptionDateTimeNone()
         {
             // Arrange

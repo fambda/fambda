@@ -1,13 +1,13 @@
 using System;
 using Fambda.Tests.Helpers;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests
 {
     public partial class UnitTests
     {
-        [TestMethod]
+        [Fact]
         public void EqualsShouldReturnTrue()
         {
             // Arrange
@@ -21,7 +21,7 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void UnitViaCtorAndViaFShouldEqual()
         {
             // Arrange

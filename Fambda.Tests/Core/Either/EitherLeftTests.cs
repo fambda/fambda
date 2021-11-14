@@ -1,13 +1,12 @@
 using System;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public class EitherLeftTests
     {
-        [TestMethod]
+        [Fact]
         public void CtorShouldSucceed()
         {
             // Arrange
@@ -20,7 +19,7 @@ namespace Fambda.Tests
             ctor.Should().NotThrow();
         }
 
-        [TestMethod]
+        [Fact]
         public void CtorShouldSetCorrectValue()
         {
             // Arrange
@@ -34,7 +33,7 @@ namespace Fambda.Tests
             result.Should().Be(value);
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsObjectShouldReturnTrueWhenBothValueSameNotNull()
         {
             // Arrange
@@ -48,7 +47,7 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsObjectShouldReturnTrueWhenBothValueNull()
         {
             // Arrange
@@ -62,7 +61,7 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsObjectShouldReturnFalseWhenSameTypeAndDifferentValues()
         {
             // Arrange
@@ -76,7 +75,7 @@ namespace Fambda.Tests
             result.Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsObjectShouldReturnFalseWhenDifferentTypes()
         {
             // Arrange
@@ -90,7 +89,7 @@ namespace Fambda.Tests
             result.Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsObjectShouldReturnFalseWhenFirstValueNull()
         {
             // Arrange
@@ -104,7 +103,7 @@ namespace Fambda.Tests
             result.Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsObjectShouldReturnFalseWhenSecondValueNull()
         {
             // Arrange
@@ -118,7 +117,7 @@ namespace Fambda.Tests
             result.Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsEitherLeftShouldReturnTrueWhenBothValueSameNotNull()
         {
             // Arrange
@@ -132,7 +131,7 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsEitherLeftShouldReturnTrueWhenBothValueNull()
         {
             // Arrange
@@ -146,7 +145,7 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsEitherLeftShouldReturnFalse()
         {
             // Arrange
@@ -160,7 +159,7 @@ namespace Fambda.Tests
             result.Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsEitherLeftShouldReturnFalseWhenFirstValueNull()
         {
             // Arrange
@@ -174,7 +173,7 @@ namespace Fambda.Tests
             result.Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsEitherLeftShouldReturnFalseWhenSecondValueNull()
         {
             // Arrange
@@ -189,7 +188,7 @@ namespace Fambda.Tests
         }
 
 
-        [TestMethod]
+        [Fact]
         public void ToStringShouldProvideExpectedRepresentation()
         {
             // Arrange

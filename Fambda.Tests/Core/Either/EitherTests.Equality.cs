@@ -1,6 +1,6 @@
 using Fambda.Tests.DataTypes;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests
 {

@@ -1,17 +1,15 @@
 using System;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using Xunit;
 using static Fambda.F;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public class EitherExtTests
     {
         #region Map
 
-        [TestMethod]
+        [Fact]
         public void MapShouldSucceedWhenRight()
         {
             // Arrange
@@ -26,7 +24,7 @@ namespace Fambda.Tests
             result.ToString().Should().Be("Right(1)");
         }
 
-        [TestMethod]
+        [Fact]
         public void MapShouldSucceedWhenLeft()
         {
             // Arrange
@@ -45,7 +43,7 @@ namespace Fambda.Tests
 
         #region Bind
 
-        [TestMethod]
+        [Fact]
         public void BindShouldSucceedWhenRight()
         {
             // Arrange
@@ -73,7 +71,7 @@ namespace Fambda.Tests
             result.Right.Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void BindShouldSucceedWhenLeft()
         {
             // Arrange

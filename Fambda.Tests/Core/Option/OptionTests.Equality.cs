@@ -2,7 +2,7 @@ using System;
 using Fambda.Contracts;
 using Fambda.Tests.Helpers;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 using static Fambda.F;
 
@@ -10,7 +10,7 @@ namespace Fambda.Tests
 {
     public partial class OptionTests
     {
-        [TestMethod]
+        [Fact]
         public void EqualsOptionSomeShouldReturnTrue()
         {
             // Arrange
@@ -24,7 +24,7 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsOptionSomeShouldReturnFalse()
         {
             // Arrange
@@ -38,7 +38,7 @@ namespace Fambda.Tests
             result.Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsOptionNoneShouldReturnTrue()
         {
             // Arrange
@@ -52,7 +52,7 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsOptionNoneShouldReturnFalse()
         {
             // Arrange

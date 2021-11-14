@@ -3,14 +3,13 @@ using Fambda.Contracts;
 using Fambda.Tests.Concepts.Objects;
 using Fambda.Tests.Helpers;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests.Concepts
 {
-    [TestClass]
     public class EquableTests
     {
-        [TestMethod]
+        [Fact]
         public void NullMustThrow()
         {
             // Arrange
@@ -23,7 +22,7 @@ namespace Fambda.Tests.Concepts
             act.Should().Throw<EachParamMustNotBeNullException>();
         }
 
-        [TestMethod]
+        [Fact]
         public void NullMustSucceed()
         {
             // Arrange
@@ -37,7 +36,7 @@ namespace Fambda.Tests.Concepts
         }
 
 
-        [TestMethod]
+        [Fact]
         public void EqualMustThrowWhenFirstIsNullAndSecondIsNull()
         {
             // Arrange
@@ -51,7 +50,7 @@ namespace Fambda.Tests.Concepts
             act.Should().Throw<EachParamMustNotBeNullException>();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualMustThrowWhenFirstIsNullAndSecondIsNotNull()
         {
             // Arrange
@@ -65,7 +64,7 @@ namespace Fambda.Tests.Concepts
             act.Should().Throw<EachParamMustNotBeNullException>();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualMustThrowWhenFirstIsNotNullAndSecondIsNull()
         {
             // Arrange
@@ -79,7 +78,7 @@ namespace Fambda.Tests.Concepts
             act.Should().Throw<EachParamMustNotBeNullException>();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualMustSucceed()
         {
             // Arrange
@@ -93,7 +92,7 @@ namespace Fambda.Tests.Concepts
             result.Should().Pass();
         }
 
-        [TestMethod]
+        [Fact]
         public void UnequalMustThrowWhenFirstIsNullAndSecondIsNull()
         {
             // Arrange
@@ -107,7 +106,7 @@ namespace Fambda.Tests.Concepts
             act.Should().Throw<EachParamMustNotBeNullException>();
         }
 
-        [TestMethod]
+        [Fact]
         public void UnequalMustThrowWhenFirstIsNullAndSecondIsNotNull()
         {
             // Arrange
@@ -121,7 +120,7 @@ namespace Fambda.Tests.Concepts
             act.Should().Throw<EachParamMustNotBeNullException>();
         }
 
-        [TestMethod]
+        [Fact]
         public void UnequalMustThrowWhenFirstIsNotNullAndSecondIsNull()
         {
             // Arrange
@@ -135,7 +134,7 @@ namespace Fambda.Tests.Concepts
             act.Should().Throw<EachParamMustNotBeNullException>();
         }
 
-        [TestMethod]
+        [Fact]
         public void UnequalMustSucceed()
         {
             // Arrange

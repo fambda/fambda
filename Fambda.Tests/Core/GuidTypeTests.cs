@@ -1,17 +1,16 @@
 using System;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 using static Fambda.F;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public class GuidTypeTests
     {
         #region Parse
 
-        [TestMethod]
+        [Fact]
         public void ParseShouldReturnOptionGuidSomeWhenInputFormat32Digits()
         {
             // Arrange
@@ -26,7 +25,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseShouldReturnOptionGuidSomeWhenInputFormat32DigitsSeparatedByHyphens()
         {
             // Arrange
@@ -41,7 +40,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseShouldReturnOptionGuidSomeWhenInputFormat32DigitsSeparatedByHyphensEnclosedInBraces()
         {
             // Arrange
@@ -56,7 +55,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseShouldReturnOptionGuidSomeWhenInputFormat32DigitsSeparatedByHyphensEnclosedInParentheses()
         {
             // Arrange
@@ -71,7 +70,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseShouldReturnOptionGuidSomeWhenInputFormat4HexadecimalsEnclosedInBracesWithTheFourthSubsetOf8HexadecimalsEnclosedInBraces()
         {
             // Arrange
@@ -86,7 +85,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseShouldReturnOptionGuidNone()
         {
             // Arrange

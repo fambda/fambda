@@ -1,6 +1,6 @@
 using Fambda.Tests.Helpers;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 using static Fambda.F;
 
@@ -8,8 +8,8 @@ namespace Fambda.Tests
 {
     public partial class OptionTests
     {
-        [TestMethod]
-        [TestCategory("Equable")]
+        [Fact]
+        [Trait("Category", "Equable")]
         public void EquableNullMustPass()
         {
             // Arrange
@@ -22,8 +22,8 @@ namespace Fambda.Tests
             result.Should().Pass();
         }
 
-        [TestMethod]
-        [TestCategory("Equable")]
+        [Fact]
+        [Trait("Category", "Equable")]
         public void EquableEqualMustPassWhenSome()
         {
             // Arrange
@@ -37,8 +37,8 @@ namespace Fambda.Tests
             result.Should().Pass();
         }
 
-        [TestMethod]
-        [TestCategory("Equable")]
+        [Fact]
+        [Trait("Category", "Equable")]
         public void EquableEqualMustPassWhenNone()
         {
             // Arrange
@@ -52,8 +52,8 @@ namespace Fambda.Tests
             result.Should().Pass();
         }
 
-        [TestMethod]
-        [TestCategory("Equable")]
+        [Fact]
+        [Trait("Category", "Equable")]
         public void EquableUnequalMustPassWhenSome()
         {
             // Arrange
@@ -67,8 +67,8 @@ namespace Fambda.Tests
             result.Should().Pass();
         }
 
-        [TestMethod]
-        [TestCategory("Equable")]
+        [Fact]
+        [Trait("Category", "Equable")]
         public void EquableUnequalMustPassWhenSomeAndNone()
         {
             // Arrange

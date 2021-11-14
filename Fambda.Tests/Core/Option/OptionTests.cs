@@ -2,18 +2,17 @@ using System;
 using Fambda.Contracts;
 using Fambda.Tests.Helpers;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 using static Fambda.F;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public partial class OptionTests
     {
         #region Option
 
-        [TestMethod]
+        [Fact]
         public void ImplicitOperatorOverloadingShouldSucceedWithOptionSome()
         {
             // Arrange
@@ -28,7 +27,7 @@ namespace Fambda.Tests
             result.Should().Be("Some(value)");
         }
 
-        [TestMethod]
+        [Fact]
         public void ImplicitOperatorOverloadingShouldSucceedWithOptionNone()
         {
             // Arrange
@@ -42,9 +41,9 @@ namespace Fambda.Tests
             result.Should().Be("None");
         }
 
-        [DataTestMethod]
-        [DataRow("value", "Some(value)")]
-        [DataRow(null, "None")]
+        [Theory]
+        [InlineData("value", "Some(value)")]
+        [InlineData(null, "None")]
         public void ImplicitOperatorOverloadingShouldSucceedWithValue(string input, string expected)
         {
             // Arrange
@@ -62,7 +61,7 @@ namespace Fambda.Tests
 
         #region Match
 
-        [TestMethod]
+        [Fact]
         public void MatchShouldSucceedWhenSome()
         {
             // Arrange
@@ -78,7 +77,7 @@ namespace Fambda.Tests
             result.Should().Be("Result=Some(1)");
         }
 
-        [TestMethod]
+        [Fact]
         public void MatchShouldSucceedWhenNone()
         {
             // Arrange
@@ -94,7 +93,7 @@ namespace Fambda.Tests
             result.Should().Be("Result=None");
         }
 
-        [TestMethod]
+        [Fact]
         public void MatchShouldFailWhenReturnValueIsNullThroughSome()
         {
             // Arrange
@@ -115,7 +114,7 @@ namespace Fambda.Tests
             act.Should().Throw<OptionMatchReturnMustNotBeNullException>();
         }
 
-        [TestMethod]
+        [Fact]
         public void MatchShouldFailWhenReturnValueIsNullThroughNone()
         {
             // Arrange

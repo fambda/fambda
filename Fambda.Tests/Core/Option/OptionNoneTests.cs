@@ -1,12 +1,11 @@
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public class OptionNoneTests
     {
-        [TestMethod]
+        [Fact]
         public void CtorShouldEqualWithDefault()
         {
             // Arrange
@@ -21,7 +20,7 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsObjectShouldSucceed()
         {
             // Arrange
@@ -35,7 +34,7 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsOptionNoneShouldSucceed()
         {
             // Arrange
@@ -49,7 +48,7 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void ToStringShouldProvideExpectedRepresentation()
         {
             // Arrange

@@ -1,13 +1,13 @@
 using Fambda.Tests.Concepts.Objects;
 using Fambda.Tests.Helpers;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests.Concepts
 {
     public partial class EqComponentTests
     {
-        [TestMethod]
+        [Fact]
         public void ApplyEqualsOfTToNullMustReturnExpectedResultForClassObjectNotNull()
         {
             // Arrange
@@ -20,7 +20,7 @@ namespace Fambda.Tests.Concepts
             result.Should().BeSuccess();
         }
 
-        [TestMethod]
+        [Fact]
         public void ApplyEqualsOfTToNullMustReturnExpectedResultForClassObjectDefaultNull()
         {
             // Arrange
@@ -33,7 +33,7 @@ namespace Fambda.Tests.Concepts
             result.Should().BeFailure("Equals returned 'true' on expected non-equal objects.");
         }
 
-        [TestMethod]
+        [Fact]
         public void ApplyEqualsOfTToNullMustReturnExpectedResultForStructObjectDefault()
         {
             // Arrange
@@ -46,7 +46,7 @@ namespace Fambda.Tests.Concepts
             result.Should().BeSuccess();
         }
 
-        [TestMethod]
+        [Fact]
         public void ApplyEqualsOfTToNullMustReturnExpectedResultForStructObject()
         {
             // Arrange
