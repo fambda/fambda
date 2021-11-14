@@ -1,14 +1,13 @@
 using System;
 using Fambda.Contracts;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests.Contracts.Exceptions
 {
-    [TestClass]
     public class GuardExceptionTests
     {
-        [TestMethod]
+        [Fact]
         public void GuardExceptionShouldBeAssignableToSystemExceptionType()
         {
             // Arrange

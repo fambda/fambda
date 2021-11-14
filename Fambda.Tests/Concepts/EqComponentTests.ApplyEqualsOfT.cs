@@ -1,7 +1,7 @@
 using Fambda.Tests.Concepts.Objects;
 using Fambda.Tests.Helpers;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests.Concepts
 {
@@ -9,7 +9,7 @@ namespace Fambda.Tests.Concepts
     {
         #region Class
 
-        [TestMethod]
+        [Fact]
         public void ApplyEqualsOfTMustReturnExpectedResultForClassObjectsWithSameEqualsResultAndExpectedEqualTrue()
         {
             // Arrange
@@ -23,7 +23,7 @@ namespace Fambda.Tests.Concepts
             result.Should().BeSuccess();
         }
 
-        [TestMethod]
+        [Fact]
         public void ApplyEqualsOfTMustReturnExpectedResultForClassObjectsWithSameEqualsResultAndExpectedEqualFalse()
         {
             // Arrange
@@ -37,7 +37,7 @@ namespace Fambda.Tests.Concepts
             result.Should().BeFailure("Typed Equals returned 'true' on expected non-equal objects.");
         }
 
-        [TestMethod]
+        [Fact]
         public void ApplyEqualsOfTMustReturnExpectedResultForClassObjectsWithDifferentEqualsResultAndExpectedEqualTrue()
         {
             // Arrange
@@ -51,7 +51,7 @@ namespace Fambda.Tests.Concepts
             result.Should().BeFailure("Typed Equals returned 'false' on expected equal objects.");
         }
 
-        [TestMethod]
+        [Fact]
         public void ApplyEqualsOfTMustReturnExpectedResultForClassObjectsWithDifferentEqualsResultAndExpectedEqualFalse()
         {
             // Arrange
@@ -69,7 +69,7 @@ namespace Fambda.Tests.Concepts
 
         #region Struct
 
-        [TestMethod]
+        [Fact]
         public void ApplyEqualsOfTMustReturnExpectedResultForStructObjectsWithSameEqualsResultAndExpectedEqualTrue()
         {
             // Arrange
@@ -83,7 +83,7 @@ namespace Fambda.Tests.Concepts
             result.Should().BeSuccess();
         }
 
-        [TestMethod]
+        [Fact]
         public void ApplyEqualsOfTMustReturnExpectedResultForStructObjectsWithSameEqualsResultAndExpectedEqualFalse()
         {
             // Arrange
@@ -97,7 +97,7 @@ namespace Fambda.Tests.Concepts
             result.Should().BeFailure("Typed Equals returned 'true' on expected non-equal objects.");
         }
 
-        [TestMethod]
+        [Fact]
         public void ApplyEqualsOfTMustReturnExpectedResultForStructObjectsWithDifferentEqualsResultAndExpectedEqualTrue()
         {
             // Arrange
@@ -111,7 +111,7 @@ namespace Fambda.Tests.Concepts
             result.Should().BeFailure("Typed Equals returned 'false' on expected equal objects.");
         }
 
-        [TestMethod]
+        [Fact]
         public void ApplyEqualsOfTMustReturnExpectedResultForStructObjectsWithDifferentEqualsResultAndExpectedEqualFalse()
         {
             // Arrange

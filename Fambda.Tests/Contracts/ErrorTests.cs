@@ -1,13 +1,12 @@
 using Fambda.Contracts;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests.Contracts
 {
-    [TestClass]
     public class ErrorTests
     {
-        [TestMethod]
+        [Fact]
         public void GuardExceptionMustNotBeNullReturnsExpectedException()
         {
             // Arrange
@@ -20,7 +19,7 @@ namespace Fambda.Tests.Contracts
             exception.Should().BeOfType(expectedExceptionType);
         }
 
-        [TestMethod]
+        [Fact]
         public void OptionSomeValueMustNotBeNullReturnsExpectedException()
         {
             // Arrange
@@ -33,7 +32,7 @@ namespace Fambda.Tests.Contracts
             exception.Should().BeOfType(expectedExceptionType);
         }
 
-        [TestMethod]
+        [Fact]
         public void OptionValueMustNotBeNullReturnsExpectedException()
         {
             // Arrange
@@ -46,7 +45,7 @@ namespace Fambda.Tests.Contracts
             exception.Should().BeOfType(expectedExceptionType);
         }
 
-        [TestMethod]
+        [Fact]
         public void ExceptionalExceptionMustNotBeNullReturnsExpectedException()
         {
             // Arrange
@@ -59,7 +58,7 @@ namespace Fambda.Tests.Contracts
             exception.Should().BeOfType(expectedExceptionType);
         }
 
-        [TestMethod]
+        [Fact]
         public void EnumerationKeyMustNotBeNullReturnsExpectedException()
         {
             // Arrange
@@ -72,7 +71,7 @@ namespace Fambda.Tests.Contracts
             exception.Should().BeOfType(expectedExceptionType);
         }
 
-        [TestMethod]
+        [Fact]
         public void EnumerationKeyMustNotBeEmptyReturnsExpectedException()
         {
             // Arrange
@@ -85,7 +84,7 @@ namespace Fambda.Tests.Contracts
             exception.Should().BeOfType(expectedExceptionType);
         }
 
-        [TestMethod]
+        [Fact]
         public void EnumerationKeyMustNotBeWhiteSpaceReturnsExpectedException()
         {
             // Arrange
@@ -98,7 +97,7 @@ namespace Fambda.Tests.Contracts
             exception.Should().BeOfType(expectedExceptionType);
         }
 
-        [TestMethod]
+        [Fact]
         public void EnumerationKeyMustNotContainLeadingSpaceReturnsExpectedException()
         {
             // Arrange
@@ -111,7 +110,7 @@ namespace Fambda.Tests.Contracts
             exception.Should().BeOfType(expectedExceptionType);
         }
 
-        [TestMethod]
+        [Fact]
         public void EnumerationKeyMustNotContainTrailingSpaceReturnsExpectedException()
         {
             // Arrange

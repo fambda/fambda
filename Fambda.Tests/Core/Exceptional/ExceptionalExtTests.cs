@@ -1,16 +1,15 @@
 using System;
 using Fambda.Tests.DataTypes;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public class ExceptionalExtTests
     {
         #region Map
 
-        [TestMethod]
+        [Fact]
         public void MapShouldNotInvokeFuncWhenException()
         {
             // Arrange
@@ -26,7 +25,7 @@ namespace Fambda.Tests
             result.ToString().Should().Be("Exception(Some exception)");
         }
 
-        [TestMethod]
+        [Fact]
         public void MapShouldSucceedWhenSuccess()
         {
             // Arrange
@@ -46,7 +45,7 @@ namespace Fambda.Tests
 
         #region Bind
 
-        [TestMethod]
+        [Fact]
         public void BindShouldSucceedWhenSuccess()
         {
             // Arrange
@@ -80,7 +79,7 @@ namespace Fambda.Tests
         }
 
 
-        [TestMethod]
+        [Fact]
         public void BindShouldNotInvokeFuncWhenException()
         {
             // Arrange

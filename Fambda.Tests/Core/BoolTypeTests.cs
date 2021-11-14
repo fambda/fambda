@@ -1,22 +1,21 @@
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 using static Fambda.F;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public class BoolTypeTests
     {
         #region Parse
 
-        [DataTestMethod]
-        [DataRow("True", true)]
-        [DataRow("true", true)]
-        [DataRow("tRue", true)]
-        [DataRow("False", false)]
-        [DataRow("false", false)]
-        [DataRow("fAlse", false)]
+        [Theory]
+        [InlineData("True", true)]
+        [InlineData("true", true)]
+        [InlineData("tRue", true)]
+        [InlineData("False", false)]
+        [InlineData("false", false)]
+        [InlineData("fAlse", false)]
         public void ParseShouldReturnOptionBoolSome(string stringBool, bool expectedBool)
         {
             // Arrange
@@ -30,7 +29,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseShouldReturnOptionBoolNone()
         {
             // Arrange
@@ -44,7 +43,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-      
+
         #endregion
     }
 }

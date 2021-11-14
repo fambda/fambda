@@ -1,13 +1,12 @@
-﻿using System;
+using System;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public class TryTests
     {
-        [TestMethod]
+        [Fact]
         public void TryShouldMatchToSuccess()
         {
             // Arrange
@@ -26,7 +25,7 @@ namespace Fambda.Tests
             result.Should().Be("Result=Success(https://fambda.net/)");
         }
 
-        [TestMethod]
+        [Fact]
         public void TryShouldMatchToException()
         {
             // Arrange

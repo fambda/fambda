@@ -1,18 +1,16 @@
 using System;
 using System.Collections.Generic;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using Xunit;
 using static Fambda.F;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public class OptionExtTests
     {
         #region Map
 
-        [TestMethod]
+        [Fact]
         public void MapShouldSucceedWhenSome()
         {
             // Arrange
@@ -27,7 +25,7 @@ namespace Fambda.Tests
             result.ToString().Should().Be("Some(1)");
         }
 
-        [TestMethod]
+        [Fact]
         public void MapShouldSucceedWhenNone()
         {
             // Arrange
@@ -45,7 +43,7 @@ namespace Fambda.Tests
 
         #region Bind
 
-        [TestMethod]
+        [Fact]
         public void BindShouldReturnSome()
         {
             // Arrange
@@ -72,7 +70,7 @@ namespace Fambda.Tests
             result.Should().Be(Some(true));
         }
 
-        [TestMethod]
+        [Fact]
         public void BindShouldReturnNone()
         {
             // Arrange
@@ -102,7 +100,7 @@ namespace Fambda.Tests
 
         #region Linq
 
-        [TestMethod]
+        [Fact]
         public void LinqExpressionSingleFromClauseShouldSucceed()
         {
             // Arrange
@@ -116,7 +114,7 @@ namespace Fambda.Tests
             result.Should().Be(expectedResult);
         }
 
-        [TestMethod]
+        [Fact]
         public void LinqExpressionTwoFromClausesShouldSucceed()
         {
             // Arrange
@@ -131,7 +129,7 @@ namespace Fambda.Tests
             result.Should().Be(expectedResult);
         }
 
-        [TestMethod]
+        [Fact]
         public void LinqExpressionThreeFromClausesShouldSucceed()
         {
             // Arrange
@@ -147,7 +145,7 @@ namespace Fambda.Tests
             result.Should().Be(expectedResult);
         }
 
-        [TestMethod]
+        [Fact]
         public void LinqExpressionMultipleFromClausesShouldSucceed()
         {
             // Arrange
@@ -166,7 +164,7 @@ namespace Fambda.Tests
             result.Should().Be(expectedResult);
         }
 
-        [TestMethod]
+        [Fact]
         public void LinqExpressionFromWhereShouldReturnSome()
         {
             // Arrange
@@ -181,7 +179,7 @@ namespace Fambda.Tests
             result.Should().Be(expectedResult);
         }
 
-        [TestMethod]
+        [Fact]
         public void LinqExpressionFromWhereShouldReturnNone()
         {
             // Arrange
@@ -200,7 +198,7 @@ namespace Fambda.Tests
 
         #region AsEnumerable
 
-        [TestMethod]
+        [Fact]
         public void AsEnumerableShouldReturnOneItemWhenSome()
         {
             // Arrange
@@ -215,7 +213,7 @@ namespace Fambda.Tests
             result.Should().BeEquivalentTo(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void MapShouldReturnNoItemWhenNone()
         {
             // Arrange

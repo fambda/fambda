@@ -1,13 +1,12 @@
 using Fambda.Contracts;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests.Contracts.Exceptions
 {
-    [TestClass]
     public class OptionValueMustNotBeNullExceptionTests
     {
-        [TestMethod]
+        [Fact]
         public void ShouldBeAssignableToGuardExceptionType()
         {
             // Arrange
@@ -20,7 +19,7 @@ namespace Fambda.Tests.Contracts.Exceptions
             exception.Should().BeAssignableTo(guardExceptionType);
         }
 
-        [TestMethod]
+        [Fact]
         public void ShouldHaveOptionValueMustNotBeNullMessage()
         {
             // Arrange

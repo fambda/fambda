@@ -1,14 +1,13 @@
 using System;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public class FambdaFTests
     {
         #region Curry
-        [TestMethod]
+        [Fact]
         public void CurryFunctionWithTwoParametersShouldSucceed()
         {
             // Arrange
@@ -23,7 +22,7 @@ namespace Fambda.Tests
             result.Should().Be(add2ArgsResult);
         }
 
-        [TestMethod]
+        [Fact]
         public void CurryFunctionWithThreeParametersShouldSucceed()
         {
             // Arrange
@@ -38,7 +37,7 @@ namespace Fambda.Tests
             result.Should().Be(add3ArgsResult);
         }
 
-        [TestMethod]
+        [Fact]
         public void CurryFunctionWithFourParametersShouldSucceed()
         {
             // Arrange
@@ -57,7 +56,7 @@ namespace Fambda.Tests
 
         #region Uncurry
 
-        [TestMethod]
+        [Fact]
         public void UncurryFunctionToTwoParametersShouldSucceed()
         {
             // Arrange
@@ -72,7 +71,7 @@ namespace Fambda.Tests
             result.Should().Be(add2ArgsResult);
         }
 
-        [TestMethod]
+        [Fact]
         public void UncurryFunctionToThreeParametersShouldSucceed()
         {
             // Arrange
@@ -87,7 +86,7 @@ namespace Fambda.Tests
             result.Should().Be(add3ArgsResult);
         }
 
-        [TestMethod]
+        [Fact]
         public void UncurryFunctionToFourParametersShouldSucceed()
         {
             // Arrange

@@ -1,16 +1,15 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Fambda.Tests.DataTypes;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public class EnumerationTests
     {
         #region List
 
-        [TestMethod]
+        [Fact]
         public void ListShouldSucceed()
         {
             // Arrange
@@ -40,7 +39,7 @@ namespace Fambda.Tests
 
         #region Get
 
-        [TestMethod]
+        [Fact]
         public void GetShouldSucceedWithSome()
         {
             // Arrange
@@ -53,7 +52,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetShouldSucceedWithNone()
         {
             // Arrange
@@ -70,7 +69,7 @@ namespace Fambda.Tests
 
         #region Equals
 
-        [TestMethod]
+        [Fact]
         public void EqualsShouldReturnTrue()
         {
             // Arrange
@@ -84,7 +83,7 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsShouldReturnFalse()
         {
             // Arrange
@@ -98,7 +97,7 @@ namespace Fambda.Tests
             result.Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void OperatorEqualToOverloadingShouldReturnTrue()
         {
             // Arrange
@@ -112,7 +111,7 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void OperatorNotEqualToOverloadingShouldReturnFalse()
         {
             // Arrange
@@ -128,7 +127,7 @@ namespace Fambda.Tests
 
         #endregion
 
-        [TestMethod]
+        [Fact]
         public void ToStringShouldReturnKey()
         {
             // Arrange

@@ -1,18 +1,17 @@
 using System;
 using System.Globalization;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 using static Fambda.F;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public class FloatTypeTests
     {
         #region Parse
 
-        [TestMethod]
+        [Fact]
         public void ParseShouldReturnOptionFloatSome()
         {
             // Arrange
@@ -26,7 +25,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseShouldReturnOptionFloatNone()
         {
             // Arrange
@@ -40,7 +39,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseWithNumberStylesShouldReturnOptionFloatSome()
         {
             // Arrange
@@ -54,7 +53,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseWithNumberStylesShouldReturnOptionFloatNone()
         {
             // Arrange
@@ -68,7 +67,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseWithNumberStylesShouldReturnOptionFloatNoneWhenStringIsNotExpectedHexNumber()
         {
             // Arrange
@@ -82,7 +81,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseWithFormatProviderShouldReturnOptionFloatSome()
         {
             // Arrange
@@ -98,7 +97,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseWithFormatProviderShouldReturnOptionFloatNone()
         {
             // Arrange
@@ -114,7 +113,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionFloatSome()
         {
             // Arrange
@@ -129,7 +128,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionFloatNone()
         {
             // Arrange

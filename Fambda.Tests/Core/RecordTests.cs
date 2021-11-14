@@ -1,15 +1,14 @@
 using System.Collections.Generic;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public class RecordTests
     {
         #region Equals
 
-        [TestMethod]
+        [Fact]
         public void EqualsShouldReturnTrue()
         {
             // Arrange
@@ -23,7 +22,7 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsShouldReturnFalse()
         {
             // Arrange
@@ -37,7 +36,7 @@ namespace Fambda.Tests
             result.Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void OperatorEqualToOverloadingShouldReturnTrue()
         {
             // Arrange
@@ -51,7 +50,7 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void OperatorNotEqualToOverloadingShouldReturnFalse()
         {
             // Arrange
