@@ -1,16 +1,14 @@
 using System;
 using Fambda.Contracts;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using Xunit;
 using static Fambda.F;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public class OptionFTests
     {
-        [TestMethod]
+        [Fact]
         public void SomeShouldSucceed()
         {
             // Arrange
@@ -23,7 +21,7 @@ namespace Fambda.Tests
             option.ToString().Should().Be("Some(value)");
         }
 
-        [TestMethod]
+        [Fact]
         public void SomeShouldFail()
         {
             // Arrange
@@ -36,7 +34,7 @@ namespace Fambda.Tests
             act.Should().Throw<OptionSomeValueMustNotBeNullException>();
         }
 
-        [TestMethod]
+        [Fact]
         public void NoneShouldSucceed()
         {
             // Arrange

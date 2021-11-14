@@ -1,13 +1,13 @@
 using Fambda.Tests.Concepts.Objects;
 using Fambda.Tests.Helpers;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests.Concepts
 {
     public partial class EqComponentTests
     {
-        [TestMethod]
+        [Fact]
         public void ApplyGetHashCodeOnEqualObjectsMustReturnExpectedResultForClassObjectsWithSameHashCode()
         {
             // Arrange
@@ -21,7 +21,7 @@ namespace Fambda.Tests.Concepts
             result.Should().BeSuccess();
         }
 
-        [TestMethod]
+        [Fact]
         public void ApplyGetHashCodeOnEqualObjectsMustReturnExpectedResultForClassObjectsWithDifferentHashCode()
         {
             // Arrange
@@ -35,7 +35,7 @@ namespace Fambda.Tests.Concepts
             result.Should().BeFailure("GetHashCode of equal objects returned different values.");
         }
 
-        [TestMethod]
+        [Fact]
         public void ApplyGetHashCodeOnEqualObjectsMustReturnExpectedResultForStructObjectsWithSameHashCode()
         {
             // Arrange
@@ -49,7 +49,7 @@ namespace Fambda.Tests.Concepts
             result.Should().BeSuccess();
         }
 
-        [TestMethod]
+        [Fact]
         public void ApplyGetHashCodeOnEqualObjectsMustReturnExpectedResultForStructObjectsWithDifferentHashCode()
         {
             // Arrange

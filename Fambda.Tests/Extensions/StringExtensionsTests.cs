@@ -1,17 +1,16 @@
 using System;
 using Fambda.Extensions;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests.Extensions
 {
-    [TestClass]
     public class StringExtensionsTests
     {
-        [DataTestMethod]
-        [DataRow(null, false)]
-        [DataRow("not empty", false)]
-        [DataRow("", true)]
+        [Theory]
+        [InlineData(null, false)]
+        [InlineData("not empty", false)]
+        [InlineData("", true)]
         public void IsEmptyShouldReturnExpectedResult(string str, bool boolean)
         {
             // Arrange
@@ -24,12 +23,13 @@ namespace Fambda.Tests.Extensions
             result.Should().Be(expected);
         }
 
-        [DataTestMethod]
-        [DataRow(null, false)]
-        [DataRow("not white space", false)]
-        [DataRow("", true)]
-        [DataRow(" ", true)]
-        [DataRow("  ", true)]
+
+        [Theory]
+        [InlineData(null, false)]
+        [InlineData("not white space", false)]
+        [InlineData("", true)]
+        [InlineData(" ", true)]
+        [InlineData("  ", true)]
         public void IsWhiteSpaceShouldReturnExpectedResult(string str, bool boolean)
         {
             // Arrange
@@ -42,12 +42,13 @@ namespace Fambda.Tests.Extensions
             result.Should().Be(expected);
         }
 
-        [DataTestMethod]
-        [DataRow(null, false)]
-        [DataRow("", false)]
-        [DataRow(" str", true)]
-        [DataRow("  str", true)]
-        [DataRow("   str", true)]
+
+        [Theory]
+        [InlineData(null, false)]
+        [InlineData("", false)]
+        [InlineData(" str", true)]
+        [InlineData("  str", true)]
+        [InlineData("   str", true)]
         public void HasLeadingSpaceShouldReturnExpectedResult(string str, bool boolean)
         {
             // Arrange
@@ -60,12 +61,13 @@ namespace Fambda.Tests.Extensions
             result.Should().Be(expected);
         }
 
-        [DataTestMethod]
-        [DataRow(null, false)]
-        [DataRow("", false)]
-        [DataRow("str ", true)]
-        [DataRow("str  ", true)]
-        [DataRow("str   ", true)]
+
+        [Theory]
+        [InlineData(null, false)]
+        [InlineData("", false)]
+        [InlineData("str ", true)]
+        [InlineData("str  ", true)]
+        [InlineData("str   ", true)]
         public void HasTrailingSpaceShouldReturnExpectedResult(string str, bool boolean)
         {
             // Arrange

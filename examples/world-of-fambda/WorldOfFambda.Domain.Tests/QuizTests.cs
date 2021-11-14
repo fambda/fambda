@@ -1,16 +1,15 @@
 using Fambda;
 using static Fambda.F;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FluentAssertions;
 using System;
+using Xunit;
 
 namespace WorldOfFambda.Domain.Tests
 {
-    [TestClass]
     public class QuizTests
     {
-        [TestMethod]
+        [Fact]
         public void QuizAnswerShouldBeTrue()
         {
             // Arrange
@@ -28,7 +27,7 @@ namespace WorldOfFambda.Domain.Tests
             result.Should().Be("Quiz answer: 'True'");
         }
 
-        [TestMethod]
+        [Fact]
         public void QuizAnswerShouldBeFalse()
         {
             // Arrange
@@ -46,7 +45,7 @@ namespace WorldOfFambda.Domain.Tests
             result.Should().Be("Quiz answer: 'False'");
         }
 
-        [TestMethod]
+        [Fact]
         public void QuizAnswerShouldBeNotGiven()
         {
             // Arrange
@@ -65,7 +64,7 @@ namespace WorldOfFambda.Domain.Tests
         }
 
 
-        [TestMethod]
+        [Fact]
         public void QuizAnswerMapShouldBeSome()
         {
             // Arrange
@@ -82,7 +81,7 @@ namespace WorldOfFambda.Domain.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void QuizAnswerMapShouldBeNone()
         {
             // Arrange

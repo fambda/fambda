@@ -1,14 +1,13 @@
 using System;
 using Fambda.Contracts;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public class OptionSomeTests
     {
-        [TestMethod]
+        [Fact]
         public void CtorShouldSucceed()
         {
             // Arrange
@@ -21,7 +20,7 @@ namespace Fambda.Tests
             ctor.Should().NotThrow();
         }
 
-        [TestMethod]
+        [Fact]
         public void CtorShouldFail()
         {
             // Arrange
@@ -34,7 +33,7 @@ namespace Fambda.Tests
             ctor.Should().Throw<OptionSomeValueMustNotBeNullException>();
         }
 
-        [TestMethod]
+        [Fact]
         public void CtorShouldSetCorrectValue()
         {
             // Arrange
@@ -47,6 +46,7 @@ namespace Fambda.Tests
             result.Value.Should().Be(value);
         }
 
+        [Fact]
         public void EqualsObjectShouldReturnTrue()
         {
             // Arrange
@@ -60,6 +60,7 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
+        [Fact]
         public void EqualsObjectShouldReturnFalse()
         {
             // Arrange
@@ -73,7 +74,7 @@ namespace Fambda.Tests
             result.Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsOptionSomeShouldReturnTrue()
         {
             // Arrange
@@ -87,7 +88,7 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void EqualsOptionSomeShouldReturnFalse()
         {
             // Arrange
@@ -101,7 +102,7 @@ namespace Fambda.Tests
             result.Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void ToStringShouldProvideExpectedRepresentation()
         {
             // Arrange

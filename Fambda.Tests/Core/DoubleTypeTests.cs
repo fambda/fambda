@@ -1,18 +1,17 @@
 using System;
 using System.Globalization;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 using static Fambda.F;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public class DoubleTypeTests
     {
         #region Parse
 
-        [TestMethod]
+        [Fact]
         public void ParseShouldReturnOptionDoubleSome()
         {
             // Arrange
@@ -26,7 +25,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseShouldReturnOptionDoubleNone()
         {
             // Arrange
@@ -40,7 +39,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseWithNumberStylesShouldReturnOptionDoubleSome()
         {
             // Arrange
@@ -54,7 +53,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseWithNumberStylesShouldReturnOptionDoubleNone()
         {
             // Arrange
@@ -68,7 +67,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseWithNumberStylesShouldReturnOptionDoubleNoneWhenStringIsNotExpectedHexNumber()
         {
             // Arrange
@@ -82,7 +81,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseWithFormatProviderShouldReturnOptionDoubleSome()
         {
             // Arrange
@@ -98,7 +97,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseWithFormatProviderShouldReturnOptionDoubleNone()
         {
             // Arrange
@@ -114,7 +113,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionDoubleSome()
         {
             // Arrange
@@ -129,7 +128,7 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-        [TestMethod]
+        [Fact]
         public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionDoubleNone()
         {
             // Arrange

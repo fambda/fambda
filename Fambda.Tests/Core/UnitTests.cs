@@ -1,15 +1,14 @@
 using System;
 using Fambda.Tests.Helpers;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public partial class UnitTests
     {
 
-        [TestMethod]
+        [Fact]
         public void GetHashCodeShouldReturnZero()
         {
             // Arrange
@@ -22,7 +21,7 @@ namespace Fambda.Tests
             result.Should().Be(0);
         }
 
-        [TestMethod]
+        [Fact]
         public void ToStringShouldReturnOpenCloseParantheses()
         {
             // Arrange
@@ -35,7 +34,7 @@ namespace Fambda.Tests
             result.Should().Be("()");
         }
 
-        [TestMethod]
+        [Fact]
         public void OperatorGreaterThanOverloadingShouldReturnFalse()
         {
             // Arrange
@@ -49,7 +48,7 @@ namespace Fambda.Tests
             result.Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void OperatorGreaterThanOrEqualToOverloadingShouldReturnTrue()
         {
             // Arrange
@@ -63,7 +62,7 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void OperatorLesserThanOverloadingShouldReturnFalse()
         {
             // Arrange
@@ -77,7 +76,7 @@ namespace Fambda.Tests
             result.Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void OperatorLesserThanOrEqualToOverloadingShouldReturnTrue()
         {
             // Arrange
@@ -91,7 +90,7 @@ namespace Fambda.Tests
             result.Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void CompareToShouldReturnZero()
         {
             // Arrange
@@ -106,7 +105,7 @@ namespace Fambda.Tests
             result.Should().Be(expectedResult);
         }
 
-        [TestMethod]
+        [Fact]
         public void OperatorAdditionOverloadingShouldReturnUnit()
         {
             // Arrange
@@ -121,7 +120,7 @@ namespace Fambda.Tests
             result.Should().Be(expectedResult);
         }
 
-        [TestMethod]
+        [Fact]
         public void OperatorSubtractionOverloadingShouldReturnUnit()
         {
             // Arrange
@@ -136,7 +135,7 @@ namespace Fambda.Tests
             result.Should().Be(expectedResult);
         }
 
-        [TestMethod]
+        [Fact]
         public void ImplicitUnitToValueTupleConversionShouldReturnDefaultValueTuple()
         {
             // Arrange
@@ -150,7 +149,7 @@ namespace Fambda.Tests
             result.Should().Be(expectedResult);
         }
 
-        [TestMethod]
+        [Fact]
         public void ImplicitValueTupleToUnitConversionShouldReturnUnit()
         {
             // Arrange

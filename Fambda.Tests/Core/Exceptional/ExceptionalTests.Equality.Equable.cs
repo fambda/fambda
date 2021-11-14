@@ -1,14 +1,14 @@
 using Fambda.Tests.DataTypes;
 using Fambda.Tests.Helpers;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests
 {
     public partial class ExceptionalTests
     {
-        [TestMethod]
-        [TestCategory("Equable")]
+        [Fact]
+        [Trait("Category", "Equable")]
         public void EquableNullMustPassWhenSuccess()
         {
             // Arrange
@@ -22,8 +22,8 @@ namespace Fambda.Tests
             result.Should().Pass();
         }
 
-        [TestMethod]
-        [TestCategory("Equable")]
+        [Fact]
+        [Trait("Category", "Equable")]
         public void EquableNullMustPassWhenException()
         {
             // Arrange
@@ -37,8 +37,8 @@ namespace Fambda.Tests
             result.Should().Pass();
         }
 
-        [TestMethod]
-        [TestCategory("Equable")]
+        [Fact]
+        [Trait("Category", "Equable")]
         public void EquableEqualMustPassWhenBothSuccess()
         {
             // Arrange
@@ -55,8 +55,8 @@ namespace Fambda.Tests
             result.Should().Pass();
         }
 
-        [TestMethod]
-        [TestCategory("Equable")]
+        [Fact]
+        [Trait("Category", "Equable")]
         public void EquableEqualMustPassWhenBothException()
         {
             // Arrange
@@ -73,8 +73,8 @@ namespace Fambda.Tests
             result.Should().Pass();
         }
 
-        [TestMethod]
-        [TestCategory("Equable")]
+        [Fact]
+        [Trait("Category", "Equable")]
         public void EquableUnequalMustPassWhenFirstSuccessAndSecondException()
         {
             // Arrange
@@ -91,8 +91,8 @@ namespace Fambda.Tests
             result.Should().Pass();
         }
 
-        [TestMethod]
-        [TestCategory("Equable")]
+        [Fact]
+        [Trait("Category", "Equable")]
         public void EquableUnequalMustPassWhenFirstExceptionAndSecondSuccess()
         {
             // Arrange

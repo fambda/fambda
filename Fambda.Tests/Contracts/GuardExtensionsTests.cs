@@ -1,14 +1,13 @@
 using System;
 using Fambda.Contracts;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests.Contracts
 {
-    [TestClass]
     public class GuardExtensionsTests
     {
-        [TestMethod]
+        [Fact]
         public void AgainstNullShouldNotThrowWhenReferenceTypeValueIsNotNull()
         {
             // Arrange
@@ -24,7 +23,7 @@ namespace Fambda.Tests.Contracts
             act.Should().NotThrow();
         }
 
-        [TestMethod]
+        [Fact]
         public void AgainstNullShouldNotThrowWhenNullableTypeValueIsNotNull()
         {
             // Arrange
@@ -40,7 +39,7 @@ namespace Fambda.Tests.Contracts
             act.Should().NotThrow();
         }
 
-        [TestMethod]
+        [Fact]
         public void AgainstNullShouldReturnProvidedExceptionWhenReferenceTypeValueIsNull()
         {
             // Arrange
@@ -56,7 +55,7 @@ namespace Fambda.Tests.Contracts
             act.Should().Throw<GuardException>().WithMessage(guardExceptionMessage);
         }
 
-        [TestMethod]
+        [Fact]
         public void AgainstNullShouldReturnProvidedExceptionWhenNullableTypeValueIsNull()
         {
             // Arrange
@@ -74,7 +73,7 @@ namespace Fambda.Tests.Contracts
 
 
 
-        [TestMethod]
+        [Fact]
         public void EachAgainstNullMustNotThrowWhenEachObjectIsNotNull()
         {
             // Arrange
@@ -93,7 +92,7 @@ namespace Fambda.Tests.Contracts
         }
 
 
-        [TestMethod]
+        [Fact]
         public void EachAgainstNullMustNotThrowWhenSomeObjectIsNull()
         {
             // Arrange

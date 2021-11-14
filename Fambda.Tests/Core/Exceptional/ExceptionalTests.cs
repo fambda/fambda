@@ -1,17 +1,16 @@
-﻿using System;
+using System;
 using Fambda.Contracts;
 using Fambda.Tests.DataTypes;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests
 {
-    [TestClass]
     public partial class ExceptionalTests
     {
         #region Exceptional
 
-        [TestMethod]
+        [Fact]
         public void ImplicitOperatorOverloadingShouldNotThrowWhenExceptionIsNotNull()
         {
             // Arrange
@@ -24,7 +23,7 @@ namespace Fambda.Tests
             act.Should().NotThrow();
         }
 
-        [TestMethod]
+        [Fact]
         public void ImplicitOperatorOverloadingShouldThrowWhenExceptionIsNull()
         {
             // Arrange
@@ -37,7 +36,7 @@ namespace Fambda.Tests
             act.Should().Throw<ExceptionalExceptionMustNotBeNullException>();
         }
 
-        [TestMethod]
+        [Fact]
         public void ImplicitOperatorOverloadingShouldNotThrowWhenNotAnExceptionIsPassed()
         {
             // Arrange
@@ -50,7 +49,7 @@ namespace Fambda.Tests
             act.Should().NotThrow();
         }
 
-        [TestMethod]
+        [Fact]
         public void ImplicitOperatorOverloadingShouldSetCorrectDataWhenExceptionIsNotNull()
         {
             // Arrange
@@ -64,7 +63,7 @@ namespace Fambda.Tests
             exceptional.Value.Should().BeNull();
         }
 
-        [TestMethod]
+        [Fact]
         public void ImplicitOperatorOverloadingShouldSetCorrectDataWhenNotAnExceptionIsPassed()
         {
             // Arrange
@@ -82,7 +81,7 @@ namespace Fambda.Tests
 
         #region Match
 
-        [TestMethod]
+        [Fact]
         public void MatchShouldReturnException()
         {
             // Arrange
@@ -99,7 +98,7 @@ namespace Fambda.Tests
             result.Should().Be("Result=Exception(SomeException)");
         }
 
-        [TestMethod]
+        [Fact]
         public void MatchShouldReturnSuccess()
         {
             // Arrange

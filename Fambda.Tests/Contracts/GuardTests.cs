@@ -1,14 +1,13 @@
 using System;
 using Fambda.Contracts;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests.Contracts
 {
-    [TestClass]
     public class GuardTests
     {
-        [TestMethod]
+        [Fact]
         public void CreateShouldSucceed()
         {
             // Arrange
@@ -23,7 +22,7 @@ namespace Fambda.Tests.Contracts
             ctor.Should().NotThrow();
         }
 
-        [TestMethod]
+        [Fact]
         public void CreateShouldFail()
         {
             // Arrange

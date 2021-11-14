@@ -1,13 +1,13 @@
 using Fambda.Tests.Helpers;
 using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace Fambda.Tests
 {
     public partial class EitherTests
     {
-        [TestMethod]
-        [TestCategory("Equable")]
+        [Fact]
+        [Trait("Category", "Equable")]
         public void EquableNullMustPassWhenLeft()
         {
             // Arrange
@@ -20,8 +20,8 @@ namespace Fambda.Tests
             result.Should().Pass();
         }
 
-        [TestMethod]
-        [TestCategory("Equable")]
+        [Fact]
+        [Trait("Category", "Equable")]
         public void EquableNullMustPassWhenRight()
         {
             // Arrange
@@ -34,8 +34,8 @@ namespace Fambda.Tests
             result.Should().Pass();
         }
 
-        [TestMethod]
-        [TestCategory("Equable")]
+        [Fact]
+        [Trait("Category", "Equable")]
         public void EquableEqualMustPassWhenBothLeft()
         {
             // Arrange
@@ -49,8 +49,8 @@ namespace Fambda.Tests
             result.Should().Pass();
         }
 
-        [TestMethod]
-        [TestCategory("Equable")]
+        [Fact]
+        [Trait("Category", "Equable")]
         public void EquableEqualMustPassWhenBothRight()
         {
             // Arrange
@@ -64,8 +64,8 @@ namespace Fambda.Tests
             result.Should().Pass();
         }
 
-        [TestMethod]
-        [TestCategory("Equable")]
+        [Fact]
+        [Trait("Category", "Equable")]
         public void EquableUnequalMustPassWhenFirstLeftAndSecondRight()
         {
             // Arrange
@@ -79,8 +79,8 @@ namespace Fambda.Tests
             result.Should().Pass();
         }
 
-        [TestMethod]
-        [TestCategory("Equable")]
+        [Fact]
+        [Trait("Category", "Equable")]
         public void EquableUnequalMustPassWhenFirstRightAndSecondLeft()
         {
             // Arrange
