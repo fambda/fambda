@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics.Contracts;
 using Fambda.Contracts;
+using static Fambda.F;
 
 namespace Fambda
 {
@@ -71,7 +72,7 @@ namespace Fambda
         /// </summary>
         /// <returns>A hash code for the current <see cref="Option{T}"/> object.</returns>
         public override int GetHashCode()
-            => ToString().GetHashCode();
+            => default(HashableOption<T>).GetHashCode();
 
         /// <summary>
         /// Indicates whether the current <see cref="Option{T}"/> is equal to another <see cref="Option{T}"/>
@@ -79,8 +80,7 @@ namespace Fambda
         /// <param name="other">An <see cref="Option{T}"/> to compare with this <see cref="Option{T}"/>.</param>
         /// <returns>true if the current <see cref="Option{T}"/> object is equal to the other parameter; otherwise, false.</returns>
         public bool Equals(Option<T> other)
-            => (_isSome && _isSome == other._isSome && _value.Equals(other._value))
-               || (!_isSome && !other._isSome);
+            => default(EqOption<T>).Equals(this, other);
 
         /// <summary>
         /// Indicates whether the current <see cref="Option{T}"/> is equal to <see cref="OptionNone"/>
@@ -97,9 +97,9 @@ namespace Fambda
         /// <returns>true if the specified object is equal to the current <see cref="Option{T}"/> object; otherwise, false.</returns>
         public override bool Equals(object obj)
         {
-            if (obj == null) return false;
-            else if (obj is OptionNone) return Equals((OptionNone)obj);
-            else if (obj is OptionSome<T> optionSome) return Equals(optionSome);
+            if (IsNull(obj)) { return false; }
+            else if (obj is OptionNone optionNone) { return Equals(optionNone); }
+            else if (obj is OptionSome<T> optionSome) { return Equals(optionSome); }
             return base.Equals(obj);
         }
 
@@ -129,5 +129,20 @@ namespace Fambda
         [Pure]
         public static bool operator !=(Option<T> lhs, Option<T> rhs)
             => !Equals(lhs, rhs);
+
+        /// <summary>
+        /// Indicates whether the current <see cref="Option{T}"/> is in Some state.
+        /// </summary>
+        [Pure]
+        public bool IsSome =>
+            _isSome;
+
+        /// <summary>
+        /// Indicates whether the current <see cref="Option{T}"/> is in None state.
+        /// </summary>
+        [Pure]
+        public bool IsNone =>
+            !_isSome;
+
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics.Contracts;
+using static Fambda.ObjectExt;
 
 namespace Fambda
 {
@@ -108,5 +109,14 @@ namespace Fambda
             => (t1, t2, t3, t4) => func(t1)(t2)(t3)(t4);
 
         #endregion
+
+        /// <summary>
+        /// Indicates whether the specified T value is null.
+        /// </summary>
+        /// <param name="value">The T value to test.</param>
+        /// <returns>true if the specified value is null; otherwise, false.</returns>
+        [Pure]
+        public static bool IsNull<T>(T value)
+            => CheckHelper<T>.IsNull(value);
     }
 }
