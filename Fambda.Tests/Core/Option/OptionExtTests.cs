@@ -85,7 +85,7 @@ namespace Fambda.Tests
                 else
                 {
                     return None;
-                };
+                }
             };
 
             // Act
