@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Fambdaway" ToolsVersion="16.0">
+  <Include Path="..\rulesets\sonar.ruleset" Action="Default" />
+</RuleSet>
