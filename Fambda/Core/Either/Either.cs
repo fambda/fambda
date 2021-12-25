@@ -63,11 +63,11 @@ namespace Fambda
            => Match(Left.ToFunc(), Right.ToFunc());
 
         /// <summary>
-        /// Calculates the hash-code based on whether <see cref="Either{L,R}"/> is in Some or None.
+        /// Calculates the hash-code based on whether <see cref="Either{L,R}"/> is in Left or Right.
         /// </summary>
         /// <returns>A hash code for the current <see cref="Either{L,R}"/> object.</returns>
         public override int GetHashCode()
-            => ToString().GetHashCode();
+            => default(HashableEither<L,R>).GetHashCode();
 
         /// <summary>
         /// Indicates whether the current <see cref="Either{L,R}"/> is equal to another <see cref="Either{L,R}"/>
@@ -75,42 +75,8 @@ namespace Fambda
         /// <param name="other">An <see cref="Either{L,R}"/> to compare with this <see cref="Either{L,R}"/>.</param>
         /// <returns>true if the current <see cref="Either{L,R}"/> object is equal to the other parameter; otherwise, false.</returns>
         public bool Equals(Either<L, R> other)
-        {
-            bool result;
+            => default(EqEither<L, R>).Equals(this, other);
 
-            if (_isLeft)
-            {
-                if (object.Equals(Left, null) && object.Equals(other.Left, null))
-                {
-                    result = true;
-                }
-                else if (object.Equals(Left, null) || object.Equals(other.Left, null))
-                {
-                    result = false;
-                }
-                else
-                {
-                    result = object.Equals(Left, other.Left);
-                }
-            }
-            else
-            {
-                if (object.Equals(Right, null) && object.Equals(other.Right, null))
-                {
-                    result = true;
-                }
-                else if (object.Equals(Right, null) || object.Equals(other.Right, null))
-                {
-                    result = false;
-                }
-                else
-                {
-                    result = object.Equals(Right, other.Right);
-                }
-            }
-
-            return result;
-        }
 
         /// <summary>
         /// Determines whether specified object is equal to the current <see cref="Either{L,R}"/> object.
@@ -149,5 +115,19 @@ namespace Fambda
         [Pure]
         public static bool operator !=(Either<L, R> lhs, Either<L, R> rhs)
             => !Equals(lhs, rhs);
+
+        /// <summary>
+        /// Indicates whether the current <see cref="Either{L,R}"/> is in Left state.
+        /// </summary>
+        [Pure]
+        public bool IsLeft =>
+            _isLeft;
+
+        /// <summary>
+        /// Indicates whether the current <see cref="Either{L,R}"/> is in Right state.
+        /// </summary>
+        [Pure]
+        public bool IsRight =>
+            !_isLeft;
     }
 }
