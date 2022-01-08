@@ -60,7 +60,7 @@ namespace Fambda
             => this.Exception != null ? await Task.FromResult(Exception(this.Exception)) : await Success(this.Value).ConfigureAwait(false);
 
         /// <summary>
-        /// Calculates the hash-code based on whether <see cref="Exceptional{T}"/> is in Some or None.
+        /// Calculates the hash-code based on whether <see cref="Exceptional{T}"/> is in Exception or Success.
         /// </summary>
         /// <returns>A hash code for the current <see cref="Exceptional{T}"/> object.</returns>
         public override int GetHashCode()
