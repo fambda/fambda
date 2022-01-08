@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Fambda.Contracts;
 using Fambda.Tests.DataTypes;
 using FluentAssertions;
@@ -115,7 +116,40 @@ namespace Fambda.Tests
             result.Should().Be("Result=Success(value)");
         }
 
-        #endregion
+        [Fact]
+        public async Task MatchWithTaskShouldReturnException()
+        {
+            // Arrange
+            var exception = new SomeException("message");
+            Exceptional<string> exceptional = exception;
 
+            // Act
+            var result = await exceptional.Match(
+                                    Exception: (x) => $"Result=Exception({x.GetType().Name})",
+                                    Success: async (x) => await Task.FromResult($"Result=Success({x})")
+                                );
+
+            // Assert
+            result.Should().Be("Result=Exception(SomeException)");
+        }
+
+        [Fact]
+        public async Task MatchWithTaskShouldReturnSuccess()
+        {
+            // Arrange
+            var value = "value";
+            Exceptional<string> exceptional = value;
+
+            // Act
+            var result = await exceptional.Match(
+                                    Exception: (x) => $"Result=Exception({x.GetType().Name})",
+                                    Success: async (x) => await Task.FromResult($"Result=Success({x})")
+                                );
+
+            // Assert
+            result.Should().Be("Result=Success(value)");
+        }
+
+        #endregion
     }
 }
