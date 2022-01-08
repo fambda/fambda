@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics.Contracts;
+using System.Threading.Tasks;
 using Fambda.Contracts;
 
 namespace Fambda
@@ -48,6 +49,15 @@ namespace Fambda
         /// <param name="Success">Success match operation.</param>
         public Res Match<Res>(Func<Exception, Res> Exception, Func<T, Res> Success)
             => this.Exception != null ? Exception(this.Exception) : Success(this.Value);
+
+        /// <summary>
+        /// Match the Exception and Success of the <see cref="Exceptional{T}"/> and return Res.
+        /// </summary>
+        /// <typeparam name="Res">Return type.</typeparam>
+        /// <param name="Exception">Exception match operation.</param>
+        /// <param name="Success">Success match operation.</param>
+        public async Task<Res> Match<Res>(Func<Exception, Res> Exception, Func<T, Task<Res>> Success)
+            => this.Exception != null ? await Task.FromResult(Exception(this.Exception)) : await Success(this.Value).ConfigureAwait(false);
 
         /// <summary>
         /// Calculates the hash-code based on whether <see cref="Exceptional{T}"/> is in Some or None.
