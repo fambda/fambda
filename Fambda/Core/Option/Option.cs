@@ -143,6 +143,5 @@ namespace Fambda
         [Pure]
         public bool IsNone =>
             !_isSome;
-
     }
 }

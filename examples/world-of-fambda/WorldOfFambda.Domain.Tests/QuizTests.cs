@@ -1,9 +1,8 @@
-using Fambda;
-using static Fambda.F;
-
-using FluentAssertions;
 using System;
+using Fambda;
+using FluentAssertions;
 using Xunit;
+using static Fambda.F;
 
 namespace WorldOfFambda.Domain.Tests
 {

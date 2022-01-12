@@ -1,4 +1,4 @@
-﻿using Fambda.Contracts;
+using Fambda.Contracts;
 
 namespace Fambda
 {

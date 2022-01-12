@@ -1,4 +1,3 @@
-
 namespace Fambda
 {
     /// <summary>

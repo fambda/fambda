@@ -19,7 +19,7 @@ namespace Fambda
             Guard.On(exception, Error.ExceptionalExceptionMustNotBeNull()).AgainstNull();
 
             Exception = exception;
-            Value = default(T);
+            Value = default;
         }
 
         internal Exceptional(T value)
