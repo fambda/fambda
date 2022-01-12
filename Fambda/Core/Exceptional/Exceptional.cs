@@ -2,6 +2,7 @@ using System;
 using System.Diagnostics.Contracts;
 using System.Threading.Tasks;
 using Fambda.Contracts;
+using static Fambda.F;
 
 namespace Fambda
 {
@@ -99,9 +100,9 @@ namespace Fambda
         /// <returns>true if the specified object is equal to the current <see cref="Exceptional{T}"/> object; otherwise, false.</returns>
         public override bool Equals(object obj)
         {
-            if (obj == null) return false;
-            else if (obj is Exceptional<T> exceptional) return Equals(exceptional);
-            else return false;
+            if (IsNull(obj)) { return false; }
+            else if (obj is Exceptional<T> exceptional) { return Equals(exceptional); }
+            else { return false; }
         }
 
         /// <summary>
