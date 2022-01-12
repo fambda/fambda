@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.Contracts;
+using System.Diagnostics.Contracts;
 
 namespace Fambda.Extensions
 {
@@ -55,6 +55,5 @@ namespace Fambda.Extensions
         [Pure]
         internal static bool HasTrailingSpace(this string str)
             => str != null && str.Length > 0 && char.IsWhiteSpace(str, str.Length - 1);
-
     }
 }
