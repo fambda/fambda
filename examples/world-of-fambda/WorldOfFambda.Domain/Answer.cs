@@ -1,4 +1,4 @@
-﻿namespace WorldOfFambda.Domain
+namespace WorldOfFambda.Domain
 {
     public class Answer
     {

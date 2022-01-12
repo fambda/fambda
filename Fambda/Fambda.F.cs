@@ -1,6 +1,5 @@
 using System;
 using System.Diagnostics.Contracts;
-using static Fambda.ObjectExt;
 
 namespace Fambda
 {
@@ -110,6 +109,8 @@ namespace Fambda
 
         #endregion
 
+        #region IsNull
+
         /// <summary>
         /// Indicates whether the specified T value is null.
         /// </summary>
@@ -118,5 +119,7 @@ namespace Fambda
         [Pure]
         public static bool IsNull<T>(T value)
             => CheckHelper<T>.IsNull(value);
+
+        #endregion
     }
 }

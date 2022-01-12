@@ -23,7 +23,6 @@ namespace Fambda.Tests.Extensions
             result.Should().Be(expected);
         }
 
-
         [Theory]
         [InlineData(null, false)]
         [InlineData("not white space", false)]

@@ -24,9 +24,9 @@ namespace Fambda
                             : lhs.IsNone || rhs.IsNone
                                 ? false
                                 : lhs.Match(
-                                        Some: lshValue =>
+                                        Some: lhsValue =>
                                             rhs.Match(
-                                                Some: rhsValue => object.Equals(lshValue, rhsValue),
+                                                Some: rhsValue => object.Equals(lhsValue, rhsValue),
                                                 None: () => false),
                                         None: () => false
                                      );
