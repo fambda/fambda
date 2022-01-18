@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics.Contracts;
 
 namespace Fambda
@@ -24,5 +24,25 @@ namespace Fambda
                 return exception;
             }
         }
+
+        /// <summary>
+        /// Maps <see cref="Try{T}"/> into <see cref="Try{Res}"/>
+        /// </summary>
+        public static Try<Res> Map<T, Res>(this Try<T> @try, Func<T, Res> func)
+            => () => @try.Try()
+                         .Match<Exceptional<Res>>(
+                            Exception: ex => ex,
+                            Success: t => func(t)
+                         );
+
+        /// <summary>
+        /// Binds <see cref="Try{T}"/> into <see cref="Try{Res}"/>
+        /// </summary>
+        public static Try<Res> Bind<T, Res>(this Try<T> @try, Func<T, Try<Res>> func)
+            => () => @try.Try()
+                         .Match(
+                             Exception: ex => ex,
+                             Success: t => func(t).Try()
+                         );
     }
 }
