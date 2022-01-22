@@ -118,7 +118,7 @@ namespace Fambda.Tests
         {
             // Arrange
             var s = "p1.1";
-            IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p", NumberDecimalSeparator= "." };
+            IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p", NumberDecimalSeparator = "." };
             Option<decimal> expected = Some(1.1M);
 
             // Act

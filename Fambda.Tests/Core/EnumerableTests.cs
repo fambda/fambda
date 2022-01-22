@@ -30,7 +30,7 @@ namespace Fambda.Tests
         public void MapShouldReturnEmptyEnumerable()
         {
             // Arrange
-            IEnumerable<int> enumerable = new List<int> ();
+            IEnumerable<int> enumerable = new List<int>();
             Func<int, string> toString = i => i.ToString();
 
             // Act
@@ -87,7 +87,7 @@ namespace Fambda.Tests
             result.Should().HaveElementAt(2, "Audi");
         }
 
- 
+
         #endregion
     }
 }

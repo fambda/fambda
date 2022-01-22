@@ -1,4 +1,3 @@
-using System;
 using Fambda.Tests.Helpers;
 using FluentAssertions;
 using Xunit;
