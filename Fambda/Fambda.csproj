@@ -18,8 +18,8 @@ Supported .NET Standard 2.0+</Description>
     <Summary>Fambda - advanced, purely functional programming library for C# language.</Summary>
     <RepositoryUrl>https://github.com/fambda/fambda</RepositoryUrl>
     <PackageTags>fambda</PackageTags>
-    <PackageReleaseNotes>Record, option enumerable extension, uncurrying, try handling, exceptional match, map and bind; equality assertions.</PackageReleaseNotes>
-    <Version>1.0.4</Version>
+    <PackageReleaseNotes>Type classes and instance implementations. Extensions on Exceptional and Try types. Testing tool changed.</PackageReleaseNotes>
+    <Version>1.0.5</Version>
     <AssemblyName>Fambda</AssemblyName>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
