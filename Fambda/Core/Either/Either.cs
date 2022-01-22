@@ -67,7 +67,7 @@ namespace Fambda
         /// </summary>
         /// <returns>A hash code for the current <see cref="Either{L,R}"/> object.</returns>
         public override int GetHashCode()
-            => default(HashableEither<L,R>).GetHashCode();
+            => default(HashableEither<L, R>).GetHashCode();
 
         /// <summary>
         /// Indicates whether the current <see cref="Either{L,R}"/> is equal to another <see cref="Either{L,R}"/>
