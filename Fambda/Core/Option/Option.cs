@@ -37,7 +37,7 @@ namespace Fambda
             => new Option<T>(some.Value);
 
         /// <summary>
-        /// Implicit conversion operator from T to <see cref="Option{T}"/>.
+        /// Implicit conversion operator from <typeparamref name="T"/> to <see cref="Option{T}"/>.
         /// </summary>
         /// <param name="value">T value.</param>
         public static implicit operator Option<T>(T value)
@@ -115,7 +115,7 @@ namespace Fambda
         /// </summary>
         /// <param name="lhs"><see cref="Option{T}"/> left hand side object.</param>
         /// <param name="rhs"><see cref="Option{T}"/> right hand side object.</param>
-        /// <returns>true if lhs is equal to the rhs; otherwise, false.</returns>
+        /// <returns>true if <paramref name="lhs"/> is equal to the <paramref name="rhs"/>; otherwise, false.</returns>
         [Pure]
         public static bool operator ==(Option<T> lhs, Option<T> rhs)
             => Equals(lhs, rhs);
@@ -125,7 +125,7 @@ namespace Fambda
         /// </summary>
         /// <param name="lhs"><see cref="Option{T}"/> left hand side object.</param>
         /// <param name="rhs"><see cref="Option{T}"/> right hand side object.</param>
-        /// <returns>true if the lhs object is not equal to rhs; otherwise, false.</returns>
+        /// <returns>true if the <paramref name="lhs"/> object is not equal to <paramref name="rhs"/>; otherwise, false.</returns>
         [Pure]
         public static bool operator !=(Option<T> lhs, Option<T> rhs)
             => !Equals(lhs, rhs);

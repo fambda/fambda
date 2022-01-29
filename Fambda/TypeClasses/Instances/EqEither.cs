@@ -12,7 +12,7 @@ namespace Fambda
         /// </summary>
         /// <param name="lhs"><see cref="Either{L,R}"/> left hand side object.</param>
         /// <param name="rhs"><see cref="Either{L,R}"/> right hand side object.</param>
-        /// <returns>true if lhs is equal to the rhs; otherwise, false.</returns>
+        /// <returns>true if <paramref name="lhs"/> is equal to the <paramref name="rhs"/>; otherwise, false.</returns>
         [Pure]
         public bool Equals(Either<L, R> lhs, Either<L, R> rhs)
         {

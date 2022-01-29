@@ -1,8 +1,9 @@
 namespace Fambda.Contracts
 {
     /// <summary>
-    /// Represents Guard 'T' type.
+    /// Represents Guard <typeparamref name="T"/> type.
     /// </summary>
+    /// <typeparam name="T">Type for which guard is required.</typeparam>
     public sealed class Guard<T>
     {
         /// <summary>
@@ -23,7 +24,7 @@ namespace Fambda.Contracts
         /// <summary>
         /// Initializes a new instance of the <see cref="Guard"/>.
         /// </summary>
-        /// <param name="value">T value</param>
+        /// <param name="value"><typeparamref name="T"/> value</param>
         /// <param name="guardException"><see cref="GuardException"/></param>
         public Guard(T value, GuardException guardException)
         {

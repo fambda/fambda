@@ -13,7 +13,7 @@ namespace Fambda
         /// </summary>
         /// <param name="lhs">The left hand side object.</param>
         /// <param name="rhs">The right hand side object.</param>
-        /// <returns>true if lhs is equal to the rhs; otherwise, false.</returns>
+        /// <returns>true if <paramref name="lhs"/> is equal to the <paramref name="rhs"/>; otherwise, false.</returns>
         [Pure]
         bool Equals(T lhs, T rhs);
     }

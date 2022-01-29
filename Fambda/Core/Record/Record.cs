@@ -74,7 +74,7 @@ namespace Fambda
         /// </summary>
         /// <param name="lhs"><see cref="Record{T}"/> left hand side object.</param>
         /// <param name="rhs"><see cref="Record{T}"/> right hand side object.</param>
-        /// <returns>true if lhs is equal to the rhs; otherwise, false.</returns>
+        /// <returns>true if <paramref name="lhs"/> is equal to the <paramref name="rhs"/>; otherwise, false.</returns>
         public static bool operator ==(Record<T> lhs, Record<T> rhs)
         {
             if (ReferenceEquals(lhs, null) && ReferenceEquals(rhs, null))
@@ -99,7 +99,7 @@ namespace Fambda
         /// </summary>
         /// <param name="lhs"><see cref="Record{T}"/> left hand side object.</param>
         /// <param name="rhs"><see cref="Record{T}"/> right hand side object.</param>
-        /// <returns>true if the lhs object is not equal to rhs; otherwise, false.</returns>
+        /// <returns>true if the <paramref name="lhs"/> object is not equal to <paramref name="rhs"/>; otherwise, false.</returns>
         public static bool operator !=(Record<T> lhs, Record<T> rhs)
             => !(lhs == rhs);
 

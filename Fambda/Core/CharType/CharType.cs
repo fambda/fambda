@@ -12,7 +12,7 @@ namespace Fambda
         /// Converts the string representation of a Unicode character into <see cref="Option{T}"/>.
         /// </summary>
         /// <param name="s">A string containing a Unicode character to convert.</param>
-        /// <returns><see cref="Option{T}"/> with <see cref="OptionSome{T}"/> if <paramref name="s" /> was converted successfully; otherwise, <see cref="OptionNone"/></returns>
+        /// <returns><see cref="Option{T}"/> with <see cref="OptionSome{T}"/> if <paramref name="s" /> was converted successfully; otherwise, <see cref="OptionNone"/>.</returns>
         [Pure]
         public static Option<char> Parse(string s)
         {
