@@ -13,7 +13,7 @@ namespace Fambda
         /// Converts the string representation of a <see cref="Guid"/> into <see cref="Option{T}"/>.
         /// </summary>
         /// <param name="input">The string to convert.</param>
-        /// <returns><see cref="Option{T}"/> with <see cref="OptionSome{T}"/> if <paramref name="input" /> was converted successfully; otherwise, <see cref="OptionNone"/></returns>
+        /// <returns><see cref="Option{T}"/> with <see cref="OptionSome{T}"/> if <paramref name="input" /> was converted successfully; otherwise, <see cref="OptionNone"/>.</returns>
         [Pure]
         public static Option<Guid> Parse(string input)
         {

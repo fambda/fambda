@@ -13,7 +13,7 @@ namespace Fambda
         /// Converts the string representation of a date and time into <see cref="Option{T}"/>.
         /// </summary>
         /// <param name="s">A string containing a date and time to convert.</param>
-        /// <returns><see cref="Option{T}"/> with <see cref="OptionSome{T}"/> if <paramref name="s" /> was converted successfully; otherwise, <see cref="OptionNone"/></returns>
+        /// <returns><see cref="Option{T}"/> with <see cref="OptionSome{T}"/> if <paramref name="s" /> was converted successfully; otherwise, <see cref="OptionNone"/>.</returns>
         [Pure]
         public static Option<DateTime> Parse(string s)
         {
@@ -32,7 +32,7 @@ namespace Fambda
         /// </summary>
         /// <param name="s">A string that contains a date and time to convert.</param>
         /// <param name="provider">An object that supplies culture-specific format information about <paramref name="s" />.</param>
-        /// <returns><see cref="Option{T}"/> with <see cref="OptionSome{T}"/> if <paramref name="s" /> was converted successfully; otherwise, <see cref="OptionNone"/></returns>
+        /// <returns><see cref="Option{T}"/> with <see cref="OptionSome{T}"/> if <paramref name="s" /> was converted successfully; otherwise, <see cref="OptionNone"/>.</returns>
         [Pure]
         public static Option<DateTime> Parse(string s, IFormatProvider provider)
         {

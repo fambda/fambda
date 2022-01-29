@@ -43,7 +43,7 @@ namespace Fambda
         /// Returns <see cref="IEnumerable{T}"/> on specified <see cref="Enumeration"/>.
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
+        /// <returns><see cref="IEnumerable{T}"/>.</returns>
         public static IEnumerable<T> List<T>() where T : Enumeration
         {
             var fields = typeof(T).GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly);
