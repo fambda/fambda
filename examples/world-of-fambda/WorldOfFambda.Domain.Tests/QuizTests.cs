@@ -18,8 +18,8 @@ namespace WorldOfFambda.Domain.Tests
 
             // Act
             var result = quiz.Answer.Match(
-                    Some: (a) => $"Quiz answer: '{a.Value == "4"}'",
-                    None: () => "Quiz answer: 'Not given'"
+                        None: () => "Quiz answer: 'Not given'",
+                        Some: (a) => $"Quiz answer: '{a.Value == "4"}'"
                     );
 
             // Assert
@@ -36,8 +36,8 @@ namespace WorldOfFambda.Domain.Tests
 
             // Act
             var result = quiz.Answer.Match(
-                    Some: (a) => $"Quiz answer: '{a.Value == "4"}'",
-                    None: () => "Quiz answer: 'Not given'"
+                        None: () => "Quiz answer: 'Not given'",
+                        Some: (a) => $"Quiz answer: '{a.Value == "4"}'"
                     );
 
             // Assert
@@ -54,22 +54,21 @@ namespace WorldOfFambda.Domain.Tests
 
             // Act
             var result = quiz.Answer.Match(
-                    Some: (a) => $"The answer is: '{a.Value == "4"}'",
-                    None: () => "Quiz answer: 'Not given'"
+                        None: () => "Quiz answer: 'Not given'",
+                        Some: (a) => $"The answer is: '{a.Value == "4"}'"
                     );
 
             // Assert
             result.Should().Be("Quiz answer: 'Not given'");
         }
 
-
         [Fact]
-        public void QuizAnswerMapShouldBeSome()
+        public void QuizAnswerMapShouldBeNone()
         {
             // Arrange
-            Option<string> expected = Some("Quiz answer: '4'");
+            Option<string> expected = None;
             var question = new Question("2+2=?");
-            Option<Answer> answer = Some(new Answer("4"));
+            Option<Answer> answer = None;
             var quiz = new Quiz(question, answer);
             Func<Answer, string> func = x => $"Quiz answer: '{x.Value}'";
 
@@ -81,12 +80,12 @@ namespace WorldOfFambda.Domain.Tests
         }
 
         [Fact]
-        public void QuizAnswerMapShouldBeNone()
+        public void QuizAnswerMapShouldBeSome()
         {
             // Arrange
-            Option<string> expected = None;
+            Option<string> expected = Some("Quiz answer: '4'");
             var question = new Question("2+2=?");
-            Option<Answer> answer = None;
+            Option<Answer> answer = Some(new Answer("4"));
             var quiz = new Quiz(question, answer);
             Func<Answer, string> func = x => $"Quiz answer: '{x.Value}'";
 

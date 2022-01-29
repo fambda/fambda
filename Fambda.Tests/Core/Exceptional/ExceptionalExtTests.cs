@@ -45,39 +45,6 @@ namespace Fambda.Tests
 
         #region Bind
 
-        [Fact]
-        public void BindShouldSucceedWhenSuccess()
-        {
-            // Arrange
-            var value = 1;
-            Exceptional<int> exceptional = value;
-
-            Exceptional<bool> exceptionalWithSuccess = true;
-
-            var exception = new SomeException("Some exception");
-            Exceptional<bool> exceptionalWithException = exception;
-
-
-            Func<int, Exceptional<bool>> toAnotherExceptional = (i) =>
-            {
-                if (i.Equals(1))
-                {
-                    return exceptionalWithSuccess;
-                }
-                else
-                {
-                    return exceptionalWithException;
-                }
-            };
-
-            // Act
-            var result = exceptional.Bind(toAnotherExceptional);
-
-
-            // Assert
-            result.Should().Be(exceptionalWithSuccess);
-        }
-
 
         [Fact]
         public void BindShouldNotInvokeFuncWhenException()
@@ -107,9 +74,40 @@ namespace Fambda.Tests
             // Act
             var result = exceptional.Bind(toAnotherExceptional);
 
-
             // Assert
             result.ToString().Should().Be(exceptional.ToString());
+        }
+
+        [Fact]
+        public void BindShouldSucceedWhenSuccess()
+        {
+            // Arrange
+            var value = 1;
+            Exceptional<int> exceptional = value;
+
+            Exceptional<bool> exceptionalWithSuccess = true;
+
+            var exception = new SomeException("Some exception");
+            Exceptional<bool> exceptionalWithException = exception;
+
+
+            Func<int, Exceptional<bool>> toAnotherExceptional = (i) =>
+            {
+                if (i.Equals(1))
+                {
+                    return exceptionalWithSuccess;
+                }
+                else
+                {
+                    return exceptionalWithException;
+                }
+            };
+
+            // Act
+            var result = exceptional.Bind(toAnotherExceptional);
+
+            // Assert
+            result.Should().Be(exceptionalWithSuccess);
         }
 
         #endregion

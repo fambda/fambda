@@ -9,21 +9,6 @@ namespace Fambda.Tests
     {
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableNullMustPassWhenSuccess()
-        {
-            // Arrange
-            var value = "any value of any type besides Exception";
-            Exceptional<string> exceptional = value;
-
-            // Act
-            var result = new Equable().Null(exceptional);
-
-            // Assert
-            result.Should().Pass();
-        }
-
-        [Fact]
-        [Trait("Category", "Equable")]
         public void EquableNullMustPassWhenException()
         {
             // Arrange
@@ -39,17 +24,14 @@ namespace Fambda.Tests
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableEqualMustPassWhenBothSuccess()
+        public void EquableNullMustPassWhenSuccess()
         {
             // Arrange
-            var firstValue = "any value of any type besides Exception";
-            Exceptional<string> first = firstValue;
-
-            var secondValue = "any value of any type besides Exception";
-            Exceptional<string> second = secondValue;
+            var value = "any value of any type besides Exception";
+            Exceptional<string> exceptional = value;
 
             // Act
-            var result = new Equable().Equal(first, second);
+            var result = new Equable().Null(exceptional);
 
             // Assert
             result.Should().Pass();
@@ -75,17 +57,17 @@ namespace Fambda.Tests
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableUnequalMustPassWhenFirstSuccessAndSecondException()
+        public void EquableEqualMustPassWhenBothSuccess()
         {
             // Arrange
-            var value = "any value of any type besides Exception";
-            Exceptional<string> first = value;
+            var firstValue = "any value of any type besides Exception";
+            Exceptional<string> first = firstValue;
 
-            var secondException = new SomeException();
-            Exceptional<string> second = secondException;
+            var secondValue = "any value of any type besides Exception";
+            Exceptional<string> second = secondValue;
 
             // Act
-            var result = new Equable().Unequal(first, second);
+            var result = new Equable().Equal(first, second);
 
             // Assert
             result.Should().Pass();
@@ -101,6 +83,24 @@ namespace Fambda.Tests
 
             var value = "any value of any type besides Exception";
             Exceptional<string> second = value;
+
+            // Act
+            var result = new Equable().Unequal(first, second);
+
+            // Assert
+            result.Should().Pass();
+        }
+
+        [Fact]
+        [Trait("Category", "Equable")]
+        public void EquableUnequalMustPassWhenFirstSuccessAndSecondException()
+        {
+            // Arrange
+            var value = "any value of any type besides Exception";
+            Exceptional<string> first = value;
+
+            var secondException = new SomeException();
+            Exceptional<string> second = secondException;
 
             // Act
             var result = new Equable().Unequal(first, second);

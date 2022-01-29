@@ -10,11 +10,11 @@ namespace Fambda.Tests
         #region Parse
 
         [Fact]
-        public void ParseShouldReturnOptionCharSome()
+        public void ParseShouldReturnOptionCharNone()
         {
             // Arrange
-            var s = "A";
-            Option<char> expected = Some('A');
+            var s = "not a char";
+            Option<char> expected = None;
 
             // Act
             var result = CharType.Parse(s);
@@ -24,11 +24,11 @@ namespace Fambda.Tests
         }
 
         [Fact]
-        public void ParseShouldReturnOptionCharNone()
+        public void ParseShouldReturnOptionCharSome()
         {
             // Arrange
-            var s = "not a char";
-            Option<char> expected = None;
+            var s = "A";
+            Option<char> expected = Some('A');
 
             // Act
             var result = CharType.Parse(s);

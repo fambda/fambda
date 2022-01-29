@@ -10,24 +10,32 @@ namespace Fambda
     /// </summary>
     public static class OptionExt
     {
+        #region Map
         /// <summary>
         /// Maps <see cref="Option{T}"/> into <see cref="Option{Res}"/>
         /// </summary>
         public static Option<Res> Map<T, Res>(this Option<T> option, Func<T, Res> func)
             => option.Match(
-                        Some: (t) => Some(func(t)),
-                        None: () => None
+                        None: () => None,
+                        Some: (t) => Some(func(t))
                       );
+
+        /// <summary>
+        /// Maps <see cref="Option{T1}"/> into <see cref="Option{Func{T2, Res}}"/>
+        /// </summary>
+        public static Option<Func<T2, Res>> Map<T1, T2, Res>(this Option<T1> option, Func<T1, T2, Res> func)
+            => option.Map(F.Curry(func));
+
+        #endregion
 
         /// <summary>
         /// Binds <see cref="Option{T}"/> into <see cref="Option{Res}"/>
         /// </summary>
         public static Option<Res> Bind<T, Res>(this Option<T> option, Func<T, Option<Res>> func)
             => option.Match(
-                        Some: (t) => func(t),
-                        None: () => None
+                        None: () => None,
+                        Some: (t) => func(t)
                       );
-
 
         #region Linq
 
@@ -55,8 +63,8 @@ namespace Fambda
         /// <returns><see cref="OptionSome{T}"/> if the option is in a Some state and <paramref name="pred"/> predicate returns true; otherwise, <see cref="OptionNone"/>.</returns>
         public static Option<T> Where<T>(this Option<T> option, Func<T, bool> pred)
             => option.Match(
-                         Some: (t) => pred(t) ? option : None,
-                         None: () => None
+                        None: () => None,
+                        Some: (t) => pred(t) ? option : None
                       );
 
         #endregion
@@ -69,8 +77,8 @@ namespace Fambda
         /// <returns><see cref="IEnumerable{T}"/> with one or no items.</returns>
         public static IEnumerable<T> AsEnumerable<T>(this Option<T> option)
             => option.Match(
-                        Some: (t) => { return new List<T>() { t }; },
-                        None: () => Enumerable.Empty<T>()
+                        None: () => Enumerable.Empty<T>(),
+                        Some: (t) => { return new List<T>() { t }; }
                       );
 
         #endregion

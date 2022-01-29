@@ -12,20 +12,6 @@ namespace Fambda.Tests
         #region Parse
 
         [Fact]
-        public void ParseShouldReturnOptionDecimalSome()
-        {
-            // Arrange
-            var s = "1";
-            Option<decimal> expected = Some(1M);
-
-            // Act
-            var result = DecimalType.Parse(s);
-
-            // Assert
-            result.Should().Be(expected);
-        }
-
-        [Fact]
         public void ParseShouldReturnOptionDecimalNone()
         {
             // Arrange
@@ -40,14 +26,14 @@ namespace Fambda.Tests
         }
 
         [Fact]
-        public void ParseWithNumberStylesShouldReturnOptionDecimalSome()
+        public void ParseShouldReturnOptionDecimalSome()
         {
             // Arrange
-            var s = "1.1";
-            Option<decimal> expected = Some(1.1M);
+            var s = "1";
+            Option<decimal> expected = Some(1M);
 
             // Act
-            var result = DecimalType.Parse(s, NumberStyles.AllowDecimalPoint);
+            var result = DecimalType.Parse(s);
 
             // Assert
             result.Should().Be(expected);
@@ -59,6 +45,20 @@ namespace Fambda.Tests
             // Arrange
             var s = "not a decimal";
             Option<decimal> expected = None;
+
+            // Act
+            var result = DecimalType.Parse(s, NumberStyles.AllowDecimalPoint);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [Fact]
+        public void ParseWithNumberStylesShouldReturnOptionDecimalSome()
+        {
+            // Arrange
+            var s = "1.1";
+            Option<decimal> expected = Some(1.1M);
 
             // Act
             var result = DecimalType.Parse(s, NumberStyles.AllowDecimalPoint);
@@ -82,22 +82,6 @@ namespace Fambda.Tests
         }
 
         [Fact]
-        public void ParseWithFormatProviderShouldReturnOptionDecimalSome()
-        {
-            // Arrange
-            var s = "p1234";
-            IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
-
-            Option<decimal> expected = Some(1234M);
-
-            // Act
-            var result = DecimalType.Parse(s, formatProvider);
-
-            // Assert
-            result.Should().Be(expected);
-        }
-
-        [Fact]
         public void ParseWithFormatProviderShouldReturnOptionDecimalNone()
         {
             // Arrange
@@ -114,15 +98,16 @@ namespace Fambda.Tests
         }
 
         [Fact]
-        public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionDecimalSome()
+        public void ParseWithFormatProviderShouldReturnOptionDecimalSome()
         {
             // Arrange
-            var s = "p1.1";
-            IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p", NumberDecimalSeparator = "." };
-            Option<decimal> expected = Some(1.1M);
+            var s = "p1234";
+            IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
+
+            Option<decimal> expected = Some(1234M);
 
             // Act
-            var result = DecimalType.Parse(s, NumberStyles.Number, formatProvider);
+            var result = DecimalType.Parse(s, formatProvider);
 
             // Assert
             result.Should().Be(expected);
@@ -138,6 +123,21 @@ namespace Fambda.Tests
 
             // Act
             var result = DecimalType.Parse(s, NumberStyles.AllowDecimalPoint, formatProvider);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [Fact]
+        public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionDecimalSome()
+        {
+            // Arrange
+            var s = "p1.1";
+            IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p", NumberDecimalSeparator = "." };
+            Option<decimal> expected = Some(1.1M);
+
+            // Act
+            var result = DecimalType.Parse(s, NumberStyles.Number, formatProvider);
 
             // Assert
             result.Should().Be(expected);

@@ -12,20 +12,6 @@ namespace Fambda.Tests
         #region Parse
 
         [Fact]
-        public void ParseShouldReturnOptionFloatSome()
-        {
-            // Arrange
-            var s = "1.1";
-            Option<float> expected = Some(1.1F);
-
-            // Act
-            var result = FloatType.Parse(s);
-
-            // Assert
-            result.Should().Be(expected);
-        }
-
-        [Fact]
         public void ParseShouldReturnOptionFloatNone()
         {
             // Arrange
@@ -40,14 +26,14 @@ namespace Fambda.Tests
         }
 
         [Fact]
-        public void ParseWithNumberStylesShouldReturnOptionFloatSome()
+        public void ParseShouldReturnOptionFloatSome()
         {
             // Arrange
             var s = "1.1";
             Option<float> expected = Some(1.1F);
 
             // Act
-            var result = FloatType.Parse(s, NumberStyles.Number);
+            var result = FloatType.Parse(s);
 
             // Assert
             result.Should().Be(expected);
@@ -59,6 +45,20 @@ namespace Fambda.Tests
             // Arrange
             var s = "not a float";
             Option<float> expected = None;
+
+            // Act
+            var result = FloatType.Parse(s, NumberStyles.Number);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [Fact]
+        public void ParseWithNumberStylesShouldReturnOptionFloatSome()
+        {
+            // Arrange
+            var s = "1.1";
+            Option<float> expected = Some(1.1F);
 
             // Act
             var result = FloatType.Parse(s, NumberStyles.Number);
@@ -82,22 +82,6 @@ namespace Fambda.Tests
         }
 
         [Fact]
-        public void ParseWithFormatProviderShouldReturnOptionFloatSome()
-        {
-            // Arrange
-            var s = "p1234";
-            IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
-
-            Option<float> expected = Some(1234F);
-
-            // Act
-            var result = FloatType.Parse(s, formatProvider);
-
-            // Assert
-            result.Should().Be(expected);
-        }
-
-        [Fact]
         public void ParseWithFormatProviderShouldReturnOptionFloatNone()
         {
             // Arrange
@@ -114,15 +98,16 @@ namespace Fambda.Tests
         }
 
         [Fact]
-        public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionFloatSome()
+        public void ParseWithFormatProviderShouldReturnOptionFloatSome()
         {
             // Arrange
-            var s = "p1";
+            var s = "p1234";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
-            Option<float> expected = Some(1F);
+
+            Option<float> expected = Some(1234F);
 
             // Act
-            var result = FloatType.Parse(s, NumberStyles.Number, formatProvider);
+            var result = FloatType.Parse(s, formatProvider);
 
             // Assert
             result.Should().Be(expected);
@@ -135,6 +120,21 @@ namespace Fambda.Tests
             var s = "p1$234";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
             Option<float> expected = None;
+
+            // Act
+            var result = FloatType.Parse(s, NumberStyles.Number, formatProvider);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [Fact]
+        public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionFloatSome()
+        {
+            // Arrange
+            var s = "p1";
+            IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
+            Option<float> expected = Some(1F);
 
             // Act
             var result = FloatType.Parse(s, NumberStyles.Number, formatProvider);

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
+
 using static Fambda.F;
 
 namespace Fambda.Tests
@@ -9,6 +10,20 @@ namespace Fambda.Tests
     public class OptionExtTests
     {
         #region Map
+
+        [Fact]
+        public void MapShouldSucceedWhenNone()
+        {
+            // Arrange
+            Option<int> option = None;
+            Func<int, string> toString = i => i.ToString();
+
+            // Act
+            var result = option.Map(toString);
+
+            // Assert
+            result.ToString().Should().Be("None");
+        }
 
         [Fact]
         public void MapShouldSucceedWhenSome()
@@ -25,23 +40,34 @@ namespace Fambda.Tests
             result.ToString().Should().Be("Some(1)");
         }
 
-        [Fact]
-        public void MapShouldSucceedWhenNone()
-        {
-            // Arrange
-            Option<int> option = None;
-            Func<int, string> toString = i => i.ToString();
-
-            // Act
-            var result = option.Map(toString);
-
-            // Assert
-            result.ToString().Should().Be("None");
-        }
-
         #endregion
 
         #region Bind
+
+        [Fact]
+        public void BindShouldReturnNone()
+        {
+            // Arrange
+            Option<int> option = None;
+
+            Func<int, Option<bool>> toTrueBoolWhenOptionIntOne = (i) =>
+            {
+                if (i.Equals(1))
+                {
+                    return Some(true);
+                }
+                else
+                {
+                    return None;
+                }
+            };
+
+            // Act
+            var result = option.Bind(toTrueBoolWhenOptionIntOne);
+
+            // Assert
+            result.Should().Be(None);
+        }
 
         [Fact]
         public void BindShouldReturnSome()
@@ -65,35 +91,8 @@ namespace Fambda.Tests
             // Act
             var result = option.Bind(toTrueBoolWhenOptionIntOne);
 
-
             // Assert
             result.Should().Be(Some(true));
-        }
-
-        [Fact]
-        public void BindShouldReturnNone()
-        {
-            // Arrange
-            Option<int> option = None;
-
-            Func<int, Option<bool>> toTrueBoolWhenOptionIntOne = (i) =>
-            {
-                if (i.Equals(1))
-                {
-                    return Some(true);
-                }
-                else
-                {
-                    return None;
-                }
-            };
-
-            // Act
-            var result = option.Bind(toTrueBoolWhenOptionIntOne);
-
-
-            // Assert
-            result.Should().Be(None);
         }
 
         #endregion
@@ -165,21 +164,6 @@ namespace Fambda.Tests
         }
 
         [Fact]
-        public void LinqExpressionFromWhereShouldReturnSome()
-        {
-            // Arrange
-            var expectedResult = Some(1);
-
-            // Act
-            var result = from a in Some(1)
-                         where a > 0
-                         select a;
-
-            // Assert
-            result.Should().Be(expectedResult);
-        }
-
-        [Fact]
         public void LinqExpressionFromWhereShouldReturnNone()
         {
             // Arrange
@@ -194,17 +178,31 @@ namespace Fambda.Tests
             result.Should().Be(expectedResult);
         }
 
+        [Fact]
+        public void LinqExpressionFromWhereShouldReturnSome()
+        {
+            // Arrange
+            var expectedResult = Some(1);
+
+            // Act
+            var result = from a in Some(1)
+                         where a > 0
+                         select a;
+
+            // Assert
+            result.Should().Be(expectedResult);
+        }
+
         #endregion
 
         #region AsEnumerable
 
         [Fact]
-        public void AsEnumerableShouldReturnOneItemWhenSome()
+        public void MapShouldReturnNoItemWhenNone()
         {
             // Arrange
-            IEnumerable<int> expected = new List<int>() { 1 };
-            var value = 1;
-            Option<int> option = Some(value);
+            IEnumerable<int> expected = new List<int>() { };
+            Option<int> option = None;
 
             // Act
             var result = option.AsEnumerable();
@@ -214,11 +212,12 @@ namespace Fambda.Tests
         }
 
         [Fact]
-        public void MapShouldReturnNoItemWhenNone()
+        public void AsEnumerableShouldReturnOneItemWhenSome()
         {
             // Arrange
-            IEnumerable<int> expected = new List<int>() { };
-            Option<int> option = None;
+            IEnumerable<int> expected = new List<int>() { 1 };
+            var value = 1;
+            Option<int> option = Some(value);
 
             // Act
             var result = option.AsEnumerable();

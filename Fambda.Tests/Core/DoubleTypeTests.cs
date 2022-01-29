@@ -12,20 +12,6 @@ namespace Fambda.Tests
         #region Parse
 
         [Fact]
-        public void ParseShouldReturnOptionDoubleSome()
-        {
-            // Arrange
-            var s = "1.1";
-            Option<double> expected = Some(1.1);
-
-            // Act
-            var result = DoubleType.Parse(s);
-
-            // Assert
-            result.Should().Be(expected);
-        }
-
-        [Fact]
         public void ParseShouldReturnOptionDoubleNone()
         {
             // Arrange
@@ -40,14 +26,14 @@ namespace Fambda.Tests
         }
 
         [Fact]
-        public void ParseWithNumberStylesShouldReturnOptionDoubleSome()
+        public void ParseShouldReturnOptionDoubleSome()
         {
             // Arrange
             var s = "1.1";
             Option<double> expected = Some(1.1);
 
             // Act
-            var result = DoubleType.Parse(s, NumberStyles.Number);
+            var result = DoubleType.Parse(s);
 
             // Assert
             result.Should().Be(expected);
@@ -59,6 +45,20 @@ namespace Fambda.Tests
             // Arrange
             var s = "not a double";
             Option<double> expected = None;
+
+            // Act
+            var result = DoubleType.Parse(s, NumberStyles.Number);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [Fact]
+        public void ParseWithNumberStylesShouldReturnOptionDoubleSome()
+        {
+            // Arrange
+            var s = "1.1";
+            Option<double> expected = Some(1.1);
 
             // Act
             var result = DoubleType.Parse(s, NumberStyles.Number);
@@ -82,22 +82,6 @@ namespace Fambda.Tests
         }
 
         [Fact]
-        public void ParseWithFormatProviderShouldReturnOptionDoubleSome()
-        {
-            // Arrange
-            var s = "p1234.5";
-            IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
-
-            Option<double> expected = Some(1234.5);
-
-            // Act
-            var result = DoubleType.Parse(s, formatProvider);
-
-            // Assert
-            result.Should().Be(expected);
-        }
-
-        [Fact]
         public void ParseWithFormatProviderShouldReturnOptionDoubleNone()
         {
             // Arrange
@@ -114,15 +98,16 @@ namespace Fambda.Tests
         }
 
         [Fact]
-        public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionDoubleSome()
+        public void ParseWithFormatProviderShouldReturnOptionDoubleSome()
         {
             // Arrange
-            var s = "p1.2";
+            var s = "p1234.5";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
-            Option<double> expected = Some(1.2);
+
+            Option<double> expected = Some(1234.5);
 
             // Act
-            var result = DoubleType.Parse(s, NumberStyles.Number, formatProvider);
+            var result = DoubleType.Parse(s, formatProvider);
 
             // Assert
             result.Should().Be(expected);
@@ -135,6 +120,21 @@ namespace Fambda.Tests
             var s = "p1$234.5";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
             Option<double> expected = None;
+
+            // Act
+            var result = DoubleType.Parse(s, NumberStyles.Number, formatProvider);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [Fact]
+        public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionDoubleSome()
+        {
+            // Arrange
+            var s = "p1.2";
+            IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
+            Option<double> expected = Some(1.2);
 
             // Act
             var result = DoubleType.Parse(s, NumberStyles.Number, formatProvider);

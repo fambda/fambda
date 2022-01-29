@@ -9,27 +9,6 @@ namespace Fambda.Tests
         #region Map
 
         [Fact]
-        public void MapShouldSucceedWithMappingSuccessToSuccessResult()
-        {
-            // Arrange
-            Func<string, Try<Uri>> createUri = (uri) => () =>
-            {
-                return new Uri(uri);
-            };
-
-            Func<Uri, string> func = (uri) => $"[{uri}]";
-
-            // Act
-            var result = createUri("https://fambda.net/").Map(func).Try().Match(
-                Exception: (exception) => "Result=Exception",
-                Success: (value) => $"Result=Success({value})"
-            );
-
-            // Assert
-            result.Should().Be("Result=Success([https://fambda.net/])");
-        }
-
-        [Fact]
         public void MapShouldSucceedWithMappingException()
         {
             // Arrange
@@ -50,12 +29,8 @@ namespace Fambda.Tests
             result.Should().Be("Result=Exception(UriFormatException)");
         }
 
-        #endregion
-
-        #region Bind
-
         [Fact]
-        public void BindShouldSucceedWithBindingSuccessToSuccessResult()
+        public void MapShouldSucceedWithMappingSuccessToSuccessResult()
         {
             // Arrange
             Func<string, Try<Uri>> createUri = (uri) => () =>
@@ -63,17 +38,21 @@ namespace Fambda.Tests
                 return new Uri(uri);
             };
 
-            Func<Uri, Try<string>> createLink = (uri) => () => $"<a href='{uri}'>LINK</a>";
+            Func<Uri, string> func = (uri) => $"[{uri}]";
 
             // Act
-            var result = createUri("https://fambda.net/").Bind(createLink).Try().Match(
+            var result = createUri("https://fambda.net/").Map(func).Try().Match(
                 Exception: (exception) => "Result=Exception",
                 Success: (value) => $"Result=Success({value})"
             );
 
             // Assert
-            result.Should().Be("Result=Success(<a href='https://fambda.net/'>LINK</a>)");
+            result.Should().Be("Result=Success([https://fambda.net/])");
         }
+
+        #endregion
+
+        #region Bind
 
         [Fact]
         public void BindShouldSucceedWithException()
@@ -94,6 +73,27 @@ namespace Fambda.Tests
 
             // Assert
             result.Should().Be("Result=Exception(UriFormatException)");
+        }
+
+        [Fact]
+        public void BindShouldSucceedWithBindingSuccessToSuccessResult()
+        {
+            // Arrange
+            Func<string, Try<Uri>> createUri = (uri) => () =>
+            {
+                return new Uri(uri);
+            };
+
+            Func<Uri, Try<string>> createLink = (uri) => () => $"<a href='{uri}'>LINK</a>";
+
+            // Act
+            var result = createUri("https://fambda.net/").Bind(createLink).Try().Match(
+                Exception: (exception) => "Result=Exception",
+                Success: (value) => $"Result=Success({value})"
+            );
+
+            // Assert
+            result.Should().Be("Result=Success(<a href='https://fambda.net/'>LINK</a>)");
         }
 
         #endregion
