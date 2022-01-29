@@ -23,13 +23,6 @@ namespace Fambda
         }
 
         /// <summary>
-        /// Implicit conversion operator from <see cref="OptionSome{T}"/> to <see cref="Option{T}"/>.
-        /// </summary>
-        /// <param name="some"><see cref="OptionSome{T}"/> object.</param>
-        public static implicit operator Option<T>(OptionSome<T> some)
-            => new Option<T>(some.Value);
-
-        /// <summary>
         /// Implicit conversion operator from <see cref="OptionNone"/> to <see cref="Option{T}"/>.
         /// </summary>
         /// <param name="_"><see cref="OptionNone"/> object.</param>
@@ -37,31 +30,38 @@ namespace Fambda
             => new Option<T>();
 
         /// <summary>
+        /// Implicit conversion operator from <see cref="OptionSome{T}"/> to <see cref="Option{T}"/>.
+        /// </summary>
+        /// <param name="some"><see cref="OptionSome{T}"/> object.</param>
+        public static implicit operator Option<T>(OptionSome<T> some)
+            => new Option<T>(some.Value);
+
+        /// <summary>
         /// Implicit conversion operator from T to <see cref="Option{T}"/>.
         /// </summary>
         /// <param name="value">T value.</param>
         public static implicit operator Option<T>(T value)
         {
-            if (value != null)
+            if (value == null)
             {
-                return new OptionSome<T>(value);
+                return OptionNone.Default;
             }
             else
             {
-                return OptionNone.Default;
+                return new OptionSome<T>(value);
             }
         }
 
         /// <summary>
-        /// Match the Some and None states of the <see cref="Option{T}"/> and return Res.
+        /// Match the None and Some states of the <see cref="Option{T}"/> and return Res.
         /// </summary>
         /// <typeparam name="Res">Return type.</typeparam>
-        /// <param name="Some">Some match operation.</param>
         /// <param name="None">None match operation.</param>
+        /// <param name="Some">Some match operation.</param>
         [Pure]
-        public Res Match<Res>(Func<T, Res> Some, Func<Res> None)
+        public Res Match<Res>(Func<Res> None, Func<T, Res> Some)
         {
-            var result = _isSome ? Some(_value) : None();
+            var result = !_isSome ? None() : Some(_value);
 
             Guard.On(result, Error.OptionMatchReturnMustNotBeNull()).AgainstNull();
             return result;
@@ -108,7 +108,7 @@ namespace Fambda
         /// </summary>
         /// <returns>A string that represents the current <see cref="Option{T}"/> object.</returns>
         public override string ToString()
-            => _isSome ? $"Some({_value})" : "None";
+            => !_isSome ? "None" : $"Some({_value})";
 
         /// <summary>
         /// Compares two <see cref="Option{T}"/> objects through equality operator.
@@ -131,17 +131,17 @@ namespace Fambda
             => !Equals(lhs, rhs);
 
         /// <summary>
-        /// Indicates whether the current <see cref="Option{T}"/> is in Some state.
-        /// </summary>
-        [Pure]
-        public bool IsSome =>
-            _isSome;
-
-        /// <summary>
         /// Indicates whether the current <see cref="Option{T}"/> is in None state.
         /// </summary>
         [Pure]
         public bool IsNone =>
             !_isSome;
+
+        /// <summary>
+        /// Indicates whether the current <see cref="Option{T}"/> is in Some state.
+        /// </summary>
+        [Pure]
+        public bool IsSome =>
+            _isSome;
     }
 }

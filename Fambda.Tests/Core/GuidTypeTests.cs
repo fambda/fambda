@@ -11,6 +11,20 @@ namespace Fambda.Tests
         #region Parse
 
         [Fact]
+        public void ParseShouldReturnOptionGuidNone()
+        {
+            // Arrange
+            var input = "not a Guid";
+            Option<Guid> expected = None;
+
+            // Act
+            var result = GuidType.Parse(input);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [Fact]
         public void ParseShouldReturnOptionGuidSomeWhenInputFormat32Digits()
         {
             // Arrange
@@ -77,20 +91,6 @@ namespace Fambda.Tests
             var originalGuid = Guid.NewGuid();
             var input = originalGuid.ToString("X");
             Option<Guid> expected = Some(originalGuid);
-
-            // Act
-            var result = GuidType.Parse(input);
-
-            // Assert
-            result.Should().Be(expected);
-        }
-
-        [Fact]
-        public void ParseShouldReturnOptionGuidNone()
-        {
-            // Arrange
-            var input = "not a Guid";
-            Option<Guid> expected = None;
 
             // Act
             var result = GuidType.Parse(input);

@@ -69,8 +69,8 @@ namespace Fambda.Tests
 
             // Act
             var result = option.Match(
-                                    Some: (i) => $"Result=Some({i})",
-                                    None: () => "Result=None"
+                                    None: () => "Result=None",
+                                    Some: (i) => $"Result=Some({i})"
                                 );
 
             // Assert
@@ -85,8 +85,8 @@ namespace Fambda.Tests
 
             // Act
             var result = option.Match(
-                                    Some: (i) => $"Result=Some({i})",
-                                    None: () => "Result=None"
+                                    None: () => "Result=None",
+                                    Some: (i) => $"Result=Some({i})"
                                 );
 
             // Assert
@@ -105,8 +105,8 @@ namespace Fambda.Tests
             Action act = () =>
             {
                 option.Match(
-                            Some: some,
-                            None: none
+                            None: none,
+                            Some: some
                         );
             };
 
@@ -126,8 +126,8 @@ namespace Fambda.Tests
             Action act = () =>
             {
                 option.Match(
-                    Some: some,
-                    None: none
+                    None: none,
+                    Some: some
                 );
             };
 

@@ -5,6 +5,13 @@ namespace Fambda
     public static partial class F
     {
         /// <summary>
+        /// None state of <see cref="Option{T}"/>.
+        /// </summary>
+        /// <returns>An <see cref="OptionNone"/> instance.</returns>
+        public static OptionNone None
+            => OptionNone.Default;
+
+        /// <summary>
         /// Create a <see cref="Option{T}"/> in Some state.
         /// </summary>
         /// <typeparam name="T">Bound value type</typeparam>
@@ -13,13 +20,5 @@ namespace Fambda
         /// <returns>An <see cref="Option{T}"/> instance.</returns>
         public static Option<T> Some<T>(T value)
             => new OptionSome<T>(value);
-
-
-        /// <summary>
-        /// None state of <see cref="Option{T}"/>.
-        /// </summary>
-        /// <returns>An <see cref="OptionNone"/> instance.</returns>
-        public static OptionNone None
-            => OptionNone.Default;
     }
 }

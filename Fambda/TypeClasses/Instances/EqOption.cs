@@ -24,11 +24,12 @@ namespace Fambda
                             : lhs.IsNone || rhs.IsNone
                                 ? false
                                 : lhs.Match(
+                                        None: () => false,
                                         Some: lhsValue =>
                                             rhs.Match(
-                                                Some: rhsValue => object.Equals(lhsValue, rhsValue),
-                                                None: () => false),
-                                        None: () => false
+                                                    None: () => false,
+                                                    Some: rhsValue => object.Equals(lhsValue, rhsValue)
+                                                )
                                      );
             return result;
         }

@@ -9,6 +9,20 @@ namespace Fambda.Tests
     {
         #region Parse
 
+        [Fact]
+        public void ParseShouldReturnOptionBoolNone()
+        {
+            // Arrange
+            var value = "not an logical boolean";
+            Option<bool> expected = None;
+
+            // Act
+            var result = BoolType.Parse(value);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
         [Theory]
         [InlineData("True", true)]
         [InlineData("true", true)]
@@ -28,21 +42,6 @@ namespace Fambda.Tests
             // Assert
             result.Should().Be(expected);
         }
-
-        [Fact]
-        public void ParseShouldReturnOptionBoolNone()
-        {
-            // Arrange
-            var value = "not an logical boolean";
-            Option<bool> expected = None;
-
-            // Act
-            var result = BoolType.Parse(value);
-
-            // Assert
-            result.Should().Be(expected);
-        }
-
 
         #endregion
     }

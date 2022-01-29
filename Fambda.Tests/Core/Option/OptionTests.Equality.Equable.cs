@@ -24,11 +24,11 @@ namespace Fambda.Tests
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableEqualMustPassWhenSome()
+        public void EquableEqualMustPassWhenNone()
         {
             // Arrange
-            Option<int> first = Some(1);
-            Option<int> second = Some(1);
+            Option<int> first = None;
+            Option<int> second = None;
 
             // Act
             var result = new Equable().Equal(first, second);
@@ -39,11 +39,11 @@ namespace Fambda.Tests
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableEqualMustPassWhenNone()
+        public void EquableEqualMustPassWhenSome()
         {
             // Arrange
-            Option<int> first = None;
-            Option<int> second = None;
+            Option<int> first = Some(1);
+            Option<int> second = Some(1);
 
             // Act
             var result = new Equable().Equal(first, second);
@@ -69,11 +69,11 @@ namespace Fambda.Tests
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableUnequalMustPassWhenSomeAndNone()
+        public void EquableUnequalMustPassWhenNoneAndSome()
         {
             // Arrange
-            Option<int> first = Some(1);
-            Option<int> second = None;
+            Option<int> first = None;
+            Option<int> second = Some(1);
 
             // Act
             var result = new Equable().Unequal(first, second);

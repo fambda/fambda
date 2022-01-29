@@ -12,20 +12,6 @@ namespace Fambda.Tests
         #region Parse
 
         [Fact]
-        public void ParseShouldReturnOptionLongSome()
-        {
-            // Arrange
-            var s = "1";
-            Option<long> expected = Some(1L);
-
-            // Act
-            var result = LongType.Parse(s);
-
-            // Assert
-            result.Should().Be(expected);
-        }
-
-        [Fact]
         public void ParseShouldReturnOptionLongNone()
         {
             // Arrange
@@ -40,14 +26,14 @@ namespace Fambda.Tests
         }
 
         [Fact]
-        public void ParseWithNumberStylesShouldReturnOptionLongSome()
+        public void ParseShouldReturnOptionLongSome()
         {
             // Arrange
             var s = "1";
             Option<long> expected = Some(1L);
 
             // Act
-            var result = LongType.Parse(s, NumberStyles.Number);
+            var result = LongType.Parse(s);
 
             // Assert
             result.Should().Be(expected);
@@ -68,6 +54,20 @@ namespace Fambda.Tests
         }
 
         [Fact]
+        public void ParseWithNumberStylesShouldReturnOptionLongSome()
+        {
+            // Arrange
+            var s = "1";
+            Option<long> expected = Some(1L);
+
+            // Act
+            var result = LongType.Parse(s, NumberStyles.Number);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [Fact]
         public void ParseWithNumberStylesShouldReturnOptionLongNoneWhenStringIsNotExpectedHexNumber()
         {
             // Arrange
@@ -76,22 +76,6 @@ namespace Fambda.Tests
 
             // Act
             var result = LongType.Parse(s, NumberStyles.HexNumber);
-
-            // Assert
-            result.Should().Be(expected);
-        }
-
-        [Fact]
-        public void ParseWithFormatProviderShouldReturnOptionLongSome()
-        {
-            // Arrange
-            var s = "p1234";
-            IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
-
-            Option<long> expected = Some(1234L);
-
-            // Act
-            var result = LongType.Parse(s, formatProvider);
 
             // Assert
             result.Should().Be(expected);
@@ -114,15 +98,16 @@ namespace Fambda.Tests
         }
 
         [Fact]
-        public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionLongSome()
+        public void ParseWithFormatProviderShouldReturnOptionLongSome()
         {
             // Arrange
-            var s = "p1";
+            var s = "p1234";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
-            Option<long> expected = Some(1L);
+
+            Option<long> expected = Some(1234L);
 
             // Act
-            var result = LongType.Parse(s, NumberStyles.Integer, formatProvider);
+            var result = LongType.Parse(s, formatProvider);
 
             // Assert
             result.Should().Be(expected);
@@ -135,6 +120,21 @@ namespace Fambda.Tests
             var s = "p1$234";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
             Option<long> expected = None;
+
+            // Act
+            var result = LongType.Parse(s, NumberStyles.Integer, formatProvider);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [Fact]
+        public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionLongSome()
+        {
+            // Arrange
+            var s = "p1";
+            IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
+            Option<long> expected = Some(1L);
 
             // Act
             var result = LongType.Parse(s, NumberStyles.Integer, formatProvider);

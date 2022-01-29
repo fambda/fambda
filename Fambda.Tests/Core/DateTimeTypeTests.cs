@@ -12,21 +12,6 @@ namespace Fambda.Tests
         #region Parse
 
         [Fact]
-        public void ParseShouldReturnOptionDateTimeSome()
-        {
-            // Arrange
-            var dateTime = DateTime.Now;
-            var s = dateTime.ToString("o", CultureInfo.CurrentCulture);
-            Option<DateTime> expected = Some(dateTime);
-
-            // Act
-            var result = DateTimeType.Parse(s);
-
-            // Assert
-            result.Should().Be(expected);
-        }
-
-        [Fact]
         public void ParseShouldReturnOptionDateTimeNone()
         {
             // Arrange
@@ -40,18 +25,16 @@ namespace Fambda.Tests
             result.Should().Be(expected);
         }
 
-
         [Fact]
-        public void ParseWithFormatProviderShouldReturnOptionDateTimeSome()
+        public void ParseShouldReturnOptionDateTimeSome()
         {
             // Arrange
             var dateTime = DateTime.Now;
-            IFormatProvider formatProvider = CultureInfo.CreateSpecificCulture("de-DE");
-            var s = dateTime.ToString("o", formatProvider);
+            var s = dateTime.ToString("o", CultureInfo.CurrentCulture);
             Option<DateTime> expected = Some(dateTime);
 
             // Act
-            var result = DateTimeType.Parse(s, formatProvider);
+            var result = DateTimeType.Parse(s);
 
             // Assert
             result.Should().Be(expected);
@@ -68,6 +51,22 @@ namespace Fambda.Tests
 
             // Act
             var result = IntType.Parse(s, formatProvider);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [Fact]
+        public void ParseWithFormatProviderShouldReturnOptionDateTimeSome()
+        {
+            // Arrange
+            var dateTime = DateTime.Now;
+            IFormatProvider formatProvider = CultureInfo.CreateSpecificCulture("de-DE");
+            var s = dateTime.ToString("o", formatProvider);
+            Option<DateTime> expected = Some(dateTime);
+
+            // Act
+            var result = DateTimeType.Parse(s, formatProvider);
 
             // Assert
             result.Should().Be(expected);
