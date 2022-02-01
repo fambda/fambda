@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace Fambda.Tests.Helpers
+namespace Fambda.Helpers
 {
     internal static class EqComponent
     {

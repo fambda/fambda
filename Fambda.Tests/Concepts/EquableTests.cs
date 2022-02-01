@@ -1,11 +1,11 @@
 using System;
 using Fambda.Contracts;
-using Fambda.Tests.Concepts.Objects;
-using Fambda.Tests.Helpers;
+using Fambda.Concepts.Objects;
+using Fambda.Helpers;
 using FluentAssertions;
 using Xunit;
 
-namespace Fambda.Tests.Concepts
+namespace Fambda.Concepts
 {
     public class EquableTests
     {

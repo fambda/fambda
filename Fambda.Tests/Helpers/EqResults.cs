@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Fambda.Tests.Helpers
+namespace Fambda.Helpers
 {
     internal struct EqResults
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace Fambda.Tests.DataTypes
+namespace Fambda.DataTypes
 {
     [Serializable]
     public class SomeException : Exception

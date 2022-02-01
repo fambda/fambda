@@ -1,9 +1,9 @@
-using Fambda.Tests.Concepts.Objects;
-using Fambda.Tests.Helpers;
+using Fambda.Concepts.Objects;
+using Fambda.Helpers;
 using FluentAssertions;
 using Xunit;
 
-namespace Fambda.Tests.Concepts
+namespace Fambda.Concepts
 {
     public partial class EqComponentTests
     {

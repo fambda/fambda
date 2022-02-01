@@ -1,10 +1,10 @@
-using Fambda.Tests.Helpers;
+using Fambda.Helpers;
 using FluentAssertions;
 using Xunit;
 
 using static Fambda.F;
 
-namespace Fambda.Tests
+namespace Fambda
 {
     public partial class OptionTests
     {

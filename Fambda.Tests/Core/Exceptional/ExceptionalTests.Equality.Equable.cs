@@ -1,9 +1,9 @@
-using Fambda.Tests.DataTypes;
-using Fambda.Tests.Helpers;
+using Fambda.DataTypes;
+using Fambda.Helpers;
 using FluentAssertions;
 using Xunit;
 
-namespace Fambda.Tests
+namespace Fambda
 {
     public partial class ExceptionalTests
     {

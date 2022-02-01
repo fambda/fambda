@@ -1,11 +1,11 @@
 using System;
 using System.Threading.Tasks;
 using Fambda.Contracts;
-using Fambda.Tests.DataTypes;
+using Fambda.DataTypes;
 using FluentAssertions;
 using Xunit;
 
-namespace Fambda.Tests
+namespace Fambda
 {
     public partial class ExceptionalTests
     {

@@ -3,7 +3,7 @@ using Fambda.Extensions;
 using FluentAssertions;
 using Xunit;
 
-namespace Fambda.Tests.Extensions
+namespace Fambda.Extensions
 {
     public class StringExtensionsTests
     {

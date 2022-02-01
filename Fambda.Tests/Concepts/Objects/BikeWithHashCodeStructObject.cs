@@ -1,4 +1,4 @@
-namespace Fambda.Tests.Concepts.Objects
+namespace Fambda.Concepts.Objects
 {
     public struct BikeWithHashCodeStructObject
     {

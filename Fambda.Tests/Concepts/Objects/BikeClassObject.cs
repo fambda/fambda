@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Fambda.Tests.Concepts.Objects
+namespace Fambda.Concepts.Objects
 {
     public class BikeClassObject : IEquatable<BikeClassObject>
     {

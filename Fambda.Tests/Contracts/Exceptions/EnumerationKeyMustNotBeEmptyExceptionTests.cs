@@ -2,7 +2,7 @@ using Fambda.Contracts;
 using FluentAssertions;
 using Xunit;
 
-namespace Fambda.Tests.Contracts.Exceptions
+namespace Fambda.Contracts.Exceptions
 {
     public class EnumerationKeyMustNotBeEmptyExceptionTests
     {

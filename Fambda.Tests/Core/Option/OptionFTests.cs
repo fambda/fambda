@@ -4,7 +4,7 @@ using FluentAssertions;
 using Xunit;
 using static Fambda.F;
 
-namespace Fambda.Tests
+namespace Fambda
 {
     public class OptionFTests
     {
