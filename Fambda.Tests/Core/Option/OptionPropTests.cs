@@ -2,7 +2,7 @@ using System;
 using FsCheck;
 using Xunit;
 
-namespace Fambda.Tests
+namespace Fambda
 {
     public class OptionPropTests
     {

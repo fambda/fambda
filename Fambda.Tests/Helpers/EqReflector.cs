@@ -1,6 +1,6 @@
 using System.Reflection;
 
-namespace Fambda.Tests.Helpers
+namespace Fambda.Helpers
 {
     internal static class EqReflector
     {

@@ -3,7 +3,7 @@ using Fambda.Contracts;
 using FluentAssertions;
 using Xunit;
 
-namespace Fambda.Tests
+namespace Fambda
 {
     public class OptionSomeTests
     {

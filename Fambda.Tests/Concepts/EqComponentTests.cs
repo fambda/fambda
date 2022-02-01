@@ -1,4 +1,4 @@
-namespace Fambda.Tests.Concepts
+namespace Fambda.Concepts
 {
     public partial class EqComponentTests { }
 }

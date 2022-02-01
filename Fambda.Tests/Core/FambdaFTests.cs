@@ -2,7 +2,7 @@ using System;
 using FluentAssertions;
 using Xunit;
 
-namespace Fambda.Tests
+namespace Fambda
 {
     public class FambdaFTests
     {

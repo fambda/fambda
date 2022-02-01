@@ -4,7 +4,7 @@ using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
 
-namespace Fambda.Tests.Helpers
+namespace Fambda.Helpers
 {
     internal class EqResultsAssertions : ReferenceTypeAssertions<EqResults, EqResultsAssertions>
     {

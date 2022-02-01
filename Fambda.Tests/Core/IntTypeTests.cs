@@ -5,7 +5,7 @@ using Xunit;
 
 using static Fambda.F;
 
-namespace Fambda.Tests
+namespace Fambda
 {
     public class IntTypeTests
     {

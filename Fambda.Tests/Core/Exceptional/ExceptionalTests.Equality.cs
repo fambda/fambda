@@ -1,4 +1,4 @@
-namespace Fambda.Tests
+namespace Fambda
 {
     public partial class ExceptionalTests
     {

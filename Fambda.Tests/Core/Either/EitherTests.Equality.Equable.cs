@@ -1,8 +1,8 @@
-using Fambda.Tests.Helpers;
+using Fambda.Helpers;
 using FluentAssertions;
 using Xunit;
 
-namespace Fambda.Tests
+namespace Fambda
 {
     public partial class EitherTests
     {

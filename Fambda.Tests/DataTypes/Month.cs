@@ -1,4 +1,4 @@
-namespace Fambda.Tests.DataTypes
+namespace Fambda.DataTypes
 {
     public class Month : Enumeration
     {

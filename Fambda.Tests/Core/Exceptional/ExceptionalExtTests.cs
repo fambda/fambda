@@ -1,9 +1,9 @@
 using System;
-using Fambda.Tests.DataTypes;
+using Fambda.DataTypes;
 using FluentAssertions;
 using Xunit;
 
-namespace Fambda.Tests
+namespace Fambda
 {
     public class ExceptionalExtTests
     {

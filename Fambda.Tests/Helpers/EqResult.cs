@@ -1,4 +1,4 @@
-namespace Fambda.Tests.Helpers
+namespace Fambda.Helpers
 {
     internal struct EqResult
     {

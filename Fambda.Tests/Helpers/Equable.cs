@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Fambda.Contracts;
 
-namespace Fambda.Tests.Helpers
+namespace Fambda.Helpers
 {
     internal class Equable
     {
