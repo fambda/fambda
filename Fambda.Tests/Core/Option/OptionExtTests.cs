@@ -12,7 +12,7 @@ namespace Fambda
         #region Map
 
         [Fact]
-        public void MapShouldSucceedWhenNone()
+        public void MapUnaryFuncShouldSucceedWhenNone()
         {
             // Arrange
             Option<int> option = None;
@@ -26,7 +26,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void MapShouldSucceedWhenSome()
+        public void MapUnaryFuncShouldSucceedWhenSome()
         {
             // Arrange
             var value = 1;
@@ -38,6 +38,35 @@ namespace Fambda
 
             // Assert
             result.ToString().Should().Be("Some(1)");
+        }
+
+        [Fact]
+        public void MapBinaryFuncShouldSucceedWhenNone()
+        {
+            // Arrange
+            Option<int> option = None;
+            Func<int, int, string> toString = (i, j) => (i + j).ToString();
+
+            // Act
+            var result = option.Map(toString);
+
+            // Assert
+            result.ToString().Should().Be("None");
+        }
+
+        [Fact]
+        public void MapBinaryFuncShouldSucceedWhenSome()
+        {
+            // Arrange
+            var value = 1;
+            Option<int> option = Some(value);
+            Func<int, int, string> toString = (i, j) => (i + j).ToString();
+
+            // Act
+            var result = option.Map(toString).Apply(Some(2));
+
+            // Assert
+            result.ToString().Should().Be("Some(3)");
         }
 
         #endregion
