@@ -14,8 +14,8 @@ namespace Fambda
         /// <summary>
         /// Create a <see cref="Option{T}"/> in Some state.
         /// </summary>
-        /// <typeparam name="T">Bound value type</typeparam>
-        /// <param name="value">T value to be made optional</param>
+        /// <typeparam name="T">The type of bound value.</typeparam>
+        /// <param name="value">The <typeparamref name="T"/> value to wrap in <see cref="Option{T}"/></param>
         /// <exception cref="OptionSomeValueMustNotBeNullException">Thrown when some value is null.</exception>
         /// <returns>An <see cref="Option{T}"/> instance.</returns>
         public static Option<T> Some<T>(T value)

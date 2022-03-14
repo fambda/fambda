@@ -5,7 +5,7 @@ namespace Fambda
     /// <summary>
     /// Equality type-class, defines equality behavior. 
     /// </summary>
-    /// <typeparam name="T">Type for which equality is required.</typeparam>
+    /// <typeparam name="T">The type for which equality is required.</typeparam>
     public interface Eq<in T> : Hashable<T>
     {
         /// <summary>

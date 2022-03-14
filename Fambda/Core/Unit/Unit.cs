@@ -4,7 +4,7 @@ using System.Diagnostics.Contracts;
 namespace Fambda
 {
     /// <summary>
-    /// Represents a unit type. 
+    /// Represents an Unit type. 
     /// </summary>
     /// <remarks>
     /// This type that allows only one value (and thus can hold no information).

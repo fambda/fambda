@@ -7,8 +7,9 @@ using static Fambda.F;
 namespace Fambda
 {
     /// <summary>
-    /// Represents Exceptional 'T' type.
+    /// Represents an Exceptional type.
     /// </summary>
+    /// <typeparam name="T">The type of the value to be wrapped.</typeparam>
     public struct Exceptional<T> : IEquatable<Exceptional<T>>
     {
         internal Exception Exception { get; }
@@ -36,7 +37,7 @@ namespace Fambda
             => new Exceptional<T>(exception);
 
         /// <summary>
-        /// Implicit conversion operator from T to <see cref="Exceptional{T}"/>.
+        /// Implicit conversion operator from <typeparamref name="T"/> to <see cref="Exceptional{T}"/>.
         /// </summary>
         /// <param name="value">T value.</param>
         public static implicit operator Exceptional<T>(T value)

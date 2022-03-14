@@ -5,8 +5,9 @@ using Fambda.Contracts;
 namespace Fambda
 {
     /// <summary>
-    /// Represents an OptionSome 'T' type.
+    /// Represents an OptionSome type.
     /// </summary>
+    /// <typeparam name="T">The type of the value to be wrapped.</typeparam>
     public struct OptionSome<T> : IEquatable<OptionSome<T>>
     {
         internal T Value { get; }

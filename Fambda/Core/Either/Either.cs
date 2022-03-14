@@ -4,10 +4,10 @@ using System.Diagnostics.Contracts;
 namespace Fambda
 {
     /// <summary>
-    /// Represents an Either 'L', 'R' type.
+    /// Represents an Either type.
     /// </summary>
-    /// <typeparam name="L">Left</typeparam>
-    /// <typeparam name="R">Right</typeparam>
+    /// <typeparam name="L">The type of the left value to be wrapped.</typeparam>
+    /// <typeparam name="R">The type of the right value to be wrapped.</typeparam>
     public struct Either<L, R> : IEquatable<Either<L, R>>
     {
         internal L Left { get; }

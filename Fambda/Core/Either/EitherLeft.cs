@@ -6,7 +6,7 @@ namespace Fambda
     /// <summary>
     /// Represents an EitherLeft 'L' type.
     /// </summary>
-    /// <typeparam name="L">Left</typeparam>
+    /// <typeparam name="L">The type of the left value to be wrapped.</typeparam>
     public struct EitherLeft<L> : IEquatable<EitherLeft<L>>
     {
         internal L Value { get; }

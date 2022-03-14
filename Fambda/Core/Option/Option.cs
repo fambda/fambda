@@ -6,9 +6,9 @@ using static Fambda.F;
 namespace Fambda
 {
     /// <summary>
-    /// Represents an option type. 
+    /// Represents an Option type. 
     /// </summary>
-    /// <typeparam name="T">Value</typeparam>
+    /// <typeparam name="T">The type of the value to be wrapped.</typeparam>
     public struct Option<T> : IEquatable<Option<T>>, IEquatable<OptionNone>
     {
         private readonly T _value;
