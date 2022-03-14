@@ -6,7 +6,7 @@ namespace Fambda
     /// <summary>
     /// Represents an EitherRight 'R' type.
     /// </summary>
-    /// <typeparam name="R">Right</typeparam>
+    /// <typeparam name="R">The type of the right value to be wrapped.</typeparam>
     public struct EitherRight<R> : IEquatable<EitherRight<R>>
     {
         internal R Value { get; }
