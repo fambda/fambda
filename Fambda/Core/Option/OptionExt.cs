@@ -12,7 +12,8 @@ namespace Fambda
     {
         #region Map
         /// <summary>
-        /// Maps <see cref="Option{T}"/> into <see cref="Option{Res}"/>
+        /// <para>Maps <see cref="Option{T}">Option&lt;T></see> into <see cref="Option{T}">Option&lt;Res></see>.</para>
+        /// <para><c>Option&lt;T> → (T → Res) → Option&lt;Res></c></para>
         /// </summary>
         public static Option<Res> Map<T, Res>(this Option<T> option, Func<T, Res> func)
             => option.Match(
@@ -21,7 +22,8 @@ namespace Fambda
                       );
 
         /// <summary>
-        /// Maps <see cref="Option{T1}"/> into <see cref="Option{Func{T2, Res}}"/>
+        /// <para>Maps <see cref="Option{T}">Option&lt;T1></see> into <see cref="Option{T}">Option&lt;Func&lt;T2,Res>></see>.</para>
+        /// <para><c>Option&lt;T1> → (T1 → T2 → Res) → Option&lt;T2 → Res></c></para>
         /// </summary>
         public static Option<Func<T2, Res>> Map<T1, T2, Res>(this Option<T1> option, Func<T1, T2, Res> func)
             => option.Map(F.Curry(func));
@@ -31,7 +33,8 @@ namespace Fambda
         #region Bind
 
         /// <summary>
-        /// Binds <see cref="Option{T}"/> into <see cref="Option{Res}"/>
+        /// <para>Binds <see cref="Option{T}">Option&lt;T></see> into <see cref="Option{T}">Option&lt;Res></see>.</para>
+        /// <para><c>Option&lt;T> → (T → Option&lt;Res>) → Option&lt;Res></c></para>
         /// </summary>
         public static Option<Res> Bind<T, Res>(this Option<T> option, Func<T, Option<Res>> func)
             => option.Match(
