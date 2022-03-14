@@ -97,6 +97,74 @@ namespace Fambda
 
         #endregion
 
+        #region Apply
+
+        [Fact]
+        public void ApplySomeArgsOnUnaryFuncShouldReturnNone()
+        {
+            // Arrange
+            var optionArg = None;
+            Func<int, string> toArrowString = t => "-> " + t.ToString();
+
+            // Act
+            var result = Some(toArrowString)
+                            .Apply(optionArg);
+
+            // Assert
+            result.Should().Be(None);
+        }
+
+        [Fact]
+        public void ApplySomeArgsOnUnaryFuncShouldReturnSomeWithExpectedValue()
+        {
+            // Arrange
+            var optionArg = Some(1);
+            Func<int, string> toArrowString = t => "-> " + t.ToString();
+
+            // Act
+            var result = Some(toArrowString)
+                            .Apply(optionArg);
+
+            // Assert
+            result.Should().Be(Some("-> 1"));
+        }
+
+        [Fact]
+        public void ApplyNoneArgsOnBinaryFuncShouldReturnNone()
+        {
+            // Arrange
+            var optionArg1 = None;
+            var optionArg2 = Some(2);
+            Func<int, int, int> add2Args = (t1, t2) => t1 + t2;
+
+            // Act
+            var result = Some(add2Args)
+                            .Apply(optionArg1)
+                            .Apply(optionArg2);
+
+            // Assert
+            result.Should().Be(None);
+        }
+
+        [Fact]
+        public void ApplySomeArgsOnBinaryFuncShouldReturnSomeWithExpectedValue()
+        {
+            // Arrange
+            var optionArg1 = Some(1);
+            var optionArg2 = Some(2);
+            Func<int, int, int> add2Args = (t1, t2) => t1 + t2;
+
+            // Act
+            var result = Some(add2Args)
+                            .Apply(optionArg1)
+                            .Apply(optionArg2);
+
+            // Assert
+            result.Should().Be(Some(3));
+        }
+
+        #endregion
+
         #region Linq
 
         [Fact]
