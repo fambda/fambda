@@ -7,7 +7,7 @@ namespace Fambda
     public partial class UnitTests
     {
         [Fact]
-        public void EqualsShouldReturnTrue()
+        public void Equals_ReturnsTrue()
         {
             // Arrange
             var first = new Unit();
@@ -15,20 +15,6 @@ namespace Fambda
 
             // Act
             var result = first.Equals(second);
-
-            // Assert
-            result.Should().BeTrue();
-        }
-
-        [Fact]
-        public void UnitViaCtorAndViaFShouldEqual()
-        {
-            // Arrange
-            var unit = new Unit();
-            var expected = F.Unit();
-
-            // Act
-            var result = Equals(unit, expected);
 
             // Assert
             result.Should().BeTrue();
