@@ -7,9 +7,8 @@ namespace Fambda
 {
     public partial class UnitTests
     {
-
         [Fact]
-        public void GetHashCodeShouldReturnZero()
+        public void GetHashCode_ReturnsZero()
         {
             // Arrange
             var unit = new Unit();
@@ -22,7 +21,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ToStringShouldReturnOpenCloseParantheses()
+        public void ToString_ReturnsOpenCloseParantheses()
         {
             // Arrange
             var unit = new Unit();
@@ -35,7 +34,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void OperatorGreaterThanOverloadingShouldReturnFalse()
+        public void Operator_GreaterThan_ReturnsFalse()
         {
             // Arrange
             var first = new Unit();
@@ -49,7 +48,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void OperatorGreaterThanOrEqualToOverloadingShouldReturnTrue()
+        public void Operator_GreaterThanOrEqual_ReturnsTrue()
         {
             // Arrange
             var first = new Unit();
@@ -63,7 +62,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void OperatorLesserThanOverloadingShouldReturnFalse()
+        public void Operator_LessThan_ReturnsFalse()
         {
             // Arrange
             var first = new Unit();
@@ -77,7 +76,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void OperatorLesserThanOrEqualToOverloadingShouldReturnTrue()
+        public void Operator_LessThanOrEqual_ReturnsTrue()
         {
             // Arrange
             var first = new Unit();
@@ -91,10 +90,10 @@ namespace Fambda
         }
 
         [Fact]
-        public void CompareToShouldReturnZero()
+        public void CompareTo_ReturnsZero()
         {
             // Arrange
-            var expectedResult = 0;
+            var expected = 0;
             var first = new Unit();
             var second = new Unit();
 
@@ -102,14 +101,14 @@ namespace Fambda
             var result = first.CompareTo(second);
 
             // Assert
-            result.Should().Be(expectedResult);
+            result.Should().Be(expected);
         }
 
         [Fact]
-        public void OperatorAdditionOverloadingShouldReturnUnit()
+        public void Operator_Addition_ReturnsUnit()
         {
             // Arrange
-            var expectedResult = new Unit();
+            var expected = new Unit();
             var first = new Unit();
             var second = new Unit();
 
@@ -117,14 +116,14 @@ namespace Fambda
             var result = first + second;
 
             // Assert
-            result.Should().Be(expectedResult);
+            result.Should().Be(expected);
         }
 
         [Fact]
-        public void OperatorSubtractionOverloadingShouldReturnUnit()
+        public void Operator_Subtraction_ReturnsUnit()
         {
             // Arrange
-            var expectedResult = new Unit();
+            var expected = new Unit();
             var first = new Unit();
             var second = new Unit();
 
@@ -132,36 +131,35 @@ namespace Fambda
             var result = first - second;
 
             // Assert
-            result.Should().Be(expectedResult);
+            result.Should().Be(expected);
         }
 
         [Fact]
-        public void ImplicitUnitToValueTupleConversionShouldReturnDefaultValueTuple()
+        public void ImplicitConversion_UnitToValueTuple_ReturnsDefaultValueTuple()
         {
             // Arrange
-            ValueTuple expectedResult = default;
+            ValueTuple expected = default;
             var unit = new Unit();
 
             // Act
             ValueTuple result = unit;
 
             // Assert
-            result.Should().Be(expectedResult);
+            result.Should().Be(expected);
         }
 
         [Fact]
-        public void ImplicitValueTupleToUnitConversionShouldReturnUnit()
+        public void ImplicitConversion_ValueTupleToUnit_ReturnsUnit()
         {
             // Arrange
-            var expectedResult = new Unit();
+            var expected = new Unit();
             ValueTuple valueTuple = default;
 
             // Act
             Unit result = valueTuple;
 
             // Assert
-            result.Should().Be(expectedResult);
+            result.Should().Be(expected);
         }
-
     }
 }

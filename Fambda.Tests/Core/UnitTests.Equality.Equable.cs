@@ -8,7 +8,7 @@ namespace Fambda
     {
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableNullMustPass()
+        public void Equable_Null_MustPass()
         {
             // Arrange
             Unit unit = new Unit();
@@ -22,7 +22,7 @@ namespace Fambda
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableEqualMustPass()
+        public void Equable_Equal_MustPass()
         {
             // Arrange
             Unit first = new Unit();
@@ -37,7 +37,7 @@ namespace Fambda
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableUnequalMustNotPass()
+        public void Equable_Unequal_MustNotPass()
         {
             // Arrange
             Unit first = new Unit();
