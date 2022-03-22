@@ -111,5 +111,119 @@ namespace Fambda
         }
 
         #endregion
+
+        #region Apply
+
+        [Fact]
+        public void ApplySuccessArgsOnUnaryFuncShouldReturnException()
+        {
+            // Arrange
+            var exception = new SomeException("Some exception");
+            Exceptional<Func<int, string>> exceptional = exception;
+
+            Exceptional<int> optionArg = 1;
+
+            // Act
+            var result = exceptional
+                            .Apply(optionArg);
+
+            // Assert
+            result.ToString().Should().Be("Exception(Some exception)");
+        }
+
+        [Fact]
+        public void ApplyExceptionArgsOnUnaryFuncShouldReturnException()
+        {
+            // Arrange
+            Func<int, string> toArrowString = t => "-> " + t.ToString();
+            Exceptional<Func<int, string>> exceptional = toArrowString;
+
+            var intException = new SomeException("Some int exception");
+            Exceptional<int> optionArg = intException;
+
+            // Act
+            var result = exceptional
+                            .Apply(optionArg);
+
+            // Assert
+            result.ToString().Should().Be("Exception(Some int exception)");
+        }
+
+        [Fact]
+        public void ApplySuccessArgsOnUnaryFuncShouldReturnSuccessWithExpectedValue()
+        {
+            // Arrange
+            Func<int, string> toArrowString = t => "-> " + t.ToString();
+            Exceptional<Func<int, string>> exceptional = toArrowString;
+
+            Exceptional<int> optionArg = 1;
+
+            // Act
+            var result = exceptional
+                            .Apply(optionArg);
+
+            // Assert
+            result.ToString().Should().Be("Success(-> 1)");
+        }
+
+        [Fact]
+        public void ApplySuccessArgsOnBinaryFuncShouldReturnException()
+        {
+            // Arrange
+            var exception = new SomeException("Some exception");
+            Exceptional<Func<int, int, string>> exceptional = exception;
+
+            Exceptional<int> optionArg1 = 1;
+            Exceptional<int> optionArg2 = 2;
+
+            // Act
+            var result = exceptional
+                            .Apply(optionArg1)
+                            .Apply(optionArg2);
+
+            // Assert
+            result.ToString().Should().Be("Exception(Some exception)");
+        }
+
+        [Fact]
+        public void ApplyExceptionArgsOnBinaryFuncShouldReturnException()
+        {
+            // Arrange
+            Func<int, int, string> toArrowString = (x, y) => "-> " + (x + y).ToString();
+            Exceptional<Func<int, int, string>> exceptional = toArrowString;
+
+            var intException = new SomeException("Some int exception");
+            Exceptional<int> optionArg1 = intException;
+            Exceptional<int> optionArg2 = 2;
+
+            // Act
+            var result = exceptional
+                            .Apply(optionArg1)
+                            .Apply(optionArg2);
+
+            // Assert
+            result.ToString().Should().Be("Exception(Some int exception)");
+        }
+
+        [Fact]
+        public void ApplySuccessArgsOnBinaryFuncShouldReturnSuccessWithExpectedValue()
+        {
+            // Arrange
+            Func<int, int, string> toArrowString = (x, y) => "-> " + (x + y).ToString();
+            Exceptional<Func<int, int, string>> exceptional = toArrowString;
+
+            Exceptional<int> optionArg1 = 1;
+            Exceptional<int> optionArg2 = 2;
+
+            // Act
+            var result = exceptional
+                            .Apply(optionArg1)
+                            .Apply(optionArg2);
+
+            // Assert
+            result.ToString().Should().Be("Success(-> 3)");
+        }
+
+        #endregion
     }
 }
