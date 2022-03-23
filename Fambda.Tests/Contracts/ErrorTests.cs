@@ -1,4 +1,3 @@
-using Fambda.Contracts;
 using FluentAssertions;
 using Xunit;
 
@@ -7,7 +6,7 @@ namespace Fambda.Contracts
     public class ErrorTests
     {
         [Fact]
-        public void GuardExceptionMustNotBeNullReturnsExpectedException()
+        public void GuardExceptionMustNotBeNull_ReturnsExpectedException()
         {
             // Arrange
             var expectedExceptionType = typeof(GuardExceptionMustNotBeNullException);
@@ -20,7 +19,7 @@ namespace Fambda.Contracts
         }
 
         [Fact]
-        public void OptionSomeValueMustNotBeNullReturnsExpectedException()
+        public void OptionSomeValueMustNotBeNull_ReturnsExpectedException()
         {
             // Arrange
             var expectedExceptionType = typeof(OptionSomeValueMustNotBeNullException);
@@ -33,7 +32,7 @@ namespace Fambda.Contracts
         }
 
         [Fact]
-        public void OptionValueMustNotBeNullReturnsExpectedException()
+        public void OptionValueMustNotBeNull_ReturnsExpectedException()
         {
             // Arrange
             var expectedExceptionType = typeof(OptionValueMustNotBeNullException);
@@ -46,7 +45,7 @@ namespace Fambda.Contracts
         }
 
         [Fact]
-        public void ExceptionalExceptionMustNotBeNullReturnsExpectedException()
+        public void ExceptionalExceptionMustNotBeNull_ReturnsExpectedException()
         {
             // Arrange
             var expectedExceptionType = typeof(ExceptionalExceptionMustNotBeNullException);
@@ -59,7 +58,7 @@ namespace Fambda.Contracts
         }
 
         [Fact]
-        public void EnumerationKeyMustNotBeNullReturnsExpectedException()
+        public void EnumerationKeyMustNotBeNull_ReturnsExpectedException()
         {
             // Arrange
             var expectedExceptionType = typeof(EnumerationKeyMustNotBeNullException);
@@ -72,7 +71,7 @@ namespace Fambda.Contracts
         }
 
         [Fact]
-        public void EnumerationKeyMustNotBeEmptyReturnsExpectedException()
+        public void EnumerationKeyMustNotBeEmpty_ReturnsExpectedException()
         {
             // Arrange
             var expectedExceptionType = typeof(EnumerationKeyMustNotBeEmptyException);
@@ -85,7 +84,7 @@ namespace Fambda.Contracts
         }
 
         [Fact]
-        public void EnumerationKeyMustNotBeWhiteSpaceReturnsExpectedException()
+        public void EnumerationKeyMustNotBeWhiteSpace_ReturnsExpectedException()
         {
             // Arrange
             var expectedExceptionType = typeof(EnumerationKeyMustNotBeWhiteSpaceException);
@@ -98,7 +97,7 @@ namespace Fambda.Contracts
         }
 
         [Fact]
-        public void EnumerationKeyMustNotContainLeadingSpaceReturnsExpectedException()
+        public void EnumerationKeyMustNotContainLeadingSpace_ReturnsExpectedException()
         {
             // Arrange
             var expectedExceptionType = typeof(EnumerationKeyMustNotContainLeadingSpaceException);
@@ -111,7 +110,7 @@ namespace Fambda.Contracts
         }
 
         [Fact]
-        public void EnumerationKeyMustNotContainTrailingSpaceReturnsExpectedException()
+        public void EnumerationKeyMustNotContainTrailingSpace_ReturnsExpectedException()
         {
             // Arrange
             var expectedExceptionType = typeof(EnumerationKeyMustNotContainTrailingSpaceException);
