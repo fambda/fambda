@@ -34,6 +34,34 @@ namespace Fambda
         }
 
         [Fact]
+        public void Operator_Equality_ReturnsTrue()
+        {
+            // Arrange
+            var first = new Unit();
+            var second = new Unit();
+
+            // Act
+            var result = first == second;
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [Fact]
+        public void Operator_Inequality_ReturnsFalse()
+        {
+            // Arrange
+            var first = new Unit();
+            var second = new Unit();
+
+            // Act
+            var result = first != second;
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [Fact]
         public void Operator_GreaterThan_ReturnsFalse()
         {
             // Arrange
