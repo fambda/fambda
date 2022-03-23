@@ -6,36 +6,33 @@ namespace Fambda
     public class OptionNoneTests
     {
         [Fact]
-        public void CtorShouldEqualWithDefault()
+        public void Constructor_ReturnsDefaultOptionNone()
         {
             // Arrange
-            var first = new OptionNone();
-            var second = default(OptionNone);
-
+            var expected = default(OptionNone);
 
             // Act
-            var result = Equals(first, second);
+            var result = new OptionNone();
 
             // Assert
-            result.Should().BeTrue();
+            result.Should().Be(expected);
         }
 
         [Fact]
-        public void EqualsObjectShouldSucceed()
+        public void GetHashCode_ReturnsZero()
         {
             // Arrange
-            var first = new OptionNone();
-            var second = new OptionNone();
+            var optionNone = new OptionNone();
 
             // Act
-            var result = Equals(first, second);
+            var result = optionNone.GetHashCode();
 
             // Assert
-            result.Should().BeTrue();
+            result.Should().Be(0);
         }
 
         [Fact]
-        public void EqualsOptionNoneShouldSucceed()
+        public void Equals_OptionNone_ReturnsTrue()
         {
             // Arrange
             var first = new OptionNone();
@@ -49,7 +46,35 @@ namespace Fambda
         }
 
         [Fact]
-        public void ToStringShouldProvideExpectedRepresentation()
+        public void Equals_Object_ReturnsFalse()
+        {
+            // Arrange
+            var first = new OptionNone();
+            object second = "not an OptionNone";
+
+            // Act
+            var result = Equals(first, second);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [Fact]
+        public void Equals_Object_ReturnsTrue()
+        {
+            // Arrange
+            var first = new OptionNone();
+            var second = new OptionNone();
+
+            // Act
+            var result = Equals(first, second);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [Fact]
+        public void ToString_ReturnsExpectedRepresentation()
         {
             // Arrange
             var expectedResult = "None";
