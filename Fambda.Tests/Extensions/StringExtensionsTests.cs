@@ -1,5 +1,3 @@
-using System;
-using Fambda.Extensions;
 using FluentAssertions;
 using Xunit;
 
@@ -11,7 +9,7 @@ namespace Fambda.Extensions
         [InlineData(null, false)]
         [InlineData("not empty", false)]
         [InlineData("", true)]
-        public void IsEmptyShouldReturnExpectedResult(string str, bool boolean)
+        public void IsEmpty_ReturnsExpectedResult(string str, bool boolean)
         {
             // Arrange
             var expected = boolean;
@@ -29,7 +27,7 @@ namespace Fambda.Extensions
         [InlineData("", true)]
         [InlineData(" ", true)]
         [InlineData("  ", true)]
-        public void IsWhiteSpaceShouldReturnExpectedResult(string str, bool boolean)
+        public void IsWhiteSpace_ReturnsExpectedResult(string str, bool boolean)
         {
             // Arrange
             var expected = boolean;
@@ -41,14 +39,13 @@ namespace Fambda.Extensions
             result.Should().Be(expected);
         }
 
-
         [Theory]
         [InlineData(null, false)]
         [InlineData("", false)]
         [InlineData(" str", true)]
         [InlineData("  str", true)]
         [InlineData("   str", true)]
-        public void HasLeadingSpaceShouldReturnExpectedResult(string str, bool boolean)
+        public void HasLeadingSpace_ReturnsExpectedResult(string str, bool boolean)
         {
             // Arrange
             var expected = boolean;
@@ -60,14 +57,13 @@ namespace Fambda.Extensions
             result.Should().Be(expected);
         }
 
-
         [Theory]
         [InlineData(null, false)]
         [InlineData("", false)]
         [InlineData("str ", true)]
         [InlineData("str  ", true)]
         [InlineData("str   ", true)]
-        public void HasTrailingSpaceShouldReturnExpectedResult(string str, bool boolean)
+        public void HasTrailingSpace_ReturnsExpectedResult(string str, bool boolean)
         {
             // Arrange
             var expected = boolean;
