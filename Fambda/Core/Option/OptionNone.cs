@@ -43,6 +43,6 @@ namespace Fambda
         /// Returns a string that represents the current <see cref="OptionNone"/> object.
         /// </summary>
         /// <returns>A string that represents the current <see cref="OptionNone"/> object.</returns>
-        public override string ToString() => $"None";
+        public override string ToString() => "None";
     }
 }
