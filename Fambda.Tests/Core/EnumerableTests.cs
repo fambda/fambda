@@ -87,6 +87,35 @@ namespace Fambda
             result.Should().HaveElementAt(2, "Audi");
         }
 
+        #endregion
+
+        #region Flatten
+
+        [Fact]
+        public void Flatten_Nested_ReturnsExpectedSequence()
+        {
+            // Arrange
+            var enumerable = new List<List<int>>()
+            {
+                new List<int>() { 1, 2 },
+                new List<int>() { 3, 4, 5 },
+                new List<int>() { 6, 7, 8, 9 }
+            };
+
+            // Act
+            IEnumerable<int> result = enumerable.Flatten();
+
+            // Assert
+            result.Should().HaveElementAt(0, 1);
+            result.Should().HaveElementAt(1, 2);
+            result.Should().HaveElementAt(2, 3);
+            result.Should().HaveElementAt(3, 4);
+            result.Should().HaveElementAt(4, 5);
+            result.Should().HaveElementAt(5, 6);
+            result.Should().HaveElementAt(6, 7);
+            result.Should().HaveElementAt(7, 8);
+            result.Should().HaveElementAt(8, 9);
+        }
 
         #endregion
     }
