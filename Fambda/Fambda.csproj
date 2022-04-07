@@ -27,4 +27,8 @@ Supported .NET Standard 2.0+</Description>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="Fambda.Tests" />
+  </ItemGroup>
+
 </Project>
