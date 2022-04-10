@@ -47,6 +47,20 @@ namespace Fambda
         }
 
         [Fact]
+        public void GetHashCode_ReturnsSameHashForSameValue()
+        {
+            // Arrange
+            var first = new OptionSome<string>("value");
+            var second = new OptionSome<string>("value");
+
+            // Act
+            var result = first.GetHashCode();
+
+            // Assert
+            result.Should().Be(second.GetHashCode());
+        }
+
+        [Fact]
         public void EqualsObjectShouldReturnTrue()
         {
             // Arrange
