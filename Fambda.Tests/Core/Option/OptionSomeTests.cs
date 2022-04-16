@@ -8,7 +8,7 @@ namespace Fambda
     public class OptionSomeTests
     {
         [Fact]
-        public void CtorShouldSucceed()
+        public void Constructor_NotNullValue_Succeeds()
         {
             // Arrange
             var value = "value";
@@ -21,7 +21,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void CtorShouldFail()
+        public void Constructor_NullValue_ThrowsOptionSomeValueMustNotBeNullException()
         {
             // Arrange
             string value = null;
@@ -34,7 +34,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void CtorShouldSetCorrectValue()
+        public void Constructor_SetsCorrectValue()
         {
             // Arrange
             var value = "value";
@@ -61,7 +61,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void EqualsObjectShouldReturnTrue()
+        public void Equals_Object_ReturnsTrue()
         {
             // Arrange
             var first = new OptionSome<string>("value");
@@ -75,7 +75,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void EqualsObjectShouldReturnFalse()
+        public void Equals_Object_ReturnsFalse()
         {
             // Arrange
             var first = new OptionSome<string>("value1");
@@ -89,7 +89,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void EqualsOptionSomeShouldReturnTrue()
+        public void Equals_OptionSome_ReturnsTrue()
         {
             // Arrange
             var first = new OptionSome<string>("value");
@@ -103,7 +103,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void EqualsOptionSomeShouldReturnFalse()
+        public void Equals_OptionSome_ReturnsFalse()
         {
             // Arrange
             var first = new OptionSome<string>("value1");
@@ -117,7 +117,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ToStringShouldProvideExpectedRepresentation()
+        public void ToString_ReturnsExpectedRepresentation()
         {
             // Arrange
             var value = "value";
