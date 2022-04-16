@@ -9,7 +9,20 @@ namespace Fambda
     public class OptionFTests
     {
         [Fact]
-        public void SomeShouldSucceed()
+        public void None_Succeeds()
+        {
+            // Arrange
+            var none = None;
+
+            // Act
+            Option<string> option = none;
+
+            // Assert
+            option.ToString().Should().Be("None");
+        }
+
+        [Fact]
+        public void Some_NotNull_Succeeds()
         {
             // Arrange
             var value = "value";
@@ -22,7 +35,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void SomeShouldFail()
+        public void Some_Null_ThrowsOptionSomeValueMustNotBeNullException()
         {
             // Arrange
             string value = null;
@@ -32,19 +45,6 @@ namespace Fambda
 
             // Assert
             act.Should().Throw<OptionSomeValueMustNotBeNullException>();
-        }
-
-        [Fact]
-        public void NoneShouldSucceed()
-        {
-            // Arrange
-            var none = None;
-
-            // Act
-            Option<string> option = none;
-
-            // Assert
-            option.ToString().Should().Be("None");
         }
     }
 }
