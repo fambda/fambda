@@ -12,61 +12,65 @@ namespace Fambda
         #region Map
 
         [Fact]
-        public void MapUnaryFuncShouldSucceedWhenNone()
+        public void Map_UnaryFuncOverNone_ReturnsNone()
         {
             // Arrange
             Option<int> option = None;
             Func<int, string> toString = i => i.ToString();
+            var expected = None;
 
             // Act
             var result = option.Map(toString);
 
             // Assert
-            result.ToString().Should().Be("None");
+            result.Should().Be(expected);
         }
 
         [Fact]
-        public void MapUnaryFuncShouldSucceedWhenSome()
+        public void Map_UnaryFuncOverSome_ReturnsSome()
         {
             // Arrange
             var value = 1;
             Option<int> option = Some(value);
             Func<int, string> toString = i => i.ToString();
+            var expected = Some("1");
 
             // Act
             var result = option.Map(toString);
 
             // Assert
-            result.ToString().Should().Be("Some(1)");
+            result.Should().Be(expected);
         }
 
         [Fact]
-        public void MapBinaryFuncShouldSucceedWhenNone()
+        public void Map_BinaryFuncOverSome_ReturnsNone()
         {
             // Arrange
             Option<int> option = None;
             Func<int, int, string> toString = (i, j) => (i + j).ToString();
+            var expected = None;
 
             // Act
             var result = option.Map(toString);
 
             // Assert
-            result.ToString().Should().Be("None");
+            result.Should().Be(expected);
         }
 
         [Fact]
-        public void MapBinaryFuncShouldSucceedWhenSome()
+        public void Map_BinaryFuncOverSome_ReturnsSome()
         {
             // Arrange
             var value = 1;
             Option<int> option = Some(value);
             Func<int, int, string> toString = (i, j) => (i + j).ToString();
+            var expected = Some("3");
 
             // Act
             var result = option.Map(toString).Apply(Some(2));
 
             // Assert
-            result.ToString().Should().Be("Some(3)");
+            result.Should().Be(expected);
         }
 
         #endregion
@@ -74,7 +78,7 @@ namespace Fambda
         #region Bind
 
         [Fact]
-        public void BindShouldReturnNone()
+        public void Bind_ReturnsNone()
         {
             // Arrange
             Option<int> option = None;
@@ -91,15 +95,17 @@ namespace Fambda
                 }
             };
 
+            var expected = None;
+
             // Act
             var result = option.Bind(toTrueBoolWhenOptionIntOne);
 
             // Assert
-            result.Should().Be(None);
+            result.Should().Be(expected);
         }
 
         [Fact]
-        public void BindShouldReturnSome()
+        public void Bind_ReturnsSome()
         {
             // Arrange
             var value = 1;
@@ -117,11 +123,13 @@ namespace Fambda
                 }
             };
 
+            var expected = Some(true);
+
             // Act
             var result = option.Bind(toTrueBoolWhenOptionIntOne);
 
             // Assert
-            result.Should().Be(Some(true));
+            result.Should().Be(expected);
         }
 
         #endregion
@@ -129,42 +137,45 @@ namespace Fambda
         #region Apply
 
         [Fact]
-        public void ApplySomeArgsOnUnaryFuncShouldReturnNone()
+        public void Apply_SomeArgsOnUnaryFunc_ReturnsNone()
         {
             // Arrange
             var optionArg = None;
             Func<int, string> toArrowString = t => "-> " + t.ToString();
+            var expected = None;
 
             // Act
             var result = Some(toArrowString)
                             .Apply(optionArg);
 
             // Assert
-            result.Should().Be(None);
+            result.Should().Be(expected);
         }
 
         [Fact]
-        public void ApplySomeArgsOnUnaryFuncShouldReturnSomeWithExpectedValue()
+        public void Apply_SomeArgsOnUnaryFunc_ReturnsSome()
         {
             // Arrange
             var optionArg = Some(1);
             Func<int, string> toArrowString = t => "-> " + t.ToString();
+            var expected = Some("-> 1");
 
             // Act
             var result = Some(toArrowString)
                             .Apply(optionArg);
 
             // Assert
-            result.Should().Be(Some("-> 1"));
+            result.Should().Be(expected);
         }
 
         [Fact]
-        public void ApplyNoneArgsOnBinaryFuncShouldReturnNone()
+        public void Apply_NoneArgsOnBinaryFunc_ReturnsNone()
         {
             // Arrange
             var optionArg1 = None;
             var optionArg2 = Some(2);
             Func<int, int, int> add2Args = (t1, t2) => t1 + t2;
+            var expected = None;
 
             // Act
             var result = Some(add2Args)
@@ -172,16 +183,17 @@ namespace Fambda
                             .Apply(optionArg2);
 
             // Assert
-            result.Should().Be(None);
+            result.Should().Be(expected);
         }
 
         [Fact]
-        public void ApplySomeArgsOnBinaryFuncShouldReturnSomeWithExpectedValue()
+        public void Apply_SomeArgsOnBinaryFunc_ReturnsSome()
         {
             // Arrange
             var optionArg1 = Some(1);
             var optionArg2 = Some(2);
             Func<int, int, int> add2Args = (t1, t2) => t1 + t2;
+            var expected = Some(3);
 
             // Act
             var result = Some(add2Args)
@@ -189,7 +201,7 @@ namespace Fambda
                             .Apply(optionArg2);
 
             // Assert
-            result.Should().Be(Some(3));
+            result.Should().Be(expected);
         }
 
         #endregion
@@ -197,7 +209,7 @@ namespace Fambda
         #region Linq
 
         [Fact]
-        public void LinqExpressionSingleFromClauseShouldSucceed()
+        public void Linq_SingleFromClause_Succeeds()
         {
             // Arrange
             var expectedResult = Some(1);
@@ -211,7 +223,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void LinqExpressionTwoFromClausesShouldSucceed()
+        public void Linq_TwoFromClauses_Succeeds()
         {
             // Arrange
             var expectedResult = Some(3);
@@ -226,7 +238,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void LinqExpressionThreeFromClausesShouldSucceed()
+        public void Linq_ThreeFromClauses_Succeeds()
         {
             // Arrange
             var expectedResult = Some(6);
@@ -242,7 +254,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void LinqExpressionMultipleFromClausesShouldSucceed()
+        public void Linq_MultipleFromClauses_Succeeds()
         {
             // Arrange
             var expectedResult = Some(10);
@@ -261,7 +273,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void LinqExpressionFromWhereShouldReturnNone()
+        public void Linq_FromWhere_ReturnsNone()
         {
             // Arrange
             var expectedResult = None;
@@ -276,7 +288,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void LinqExpressionFromWhereShouldReturnSome()
+        public void Linq_FromWhere_ReturnsSome()
         {
             // Arrange
             var expectedResult = Some(1);
@@ -295,11 +307,11 @@ namespace Fambda
         #region AsEnumerable
 
         [Fact]
-        public void MapShouldReturnNoItemWhenNone()
+        public void AsEnumerable_OnNone_ReturnsEmptyCollection()
         {
             // Arrange
-            IEnumerable<int> expected = new List<int>() { };
             Option<int> option = None;
+            IEnumerable<int> expected = new List<int>() { };
 
             // Act
             var result = option.AsEnumerable();
@@ -309,12 +321,12 @@ namespace Fambda
         }
 
         [Fact]
-        public void AsEnumerableShouldReturnOneItemWhenSome()
+        public void AsEnumerable_OnSome_ReturnsCollectionWithOneItem()
         {
             // Arrange
-            IEnumerable<int> expected = new List<int>() { 1 };
             var value = 1;
             Option<int> option = Some(value);
+            IEnumerable<int> expected = new List<int>() { 1 };
 
             // Act
             var result = option.AsEnumerable();
