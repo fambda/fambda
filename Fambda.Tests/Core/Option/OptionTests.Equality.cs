@@ -63,5 +63,65 @@ namespace Fambda
             // Assert
             result.Should().BeFalse();
         }
+
+        [Fact]
+        public void Equals_BoxedOptionNone_ReturnsFalse()
+        {
+            // Arrange
+            Option<int> option = new OptionSome<int>(1);
+            OptionNone optionNone = new OptionNone();
+            var boxedOptionNone = optionNone as object;
+
+            // Act
+            var result = option.Equals(boxedOptionNone);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [Fact]
+        public void Equals_BoxedOptionNone_ReturnsTrue()
+        {
+            // Arrange
+            Option<int> option = new OptionNone();
+            OptionNone optionNone = new OptionNone();
+            var boxedOptionNone = optionNone as object;
+
+            // Act
+            var result = option.Equals(boxedOptionNone);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [Fact]
+        public void Equals_BoxedOptionSome_ReturnsFalse()
+        {
+            // Arrange
+            Option<int> option = new OptionSome<int>(1);
+            OptionSome<int> optionSome = new OptionSome<int>(2);
+            var boxedOptionSome = optionSome as object;
+
+            // Act
+            var result = option.Equals(boxedOptionSome);
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [Fact]
+        public void Equals_BoxedOptionSome_ReturnsTrue()
+        {
+            // Arrange
+            Option<int> option = new OptionSome<int>(1);
+            OptionSome<int> optionSome = new OptionSome<int>(1);
+            var boxedOptionSome = optionSome as object;
+
+            // Act
+            var result = option.Equals(boxedOptionSome);
+
+            // Assert
+            result.Should().BeTrue();
+        }
     }
 }
