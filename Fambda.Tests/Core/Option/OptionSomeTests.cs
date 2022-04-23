@@ -47,17 +47,31 @@ namespace Fambda
         }
 
         [Fact]
-        public void GetHashCode_ReturnsSameHashForSameValue()
+        public void GetHashCode_SameValues_ReturnSameHash()
         {
             // Arrange
-            var first = new OptionSome<string>("value");
-            var second = new OptionSome<string>("value");
+            var optionSomeA = new OptionSome<string>("value");
+            var optionSomeB = new OptionSome<string>("value");
 
             // Act
-            var result = first.GetHashCode();
+            var result = optionSomeA.GetHashCode();
 
             // Assert
-            result.Should().Be(second.GetHashCode());
+            result.Should().Be(optionSomeB.GetHashCode());
+        }
+
+        [Fact]
+        public void GetHashCode_DifferentValues_ReturnDifferentHash()
+        {
+            // Arrange
+            var optionSomeA = new OptionSome<string>("valueA");
+            var optionSomeB = new OptionSome<string>("valueB");
+
+            // Act
+            var result = optionSomeA.GetHashCode();
+
+            // Assert
+            result.Should().NotBe(optionSomeB.GetHashCode());
         }
 
         [Fact]
