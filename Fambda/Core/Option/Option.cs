@@ -71,7 +71,7 @@ namespace Fambda
         /// </summary>
         /// <returns>A hash code for the current <see cref="Option{T}"/> object.</returns>
         public override int GetHashCode()
-            => default(HashableOption<T>).GetHashCode();
+            => default(HashableOption<T>).GetHashCode(this);
 
         /// <summary>
         /// Indicates whether the current <see cref="Option{T}"/> is equal to another <see cref="Option{T}"/>
