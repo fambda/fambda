@@ -10,6 +10,8 @@ namespace Fambda
 {
     public partial class OptionTests
     {
+        #region Option
+
         [Fact]
         public void GetHashCode_OptionsInNoneState_ReturnSameHash()
         {
@@ -61,13 +63,10 @@ namespace Fambda
 
             // Act
             var result = optionA.GetHashCode();
-            var t = optionB.GetHashCode();
 
             // Assert
             result.Should().NotBe(optionB.GetHashCode());
         }
-
-        #region Option
 
         [Fact]
         public void ImplicitOperatorOverloadingShouldSucceedWithOptionSome()
@@ -112,6 +111,58 @@ namespace Fambda
 
             // Assert
             result.Should().Be(expected);
+        }
+
+        [Fact]
+        public void IsNone_ReturnsTrue()
+        {
+            // Arrange
+            Option<int> option = new OptionNone();
+
+            // Act
+            var result = option.IsNone;
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [Fact]
+        public void IsNone_ReturnsFalse()
+        {
+            // Arrange
+            Option<int> option = new OptionSome<int>(1);
+
+            // Act
+            var result = option.IsNone;
+
+            // Assert
+            result.Should().BeFalse();
+        }
+
+        [Fact]
+        public void IsSome_ReturnsTrue()
+        {
+            // Arrange
+            Option<int> option = new OptionSome<int>(1);
+
+            // Act
+            var result = option.IsSome;
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [Fact]
+        public void IsSome_ReturnsFalse()
+        {
+            // Arrange
+            Option<int> option = new OptionNone();
+
+            // Act
+            var result = option.IsSome;
+
+            // Assert
+            result.Should().BeFalse();
         }
 
         #endregion
