@@ -10,6 +10,63 @@ namespace Fambda
 {
     public partial class OptionTests
     {
+        [Fact]
+        public void GetHashCode_OptionsInNoneState_ReturnSameHash()
+        {
+            // Arrange
+            Option<int> optionA = new OptionNone();
+            Option<int> optionB = new OptionNone();
+
+            // Act
+            var result = optionA.GetHashCode();
+
+            // Assert
+            result.Should().Be(optionB.GetHashCode());
+        }
+
+        [Fact]
+        public void GetHashCode_OptionsInSomeStateWithSameValues_ReturnSameHash()
+        {
+            // Arrange
+            Option<int> optionA = new OptionSome<int>(1);
+            Option<int> optionB = new OptionSome<int>(1);
+
+            // Act
+            var result = optionA.GetHashCode();
+
+            // Assert
+            result.Should().Be(optionB.GetHashCode());
+        }
+
+        [Fact]
+        public void GetHashCode_OptionsInSomeStateWithDifferentValues_ReturnDifferentHash()
+        {
+            // Arrange
+            Option<int> optionA = new OptionSome<int>(1);
+            Option<int> optionB = new OptionSome<int>(2);
+
+            // Act
+            var result = optionA.GetHashCode();
+
+            // Assert
+            result.Should().NotBe(optionB.GetHashCode());
+        }
+
+        [Fact]
+        public void GetHashCode_OptionsInDifferentState_ReturnDifferentHash()
+        {
+            // Arrange
+            Option<int> optionA = new OptionNone();
+            Option<int> optionB = new OptionSome<int>(1);
+
+            // Act
+            var result = optionA.GetHashCode();
+            var t = optionB.GetHashCode();
+
+            // Assert
+            result.Should().NotBe(optionB.GetHashCode());
+        }
+
         #region Option
 
         [Fact]
