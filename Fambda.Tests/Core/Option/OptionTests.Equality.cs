@@ -9,11 +9,11 @@ namespace Fambda
     public partial class OptionTests
     {
         [Fact]
-        public void EqualsOptionNoneShouldReturnTrue()
+        public void Equals_OptionNone_ReturnsTrue()
         {
             // Arrange
-            OptionNone optionNone = OptionNone.Default;
             Option<int> option = None;
+            OptionNone optionNone = OptionNone.Default;
 
             // Act
             var result = option.Equals(optionNone);
@@ -23,11 +23,11 @@ namespace Fambda
         }
 
         [Fact]
-        public void EqualsOptionNoneShouldReturnFalse()
+        public void Equals_OptionNone_ReturnsFalse()
         {
             // Arrange
-            OptionNone optionNone = OptionNone.Default;
             Option<int> option = Some(1);
+            OptionNone optionNone = OptionNone.Default;
 
             // Act
             var result = option.Equals(optionNone);
@@ -37,11 +37,11 @@ namespace Fambda
         }
 
         [Fact]
-        public void EqualsOptionSomeShouldReturnTrue()
+        public void Equals_OptionSome_ReturnsTrue()
         {
             // Arrange
-            OptionSome<int> optionSome = new OptionSome<int>(1);
             Option<int> option = Some(1);
+            OptionSome<int> optionSome = new OptionSome<int>(1);
 
             // Act
             var result = option.Equals(optionSome);
@@ -51,11 +51,11 @@ namespace Fambda
         }
 
         [Fact]
-        public void EqualsOptionSomeShouldReturnFalse()
+        public void Equals_OptionSome_ReturnsFalse()
         {
             // Arrange
-            OptionSome<int> optionSome = new OptionSome<int>(2);
             Option<int> option = Some(1);
+            OptionSome<int> optionSome = new OptionSome<int>(2);
 
             // Act
             var result = option.Equals(optionSome);
