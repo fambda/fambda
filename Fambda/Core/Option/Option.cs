@@ -1,7 +1,6 @@
 using System;
 using System.Diagnostics.Contracts;
 using Fambda.Contracts;
-using static Fambda.F;
 
 namespace Fambda
 {
@@ -96,12 +95,9 @@ namespace Fambda
         /// <param name="obj">The object to compare with the current <see cref="Option{T}"/> object.</param>
         /// <returns>true if the specified object is equal to the current <see cref="Option{T}"/> object; otherwise, false.</returns>
         public override bool Equals(object obj)
-        {
-            if (IsNull(obj)) { return false; }
-            else if (obj is OptionNone optionNone) { return Equals(optionNone); }
-            else if (obj is OptionSome<T> optionSome) { return Equals(optionSome); }
-            return base.Equals(obj);
-        }
+            => (obj is OptionNone optionNone && Equals(optionNone)) ||
+               (obj is OptionSome<T> optionSome && Equals(optionSome)) ||
+               (obj is Option<T> option && Equals(option));
 
         /// <summary>
         /// Returns a string that represents the current <see cref="Option{T}"/> object.
