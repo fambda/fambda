@@ -10,7 +10,21 @@ namespace Fambda
     {
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableNullMustPass()
+        public void EquableNull_OptionInNoneState_Succeeds()
+        {
+            // Arrange
+            Option<int> option = None;
+
+            // Act
+            var result = new Equable().Null(option);
+
+            // Assert
+            result.Should().Pass();
+        }
+
+        [Fact]
+        [Trait("Category", "Equable")]
+        public void EquableNull_OptionInSomeState_Succeeds()
         {
             // Arrange
             Option<int> option = Some(1);
@@ -24,7 +38,7 @@ namespace Fambda
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableEqualMustPassWhenNone()
+        public void EquableEqual_OptionsInNoneAndNoneStates_Succeeds()
         {
             // Arrange
             Option<int> first = None;
@@ -39,7 +53,7 @@ namespace Fambda
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableEqualMustPassWhenSome()
+        public void EquableEqual_OptionInSomeAndSomeStates_Succeeds()
         {
             // Arrange
             Option<int> first = Some(1);
@@ -54,7 +68,7 @@ namespace Fambda
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableUnequalMustPassWhenSome()
+        public void EquableUnequal_OptionsInSomeAndSomeStates_Succeeds()
         {
             // Arrange
             Option<int> first = Some(1);
@@ -69,7 +83,7 @@ namespace Fambda
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableUnequalMustPassWhenNoneAndSome()
+        public void EquableUnequal_OptionsInNoneAndSomeStates_Succeeds()
         {
             // Arrange
             Option<int> first = None;
