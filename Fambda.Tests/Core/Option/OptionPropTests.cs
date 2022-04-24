@@ -12,14 +12,14 @@ namespace Fambda
         }
 
         [Fact]
-        public void ToStringShouldReturnExpectedRepresentation()
+        public void ToString_ReturnsExpectedRepresentation()
         {
             Prop.ForAll<Option<int>>(option => (option.ToString().StartsWith("Some(") && option.ToString().EndsWith(")")) || option.ToString() == "None")
                 .VerboseCheckThrowOnFailure();
         }
 
         [Fact]
-        public void MapShouldBehaveAsLinqExpression()
+        public void Map_BehavesAsLinq()
         {
             Func<string, string> append = s => s + "_";
 
