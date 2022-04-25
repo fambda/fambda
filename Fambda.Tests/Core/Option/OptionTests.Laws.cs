@@ -1,3 +1,4 @@
+using System;
 using FluentAssertions;
 using Xunit;
 using static Fambda.F;
@@ -18,6 +19,25 @@ namespace Fambda
             var mapped = option.Map(F.Identity);
             var original = option;
             var result = mapped.Equals(original);
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        [Fact]
+        [Trait("Category", "Laws")]
+        public void LawFunctor_Composition_Holds()
+        {
+            // Arrange
+            Option<int> option = Some(1);
+            Func<int, int> f = x => x + 1;
+            Func<int, int> g = x => x * 2;
+            Func<int, int> h = x => g(f(x));
+
+            // Act
+            var mapMap = option.Map(f).Map(g);
+            var mapCompose = option.Map(h);
+            var result = mapMap.Equals(mapCompose);
 
             // Assert
             result.Should().BeTrue();
