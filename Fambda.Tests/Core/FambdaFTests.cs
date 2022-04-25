@@ -6,6 +6,23 @@ namespace Fambda
 {
     public class FambdaFTests
     {
+        #region Identity
+
+        [Fact]
+        public void Identity_ReturnsSameArgument()
+        {
+            // Arrange
+            var argument = "some value";
+
+            // Act
+            var result = F.Identity(argument);
+
+            // Assert
+            result.Should().Be(argument);
+        }
+
+        #endregion
+
         #region Curry
         [Fact]
         public void CurryFunctionWithTwoParametersShouldSucceed()
@@ -102,6 +119,5 @@ namespace Fambda
         }
 
         #endregion
-
     }
 }

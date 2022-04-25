@@ -16,6 +16,24 @@ namespace Fambda
     /// </remarks>
     public static partial class F
     {
+        #region Identity
+
+        /// <summary>
+        /// <para>The identity function. Takes one argument and returns the argument without modifications.</para>
+        /// <para><c>T -> T</c></para>
+        /// </summary>
+        /// <typeparam name="T">The type of the argument.</typeparam>
+        /// <param name="x">The <typeparamref name="T" /> argument.</param>
+        /// <returns>The <typeparamref name="T" /> argument to return.</returns>
+        /// <remarks>
+        /// See <a href="https://en.wikipedia.org/wiki/Identity_function">this link</a> for more information.
+        /// </remarks>
+        [Pure]
+        public static T Identity<T>(T x)
+            => x;
+
+        #endregion
+
         #region Curry
 
         /// <summary>
