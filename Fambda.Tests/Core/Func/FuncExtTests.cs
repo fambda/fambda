@@ -113,5 +113,25 @@ namespace Fambda
         }
 
         #endregion
+
+        #region Compose
+
+        [Fact]
+        public void Compose_Succeeds()
+        {
+            // Arrange
+            Func<int, int> f = x => x + 1;
+            Func<int, int> g = x => x * 2;
+            Func<int, int> expected = x => g(f(x));
+
+            // Act
+            var composedFunc = g.Compose(f);
+            var result = composedFunc(5).Equals(expected(5));
+
+            // Assert
+            result.Should().BeTrue();
+        }
+
+        #endregion
     }
 }
