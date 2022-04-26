@@ -113,5 +113,25 @@ namespace Fambda
             => (t4) => func(t1, t2, t3, t4);
 
         #endregion
+
+        #region Compose
+
+        /// <summary>
+        /// <para>Compose <see cref="Func{T2,Res}">Func&lt;T2, Res></see> with <see cref="Func{T1,T2}">Func&lt;T1, T2></see> into <see cref="Func{T1,Res}">Func&lt;T1, Res></see>.</para>
+        /// <para><c>g ∘ f : T1 → Res</c>, where <c>f : T1 → T2</c> and <c>g : T2 → Res</c></para>
+        /// </summary>
+        /// <typeparam name="T1">The type of <c>f</c> function's first parameter.</typeparam>
+        /// <typeparam name="T2">The type of <c>f</c> function's second parameter and <c>g</c> function's first parameter.</typeparam>
+        /// <typeparam name="Res">The type of the function composition return value.</typeparam>
+        /// <param name="g">Function to be composed.</param>
+        /// <param name="f">Function to be composed with.</param>
+        /// <returns>The <see cref="Func{T1,Res}">Func&lt;T1, Res></see> function.</returns>
+        /// <remarks>
+        /// See <a href="https://en.wikipedia.org/wiki/Function_composition">this link</a> for more information.
+        /// </remarks>
+        public static Func<T1, Res> Compose<T1, T2, Res>(this Func<T2, Res> g, Func<T1, T2> f)
+            => x => g(f(x));
+
+        #endregion
     }
 }

@@ -32,7 +32,7 @@ namespace Fambda
             Option<int> option = Some(1);
             Func<int, int> f = x => x + 1;
             Func<int, int> g = x => x * 2;
-            Func<int, int> h = x => g(f(x));
+            var h = g.Compose(f);
 
             // Act
             var mapMap = option.Map(f).Map(g);
