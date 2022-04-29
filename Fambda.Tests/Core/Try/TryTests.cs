@@ -4,7 +4,7 @@ using Xunit;
 
 namespace Fambda
 {
-    public class TryTests
+    public partial class TryTests
     {
         [Fact]
         public void TryShouldMatchToSuccess()
