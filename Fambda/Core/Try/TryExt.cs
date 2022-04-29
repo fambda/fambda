@@ -13,11 +13,11 @@ namespace Fambda
         /// </summary>
         /// <returns><see cref="Exceptional{T}"/> Exception or Success.</returns>
         [Pure]
-        public static Exceptional<T> Try<T>(this Try<T> @try)
+        public static Exceptional<T> Try<T>(this Try<T> self)
         {
             try
             {
-                return @try();
+                return self();
             }
             catch (Exception exception)
             {
@@ -28,8 +28,8 @@ namespace Fambda
         /// <summary>
         /// Maps <see cref="Try{T}"/> into <see cref="Try{Res}"/>
         /// </summary>
-        public static Try<Res> Map<T, Res>(this Try<T> @try, Func<T, Res> func)
-            => () => @try.Try()
+        public static Try<Res> Map<T, Res>(this Try<T> self, Func<T, Res> func)
+            => () => self.Try()
                          .Match<Exceptional<Res>>(
                             Exception: ex => ex,
                             Success: t => func(t)
@@ -38,8 +38,8 @@ namespace Fambda
         /// <summary>
         /// Binds <see cref="Try{T}"/> into <see cref="Try{Res}"/>
         /// </summary>
-        public static Try<Res> Bind<T, Res>(this Try<T> @try, Func<T, Try<Res>> func)
-            => () => @try.Try()
+        public static Try<Res> Bind<T, Res>(this Try<T> self, Func<T, Try<Res>> func)
+            => () => self.Try()
                          .Match(
                              Exception: ex => ex,
                              Success: t => func(t).Try()
