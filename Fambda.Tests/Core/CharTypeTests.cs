@@ -10,7 +10,7 @@ namespace Fambda
         #region Parse
 
         [Fact]
-        public void ParseShouldReturnOptionCharNone()
+        public void Parse_ReturnsOptionCharNone()
         {
             // Arrange
             var s = "not a char";
@@ -24,7 +24,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseShouldReturnOptionCharSome()
+        public void Parse_ReturnsOptionCharSome()
         {
             // Arrange
             var s = "A";

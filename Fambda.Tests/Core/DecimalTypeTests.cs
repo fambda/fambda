@@ -12,7 +12,7 @@ namespace Fambda
         #region Parse
 
         [Fact]
-        public void ParseShouldReturnOptionDecimalNone()
+        public void Parse_ReturnsOptionDecimalNone()
         {
             // Arrange
             var s = "not a decimal";
@@ -26,7 +26,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseShouldReturnOptionDecimalSome()
+        public void Parse_ReturnsOptionDecimalSome()
         {
             // Arrange
             var s = "1";
@@ -40,7 +40,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesShouldReturnOptionDecimalNone()
+        public void Parse_WithNumberStyles_ReturnsOptionDecimalNone()
         {
             // Arrange
             var s = "not a decimal";
@@ -54,7 +54,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesShouldReturnOptionDecimalSome()
+        public void Parse_WithNumberStyles_ReturnsOptionDecimalSome()
         {
             // Arrange
             var s = "1.1";
@@ -68,7 +68,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesShouldReturnOptionDecimalNoneWhenStringIsNotExpectedHexNumber()
+        public void Parse_WithNumberStylesWhenStringIsNotExpectedHexNumber_ReturnsOptionDecimalNone()
         {
             // Arrange
             var s = "1.1";
@@ -82,7 +82,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithFormatProviderShouldReturnOptionDecimalNone()
+        public void Parse_WithFormatProvider_ReturnsOptionDecimalNone()
         {
             // Arrange
             var s = "positive1234.1";
@@ -98,7 +98,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithFormatProviderShouldReturnOptionDecimalSome()
+        public void Parse_WithFormatProvider_ReturnsOptionDecimalSome()
         {
             // Arrange
             var s = "p1234";
@@ -114,7 +114,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionDecimalNone()
+        public void Parse_WithNumberStylesAndFormatProvider_ReturnsOptionDecimalNone()
         {
             // Arrange
             var s = "p1$234.4";
@@ -129,7 +129,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionDecimalSome()
+        public void Parse_WithNumberStylesAndFormatProvider_ReturnsOptionDecimalSome()
         {
             // Arrange
             var s = "p1.1";

@@ -12,7 +12,7 @@ namespace Fambda
         #region Parse
 
         [Fact]
-        public void ParseShouldReturnOptionFloatNone()
+        public void Parse_ReturnsOptionFloatNone()
         {
             // Arrange
             var s = "not a float";
@@ -26,7 +26,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseShouldReturnOptionFloatSome()
+        public void Parse_ReturnsOptionFloatSome()
         {
             // Arrange
             var s = "1.1";
@@ -40,7 +40,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesShouldReturnOptionFloatNone()
+        public void Parse_WithNumberStyles_ReturnsOptionFloatNone()
         {
             // Arrange
             var s = "not a float";
@@ -54,7 +54,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesShouldReturnOptionFloatSome()
+        public void Parse_WithNumberStyles_ReturnsOptionFloatSome()
         {
             // Arrange
             var s = "1.1";
@@ -68,7 +68,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesShouldReturnOptionFloatNoneWhenStringIsNotExpectedHexNumber()
+        public void Parse_WithNumberStylesWhenStringIsNotExpectedHexNumber_ReturnsOptionFloatNone()
         {
             // Arrange
             var s = "1.0";
@@ -82,7 +82,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithFormatProviderShouldReturnOptionFloatNone()
+        public void Parse_WithFormatProvider_ReturnsOptionFloatNone()
         {
             // Arrange
             var s = "positive1234";
@@ -98,7 +98,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithFormatProviderShouldReturnOptionFloatSome()
+        public void Parse_WithFormatProvider_ReturnsOptionFloatSome()
         {
             // Arrange
             var s = "p1234";
@@ -114,7 +114,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionFloatNone()
+        public void Parse_WithNumberStylesAndFormatProvider_ReturnsOptionFloatNone()
         {
             // Arrange
             var s = "p1$234";
@@ -129,7 +129,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionFloatSome()
+        public void Parse_WithNumberStylesAndFormatProvider_ReturnsOptionFloatSome()
         {
             // Arrange
             var s = "p1";
