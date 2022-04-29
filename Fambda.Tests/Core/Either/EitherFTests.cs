@@ -8,7 +8,7 @@ namespace Fambda
     public class EitherFTests
     {
         [Fact]
-        public void LeftShouldSucceed()
+        public void Left_Succeeds()
         {
             // Arrange
             var value = "value";
@@ -21,7 +21,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void RightShouldSucceed()
+        public void Right_Succeeds()
         {
             // Arrange
             var value = "value";

@@ -10,7 +10,7 @@ namespace Fambda
         #region Map
 
         [Fact]
-        public void MapShouldSucceedWhenRight()
+        public void Map_WhenRight_Succeeds()
         {
             // Arrange
             var value = 1;
@@ -25,7 +25,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void MapShouldSucceedWhenLeft()
+        public void Map_WhenLeft_Succeeds()
         {
             // Arrange
             var value = "left";
@@ -44,7 +44,7 @@ namespace Fambda
         #region Bind
 
         [Fact]
-        public void BindShouldSucceedWhenRight()
+        public void Bind_InRightState_Succeeds()
         {
             // Arrange
             var value = 1;
@@ -72,7 +72,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void BindShouldSucceedWhenLeft()
+        public void Bind_InLeftState_Succeeds()
         {
             // Arrange
             var value = "value";
