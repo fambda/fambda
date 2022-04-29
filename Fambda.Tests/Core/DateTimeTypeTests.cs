@@ -12,7 +12,7 @@ namespace Fambda
         #region Parse
 
         [Fact]
-        public void ParseShouldReturnOptionDateTimeNone()
+        public void Parse_ReturnsOptionDateTimeNone()
         {
             // Arrange
             var s = "not a date and time";
@@ -26,7 +26,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseShouldReturnOptionDateTimeSome()
+        public void Parse_ReturnsOptionDateTimeSome()
         {
             // Arrange
             var dateTime = DateTime.Now;
@@ -41,7 +41,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithFormatProviderShouldReturnOptionDateTimeNone()
+        public void Parse_WithFormatProvider_ReturnsOptionDateTimeNone()
         {
             // Arrange
             var s = "2021-06-21 17:35";
@@ -57,7 +57,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithFormatProviderShouldReturnOptionDateTimeSome()
+        public void Parse_WithFormatProvider_ReturnsOptionDateTimeSome()
         {
             // Arrange
             var dateTime = DateTime.Now;

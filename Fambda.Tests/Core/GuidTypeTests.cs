@@ -11,7 +11,7 @@ namespace Fambda
         #region Parse
 
         [Fact]
-        public void ParseShouldReturnOptionGuidNone()
+        public void Parse_ReturnsOptionGuidNone()
         {
             // Arrange
             var input = "not a Guid";
@@ -25,7 +25,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseShouldReturnOptionGuidSomeWhenInputFormat32Digits()
+        public void Parse_WhenInputFormat32Digits_ReturnsOptionGuidSome()
         {
             // Arrange
             var originalGuid = Guid.NewGuid();
@@ -40,7 +40,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseShouldReturnOptionGuidSomeWhenInputFormat32DigitsSeparatedByHyphens()
+        public void Parse_WhenInputFormat32DigitsSeparatedByHyphens_ReturnsOptionGuidSome()
         {
             // Arrange
             var originalGuid = Guid.NewGuid();
@@ -55,7 +55,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseShouldReturnOptionGuidSomeWhenInputFormat32DigitsSeparatedByHyphensEnclosedInBraces()
+        public void Parse_WhenInputFormat32DigitsSeparatedByHyphensEnclosedInBraces_ReturnsOptionGuidSome()
         {
             // Arrange
             var originalGuid = Guid.NewGuid();
@@ -70,7 +70,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseShouldReturnOptionGuidSomeWhenInputFormat32DigitsSeparatedByHyphensEnclosedInParentheses()
+        public void Parse_WhenInputFormat32DigitsSeparatedByHyphensEnclosedInParentheses_ReturnsOptionGuidSome()
         {
             // Arrange
             var originalGuid = Guid.NewGuid();
@@ -85,7 +85,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseShouldReturnOptionGuidSomeWhenInputFormat4HexadecimalsEnclosedInBracesWithTheFourthSubsetOf8HexadecimalsEnclosedInBraces()
+        public void Parse_WhenInputFormat4HexadecimalsEnclosedInBracesWithTheFourthSubsetOf8HexadecimalsEnclosedInBraces_ReturnsOptionGuidSome()
         {
             // Arrange
             var originalGuid = Guid.NewGuid();

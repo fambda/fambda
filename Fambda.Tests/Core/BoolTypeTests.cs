@@ -10,7 +10,7 @@ namespace Fambda
         #region Parse
 
         [Fact]
-        public void ParseShouldReturnOptionBoolNone()
+        public void Parse_ReturnsOptionBoolNone()
         {
             // Arrange
             var value = "not an logical boolean";
@@ -30,7 +30,7 @@ namespace Fambda
         [InlineData("False", false)]
         [InlineData("false", false)]
         [InlineData("fAlse", false)]
-        public void ParseShouldReturnOptionBoolSome(string stringBool, bool expectedBool)
+        public void Parse_ReturnsOptionBoolSome(string stringBool, bool expectedBool)
         {
             // Arrange
             var value = stringBool;

@@ -12,7 +12,7 @@ namespace Fambda
         #region Parse
 
         [Fact]
-        public void ParseShouldReturnOptionLongNone()
+        public void Parse_ReturnsOptionLongNone()
         {
             // Arrange
             var s = "not a long";
@@ -26,7 +26,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseShouldReturnOptionLongSome()
+        public void Parse_ReturnsOptionLongSome()
         {
             // Arrange
             var s = "1";
@@ -40,7 +40,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesShouldReturnOptionLongNone()
+        public void Parse_WithNumberStyles_ReturnsOptionLongNone()
         {
             // Arrange
             var s = "not a long";
@@ -54,7 +54,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesShouldReturnOptionLongSome()
+        public void Parse_WithNumberStyles_ReturnOptionLongSome()
         {
             // Arrange
             var s = "1";
@@ -68,7 +68,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesShouldReturnOptionLongNoneWhenStringIsNotExpectedHexNumber()
+        public void Parse_WithNumberStylesWhenStringIsNotExpectedHexNumber_ReturnsOptionLongNone()
         {
             // Arrange
             var s = "1.0";
@@ -82,7 +82,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithFormatProviderShouldReturnOptionLongNone()
+        public void Parse_WithFormatProvider_ReturnsOptionLongNone()
         {
             // Arrange
             var s = "positive1234";
@@ -98,7 +98,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithFormatProviderShouldReturnOptionLongSome()
+        public void Parse_WithFormatProvider_ReturnsOptionLongSome()
         {
             // Arrange
             var s = "p1234";
@@ -114,7 +114,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionLongNone()
+        public void Parse_WithNumberStylesAndFormatProvider_ReturnsOptionLongNone()
         {
             // Arrange
             var s = "p1$234";
@@ -129,7 +129,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionLongSome()
+        public void Parse_WithNumberStylesAndFormatProvider_ReturnsOptionLongSome()
         {
             // Arrange
             var s = "p1";

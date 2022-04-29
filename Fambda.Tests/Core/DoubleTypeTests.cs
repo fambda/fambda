@@ -12,7 +12,7 @@ namespace Fambda
         #region Parse
 
         [Fact]
-        public void ParseShouldReturnOptionDoubleNone()
+        public void Parse_ReturnsOptionDoubleNone()
         {
             // Arrange
             var s = "not a double";
@@ -26,7 +26,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseShouldReturnOptionDoubleSome()
+        public void Parse_ReturnsOptionDoubleSome()
         {
             // Arrange
             var s = "1.1";
@@ -40,7 +40,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesShouldReturnOptionDoubleNone()
+        public void Parse_WithNumberStyles_ReturnsOptionDoubleNone()
         {
             // Arrange
             var s = "not a double";
@@ -54,7 +54,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesShouldReturnOptionDoubleSome()
+        public void Parse_WithNumberStyles_ReturnsOptionDoubleSome()
         {
             // Arrange
             var s = "1.1";
@@ -68,7 +68,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesShouldReturnOptionDoubleNoneWhenStringIsNotExpectedHexNumber()
+        public void Parse_WithNumberStylesWhenStringIsNotExpectedHexNumber_ReturnsOptionDoubleNone()
         {
             // Arrange
             var s = "1.0";
@@ -82,7 +82,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithFormatProviderShouldReturnOptionDoubleNone()
+        public void Parse_WithFormatProvider_ReturnsOptionDoubleNone()
         {
             // Arrange
             var s = "positive1234.5";
@@ -98,7 +98,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithFormatProviderShouldReturnOptionDoubleSome()
+        public void Parse_WithFormatProvider_ReturnsOptionDoubleSome()
         {
             // Arrange
             var s = "p1234.5";
@@ -114,7 +114,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionDoubleNone()
+        public void Parse_WithNumberStylesAndFormatProvider_ReturnsOptionDoubleNone()
         {
             // Arrange
             var s = "p1$234.5";
@@ -129,7 +129,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ParseWithNumberStylesAndFormatProviderShouldReturnOptionDoubleSome()
+        public void Parse_WithNumberStylesAndFormatProvider_ReturnOptionDoubleSome()
         {
             // Arrange
             var s = "p1.2";
