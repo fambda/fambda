@@ -20,6 +20,17 @@ namespace Fambda
     /// </summary>
     public static class FuncExt
     {
+        #region Map
+
+        /// <summary>
+        /// <para>Maps <see cref="Func{A, T}">Func&lt;A, T></see> into <see cref="Func{A, Res}">Func&lt;A, Res></see>.</para>
+        /// <para><c>(A → T) → (T → Res) → (A → Res)</c></para>
+        /// </summary>
+        public static Func<A, Res> Map<A, T, Res>(this Func<A, T> f, Func<T, Res> func)
+            => x => func(f(x));
+
+        #endregion
+
         #region Apply
 
         /// <summary>
