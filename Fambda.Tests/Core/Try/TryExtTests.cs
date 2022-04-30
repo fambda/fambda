@@ -9,7 +9,7 @@ namespace Fambda
         #region Map
 
         [Fact]
-        public void MapShouldSucceedWithMappingException()
+        public void Map_WithMappingException_Succeeds()
         {
             // Arrange
             Func<string, Try<Uri>> createUri = (uri) => () =>
@@ -30,7 +30,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void MapShouldSucceedWithMappingSuccessToSuccessResult()
+        public void Map_WithMappingSuccess_Succeeds()
         {
             // Arrange
             Func<string, Try<Uri>> createUri = (uri) => () =>
@@ -55,7 +55,7 @@ namespace Fambda
         #region Bind
 
         [Fact]
-        public void BindShouldSucceedWithException()
+        public void Bind_WithException_Succeeds()
         {
             // Arrange
             Func<string, Try<Uri>> createUri = (uri) => () =>
@@ -76,7 +76,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void BindShouldSucceedWithBindingSuccessToSuccessResult()
+        public void Bind_WithBindingSuccess_Succeeds()
         {
             // Arrange
             Func<string, Try<Uri>> createUri = (uri) => () =>
