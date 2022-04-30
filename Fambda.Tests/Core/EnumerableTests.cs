@@ -11,7 +11,7 @@ namespace Fambda
         #region Map
 
         [Fact]
-        public void MapShouldSucceed()
+        public void Map_ReturnsEnumerable()
         {
             // Arrange
             IEnumerable<int> enumerable = new List<int> { 1, 2, 3 };
@@ -27,7 +27,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void MapShouldReturnEmptyEnumerable()
+        public void Map_ReturnsEmptyEnumerable()
         {
             // Arrange
             IEnumerable<int> enumerable = new List<int>();
@@ -41,7 +41,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void MapShouldReturnNestedEnumerable()
+        public void Map_ReturnsNestedEnumerable()
         {
             // Arrange
             var family = new[]
@@ -67,7 +67,7 @@ namespace Fambda
         #region Bind
 
         [Fact]
-        public void BindShouldSucceed()
+        public void Bind_Succeeds()
         {
             // Arrange
             var family = new[]
