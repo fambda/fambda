@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Fambda
 {
-    public class EnumerableTests
+    public partial class EnumerableTests
     {
         #region Map
 
