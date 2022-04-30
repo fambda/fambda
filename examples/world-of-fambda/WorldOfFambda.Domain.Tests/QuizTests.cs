@@ -9,7 +9,7 @@ namespace WorldOfFambda.Domain.Tests
     public class QuizTests
     {
         [Fact]
-        public void QuizAnswerShouldBeTrue()
+        public void QuizAnswerMatch_ReturnsSomeResultAsTrue()
         {
             // Arrange
             var question = new Question("2+2=?");
@@ -27,7 +27,7 @@ namespace WorldOfFambda.Domain.Tests
         }
 
         [Fact]
-        public void QuizAnswerShouldBeFalse()
+        public void QuizAnswerMatch_ReturnsSomeResultAsFalse()
         {
             // Arrange
             var question = new Question("2+2=?");
@@ -45,7 +45,7 @@ namespace WorldOfFambda.Domain.Tests
         }
 
         [Fact]
-        public void QuizAnswerShouldBeNotGiven()
+        public void QuizAnswerMatch_ReturnsNotResultAsAnswerNotGiven()
         {
             // Arrange
             var question = new Question("2+2=?");
@@ -63,7 +63,7 @@ namespace WorldOfFambda.Domain.Tests
         }
 
         [Fact]
-        public void QuizAnswerMapShouldBeNone()
+        public void QuizAnswerMap_ReturnsNone()
         {
             // Arrange
             Option<string> expected = None;
@@ -80,7 +80,7 @@ namespace WorldOfFambda.Domain.Tests
         }
 
         [Fact]
-        public void QuizAnswerMapShouldBeSome()
+        public void QuizAnswerMap_ReturnsSome()
         {
             // Arrange
             Option<string> expected = Some("Quiz answer: '4'");
