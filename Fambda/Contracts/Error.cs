@@ -32,6 +32,11 @@ namespace Fambda.Contracts
             return new ExceptionalExceptionMustNotBeNullException();
         }
 
+        internal static ExceptionalValueMustNotBeNullException ExceptionalValueMustNotBeNull()
+        {
+            return new ExceptionalValueMustNotBeNullException();
+        }
+
         internal static EnumerationKeyMustNotBeNullException EnumerationKeyMustNotBeNull()
         {
             return new EnumerationKeyMustNotBeNullException();

@@ -12,10 +12,10 @@ namespace Fambda
     /// <typeparam name="T">The type of the value to be wrapped.</typeparam>
     public struct Exceptional<T> : IEquatable<Exceptional<T>>
     {
-        internal Exception Exception { get; }
-        internal T Value { get; }
+        internal Exception? Exception { get; }
+        internal T? Value { get; }
 
-        internal Exceptional(Exception exception)
+        internal Exceptional(Exception? exception)
         {
             Guard.On(exception, Error.ExceptionalExceptionMustNotBeNull()).AgainstNull();
 
@@ -23,8 +23,10 @@ namespace Fambda
             Value = default;
         }
 
-        internal Exceptional(T value)
+        internal Exceptional(T? value)
         {
+            Guard.On(value, Error.ExceptionalValueMustNotBeNull()).AgainstNull();
+
             Exception = null;
             Value = value;
         }
@@ -33,14 +35,14 @@ namespace Fambda
         /// Implicit conversion operator from <see cref="Exception"/> to <see cref="Exceptional{T}"/>.
         /// </summary>
         /// <param name="exception"><see cref="Exception"/> object.</param>
-        public static implicit operator Exceptional<T>(Exception exception)
+        public static implicit operator Exceptional<T>(Exception? exception)
             => new Exceptional<T>(exception);
 
         /// <summary>
         /// Implicit conversion operator from <typeparamref name="T"/> to <see cref="Exceptional{T}"/>.
         /// </summary>
         /// <param name="value">T value.</param>
-        public static implicit operator Exceptional<T>(T value)
+        public static implicit operator Exceptional<T>(T? value)
             => new Exceptional<T>(value);
 
         /// <summary>
@@ -50,7 +52,7 @@ namespace Fambda
         /// <param name="Exception">Exception match operation.</param>
         /// <param name="Success">Success match operation.</param>
         public Res Match<Res>(Func<Exception, Res> Exception, Func<T, Res> Success)
-            => this.Exception != null ? Exception(this.Exception) : Success(this.Value);
+            => this.Exception is not null ? Exception(this.Exception!) : Success(this.Value!);
 
         /// <summary>
         /// Match the Exception and Success of the <see cref="Exceptional{T}"/> and return Res.
@@ -59,7 +61,7 @@ namespace Fambda
         /// <param name="Exception">Exception match operation.</param>
         /// <param name="Success">Success match operation.</param>
         public async Task<Res> Match<Res>(Func<Exception, Res> Exception, Func<T, Task<Res>> Success)
-            => this.Exception != null ? await Task.FromResult(Exception(this.Exception)) : await Success(this.Value).ConfigureAwait(false);
+            => this.Exception is not null ? await Task.FromResult(Exception(this.Exception!)) : await Success(this.Value!).ConfigureAwait(false);
 
         /// <summary>
         /// Calculates the hash-code based on whether <see cref="Exceptional{T}"/> is in Exception or Success.
@@ -99,7 +101,7 @@ namespace Fambda
         /// </summary>
         /// <param name="obj">The object to compare with the current <see cref="Exceptional{T}"/> object.</param>
         /// <returns>true if the specified object is equal to the current <see cref="Exceptional{T}"/> object; otherwise, false.</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (IsNull(obj)) { return false; }
             else if (obj is Exceptional<T> exceptional) { return Equals(exceptional); }

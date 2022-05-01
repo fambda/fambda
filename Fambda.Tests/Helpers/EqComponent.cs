@@ -29,7 +29,7 @@ namespace Fambda.Helpers
             });
         }
 
-        internal static EqResult ApplyEqualsToNull<T>(T obj)
+        internal static EqResult ApplyEqualsToNull<T>(T? obj)
         {
             if (typeof(T).IsClass)
             {
@@ -38,12 +38,12 @@ namespace Fambda.Helpers
             return EqResult.Success();
         }
 
-        internal static EqResult ApplyEqualsOfTToNull<T>(T obj)
+        internal static EqResult ApplyEqualsOfTToNull<T>(T? obj)
         {
             return ApplyEqualsToNull<T>(obj);
         }
 
-        internal static EqResult ApplyEquals<T>(T objA, T objB, bool expectedEqualObjects)
+        internal static EqResult ApplyEquals<T>(T? objA, T? objB, bool expectedEqualObjects)
         {
             return GetEqResult("Equals", () =>
             {
@@ -59,11 +59,11 @@ namespace Fambda.Helpers
             });
         }
 
-        internal static EqResult ApplyEqualsOfT<T>(T objA, T objB, bool expectedEqualObjects)
+        internal static EqResult ApplyEqualsOfT<T>(T? objA, T objB, bool expectedEqualObjects)
         {
             if (objA is IEquatable<T>)
             {
-                return ApplyEqualsOfTOnIEquatable<T>(objA as IEquatable<T>, objB, expectedEqualObjects);
+                return ApplyEqualsOfTOnIEquatable<T>((IEquatable<T>)objA, objB, expectedEqualObjects);
             }
             return EqResult.Success();
         }
@@ -84,7 +84,7 @@ namespace Fambda.Helpers
             });
         }
 
-        internal static EqResult ApplyOperatorEqualityToNull<T>(T obj)
+        internal static EqResult ApplyOperatorEqualityToNull<T>(T? obj)
         {
             if (typeof(T).IsClass)
             {
@@ -93,7 +93,7 @@ namespace Fambda.Helpers
             return EqResult.Success();
         }
 
-        internal static EqResult ApplyOperatorEquality<T>(T objA, T objB, bool expectedEqualObjects)
+        internal static EqResult ApplyOperatorEquality<T>(T? objA, T? objB, bool expectedEqualObjects)
         {
             var operatorEquality = EqReflector.GetOperatorEquality<T>();
             if (operatorEquality == null)
@@ -103,7 +103,7 @@ namespace Fambda.Helpers
             return ApplyOperatorEquality<T>(objA, objB, expectedEqualObjects, operatorEquality);
         }
 
-        internal static EqResult ApplyOperatorEquality<T>(T objA, T objB, bool expectedEqualObjects, MethodInfo operatorEquality)
+        internal static EqResult ApplyOperatorEquality<T>(T? objA, T? objB, bool expectedEqualObjects, MethodInfo operatorEquality)
         {
             return GetEqResult("Operator ==", () =>
             {
@@ -128,7 +128,7 @@ namespace Fambda.Helpers
             return EqResult.Success();
         }
 
-        internal static EqResult ApplyOperatorInequality<T>(T objA, T objB, bool expectedUnequalObjects)
+        internal static EqResult ApplyOperatorInequality<T>(T objA, T? objB, bool expectedUnequalObjects)
         {
             var operatorInequality = EqReflector.GetOperatorInequality<T>();
             if (operatorInequality == null)
@@ -138,7 +138,7 @@ namespace Fambda.Helpers
             return ApplyOperatorInequality<T>(objA, objB, expectedUnequalObjects, operatorInequality);
         }
 
-        internal static EqResult ApplyOperatorInequality<T>(T objA, T objB, bool expectedUnequalObjects, MethodInfo operatorInequality)
+        internal static EqResult ApplyOperatorInequality<T>(T objA, T? objB, bool expectedUnequalObjects, MethodInfo operatorInequality)
         {
             return GetEqResult("Operator !=", () =>
             {

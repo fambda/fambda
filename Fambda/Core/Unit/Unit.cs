@@ -32,7 +32,7 @@ namespace Fambda
         /// <param name="obj">The object to compare with the current <see cref="Unit"/> object.</param>
         /// <returns>true if the specified object is equal to the current <see cref="Unit"/> object; otherwise, false.</returns>
         [Pure]
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
             => obj is Unit;
 
         /// <summary>

@@ -37,7 +37,7 @@ namespace Fambda.Concepts
         public void ApplyOperatorEqualityToNullMustReturnExpectedResultForClassOperatorObjectDefaultNull()
         {
             // Arrange
-            BikeOperatorClassObject bikeOperatorClassObject = default;
+            BikeOperatorClassObject? bikeOperatorClassObject = default;
 
             // Act
             var result = EqComponent.ApplyOperatorEqualityToNull<BikeOperatorClassObject>(bikeOperatorClassObject);

@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Fambda.Concepts.Objects
 {
@@ -41,9 +40,9 @@ namespace Fambda.Concepts.Objects
         public static bool operator !=(BikeClassObject lhs, BikeClassObject rhs)
             => !(lhs == rhs);
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
-            if (obj == null || obj.GetType() != GetType())
+            if (obj is null || obj.GetType() != GetType())
             {
                 return false;
             }
@@ -53,16 +52,7 @@ namespace Fambda.Concepts.Objects
         }
 
 
-        public bool Equals([AllowNull] BikeClassObject other)
-        {
-            var result = false;
-
-            if (other != null)
-            {
-                result = Brand == other.Brand && Model == other.Model;
-            }
-
-            return result;
-        }
+        public bool Equals(BikeClassObject? other)
+            => other is not null && Brand == other.Brand && Model == other.Model;
     }
 }

@@ -28,7 +28,7 @@ namespace Fambda
         public void ImplicitOperatorOverloadingShouldThrowWhenExceptionIsNull()
         {
             // Arrange
-            SomeException exception = null;
+            SomeException? exception = null;
 
             // Act
             Action act = () => { Exceptional<string> exceptional = exception; };
