@@ -94,7 +94,7 @@ namespace Fambda
         /// </summary>
         /// <param name="obj">The object to compare with the current <see cref="Option{T}"/> object.</param>
         /// <returns>true if the specified object is equal to the current <see cref="Option{T}"/> object; otherwise, false.</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
             => (obj is OptionNone optionNone && Equals(optionNone)) ||
                (obj is OptionSome<T> optionSome && Equals(optionSome)) ||
                (obj is Option<T> option && Equals(option));

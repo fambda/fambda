@@ -24,10 +24,10 @@ namespace Fambda
         public void Constructor_NullValue_ThrowsOptionSomeValueMustNotBeNullException()
         {
             // Arrange
-            string value = null;
+            string? value = null;
 
             // Act
-            Action ctor = () => new OptionSome<string>(value);
+            Action ctor = () => new OptionSome<string?>(value);
 
             // Assert
             ctor.Should().Throw<OptionSomeValueMustNotBeNullException>();

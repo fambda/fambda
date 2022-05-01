@@ -9,12 +9,12 @@ namespace Fambda.Contracts
         /// <summary>
         /// Value to guard.
         /// </summary>
-        public T Value { get; }
+        public T? Value { get; }
 
         /// <summary>
         /// Object values to guard.
         /// </summary>
-        public object[] Values { get; }
+        public object?[]? Values { get; }
 
         /// <summary>
         /// <see cref="GuardException"/>
@@ -26,9 +26,9 @@ namespace Fambda.Contracts
         /// </summary>
         /// <param name="value"><typeparamref name="T"/> value</param>
         /// <param name="guardException"><see cref="GuardException"/></param>
-        public Guard(T value, GuardException guardException)
+        public Guard(T? value, GuardException? guardException)
         {
-            if (guardException == null)
+            if (guardException is null)
             {
                 throw Error.GuardExceptionMustNotBeNull();
             }
@@ -42,9 +42,9 @@ namespace Fambda.Contracts
         /// </summary>
         /// <param name="values">Object values</param>
         /// <param name="guardException"><see cref="GuardException"/></param>
-        public Guard(object[] values, GuardException guardException)
+        public Guard(object?[]? values, GuardException? guardException)
         {
-            if (guardException == null)
+            if (guardException is null)
             {
                 throw Error.GuardExceptionMustNotBeNull();
             }

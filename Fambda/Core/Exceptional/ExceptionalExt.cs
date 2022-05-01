@@ -13,7 +13,7 @@ namespace Fambda
         /// Maps <see cref="Exceptional{T}"/> into <see cref="Exceptional{Res}"/>
         /// </summary>
         public static Exceptional<Res> Map<R, Res>(this Exceptional<R> self, Func<R, Res> func)
-            => self.Exception == null ? func(self.Value) : new Exceptional<Res>(self.Exception);
+            => self.Exception is null ? func(self.Value!) : new Exceptional<Res>(self.Exception);
 
         #endregion
 
@@ -23,7 +23,7 @@ namespace Fambda
         /// Binds <see cref="Exceptional{T}"/> into <see cref="Exceptional{Res}"/>
         /// </summary>
         public static Exceptional<Res> Bind<R, Res>(this Exceptional<R> self, Func<R, Exceptional<Res>> func)
-            => self.Exception == null ? func(self.Value) : new Exceptional<Res>(self.Exception);
+            => self.Exception is null ? func(self.Value!) : new Exceptional<Res>(self.Exception);
 
         #endregion
 

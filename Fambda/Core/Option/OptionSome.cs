@@ -25,7 +25,7 @@ namespace Fambda
         /// <returns>A hash code for the current <see cref="OptionSome{T}"/> object.</returns>
         [Pure]
         public override int GetHashCode()
-            => Value.GetHashCode();
+            => Value!.GetHashCode();
 
         /// <summary>
         /// Indicates whether the current <see cref="OptionSome{T}"/> is equal to another <see cref="OptionSome{T}"/>
@@ -34,7 +34,7 @@ namespace Fambda
         /// <returns>true if the current <see cref="OptionSome{T}"/> object is equal to the other parameter; otherwise, false.</returns>
         [Pure]
         public bool Equals(OptionSome<T> other)
-            => Value.Equals(other.Value);
+            => Value!.Equals(other.Value);
 
         /// <summary>
         /// Determines whether specified object is equal to the current <see cref="OptionSome{T}"/> object.
@@ -42,8 +42,8 @@ namespace Fambda
         /// <param name="obj">The object to compare with the current <see cref="OptionSome{T}"/> object.</param>
         /// <returns>true if the specified object is equal to the current <see cref="OptionSome{T}"/> object; otherwise, false.</returns>
         [Pure]
-        public override bool Equals(object obj)
-            => obj is OptionSome<T> optionSome && Value.Equals(optionSome.Value);
+        public override bool Equals(object? obj)
+            => obj is OptionSome<T> optionSome && Value!.Equals(optionSome.Value);
 
         /// <summary>
         /// Returns a string that represents the current <see cref="OptionSome{T}"/> object.

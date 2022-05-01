@@ -1,5 +1,7 @@
 <Project>
 	<PropertyGroup>
+		<LangVersion>10.0</LangVersion>
 		<Nullable>enable</Nullable>
+		<WarningsAsErrors>CS8604</WarningsAsErrors>
 	</PropertyGroup>
 </Project>

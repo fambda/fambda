@@ -1,5 +1,4 @@
 using System;
-using Fambda.Contracts;
 using FluentAssertions;
 using Xunit;
 
@@ -27,7 +26,7 @@ namespace Fambda.Contracts
         {
             // Arrange
             string value = null;
-            GuardException guardException = null;
+            GuardException? guardException = null;
 
             // Act
             Action ctor = () => new Guard<string>(value, guardException);
