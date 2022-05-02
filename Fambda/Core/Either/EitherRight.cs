@@ -19,7 +19,7 @@ namespace Fambda
         /// <returns>A hash code for the current <see cref="EitherRight{R}"/> object.</returns>
         [Pure]
         public override int GetHashCode()
-            => Value.GetHashCode();
+            => HashCode.Combine(Value);
 
         /// <summary>
         /// Indicates whether the current <see cref="EitherRight{R}"/> is equal to another <see cref="EitherRight{R}"/>
