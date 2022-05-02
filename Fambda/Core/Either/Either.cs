@@ -83,7 +83,7 @@ namespace Fambda
         /// </summary>
         /// <param name="obj">The object to compare with the current <see cref="Either{L,R}"/> object.</param>
         /// <returns>true if the specified object is equal to the current <see cref="Either{L,R}"/> object; otherwise, false.</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null) return false;
             else if (obj is Either<L, R> either) return Equals(either);

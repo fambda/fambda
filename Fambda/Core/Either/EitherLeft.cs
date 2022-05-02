@@ -36,7 +36,7 @@ namespace Fambda
         /// <param name="obj">The object to compare with the current <see cref="EitherLeft{L}"/> object.</param>
         /// <returns>true if the specified object is equal to the current <see cref="EitherLeft{L}"/> object; otherwise, false.</returns>
         [Pure]
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
             => !object.ReferenceEquals(obj, null) && obj is EitherLeft<L> eitherLeft && Equals(eitherLeft);
 
         /// <summary>

@@ -13,7 +13,7 @@ namespace Fambda.Concepts.Objects
             Year = year;
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             return Brand == ((BikeWithEqualsClassObject)obj).Brand &&
                    Model == ((BikeWithEqualsClassObject)obj).Model;
