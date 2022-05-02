@@ -1,6 +1,5 @@
 using System;
 using System.Threading.Tasks;
-using Fambda.Contracts;
 using Fambda.DataTypes;
 using FluentAssertions;
 using Xunit;
@@ -25,20 +24,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ImplicitOperatorOverloadingShouldThrowWhenExceptionIsNull()
-        {
-            // Arrange
-            SomeException? exception = null;
-
-            // Act
-            Action act = () => { Exceptional<string> exceptional = exception; };
-
-            // Assert
-            act.Should().Throw<ExceptionalExceptionMustNotBeNullException>();
-        }
-
-        [Fact]
-        public void ImplicitOperatorOverloadingShouldNotThrowWhenNotAnExceptionIsPassed()
+        public void ImplicitOperatorOverloadingShouldSucceed()
         {
             // Arrange
             var value = "any value of any type besides Exception";

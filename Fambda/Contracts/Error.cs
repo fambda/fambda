@@ -6,15 +6,5 @@ namespace Fambda.Contracts
         {
             return new EachParamMustNotBeNullException();
         }
-
-        internal static ExceptionalExceptionMustNotBeNullException ExceptionalExceptionMustNotBeNull()
-        {
-            return new ExceptionalExceptionMustNotBeNullException();
-        }
-
-        internal static ExceptionalValueMustNotBeNullException ExceptionalValueMustNotBeNull()
-        {
-            return new ExceptionalValueMustNotBeNullException();
-        }
     }
 }

@@ -1,7 +1,6 @@
 using System;
 using System.Diagnostics.Contracts;
 using System.Threading.Tasks;
-using Fambda.Contracts;
 using static Fambda.F;
 
 namespace Fambda
@@ -15,18 +14,14 @@ namespace Fambda
         internal Exception? Exception { get; }
         internal T? Value { get; }
 
-        internal Exceptional(Exception? exception)
+        internal Exceptional(Exception exception)
         {
-            Guard.On(exception, Error.ExceptionalExceptionMustNotBeNull()).AgainstNull();
-
             Exception = exception;
             Value = default;
         }
 
-        internal Exceptional(T? value)
+        internal Exceptional(T value)
         {
-            Guard.On(value, Error.ExceptionalValueMustNotBeNull()).AgainstNull();
-
             Exception = null;
             Value = value;
         }
@@ -35,14 +30,14 @@ namespace Fambda
         /// Implicit conversion operator from <see cref="Exception"/> to <see cref="Exceptional{T}"/>.
         /// </summary>
         /// <param name="exception"><see cref="Exception"/> object.</param>
-        public static implicit operator Exceptional<T>(Exception? exception)
+        public static implicit operator Exceptional<T>(Exception exception)
             => new Exceptional<T>(exception);
 
         /// <summary>
         /// Implicit conversion operator from <typeparamref name="T"/> to <see cref="Exceptional{T}"/>.
         /// </summary>
         /// <param name="value">T value.</param>
-        public static implicit operator Exceptional<T>(T? value)
+        public static implicit operator Exceptional<T>(T value)
             => new Exceptional<T>(value);
 
         /// <summary>
