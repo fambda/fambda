@@ -1,6 +1,5 @@
 using System;
 using System.Diagnostics.Contracts;
-using Fambda.Contracts;
 
 namespace Fambda
 {
@@ -10,13 +9,11 @@ namespace Fambda
     /// <typeparam name="T">The type of the value to be wrapped.</typeparam>
     public struct Option<T> : IEquatable<Option<T>>, IEquatable<OptionNone>
     {
-        private readonly T _value;
+        private readonly T? _value;
         private readonly bool _isSome;
 
         private Option(T value)
         {
-            Guard.On(value, Error.OptionValueMustNotBeNull()).AgainstNull();
-
             _value = value;
             _isSome = true;
         }
@@ -60,9 +57,8 @@ namespace Fambda
         [Pure]
         public Res Match<Res>(Func<Res> None, Func<T, Res> Some)
         {
-            var result = !_isSome ? None() : Some(_value);
+            var result = !_isSome ? None() : Some(_value!);
 
-            Guard.On(result, Error.OptionMatchReturnMustNotBeNull()).AgainstNull();
             return result;
         }
 

@@ -1,5 +1,3 @@
-using System;
-using Fambda.Contracts;
 using FluentAssertions;
 using Xunit;
 using static Fambda.F;
@@ -32,19 +30,6 @@ namespace Fambda
 
             // Assert
             option.ToString().Should().Be("Some(value)");
-        }
-
-        [Fact]
-        public void Some_Null_ThrowsOptionSomeValueMustNotBeNullException()
-        {
-            // Arrange
-            string value = null;
-
-            // Act
-            Action act = () => { Option<string> option = Some(value); };
-
-            // Assert
-            act.Should().Throw<OptionSomeValueMustNotBeNullException>();
         }
     }
 }

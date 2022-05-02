@@ -1,5 +1,4 @@
 using System;
-using Fambda.Contracts;
 using Fambda.Helpers;
 using FluentAssertions;
 using Xunit;
@@ -202,45 +201,39 @@ namespace Fambda
         }
 
         [Fact]
-        public void MatchShouldFailWhenReturnValueIsNullThroughSome()
+        public void MatchShouldReturnNullThroughSome()
         {
             // Arrange
             Option<int> option = Some(1);
-            Func<int, string> some = (int x) => (string)null;
-            Func<string> none = () => null;
+            Func<int, string?> some = (int x) => null;
+            Func<string?> none = () => null;
 
             // Act
-            Action act = () =>
-            {
-                option.Match(
-                            None: none,
-                            Some: some
-                        );
-            };
+            var result = option.Match(
+                                  None: none,
+                                  Some: some
+                                );
 
             // Assert
-            act.Should().Throw<OptionMatchReturnMustNotBeNullException>();
+            result.Should().BeNull();
         }
 
         [Fact]
-        public void MatchShouldFailWhenReturnValueIsNullThroughNone()
+        public void MatchShouldReturnNullThroughNone()
         {
             // Arrange
             Option<int> option = None;
             Func<int, string> some = (i) => $"Result=Some({i})";
-            Func<string> none = () => null;
+            Func<string?> none = () => null;
 
             // Act
-            Action act = () =>
-            {
-                option.Match(
-                    None: none,
-                    Some: some
-                );
-            };
+            var result = option.Match(
+                                  None: none,
+                                  Some: some
+                                );
 
             // Assert
-            act.Should().Throw<OptionMatchReturnMustNotBeNullException>();
+            result.Should().BeNull();
         }
 
         #endregion

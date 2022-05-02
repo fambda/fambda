@@ -1,5 +1,4 @@
 using System;
-using Fambda.Contracts;
 using FluentAssertions;
 using Xunit;
 
@@ -18,19 +17,6 @@ namespace Fambda
 
             // Assert
             ctor.Should().NotThrow();
-        }
-
-        [Fact]
-        public void Constructor_NullValue_ThrowsOptionSomeValueMustNotBeNullException()
-        {
-            // Arrange
-            string? value = null;
-
-            // Act
-            Action ctor = () => new OptionSome<string?>(value);
-
-            // Assert
-            ctor.Should().Throw<OptionSomeValueMustNotBeNullException>();
         }
 
         [Fact]

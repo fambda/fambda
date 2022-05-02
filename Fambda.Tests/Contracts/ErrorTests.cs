@@ -6,32 +6,6 @@ namespace Fambda.Contracts
     public class ErrorTests
     {
         [Fact]
-        public void OptionSomeValueMustNotBeNull_ReturnsExpectedException()
-        {
-            // Arrange
-            var expectedExceptionType = typeof(OptionSomeValueMustNotBeNullException);
-
-            // Act
-            var exception = Error.OptionSomeValueMustNotBeNull();
-
-            // Assert
-            exception.Should().BeOfType(expectedExceptionType);
-        }
-
-        [Fact]
-        public void OptionValueMustNotBeNull_ReturnsExpectedException()
-        {
-            // Arrange
-            var expectedExceptionType = typeof(OptionValueMustNotBeNullException);
-
-            // Act
-            var exception = Error.OptionValueMustNotBeNull();
-
-            // Assert
-            exception.Should().BeOfType(expectedExceptionType);
-        }
-
-        [Fact]
         public void ExceptionalExceptionMustNotBeNull_ReturnsExpectedException()
         {
             // Arrange
