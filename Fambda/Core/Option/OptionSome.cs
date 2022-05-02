@@ -1,6 +1,5 @@
 using System;
 using System.Diagnostics.Contracts;
-using Fambda.Contracts;
 
 namespace Fambda
 {
@@ -14,8 +13,6 @@ namespace Fambda
 
         internal OptionSome(T value)
         {
-            Guard.On(value, Error.OptionSomeValueMustNotBeNull()).AgainstNull();
-
             Value = value;
         }
 
@@ -25,7 +22,7 @@ namespace Fambda
         /// <returns>A hash code for the current <see cref="OptionSome{T}"/> object.</returns>
         [Pure]
         public override int GetHashCode()
-            => Value!.GetHashCode();
+            => HashCode.Combine(Value);
 
         /// <summary>
         /// Indicates whether the current <see cref="OptionSome{T}"/> is equal to another <see cref="OptionSome{T}"/>
