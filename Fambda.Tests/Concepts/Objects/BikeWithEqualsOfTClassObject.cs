@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Fambda.Concepts.Objects
 {
@@ -16,7 +15,7 @@ namespace Fambda.Concepts.Objects
             Year = year;
         }
 
-        public bool Equals([AllowNull] BikeWithEqualsOfTClassObject other)
+        public bool Equals(BikeWithEqualsOfTClassObject? other)
         {
             return Brand == other.Brand &&
                    Model == other.Model;
