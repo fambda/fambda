@@ -1,6 +1,8 @@
 namespace Fambda.Concepts.Objects
 {
+#pragma warning disable CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     public class BikeWithEqualsClassObject
+#pragma warning restore CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     {
         public string Brand { get; private set; }
         public string Model { get; private set; }
@@ -15,8 +17,8 @@ namespace Fambda.Concepts.Objects
 
         public override bool Equals(object? obj)
         {
-            return Brand == ((BikeWithEqualsClassObject)obj).Brand &&
-                   Model == ((BikeWithEqualsClassObject)obj).Model;
+            return Brand == ((BikeWithEqualsClassObject)obj!).Brand &&
+                   Model == ((BikeWithEqualsClassObject)obj!).Model;
         }
     }
 }
