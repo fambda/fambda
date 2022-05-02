@@ -1,5 +1,3 @@
-using System;
-using Fambda.Contracts;
 using Fambda.Concepts.Objects;
 using Fambda.Helpers;
 using FluentAssertions;
@@ -9,19 +7,6 @@ namespace Fambda.Concepts
 {
     public class EquableTests
     {
-        [Fact]
-        public void NullMustThrow()
-        {
-            // Arrange
-            BikeClassObject obj = null;
-
-            // Act
-            Action act = () => { new Equable().Null(obj); };
-
-            // Assert
-            act.Should().Throw<EachParamMustNotBeNullException>();
-        }
-
         [Fact]
         public void NullMustSucceed()
         {
@@ -33,49 +18,6 @@ namespace Fambda.Concepts
 
             // Assert
             result.Should().Pass();
-        }
-
-
-        [Fact]
-        public void EqualMustThrowWhenFirstIsNullAndSecondIsNull()
-        {
-            // Arrange
-            BikeClassObject first = null;
-            BikeClassObject second = null;
-
-            // Act
-            Action act = () => { new Equable().Equal(first, second); };
-
-            // Assert
-            act.Should().Throw<EachParamMustNotBeNullException>();
-        }
-
-        [Fact]
-        public void EqualMustThrowWhenFirstIsNullAndSecondIsNotNull()
-        {
-            // Arrange
-            BikeClassObject first = null;
-            var second = new BikeClassObject("Giant", "Revolt", 2020);
-
-            // Act
-            Action act = () => { new Equable().Equal(first, second); };
-
-            // Assert
-            act.Should().Throw<EachParamMustNotBeNullException>();
-        }
-
-        [Fact]
-        public void EqualMustThrowWhenFirstIsNotNullAndSecondIsNull()
-        {
-            // Arrange
-            BikeClassObject first = new BikeClassObject("Giant", "Revolt", 2020);
-            BikeClassObject second = null;
-
-            // Act
-            Action act = () => { new Equable().Equal(first, second); };
-
-            // Assert
-            act.Should().Throw<EachParamMustNotBeNullException>();
         }
 
         [Fact]
@@ -90,48 +32,6 @@ namespace Fambda.Concepts
 
             // Assert
             result.Should().Pass();
-        }
-
-        [Fact]
-        public void UnequalMustThrowWhenFirstIsNullAndSecondIsNull()
-        {
-            // Arrange
-            BikeClassObject first = null;
-            BikeClassObject second = null;
-
-            // Act
-            Action act = () => { new Equable().Unequal(first, second); };
-
-            // Assert
-            act.Should().Throw<EachParamMustNotBeNullException>();
-        }
-
-        [Fact]
-        public void UnequalMustThrowWhenFirstIsNullAndSecondIsNotNull()
-        {
-            // Arrange
-            BikeClassObject first = null;
-            var second = new BikeClassObject("Giant", "Revolt", 2020);
-
-            // Act
-            Action act = () => { new Equable().Unequal(first, second); };
-
-            // Assert
-            act.Should().Throw<EachParamMustNotBeNullException>();
-        }
-
-        [Fact]
-        public void UnequalMustThrowWhenFirstIsNotNullAndSecondIsNull()
-        {
-            // Arrange
-            var first = new BikeClassObject("Giant", "Revolt", 2020);
-            BikeClassObject second = null;
-
-            // Act
-            Action act = () => { new Equable().Unequal(first, second); };
-
-            // Assert
-            act.Should().Throw<EachParamMustNotBeNullException>();
         }
 
         [Fact]

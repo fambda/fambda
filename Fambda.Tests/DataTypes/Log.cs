@@ -2,11 +2,11 @@ namespace Fambda.DataTypes
 {
     public static class Log
     {
-        private static string _holder = null;
+        private static string _holder = string.Empty;
 
         public static void Init()
         {
-            _holder = null;
+            _holder = string.Empty;
         }
 
         public static void Message(string message)

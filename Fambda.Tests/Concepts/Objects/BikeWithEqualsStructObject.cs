@@ -17,6 +17,7 @@ namespace Fambda.Concepts.Objects
 
         public override bool Equals(object? obj)
         {
+            if (obj == null) return false;
             return Brand == ((BikeWithEqualsStructObject)obj).Brand &&
                    Model == ((BikeWithEqualsStructObject)obj).Model;
         }
