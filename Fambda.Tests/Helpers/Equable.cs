@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Fambda.Contracts;
 
 namespace Fambda.Helpers
 {
@@ -7,7 +6,7 @@ namespace Fambda.Helpers
     {
         internal EqResults Null<T>(T obj)
         {
-            Guard.On(new object[] { obj }, Error.EachParamMustNotBeNull()).EachAgainstNull();
+            //Guard.On(new object[] { obj }, Error.EachParamMustNotBeNull()).EachAgainstNull();
 
             var eqResults = EqResults.Create(new List<EqResult>()
             {
@@ -22,7 +21,7 @@ namespace Fambda.Helpers
 
         internal EqResults Equal<T>(T objA, T objB)
         {
-            Guard.On(new object[] { objA, objB }, Error.EachParamMustNotBeNull()).EachAgainstNull();
+            //Guard.On(new object[] { objA, objB }, Error.EachParamMustNotBeNull()).EachAgainstNull();
 
             var eqResults = EqResults.Create(new List<EqResult>()
             {
@@ -38,7 +37,7 @@ namespace Fambda.Helpers
 
         internal EqResults Unequal<T>(T objA, T objB)
         {
-            Guard.On(new object[] { objA, objB }, Error.EachParamMustNotBeNull()).EachAgainstNull();
+            //Guard.On(new object[] { objA, objB }, Error.EachParamMustNotBeNull()).EachAgainstNull();
 
             var eqResults = EqResults.Create(new List<EqResult>()
             {

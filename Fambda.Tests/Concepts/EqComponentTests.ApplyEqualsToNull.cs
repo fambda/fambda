@@ -24,7 +24,7 @@ namespace Fambda.Concepts
         public void ApplyEqualsToNullMustReturnExpectedResultForClassObjectDefaultNull()
         {
             // Arrange
-            BikeDumbClassObject bikeClassObject = default;
+            BikeDumbClassObject? bikeClassObject = default;
 
             // Act
             var result = EqComponent.ApplyEqualsToNull<BikeDumbClassObject>(bikeClassObject);

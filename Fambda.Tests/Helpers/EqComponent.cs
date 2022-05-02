@@ -9,7 +9,7 @@ namespace Fambda.Helpers
         {
             return GetEqResult("GetHashCode", () =>
             {
-                if (objA.GetHashCode() != objB.GetHashCode())
+                if (objA!.GetHashCode() != objB!.GetHashCode())
                 {
                     return EqResult.Failure("GetHashCode of equal objects returned different values.");
                 }
@@ -21,7 +21,7 @@ namespace Fambda.Helpers
         {
             return GetEqResult("Equals", () =>
             {
-                if (obj.Equals(new object()))
+                if (obj!.Equals(new object()))
                 {
                     return EqResult.Failure("Equals returned 'true' on comparing with object of a different type.");
                 }
@@ -107,7 +107,7 @@ namespace Fambda.Helpers
         {
             return GetEqResult("Operator ==", () =>
             {
-                var actualEqual = (bool)operatorEquality.Invoke(null, new object[] { objA, objB });
+                var actualEqual = (bool)operatorEquality.Invoke(null, new object?[] { objA, objB })!;
                 if (actualEqual != expectedEqualObjects)
                 {
                     var message = string.Format("Equality operator returned '{0}' on expected {1}equal objects.",
@@ -142,7 +142,7 @@ namespace Fambda.Helpers
         {
             return GetEqResult("Operator !=", () =>
             {
-                var actualUnequal = (bool)operatorInequality.Invoke(null, new object[] { objA, objB });
+                var actualUnequal = (bool)operatorInequality.Invoke(null, new object?[] { objA, objB })!;
                 if (actualUnequal != expectedUnequalObjects)
                 {
                     var message = string.Format("Inequality operator returned '{0}' on expected {1}equal objects.",

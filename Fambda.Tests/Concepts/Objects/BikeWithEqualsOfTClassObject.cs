@@ -17,6 +17,7 @@ namespace Fambda.Concepts.Objects
 
         public bool Equals(BikeWithEqualsOfTClassObject? other)
         {
+            if (other is null) return false;
             return Brand == other.Brand &&
                    Model == other.Model;
         }
