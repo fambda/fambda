@@ -12,7 +12,7 @@ namespace Fambda.Contracts
         /// <param name="value">The <typeparamref name="T"/> value.</param>
         /// <param name="guardException"><see cref="GuardException"/>.</param>
         /// <returns><see cref="Guard{T}">Guard&lt;T></see>.</returns>
-        public static Guard<T> On<T>(T value, GuardException guardException)
+        public static Guard<T> On<T>(T? value, GuardException guardException)
         {
             return new Guard<T>(value, guardException);
         }
@@ -23,9 +23,9 @@ namespace Fambda.Contracts
         /// <param name="values">The object values.</param>
         /// <param name="guardException"><see cref="GuardException"/>.</param>
         /// <returns><see cref="Guard{T}">Guard&lt;object[]></see>.</returns>
-        public static Guard<object[]> On(object[] values, GuardException guardException)
+        public static Guard<object?[]> On(object?[] values, GuardException guardException)
         {
-            return new Guard<object[]>(values, guardException);
+            return new Guard<object?[]>(values, guardException);
         }
     }
 }

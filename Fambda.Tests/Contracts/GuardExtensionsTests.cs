@@ -1,5 +1,4 @@
 using System;
-using Fambda.Contracts;
 using FluentAssertions;
 using Xunit;
 
@@ -14,7 +13,7 @@ namespace Fambda.Contracts
             string value = "A not null value.";
             var guardExceptionMessage = "Value must not be null.";
             var guardException = new GuardException(guardExceptionMessage);
-            var guard = new Guard<string>(value, guardException);
+            var guard = new Guard<string?>(value, guardException);
 
             // Act
             Action act = () => { guard.AgainstNull(); };
@@ -43,10 +42,10 @@ namespace Fambda.Contracts
         public void AgainstNullShouldReturnProvidedExceptionWhenReferenceTypeValueIsNull()
         {
             // Arrange
-            string value = null;
+            string? value = null;
             var guardExceptionMessage = "Value must not be null.";
             var guardException = new GuardException(guardExceptionMessage);
-            var guard = new Guard<string>(value, guardException);
+            var guard = new Guard<string?>(value, guardException);
 
             // Act
             Action act = () => { guard.AgainstNull(); };
@@ -77,12 +76,11 @@ namespace Fambda.Contracts
         public void EachAgainstNullMustNotThrowWhenEachObjectIsNotNull()
         {
             // Arrange
-            object[] value = new object[] { new object(), new object() };
-
+            object?[] value = new object?[] { new object(), new object() };
 
             var guardExceptionMessage = "Value must not be null.";
             var guardException = new GuardException(guardExceptionMessage);
-            var guard = new Guard<object[]>(value, guardException);
+            var guard = new Guard<object?[]>(value, guardException);
 
             // Act
             Action act = () => { guard.EachAgainstNull(); };
@@ -96,12 +94,11 @@ namespace Fambda.Contracts
         public void EachAgainstNullMustNotThrowWhenSomeObjectIsNull()
         {
             // Arrange
-            object[] value = new object[] { new object(), null, new object() };
-
+            object?[] value = new object?[] { new object(), null, new object() };
 
             var guardExceptionMessage = "Value must not be null.";
             var guardException = new GuardException(guardExceptionMessage);
-            var guard = new Guard<object[]>(value, guardException);
+            var guard = new Guard<object?[]>(value, guardException);
 
             // Act
             Action act = () => { guard.EachAgainstNull(); };

@@ -7,19 +7,19 @@ namespace Fambda.Contracts
 {
     internal static class GuardAgainst
     {
-        public static void AgainstNull<T>(this Guard<T> guard)
+        public static void AgainstNull<T>(this Guard<T?> guard)
         {
             var isReferenceType = !typeof(T).GetTypeInfo().IsValueType;
             var isNullableType = Nullable.GetUnderlyingType(typeof(T)) != null;
 
-            var isNull = (isReferenceType && ReferenceEquals(guard.Value, null)) || (isNullableType && guard.Value.Equals(default));
+            var isNull = (isReferenceType && ReferenceEquals(guard.Value, null)) || (isNullableType && guard.Value!.Equals(default));
             if (isNull)
             {
                 throw guard.GuardException;
             }
         }
 
-        public static void EachAgainstNull(this Guard<object[]> guard)
+        public static void EachAgainstNull(this Guard<object?[]> guard)
         {
             foreach (var guardValue in guard.Values)
             {
