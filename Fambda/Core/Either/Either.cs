@@ -10,8 +10,8 @@ namespace Fambda
     /// <typeparam name="R">The type of the right value to be wrapped.</typeparam>
     public struct Either<L, R> : IEquatable<Either<L, R>>
     {
-        internal L Left { get; }
-        internal R Right { get; }
+        internal L? Left { get; }
+        internal R? Right { get; }
 
         private readonly bool _isLeft;
 
@@ -52,7 +52,7 @@ namespace Fambda
         /// <param name="Left">Left match operation.</param>
         /// <param name="Right">Right match operation.</param>
         public Res Match<Res>(Func<L, Res> Left, Func<R, Res> Right)
-           => _isLeft ? Left(this.Left) : Right(this.Right);
+           => _isLeft ? Left(this.Left!) : Right(this.Right!);
 
         /// <summary>
         /// Match the Left and Right states of the <see cref="Either{L,R}"/> and return <see cref="Unit"/>.
