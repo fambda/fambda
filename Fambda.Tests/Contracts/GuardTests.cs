@@ -20,19 +20,5 @@ namespace Fambda.Contracts
             // Assert
             ctor.Should().NotThrow();
         }
-
-        [Fact]
-        public void CreateShouldFail()
-        {
-            // Arrange
-            string value = null;
-            GuardException? guardException = null;
-
-            // Act
-            Action ctor = () => new Guard<string>(value, guardException);
-
-            // Assert
-            ctor.Should().Throw<GuardException>();
-        }
     }
 }
