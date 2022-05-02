@@ -36,30 +36,5 @@ namespace Fambda.Contracts
         {
             return new ExceptionalValueMustNotBeNullException();
         }
-
-        internal static EnumerationKeyMustNotBeNullException EnumerationKeyMustNotBeNull()
-        {
-            return new EnumerationKeyMustNotBeNullException();
-        }
-
-        internal static EnumerationKeyMustNotBeEmptyException EnumerationKeyMustNotBeEmpty()
-        {
-            return new EnumerationKeyMustNotBeEmptyException();
-        }
-
-        internal static EnumerationKeyMustNotBeWhiteSpaceException EnumerationKeyMustNotBeWhiteSpace()
-        {
-            return new EnumerationKeyMustNotBeWhiteSpaceException();
-        }
-
-        internal static EnumerationKeyMustNotContainLeadingSpaceException EnumerationKeyMustNotContainLeadingSpace()
-        {
-            return new EnumerationKeyMustNotContainLeadingSpaceException();
-        }
-
-        internal static EnumerationKeyMustNotContainTrailingSpaceException EnumerationKeyMustNotContainTrailingSpace()
-        {
-            return new EnumerationKeyMustNotContainTrailingSpaceException();
-        }
     }
 }
