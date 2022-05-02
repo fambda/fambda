@@ -14,6 +14,6 @@ namespace Fambda
 
         [Pure]
         internal static bool IsNull(T value)
-            => (_isReferenceType && ReferenceEquals(value, null)) || (_isNullable && value.Equals(default));
+            => (_isReferenceType && ReferenceEquals(value, null)) || (_isNullable && value!.Equals(default));
     }
 }

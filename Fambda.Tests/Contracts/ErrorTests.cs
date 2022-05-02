@@ -6,13 +6,13 @@ namespace Fambda.Contracts
     public class ErrorTests
     {
         [Fact]
-        public void ExceptionalExceptionMustNotBeNull_ReturnsExpectedException()
+        public void EachParamMustNotBeNull_ReturnsExpectedException()
         {
             // Arrange
-            var expectedExceptionType = typeof(ExceptionalExceptionMustNotBeNullException);
+            var expectedExceptionType = typeof(EachParamMustNotBeNullException);
 
             // Act
-            var exception = Error.ExceptionalExceptionMustNotBeNull();
+            var exception = Error.EachParamMustNotBeNull();
 
             // Assert
             exception.Should().BeOfType(expectedExceptionType);
