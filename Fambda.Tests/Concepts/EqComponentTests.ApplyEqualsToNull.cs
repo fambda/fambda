@@ -8,7 +8,7 @@ namespace Fambda.Concepts
     public partial class EqComponentTests
     {
         [Fact]
-        public void ApplyEqualsToNullMustReturnExpectedResultForClassObjectNotNull()
+        public void ApplyEqualsToNull_ForClassObjectNotNull_ReturnsExpectedResult()
         {
             // Arrange
             var bikeDumbClassObject = new BikeDumbClassObject("Giant", "Revolt", 2020);
@@ -21,7 +21,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyEqualsToNullMustReturnExpectedResultForClassObjectDefaultNull()
+        public void ApplyEqualsToNull_ForClassObjectDefaultNull_ReturnsExpectedResult()
         {
             // Arrange
             BikeDumbClassObject? bikeClassObject = default;
@@ -34,7 +34,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyEqualsToNullMustReturnExpectedResultForStructObjectDefault()
+        public void ApplyEqualsToNull_ForStructObjectDefault_ReturnsExpectedResult()
         {
             // Arrange
             BikeDumbStructObject bikeDumbStructObject = default;
@@ -47,7 +47,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyEqualsToNullMustReturnExpectedResultForStructObject()
+        public void ApplyEqualsToNull_ForStructObject_ReturnsExpectedResult()
         {
             // Arrange
             var bikeDumbStructObject = new BikeDumbStructObject("Giant", "Revolt", 2020);

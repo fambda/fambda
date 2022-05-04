@@ -8,7 +8,7 @@ namespace Fambda.Concepts
     public partial class EqComponentTests
     {
         [Fact]
-        public void ApplyInequalityOperatorToNullMustReturnExpectedResultForClassDumbObjectNotNull()
+        public void ApplyInequalityOperatorToNull_ForClassDumbObjectNotNull_ReturnsExpectedResult()
         {
             // Arrange
             var bikeDumbClassObject = new BikeDumbClassObject("Giant", "Revolt", 2020);
@@ -21,7 +21,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyInequalityOperatorToNullMustReturnExpectedResultForClassOperatorObjectNotNull()
+        public void ApplyInequalityOperatorToNull_ForClassOperatorObjectNotNull_ReturnsExpectedResult()
         {
             // Arrange
             var bikeOperatorClassObject = new BikeOperatorClassObject("Giant", "Revolt", 2020);
@@ -34,7 +34,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyInequalityOperatorToNullMustReturnExpectedResultForStructDumbObjectDefault()
+        public void ApplyInequalityOperatorToNull_ForStructDumbObjectDefault_ReturnsExpectedResult()
         {
             // Arrange
             var bikeDumbStructObject = new BikeDumbStructObject("Giant", "Revolt", 2020);
@@ -47,7 +47,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyInequalityOperatorToNullMustReturnExpectedResultForStructOperatorObjectNotDefault()
+        public void ApplyInequalityOperatorToNull_ForStructOperatorObjectNotDefault_ReturnsExpectedResult()
         {
             // Arrange
             var bikeOperatorStructObject = new BikeOperatorStructObject("Giant", "Revolt", 2020);
@@ -60,7 +60,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyInequalityOperatorToNullMustReturnExpectedResultForStructOperatorObjectDefaultNull()
+        public void ApplyInequalityOperatorToNull_ForStructOperatorObjectDefaultNull_ReturnsExpectedResult()
         {
             // Arrange
             BikeOperatorStructObject bikeOperatorStructObject = default;

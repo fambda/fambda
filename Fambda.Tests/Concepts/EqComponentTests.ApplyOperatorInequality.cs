@@ -10,7 +10,7 @@ namespace Fambda.Concepts
         #region Class
 
         [Fact]
-        public void ApplyOperatorInequalityMustReturnExpectedResultForClassObjectsThatAreActuallyUnequalFalseAndExpectedUnequalTrue()
+        public void ApplyOperatorInequality_ForClassObjectsThatAreActuallyUnequalFalseAndExpectedUnequalTrue_ReturnsExpectedResult()
         {
             // Arrange
             var first = new BikeOperatorEqualityClassObject("Giant", "Revolt", 2020);
@@ -24,7 +24,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyOperatorInequalityMustReturnExpectedResultForClassObjectsThatAreActuallyUnequalFalseAndExpectedUnequalFalse()
+        public void ApplyOperatorInequality_ForClassObjectsThatAreActuallyUnequalFalseAndExpectedUnequalFalse_ReturnsExpectedResult()
         {
             // Arrange
             var first = new BikeOperatorEqualityClassObject("Giant", "Revolt", 2020);
@@ -38,7 +38,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyOperatorInequalityMustReturnExpectedResultForClassObjectsThatAreActuallyUnequalTrueAndExpectedUnequalTrue()
+        public void ApplyOperatorInequality_ForClassObjectsThatAreActuallyUnequalTrueAndExpectedUnequalTrue_ReturnsExpectedResult()
         {
             // Arrange
             var first = new BikeOperatorEqualityClassObject("Giant", "Revolt", 2020);
@@ -52,7 +52,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyOperatorInequalityMustReturnExpectedResultForClassObjectsThatAreActuallyUnequalTrueAndExpectedUnequalFalse()
+        public void ApplyOperatorInequality_ForClassObjectsThatAreActuallyUnequalTrueAndExpectedUnequalFalse_ReturnsExpectedResult()
         {
             // Arrange
             var first = new BikeOperatorEqualityClassObject("Giant", "Revolt", 2020);
@@ -70,7 +70,7 @@ namespace Fambda.Concepts
         #region Struct
 
         [Fact]
-        public void ApplyOperatorInequalityMustReturnExpectedResultForStructObjectsThatAreActuallyUnequalFalseAndExpectedUnequalTrue()
+        public void ApplyOperatorInequality_ForStructObjectsThatAreActuallyUnequalFalseAndExpectedUnequalTrue_ReturnsExpectedResult()
         {
             // Arrange
             var first = new BikeOperatorEqualityStructObject("Giant", "Revolt", 2020);
@@ -84,7 +84,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyOperatorInequalityMustReturnExpectedResultForStructObjectsThatAreActuallyUnequalFalseAndExpectedUnequalFalse()
+        public void ApplyOperatorInequality_ForStructObjectsThatAreActuallyUnequalFalseAndExpectedUnequalFalse_ReturnsExpectedResult()
         {
             // Arrange
             var first = new BikeOperatorEqualityStructObject("Giant", "Revolt", 2020);
@@ -98,7 +98,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyOperatorInequalityMustReturnExpectedResultForStructObjectsThatAreActuallyUnequalTrueAndExpectedUnequalTrue()
+        public void ApplyOperatorInequality_ForStructObjectsThatAreActuallyUnequalTrueAndExpectedUnequalTrue_ReturnsExpectedResult()
         {
             // Arrange
             var first = new BikeOperatorEqualityStructObject("Giant", "Revolt", 2020);
@@ -112,7 +112,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyOperatorInequalityMustReturnExpectedResultForStructObjectsThatAreActuallyUnequalTrueAndExpectedUnequalFalse()
+        public void ApplyOperatorInequality_ForStructObjectsThatAreActuallyUnequalTrueAndExpectedUnequalFalse_ReturnsExpectedResult()
         {
             // Arrange
             var first = new BikeOperatorEqualityStructObject("Giant", "Revolt", 2020);

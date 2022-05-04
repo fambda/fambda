@@ -10,7 +10,7 @@ namespace Fambda.Concepts
         #region Class
 
         [Fact]
-        public void ApplyEqualsOfTMustReturnExpectedResultForClassObjectsWithSameEqualsResultAndExpectedEqualTrue()
+        public void ApplyEqualsOfT_ForClassObjectsWithSameEqualsResultAndExpectedEqualTrue_ReturnsExpectedResult()
         {
             // Arrange
             var first = new BikeWithEqualsOfTClassObject("Giant", "Revolt", 2020);
@@ -24,7 +24,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyEqualsOfTMustReturnExpectedResultForClassObjectsWithSameEqualsResultAndExpectedEqualFalse()
+        public void ApplyEqualsOfT_ForClassObjectsWithSameEqualsResultAndExpectedEqualFalse_ReturnsExpectedResult()
         {
             // Arrange
             var first = new BikeWithEqualsOfTClassObject("Giant", "Revolt", 2020);
@@ -38,7 +38,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyEqualsOfTMustReturnExpectedResultForClassObjectsWithDifferentEqualsResultAndExpectedEqualTrue()
+        public void ApplyEqualsOfT_ForClassObjectsWithDifferentEqualsResultAndExpectedEqualTrue_ReturnsExpectedResult()
         {
             // Arrange
             var first = new BikeWithEqualsOfTClassObject("Giant", "Revolt", 2020);
@@ -52,7 +52,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyEqualsOfTMustReturnExpectedResultForClassObjectsWithDifferentEqualsResultAndExpectedEqualFalse()
+        public void ApplyEqualsOfT_ForClassObjectsWithDifferentEqualsResultAndExpectedEqualFalse_ReturnsExpectedResult()
         {
             // Arrange
             var first = new BikeWithEqualsOfTClassObject("Giant", "Revolt", 2020);
@@ -70,7 +70,7 @@ namespace Fambda.Concepts
         #region Struct
 
         [Fact]
-        public void ApplyEqualsOfTMustReturnExpectedResultForStructObjectsWithSameEqualsResultAndExpectedEqualTrue()
+        public void ApplyEqualsOfT_ForStructObjectsWithSameEqualsResultAndExpectedEqualTrue_ReturnsExpectedResult()
         {
             // Arrange
             var first = new BikeWithEqualsOfTStructObject("Giant", "Revolt", 2020);
@@ -84,7 +84,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyEqualsOfTMustReturnExpectedResultForStructObjectsWithSameEqualsResultAndExpectedEqualFalse()
+        public void ApplyEqualsOfT_ForStructObjectsWithSameEqualsResultAndExpectedEqualFalse_ReturnsExpectedResult()
         {
             // Arrange
             var first = new BikeWithEqualsOfTStructObject("Giant", "Revolt", 2020);
@@ -98,7 +98,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyEqualsOfTMustReturnExpectedResultForStructObjectsWithDifferentEqualsResultAndExpectedEqualTrue()
+        public void ApplyEqualsOfT_ForStructObjectsWithDifferentEqualsResultAndExpectedEqualTrue_ReturnsExpectedResult()
         {
             // Arrange
             var first = new BikeWithEqualsOfTStructObject("Giant", "Revolt", 2020);
@@ -112,7 +112,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyEqualsOfTMustReturnExpectedResultForStructObjectsWithDifferentEqualsResultAndExpectedEqualFalse()
+        public void ApplyEqualsOfT_ForStructObjectsWithDifferentEqualsResultAndExpectedEqualFalse_ReturnsExpectedResult()
         {
             // Arrange
             var first = new BikeWithEqualsOfTStructObject("Giant", "Revolt", 2020);
