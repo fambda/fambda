@@ -169,7 +169,7 @@ namespace Fambda
         #region Match
 
         [Fact]
-        public void MatchShouldSucceedWhenSome()
+        public void Match_ReturnsSomeResult()
         {
             // Arrange
             Option<int> option = Some(1);
@@ -185,7 +185,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void MatchShouldSucceedWhenNone()
+        public void Match_ReturnsNoneResult()
         {
             // Arrange
             Option<int> option = None;
@@ -201,7 +201,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void MatchShouldReturnNullThroughSome()
+        public void Match_ThroughSome_ReturnsNull()
         {
             // Arrange
             Option<int> option = Some(1);
@@ -219,7 +219,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void MatchShouldReturnNullThroughNone()
+        public void Match_ThroughNone_ReturnsNull()
         {
             // Arrange
             Option<int> option = None;
