@@ -43,33 +43,33 @@ namespace Fambda
         #region Match
 
         [Fact]
-        public void MatchThroughFuncShouldMatchLeft()
+        public void Match_ThroughFunc_ReturnsLeftResult()
         {
             // Arrange
             var either = new Either<string, int>("left");
 
             // Act
-            var result = either.Match(l => $"MatchLeft({l})", r => $"MatchRight({r})");
+            var result = either.Match(l => $"Result=Left({l})", r => $"Result=Right({r})");
 
             // Assert
-            result.Should().Be("MatchLeft(left)");
+            result.Should().Be("Result=Left(left)");
         }
 
         [Fact]
-        public void MatchThroughFuncShouldMatchRight()
+        public void Match_ThroughFunc_ReturnsRightResult()
         {
             // Arrange
             var either = new Either<string, int>(5);
 
             // Act
-            var result = either.Match(l => $"MatchLeft({l})", r => $"MatchRight({r})");
+            var result = either.Match(l => $"Result=Left({l})", r => $"Result=Right({r})");
 
             // Assert
-            result.Should().Be("MatchRight(5)");
+            result.Should().Be("Result=Right(5)");
         }
 
         [Fact]
-        public void MatchThroughActionShouldMatchLeft()
+        public void Match_ThroughAction_UsesLeftResult()
         {
             // Arrange
             Log.Init();
@@ -77,17 +77,17 @@ namespace Fambda
 
             // Act
             either.Match(
-                    Left: (l) => Log.Message($"MatchLeft({l})"),
-                    Right: (r) => Log.Message($"MatchRight{r}")
+                    Left: (l) => Log.Message($"Result=Left({l})"),
+                    Right: (r) => Log.Message($"Result=Right{r}")
                 );
             var result = Log.Read();
 
             // Assert
-            result.Should().Be("MatchLeft(left)");
+            result.Should().Be("Result=Left(left)");
         }
 
         [Fact]
-        public void MatchThroughActionShouldMatchRight()
+        public void Match_ThroughAction_UsesRightResult()
         {
             // Arrange
             Log.Init();
@@ -95,13 +95,13 @@ namespace Fambda
 
             // Act
             either.Match(
-                    Left: (l) => Log.Message($"MatchLeft({l})"),
-                    Right: (r) => Log.Message($"MatchRight({r})")
+                    Left: (l) => Log.Message($"Result=Left({l})"),
+                    Right: (r) => Log.Message($"Result=Right({r})")
                 );
             var result = Log.Read();
 
             // Assert
-            result.Should().Be("MatchRight(5)");
+            result.Should().Be("Result=Right(5)");
         }
 
         #endregion

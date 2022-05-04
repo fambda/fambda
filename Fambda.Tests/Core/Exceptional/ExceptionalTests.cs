@@ -69,7 +69,7 @@ namespace Fambda
         #region Match
 
         [Fact]
-        public void MatchShouldReturnException()
+        public void Match_ReturnsExceptionResult()
         {
             // Arrange
             var exception = new SomeException();
@@ -86,7 +86,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void MatchShouldReturnSuccess()
+        public void Match_ReturnsSuccessResult()
         {
             // Arrange
             var value = "value";
