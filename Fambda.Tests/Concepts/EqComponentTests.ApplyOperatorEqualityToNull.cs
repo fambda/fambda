@@ -8,7 +8,7 @@ namespace Fambda.Concepts
     public partial class EqComponentTests
     {
         [Fact]
-        public void ApplyOperatorEqualityToNullMustReturnExpectedResultForClassDumbObjectNotNull()
+        public void ApplyOperatorEqualityToNull_ForClassDumbObjectNotNull_ReturnsExpectedResult()
         {
             // Arrange
             var bikeDumbClassObject = new BikeDumbClassObject("Giant", "Revolt", 2020);
@@ -21,7 +21,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyOperatorEqualityToNullMustReturnExpectedResultForClassOperatorObjectNotNull()
+        public void ApplyOperatorEqualityToNull_ForClassOperatorObjectNotNull_ReturnsExpectedResult()
         {
             // Arrange
             var bikeOperatorClassObject = new BikeOperatorClassObject("Giant", "Revolt", 2020);
@@ -34,7 +34,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyOperatorEqualityToNullMustReturnExpectedResultForClassOperatorObjectDefaultNull()
+        public void ApplyOperatorEqualityToNull_ForClassOperatorObjectDefaultNull_ReturnsExpectedResult()
         {
             // Arrange
             BikeOperatorClassObject? bikeOperatorClassObject = default;
@@ -47,7 +47,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyOperatorEqualityToNullMustReturnExpectedResultForStructDumbObjectDefault()
+        public void ApplyOperatorEqualityToNull_ForStructDumbObjectDefault_ReturnsExpectedResult()
         {
             // Arrange
             var bikeDumbStructObject = new BikeDumbStructObject("Giant", "Revolt", 2020);
@@ -60,7 +60,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyOperatorEqualityToNullMustReturnExpectedResultForStructOperatorObjectNotDefault()
+        public void ApplyOperatorEqualityToNull_ForStructOperatorObjectNotDefault_ReturnsExpectedResult()
         {
             // Arrange
             var bikeOperatorStructObject = new BikeOperatorStructObject("Giant", "Revolt", 2020);
@@ -73,7 +73,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void ApplyOperatorEqualityToNullMustReturnExpectedResultForStructOperatorObjectDefaultNull()
+        public void ApplyOperatorEqualityToNull_ForStructOperatorObjectDefaultNull_ReturnsExpectedResult()
         {
             // Arrange
             BikeOperatorStructObject bikeOperatorStructObject = default;

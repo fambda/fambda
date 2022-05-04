@@ -8,7 +8,7 @@ namespace Fambda.Concepts
     public class EquableTests
     {
         [Fact]
-        public void NullMustSucceed()
+        public void Null_Succeeds()
         {
             // Arrange
             var obj = new BikeClassObject("Giant", "Revolt", 2020);
@@ -21,7 +21,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void EqualMustSucceed()
+        public void Equal_Succeeds()
         {
             // Arrange
             var first = new BikeClassObject("Giant", "Revolt", 2020);
@@ -35,7 +35,7 @@ namespace Fambda.Concepts
         }
 
         [Fact]
-        public void UnequalMustSucceed()
+        public void Unequal_Succeeds()
         {
             // Arrange
             var first = new BikeClassObject("Giant", "Revolt", 2020);
