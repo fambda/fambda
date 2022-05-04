@@ -7,7 +7,7 @@ namespace Fambda
     public partial class TryTests
     {
         [Fact]
-        public void TryShouldMatchToSuccess()
+        public void Match_ReturnsSuccessResult()
         {
             // Arrange
             Func<string, Try<Uri>> createUri = (uri) => () =>
@@ -26,7 +26,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void TryShouldMatchToException()
+        public void Match_ReturnsExceptionResult()
         {
             // Arrange
             Func<string, Try<Uri>> createUri = (uri) => () =>
