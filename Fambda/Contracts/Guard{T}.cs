@@ -1,3 +1,5 @@
+using System;
+
 namespace Fambda.Contracts
 {
     /// <summary>
@@ -14,7 +16,7 @@ namespace Fambda.Contracts
         /// <summary>
         /// Object values to guard.
         /// </summary>
-        public object?[] Values { get; } = new object?[] { };
+        public object?[] Values { get; } = Array.Empty<object?>();
 
         /// <summary>
         /// <see cref="GuardException"/>
