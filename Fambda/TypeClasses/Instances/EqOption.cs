@@ -16,9 +16,6 @@ namespace Fambda
         [Pure]
         public bool Equals(Option<T> lhs, Option<T> rhs)
         {
-            if (lhs.IsNull()) { return rhs.IsNull(); }
-            if (rhs.IsNull()) { return false; }
-
             var result = lhs.IsNone && rhs.IsNone
                             ? true
                             : lhs.IsNone || rhs.IsNone
