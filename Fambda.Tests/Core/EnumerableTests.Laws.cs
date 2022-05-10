@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using FluentAssertions;
+using FsCheck.Xunit;
 using Xunit;
 
 namespace Fambda
@@ -23,12 +24,11 @@ namespace Fambda
             mapped.Should().BeEquivalentTo(original);
         }
 
-        [Fact]
+        [Property]
         [Trait("Category", "Laws")]
-        public void LawFunctor_Composition_Holds()
+        public void LawFunctor_Composition_Holds(int value)
         {
             // Arrange
-            var value = 1;
             IEnumerable<int> enumerable = new List<int> { value };
             Func<int, int> f = x => x + 1;
             Func<int, int> g = x => x * 2;
