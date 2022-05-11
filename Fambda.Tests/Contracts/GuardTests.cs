@@ -15,7 +15,7 @@ namespace Fambda.Contracts
             var guardException = new GuardException(guardExceptionMessage);
 
             // Act
-            Action ctor = () => new Guard<string>(value, guardException);
+            Action ctor = () => _ = new Guard<string>(value, guardException);
 
             // Assert
             ctor.Should().NotThrow();
