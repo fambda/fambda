@@ -7,7 +7,7 @@ namespace Fambda
     public class EitherLeftTests
     {
         [Fact]
-        public void CtorShouldSucceed()
+        public void Constructor_Succeeds()
         {
             // Arrange
             var value = "left";
@@ -20,7 +20,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void CtorShouldSetCorrectValue()
+        public void Constructor_SetsCorrectValue()
         {
             // Arrange
             var value = "left";
@@ -34,7 +34,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void EqualsObjectShouldReturnTrueWhenBothValueSame()
+        public void EqualsObject_WhenBothValueSameNotNull_ReturnsTrue()
         {
             // Arrange
             var first = new EitherLeft<string>("value");
@@ -48,7 +48,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void EqualsObjectShouldReturnFalseWhenSameTypeAndDifferentValues()
+        public void EqualsObject_WhenSameTypeAndDifferentValues_ReturnsFalse()
         {
             // Arrange
             var first = new EitherLeft<string>("value1");
@@ -62,7 +62,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void EqualsObjectShouldReturnFalseWhenDifferentTypes()
+        public void EqualsObject_WhenDifferentTypes_ReturnsFalse()
         {
             // Arrange
             var first = new EitherLeft<string>("1");
@@ -76,7 +76,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void EqualsEitherLeftShouldReturnTrueWhenBothValueSameNotNull()
+        public void Equals_EitherLeft_ReturnsTrue()
         {
             // Arrange
             var first = new EitherLeft<string>("value");
@@ -90,7 +90,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void EqualsEitherLeftShouldReturnFalse()
+        public void Equals_EitherLeft_ReturnsFalse()
         {
             // Arrange
             var first = new EitherLeft<string>("value1");
@@ -104,7 +104,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ToStringShouldProvideExpectedRepresentation()
+        public void ToString_ReturnsExpectedRepresentation()
         {
             // Arrange
             var value = "left";

@@ -7,7 +7,7 @@ namespace Fambda.Contracts
     public class GuardTests
     {
         [Fact]
-        public void CreateShouldSucceed()
+        public void Constructor_DoesNotThrow()
         {
             // Arrange
             var value = "value";

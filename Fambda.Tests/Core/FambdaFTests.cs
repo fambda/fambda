@@ -25,7 +25,7 @@ namespace Fambda
 
         #region Curry
         [Fact]
-        public void CurryFunctionWithTwoParametersShouldSucceed()
+        public void Curry_WithTwoParameters_Succeeds()
         {
             // Arrange
             Func<int, int, int> add2Args = (t1, t2) => t1 + t2;
@@ -40,7 +40,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void CurryFunctionWithThreeParametersShouldSucceed()
+        public void Curry_WithThreeParameters_Succeeds()
         {
             // Arrange
             Func<int, int, int, int> add3Args = (t1, t2, t3) => t1 + t2 + t3;
@@ -55,7 +55,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void CurryFunctionWithFourParametersShouldSucceed()
+        public void Curry_WithFourParameters_Succeeds()
         {
             // Arrange
             Func<int, int, int, int, int> add4Args = (t1, t2, t3, t4) => t1 + t2 + t3 + t4;
@@ -74,7 +74,7 @@ namespace Fambda
         #region Uncurry
 
         [Fact]
-        public void UncurryFunctionToTwoParametersShouldSucceed()
+        public void Uncurry_ToTwoParameters_Succeeds()
         {
             // Arrange
             Func<int, Func<int, int>> add2ArgsCurried = (int t1) => (int t2) => t1 + t2;
@@ -89,7 +89,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void UncurryFunctionToThreeParametersShouldSucceed()
+        public void Uncurry_ToThreeParameters_Succeeds()
         {
             // Arrange
             Func<int, Func<int, Func<int, int>>> add3ArgsCurried = (int t1) => (int t2) => (int t3) => t1 + t2 + t3;
@@ -104,7 +104,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void UncurryFunctionToFourParametersShouldSucceed()
+        public void Uncurry_ToFourParameters_Succeeds()
         {
             // Arrange
             Func<int, Func<int, Func<int, Func<int, int>>>> add4ArgsCurried = (int t1) => (int t2) => (int t3) => (int t4) => t1 + t2 + t3 + t4;

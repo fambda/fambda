@@ -11,7 +11,7 @@ namespace Fambda
         #region Exceptional
 
         [Fact]
-        public void ImplicitOperatorOverloadingShouldNotThrowWhenExceptionIsNotNull()
+        public void ImplicitConversion_ExceptionToExceptional_DoesNotThrow()
         {
             // Arrange
             var exception = new SomeException();
@@ -24,7 +24,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ImplicitOperatorOverloadingShouldSucceed()
+        public void ImplicitConversion_NotExceptionValueToExceptional_DoesNotThrow()
         {
             // Arrange
             var value = "any value of any type besides Exception";
@@ -37,7 +37,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ImplicitOperatorOverloadingShouldSetCorrectDataWhenExceptionIsNotNull()
+        public void ImplicitConversion_ExceptionToExceptional_SetsCorrectData()
         {
             // Arrange
             var exception = new SomeException();
@@ -51,7 +51,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ImplicitOperatorOverloadingShouldSetCorrectDataWhenNotAnExceptionIsPassed()
+        public void ImplicitConversion_NotExceptionValueToExceptional_SetsCorrectData()
         {
             // Arrange
             var value = "any value of any type besides Exception";
@@ -103,7 +103,7 @@ namespace Fambda
         }
 
         [Fact]
-        public async Task MatchWithTaskShouldReturnException()
+        public async Task Match_WithTask_ReturnsException()
         {
             // Arrange
             var exception = new SomeException("message");
@@ -120,7 +120,7 @@ namespace Fambda
         }
 
         [Fact]
-        public async Task MatchWithTaskShouldReturnSuccess()
+        public async Task Match_WithTask_ReturnsSuccess()
         {
             // Arrange
             var value = "value";

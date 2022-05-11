@@ -36,7 +36,7 @@ namespace Fambda
         /// Implicit conversion operator from <typeparamref name="T"/> to <see cref="Option{T}"/>.
         /// </summary>
         /// <param name="value">T value.</param>
-        public static implicit operator Option<T>(T value)
+        public static implicit operator Option<T>(T? value)
         {
             if (value == null)
             {

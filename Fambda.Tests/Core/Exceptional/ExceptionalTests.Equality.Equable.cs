@@ -9,7 +9,7 @@ namespace Fambda
     {
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableNullMustPassWhenException()
+        public void EquableNull_WhenException_Succeeds()
         {
             // Arrange
             var exception = new SomeException();
@@ -24,7 +24,7 @@ namespace Fambda
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableNullMustPassWhenSuccess()
+        public void EquableNull_WhenSuccess_Succeeds()
         {
             // Arrange
             var value = "any value of any type besides Exception";
@@ -39,7 +39,7 @@ namespace Fambda
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableEqualMustPassWhenBothException()
+        public void EquableEqual_WhenBothException_Succeeds()
         {
             // Arrange
             var firstException = new SomeException();
@@ -57,7 +57,7 @@ namespace Fambda
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableEqualMustPassWhenBothSuccess()
+        public void EquableEqual_WhenBothSuccess_Succeeds()
         {
             // Arrange
             var firstValue = "any value of any type besides Exception";
@@ -75,7 +75,7 @@ namespace Fambda
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableUnequalMustPassWhenFirstExceptionAndSecondSuccess()
+        public void EquableUnequal_WhenFirstExceptionAndSecondSuccess_Succeeds()
         {
             // Arrange
             var firstException = new SomeException();
@@ -93,7 +93,7 @@ namespace Fambda
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableUnequalMustPassWhenFirstSuccessAndSecondException()
+        public void EquableUnequal_WhenFirstSuccessAndSecondException_Succeeds()
         {
             // Arrange
             var value = "any value of any type besides Exception";

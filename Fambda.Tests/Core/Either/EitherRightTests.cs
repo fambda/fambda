@@ -7,7 +7,7 @@ namespace Fambda
     public class EitherRightTests
     {
         [Fact]
-        public void CtorShouldSucceed()
+        public void Constructor_Succeeds()
         {
             // Arrange
             var value = "right";
@@ -20,7 +20,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void CtorShouldSetCorrectValue()
+        public void Constructor_SetsCorrectValue()
         {
             // Arrange
             var value = "right";
@@ -34,7 +34,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void EqualsObjectShouldReturnTrueWhenBothValueSameNotNull()
+        public void EqualsObject_WhenBothValueSameNotNull_ReturnsTrue()
         {
             // Arrange
             var first = new EitherRight<string>("value");
@@ -48,7 +48,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void EqualsObjectShouldReturnFalseWhenSameTypeAndDifferentValues()
+        public void EqualsObject_WhenSameTypeAndDifferentValues_ReturnsFalse()
         {
             // Arrange
             var first = new EitherRight<string>("value1");
@@ -62,7 +62,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void EqualsObjectShouldReturnFalseWhenDifferentTypes()
+        public void EqualsObject_WhenDifferentTypes_ReturnsFalse()
         {
             // Arrange
             var first = new EitherRight<string>("1");
@@ -76,7 +76,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void EqualsEitherLeftShouldReturnTrueWhenBothValueSameNotNull()
+        public void Equals_EitherRight_ReturnsTrue()
         {
             // Arrange
             var first = new EitherRight<string>("value");
@@ -90,7 +90,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void EqualsEitherRightShouldReturnFalse()
+        public void Equals_EitherRight_ReturnsFalse()
         {
             // Arrange
             var first = new EitherRight<string>("value1");
@@ -104,7 +104,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ToStringShouldProvideExpectedRepresentation()
+        public void ToString_ReturnsExpectedRepresentation()
         {
             // Arrange
             var value = "right";
