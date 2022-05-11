@@ -68,7 +68,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ImplicitOperatorOverloadingShouldSucceedWithOptionSome()
+        public void ImplicitConversion_OptionSomeToOption_ReturnsOptionInSomeState()
         {
             // Arrange
             var value = "value";
@@ -76,30 +76,30 @@ namespace Fambda
 
             // Act
             Option<string> option = optionSome;
-            var result = option.ToString();
+            var result = option.IsSome;
 
             // Assert
-            result.Should().Be("Some(value)");
+            result.Should().BeTrue();
         }
 
         [Fact]
-        public void ImplicitOperatorOverloadingShouldSucceedWithOptionNone()
+        public void ImplicitConversion_OptionNoneToOption_ReturnsOptionInNoneState()
         {
             // Arrange
             var optionNone = new OptionNone();
 
             // Act
             Option<string> option = optionNone;
-            var result = option.ToString();
+            var result = option.IsNone;
 
             // Assert
-            result.Should().Be("None");
+            result.Should().BeTrue();
         }
 
         [Theory]
         [InlineData("value", "Some(value)")]
         [InlineData(null, "None")]
-        public void ImplicitOperatorOverloadingShouldSucceedWithValue(string input, string expected)
+        public void ImplicitConvertion_ValueToOption_Succeeds(string input, string expected)
         {
             // Arrange
             var value = input;

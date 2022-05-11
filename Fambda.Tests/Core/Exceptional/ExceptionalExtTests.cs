@@ -10,7 +10,7 @@ namespace Fambda
         #region Map
 
         [Fact]
-        public void MapShouldNotInvokeFuncWhenException()
+        public void Map_WhenException_Succeeds()
         {
             // Arrange
             var exception = new SomeException("Some exception");
@@ -26,7 +26,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void MapShouldSucceedWhenSuccess()
+        public void Map_WhenSuccess_Succeeds()
         {
             // Arrange
             var value = 1;
@@ -47,7 +47,7 @@ namespace Fambda
 
 
         [Fact]
-        public void BindShouldNotInvokeFuncWhenException()
+        public void Bind_WhenException_Succeeds()
         {
             // Arrange
             var exception = new SomeException("Some exception");
@@ -79,7 +79,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void BindShouldSucceedWhenSuccess()
+        public void Bind_WhenSuccess_Succeeds()
         {
             // Arrange
             var value = 1;
@@ -115,7 +115,7 @@ namespace Fambda
         #region Apply
 
         [Fact]
-        public void ApplySuccessArgsOnUnaryFuncShouldReturnException()
+        public void Apply_SuccessArgsOnUnaryFunc_ReturnsException()
         {
             // Arrange
             var exception = new SomeException("Some exception");
@@ -132,7 +132,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ApplyExceptionArgsOnUnaryFuncShouldReturnException()
+        public void Apply_ExceptionArgsOnUnaryFunc_ReturnsException()
         {
             // Arrange
             Func<int, string> toArrowString = t => "-> " + t.ToString();
@@ -150,7 +150,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ApplySuccessArgsOnUnaryFuncShouldReturnSuccessWithExpectedValue()
+        public void Apply_SuccessArgsOnUnaryFunc_ReturnsSuccessWithExpectedValue()
         {
             // Arrange
             Func<int, string> toArrowString = t => "-> " + t.ToString();
@@ -167,7 +167,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ApplySuccessArgsOnBinaryFuncShouldReturnException()
+        public void Apply_SuccessArgsOnBinaryFunc_ReturnsException()
         {
             // Arrange
             var exception = new SomeException("Some exception");
@@ -186,7 +186,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ApplyExceptionArgsOnBinaryFuncShouldReturnException()
+        public void Apply_ExceptionArgsOnBinaryFunc_ReturnsException()
         {
             // Arrange
             Func<int, int, string> toArrowString = (x, y) => "-> " + (x + y).ToString();
@@ -206,7 +206,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ApplySuccessArgsOnBinaryFuncShouldReturnSuccessWithExpectedValue()
+        public void Apply_SuccessArgsOnBinaryFunc_ReturnsSuccessWithExpectedValue()
         {
             // Arrange
             Func<int, int, string> toArrowString = (x, y) => "-> " + (x + y).ToString();

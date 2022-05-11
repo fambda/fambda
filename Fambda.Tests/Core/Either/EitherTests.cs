@@ -9,7 +9,7 @@ namespace Fambda
         #region Either
 
         [Fact]
-        public void ImplicitOperatorOverloadingShouldSucceedWithEitherLeft()
+        public void ImplicitConversion_EitherLeftToEither_ReturnsEitherInLeftState()
         {
             // Arrange
             var value = "value";
@@ -17,14 +17,14 @@ namespace Fambda
 
             // Act
             Either<string, int> either = eitherLeft;
-            var result = either.ToString();
+            var result = either.IsLeft;
 
             // Assert
-            result.Should().Be("Left(value)");
+            result.Should().BeTrue();
         }
 
         [Fact]
-        public void ImplicitOperatorOverloadingShouldSucceedWithEitherRight()
+        public void ImplicitConversion_EitherRightToEither_ReturnsEitherInRightState()
         {
             // Arrange
             var value = 1;
@@ -32,10 +32,10 @@ namespace Fambda
 
             // Act
             Either<string, int> either = eitherRight;
-            var result = either.ToString();
+            var result = either.IsRight;
 
             // Assert
-            result.Should().Be("Right(1)");
+            result.Should().BeTrue();
         }
 
         #endregion
@@ -109,7 +109,7 @@ namespace Fambda
         #region ToString
 
         [Fact]
-        public void ToStringShouldReturnLeftRepresentation()
+        public void ToString_ReturnsLeftRepresentation()
         {
             // Arrange
             var either = new Either<string, int>("left");
@@ -122,7 +122,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ToStringShouldReturnRightRepresentation()
+        public void ToString_ReturnsRightRepresentation()
         {
             // Arrange
             var either = new Either<string, int>(5);

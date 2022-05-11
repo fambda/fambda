@@ -8,7 +8,7 @@ namespace Fambda
     {
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableNullMustPassWhenLeft()
+        public void EquableNull_WhenLeft_Succeeds()
         {
             // Arrange
             var either = new Either<string, int>("left");
@@ -22,7 +22,7 @@ namespace Fambda
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableNullMustPassWhenRight()
+        public void EquableNull_WhenRight_Succeeds()
         {
             // Arrange
             var either = new Either<string, int>(1);
@@ -36,7 +36,7 @@ namespace Fambda
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableEqualMustPassWhenBothLeft()
+        public void EquableEqual_WhenBothLeft_Succeeds()
         {
             // Arrange
             var first = new Either<string, int>("left");
@@ -51,7 +51,7 @@ namespace Fambda
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableEqualMustPassWhenBothRight()
+        public void EquableEqual_WhenBothRight_Succeeds()
         {
             // Arrange
             var first = new Either<string, int>(1);
@@ -66,7 +66,7 @@ namespace Fambda
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableUnequalMustPassWhenFirstLeftAndSecondRight()
+        public void EquableUnequal_WhenFirstLeftAndSecondRight_Succeeds()
         {
             // Arrange
             var first = new Either<string, int>("left");
@@ -81,7 +81,7 @@ namespace Fambda
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void EquableUnequalMustPassWhenFirstRightAndSecondLeft()
+        public void EquableUnequal_WhenFirstRightAndSecondLeft_Succeeds()
         {
             // Arrange
             var first = new Either<string, int>(1);

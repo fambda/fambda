@@ -9,7 +9,7 @@ namespace Fambda
         #region Apply
 
         [Fact]
-        public void ApplyBinaryFunctionToTheFirstArgumentShouldSucceed()
+        public void Apply_BinaryFuncToTheFirstArgument_Succeeds()
         {
             // Arrange
             var arg1 = 1;
@@ -25,7 +25,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ApplyTernaryFunctionToTheFirstArgumentShouldSucceed()
+        public void Apply_TernaryFuncToTheFirstArgument_Succeeds()
         {
             // Arrange
             var arg1 = 1;
@@ -42,7 +42,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ApplyTernaryFunctionToTheFirstTwoArgumentsShouldSucceed()
+        public void Apply_TernaryFuncToTheFirstTwoArguments_Succeeds()
         {
             // Arrange
             var arg1 = 1;
@@ -59,7 +59,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ApplyQuaternaryFunctionToTheFirstArgumentShouldSucceed()
+        public void Apply_QuaternaryFuncToTheFirstArgument_Succeeds()
         {
             // Arrange
             var arg1 = 1;
@@ -77,7 +77,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ApplyQuaternaryFunctionToTheFirstTwoArgumentsShouldSucceed()
+        public void Apply_QuaternaryFuncToTheFirstTwoArguments_Succeeds()
         {
             // Arrange
             var arg1 = 1;
@@ -95,7 +95,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ApplyQuaternaryFunctionToTheFirstThreeArgumentsShouldSucceed()
+        public void Apply_QuaternaryFuncToTheFirstThreeArguments_Succeeds()
         {
             // Arrange
             var arg1 = 1;
