@@ -13,7 +13,7 @@ namespace Fambda
             var value = "value";
 
             // Act
-            Action ctor = () => new OptionSome<string>(value);
+            Action ctor = () => _ = new OptionSome<string>(value);
 
             // Assert
             ctor.Should().NotThrow();

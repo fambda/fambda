@@ -13,7 +13,7 @@ namespace Fambda
             var value = "right";
 
             // Act
-            Action ctor = () => { new EitherRight<string>(value); };
+            Action ctor = () => { _ = new EitherRight<string>(value); };
 
             // Assert
             ctor.Should().NotThrow();
