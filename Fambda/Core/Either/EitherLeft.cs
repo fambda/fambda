@@ -37,7 +37,7 @@ namespace Fambda
         /// <returns>true if the specified object is equal to the current <see cref="EitherLeft{L}"/> object; otherwise, false.</returns>
         [Pure]
         public override bool Equals(object? obj)
-            => !object.ReferenceEquals(obj, null) && obj is EitherLeft<L> eitherLeft && Equals(eitherLeft);
+            => obj is EitherLeft<L> eitherLeft && Equals(eitherLeft);
 
         /// <summary>
         /// Returns a string that represents the current <see cref="EitherLeft{L}"/> object.
