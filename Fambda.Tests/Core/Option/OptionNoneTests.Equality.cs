@@ -4,17 +4,17 @@ using Xunit;
 
 namespace Fambda
 {
-    public partial class UnitTests
+    public partial class OptionNoneTests
     {
         [Fact]
         [Trait("Category", "Equable")]
-        public void Equable_Null_MustPass()
+        public void Equable_Null_DoesPass()
         {
             // Arrange
-            Unit unit = new Unit();
+            var optionNone = new OptionNone();
 
             // Act
-            var result = new Equable().Null(unit);
+            var result = new Equable().Null(optionNone);
 
             // Assert
             result.Should().Pass();
@@ -25,8 +25,8 @@ namespace Fambda
         public void Equable_Equal_DoesPass()
         {
             // Arrange
-            Unit first = new Unit();
-            Unit second = new Unit();
+            var first = new OptionNone();
+            var second = new OptionNone();
 
             // Act
             var result = new Equable().Equal(first, second);
@@ -40,17 +40,14 @@ namespace Fambda
         public void Equable_Unequal_DoesNotPass()
         {
             // Arrange
-            Unit first = new Unit();
-            Unit second = new Unit();
+            var first = new OptionNone();
+            var second = new OptionNone();
 
             // Act
             var result = new Equable().Unequal(first, second);
 
             // Assert
-            result.Should().NotPass("Equals returned 'true' on expected non-equal objects.",
-                                    "Typed Equals returned 'true' on expected non-equal objects.",
-                                    "Equality operator returned 'true' on expected non-equal objects.",
-                                    "Inequality operator returned 'false' on expected non-equal objects.");
+            result.Should().NotPass();
         }
     }
 }

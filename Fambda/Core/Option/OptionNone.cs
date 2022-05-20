@@ -44,5 +44,25 @@ namespace Fambda
         /// </summary>
         /// <returns>A string that represents the current <see cref="OptionNone"/> object.</returns>
         public override string ToString() => "None";
+
+        /// <summary>
+        /// Compares two <see cref="OptionNone"/> objects through equality operator.
+        /// </summary>
+        /// <param name="lhs"><see cref="OptionNone"/> left hand side object.</param>
+        /// <param name="rhs"><see cref="OptionNone"/> right hand side object.</param>
+        /// <returns>true if <paramref name="lhs"/> is equal to the <paramref name="rhs"/>; otherwise, false.</returns>
+        [Pure]
+        public static bool operator ==(OptionNone lhs, OptionNone rhs)
+            => Equals(lhs, rhs);
+
+        /// <summary>
+        /// Compares two <see cref="OptionNone"/> objects through inequality operator.
+        /// </summary>
+        /// <param name="lhs"><see cref="OptionNone"/> left hand side object.</param>
+        /// <param name="rhs"><see cref="OptionNone"/> right hand side object.</param>
+        /// <returns>true if the <paramref name="lhs"/> object is not equal to <paramref name="rhs"/>; otherwise, false.</returns>
+        [Pure]
+        public static bool operator !=(OptionNone lhs, OptionNone rhs)
+            => !Equals(lhs, rhs);
     }
 }

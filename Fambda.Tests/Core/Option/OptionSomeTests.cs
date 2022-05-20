@@ -4,7 +4,7 @@ using Xunit;
 
 namespace Fambda
 {
-    public class OptionSomeTests
+    public partial class OptionSomeTests
     {
         [Fact]
         public void Constructor_NotNullValue_Succeeds()
@@ -58,62 +58,6 @@ namespace Fambda
 
             // Assert
             result.Should().NotBe(optionSomeB.GetHashCode());
-        }
-
-        [Fact]
-        public void Equals_Object_ReturnsTrue()
-        {
-            // Arrange
-            var first = new OptionSome<string>("value");
-            var second = new OptionSome<string>("value");
-
-            // Act
-            var result = Equals(first, second);
-
-            // Assert
-            result.Should().BeTrue();
-        }
-
-        [Fact]
-        public void Equals_Object_ReturnsFalse()
-        {
-            // Arrange
-            var first = new OptionSome<string>("value1");
-            var second = new OptionSome<string>("value2");
-
-            // Act
-            var result = Equals(first, second);
-
-            // Assert
-            result.Should().BeFalse();
-        }
-
-        [Fact]
-        public void Equals_OptionSome_ReturnsTrue()
-        {
-            // Arrange
-            var first = new OptionSome<string>("value");
-            var second = new OptionSome<string>("value");
-
-            // Act
-            var result = first.Equals(second);
-
-            // Assert
-            result.Should().BeTrue();
-        }
-
-        [Fact]
-        public void Equals_OptionSome_ReturnsFalse()
-        {
-            // Arrange
-            var first = new OptionSome<string>("value1");
-            var second = new OptionSome<string>("value2");
-
-            // Act
-            var result = first.Equals(second);
-
-            // Assert
-            result.Should().BeFalse();
         }
 
         [Fact]
