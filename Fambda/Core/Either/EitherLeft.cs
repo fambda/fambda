@@ -44,5 +44,25 @@ namespace Fambda
         /// </summary>
         /// <returns>A string that represents the current <see cref="EitherLeft{L}"/> object.</returns>
         public override string ToString() => $"Left({Value})";
+
+        /// <summary>
+        /// Compares two <see cref="EitherLeft{L}"/> objects through equality operator.
+        /// </summary>
+        /// <param name="lhs"><see cref="EitherLeft{L}"/> left hand side object.</param>
+        /// <param name="rhs"><see cref="EitherLeft{L}"/> right hand side object.</param>
+        /// <returns>true if <paramref name="lhs"/> is equal to the <paramref name="rhs"/>; otherwise, false.</returns>
+        [Pure]
+        public static bool operator ==(EitherLeft<L> lhs, EitherLeft<L> rhs)
+            => Equals(lhs, rhs);
+
+        /// <summary>
+        /// Compares two <see cref="EitherLeft{L}"/> objects through inequality operator.
+        /// </summary>
+        /// <param name="lhs"><see cref="EitherLeft{L}"/> left hand side object.</param>
+        /// <param name="rhs"><see cref="EitherLeft{L}"/> right hand side object.</param>
+        /// <returns>true if the <paramref name="lhs"/> object is not equal to <paramref name="rhs"/>; otherwise, false.</returns>
+        [Pure]
+        public static bool operator !=(EitherLeft<L> lhs, EitherLeft<L> rhs)
+            => !Equals(lhs, rhs);
     }
 }

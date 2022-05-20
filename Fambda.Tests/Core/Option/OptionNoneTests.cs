@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Fambda
 {
-    public class OptionNoneTests
+    public partial class OptionNoneTests
     {
         [Fact]
         public void Constructor_ReturnsDefaultOptionNone()
@@ -29,48 +29,6 @@ namespace Fambda
 
             // Assert
             result.Should().Be(0);
-        }
-
-        [Fact]
-        public void Equals_OptionNone_ReturnsTrue()
-        {
-            // Arrange
-            var first = new OptionNone();
-            var second = new OptionNone();
-
-            // Act
-            var result = first.Equals(second);
-
-            // Assert
-            result.Should().BeTrue();
-        }
-
-        [Fact]
-        public void Equals_Object_ReturnsFalse()
-        {
-            // Arrange
-            var first = new OptionNone();
-            object second = "not an OptionNone";
-
-            // Act
-            var result = Equals(first, second);
-
-            // Assert
-            result.Should().BeFalse();
-        }
-
-        [Fact]
-        public void Equals_Object_ReturnsTrue()
-        {
-            // Arrange
-            var first = new OptionNone();
-            var second = new OptionNone();
-
-            // Act
-            var result = Equals(first, second);
-
-            // Assert
-            result.Should().BeTrue();
         }
 
         [Fact]

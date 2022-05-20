@@ -9,179 +9,156 @@ namespace Fambda
     public partial class OptionTests
     {
         [Fact]
-        public void Equals_OptionNone_ReturnsTrue()
+        [Trait("Category", "Equable")]
+        public void Equable_NullWhenOptionInNone_DoesPass()
         {
             // Arrange
             Option<int> option = None;
-            OptionNone optionNone = OptionNone.Default;
 
             // Act
-            var result = option.Equals(optionNone);
+            var result = new Equable().Null(option);
 
             // Assert
-            result.Should().BeTrue();
+            result.Should().Pass();
         }
 
         [Fact]
-        public void Equals_OptionNone_ReturnsFalse()
+        [Trait("Category", "Equable")]
+        public void Equable_NullWhenOptionInSome_DoesPass()
         {
             // Arrange
             Option<int> option = Some(1);
-            OptionNone optionNone = OptionNone.Default;
 
             // Act
-            var result = option.Equals(optionNone);
+            var result = new Equable().Null(option);
 
             // Assert
-            result.Should().BeFalse();
+            result.Should().Pass();
+        }
+
+
+        [Fact]
+        [Trait("Category", "Equable")]
+        public void Equable_EqualWhenOptionInNoneAndOptionInNone_DoesPass()
+        {
+            // Arrange
+            Option<int> first = None;
+            Option<int> second = None;
+
+            // Act
+            var result = new Equable().Equal(first, second);
+
+            // Assert
+            result.Should().Pass();
         }
 
         [Fact]
-        public void Equals_OptionSome_ReturnsTrue()
+        [Trait("Category", "Equable")]
+        public void Equable_EqualWhenOptionInSomeAndOptionInSome_DoesPass()
         {
             // Arrange
-            Option<int> option = Some(1);
-            OptionSome<int> optionSome = new OptionSome<int>(1);
+            Option<int> first = Some(1);
+            Option<int> second = Some(1);
 
             // Act
-            var result = option.Equals(optionSome);
+            var result = new Equable().Equal(first, second);
 
             // Assert
-            result.Should().BeTrue();
+            result.Should().Pass();
         }
 
         [Fact]
-        public void Equals_OptionSome_ReturnsFalse()
+        [Trait("Category", "Equable")]
+        public void Equable_EqualWhenOptionInNoneAndOptionNone_DoesPass()
         {
             // Arrange
-            Option<int> option = Some(1);
-            OptionSome<int> optionSome = new OptionSome<int>(2);
+            Option<int> first = None;
+            OptionNone second = OptionNone.Default;
 
             // Act
-            var result = option.Equals(optionSome);
+            var result = new Equable().Equal(first, second);
 
             // Assert
-            result.Should().BeFalse();
+            result.Should().Pass();
         }
 
         [Fact]
-        public void Equals_BoxedOptionInNoneState_ReturnsTrue()
+        [Trait("Category", "Equable")]
+        public void Equable_EqualWhenOptionInSomeAndOptionSome_DoesPass()
         {
             // Arrange
-            Option<int> optionA = new OptionNone();
-            Option<int> optionB = new OptionNone();
-            var boxedOptionB = optionB as object;
+            // Arrange
+            var value = "value";
+            Option<string> first = Some(value);
+            var second = new OptionSome<string>(value);
 
             // Act
-            var result = optionA.Equals(boxedOptionB);
+            var result = new Equable().Equal(first, second);
 
             // Assert
-            result.Should().BeTrue();
+            result.Should().Pass();
         }
 
         [Fact]
-        public void Equals_BoxedOptionInNoneState_ReturnsFalse()
+        [Trait("Category", "Equable")]
+        public void Equable_UnequalWhenOptionInSomeAndOptionInSome_DoesPass()
         {
             // Arrange
-            Option<int> optionA = new OptionSome<int>(1);
-            Option<int> optionB = new OptionNone();
-            var boxedOptionB = optionB as object;
+            Option<int> first = Some(1);
+            Option<int> second = Some(2);
 
             // Act
-            var result = optionA.Equals(boxedOptionB);
+            var result = new Equable().Unequal(first, second);
 
             // Assert
-            result.Should().BeFalse();
+            result.Should().Pass();
         }
 
         [Fact]
-        public void Equals_BoxedOptionInSomeState_ReturnsTrue()
+        [Trait("Category", "Equable")]
+        public void Equable_UnequalWhenOptionInNoneAndOptionInSome_DoesPass()
         {
             // Arrange
-            Option<int> optionA = new OptionSome<int>(1);
-            Option<int> optionB = new OptionSome<int>(1);
-            var boxedOptionB = optionB as object;
+            Option<int> first = None;
+            Option<int> second = Some(1);
 
             // Act
-            var result = optionA.Equals(boxedOptionB);
+            var result = new Equable().Unequal(first, second);
 
             // Assert
-            result.Should().BeTrue();
+            result.Should().Pass();
         }
 
         [Fact]
-        public void Equals_BoxedOptionInSomeState_ReturnsFalse()
+        [Trait("Category", "Equable")]
+        public void Equable_UnequalWhenOptionInNoneAndOptionNone_DoesNotPass()
         {
             // Arrange
-            Option<int> optionA = new OptionSome<int>(1);
-            Option<int> optionB = new OptionSome<int>(2);
-            var boxedOptionB = optionB as object;
+            Option<int> first = None;
+            OptionNone second = OptionNone.Default;
 
             // Act
-            var result = optionA.Equals(boxedOptionB);
+            var result = new Equable().Unequal(first, second);
 
             // Assert
-            result.Should().BeFalse();
+            result.Should().NotPass();
         }
 
         [Fact]
-        public void Equals_BoxedOptionNone_ReturnsFalse()
+        [Trait("Category", "Equable")]
+        public void Equable_UnequalWhenOptionInSomeAndOptionSome_DoesPass()
         {
             // Arrange
-            Option<int> option = new OptionSome<int>(1);
-            OptionNone optionNone = new OptionNone();
-            var boxedOptionNone = optionNone as object;
-
-            // Act
-            var result = option.Equals(boxedOptionNone);
-
-            // Assert
-            result.Should().BeFalse();
-        }
-
-        [Fact]
-        public void Equals_BoxedOptionNone_ReturnsTrue()
-        {
             // Arrange
-            Option<int> option = new OptionNone();
-            OptionNone optionNone = new OptionNone();
-            var boxedOptionNone = optionNone as object;
+            var value = "value";
+            Option<string> first = Some(value);
+            var second = new OptionSome<string>(value);
 
             // Act
-            var result = option.Equals(boxedOptionNone);
+            var result = new Equable().Equal(first, second);
 
             // Assert
-            result.Should().BeTrue();
-        }
-
-        [Fact]
-        public void Equals_BoxedOptionSome_ReturnsFalse()
-        {
-            // Arrange
-            Option<int> option = new OptionSome<int>(1);
-            OptionSome<int> optionSome = new OptionSome<int>(2);
-            var boxedOptionSome = optionSome as object;
-
-            // Act
-            var result = option.Equals(boxedOptionSome);
-
-            // Assert
-            result.Should().BeFalse();
-        }
-
-        [Fact]
-        public void Equals_BoxedOptionSome_ReturnsTrue()
-        {
-            // Arrange
-            Option<int> option = new OptionSome<int>(1);
-            OptionSome<int> optionSome = new OptionSome<int>(1);
-            var boxedOptionSome = optionSome as object;
-
-            // Act
-            var result = option.Equals(boxedOptionSome);
-
-            // Assert
-            result.Should().BeTrue();
+            result.Should().Pass();
         }
     }
 }

@@ -47,5 +47,25 @@ namespace Fambda
         /// </summary>
         /// <returns>A string that represents the current <see cref="OptionSome{T}"/> object.</returns>
         public override string ToString() => $"Some({Value})";
+
+        /// <summary>
+        /// Compares two <see cref="OptionSome{T}"/> objects through equality operator.
+        /// </summary>
+        /// <param name="lhs"><see cref="OptionSome{T}"/> left hand side object.</param>
+        /// <param name="rhs"><see cref="OptionSome{T}"/> right hand side object.</param>
+        /// <returns>true if <paramref name="lhs"/> is equal to the <paramref name="rhs"/>; otherwise, false.</returns>
+        [Pure]
+        public static bool operator ==(OptionSome<T> lhs, OptionSome<T> rhs)
+            => Equals(lhs, rhs);
+
+        /// <summary>
+        /// Compares two <see cref="OptionSome{T}"/> objects through inequality operator.
+        /// </summary>
+        /// <param name="lhs"><see cref="OptionSome{T}"/> left hand side object.</param>
+        /// <param name="rhs"><see cref="OptionSome{T}"/> right hand side object.</param>
+        /// <returns>true if the <paramref name="lhs"/> object is not equal to <paramref name="rhs"/>; otherwise, false.</returns>
+        [Pure]
+        public static bool operator !=(OptionSome<T> lhs, OptionSome<T> rhs)
+            => !Equals(lhs, rhs);
     }
 }

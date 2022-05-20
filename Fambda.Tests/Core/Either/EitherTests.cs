@@ -9,7 +9,7 @@ namespace Fambda
         #region Either
 
         [Fact]
-        public void ImplicitConversion_EitherLeftToEither_ReturnsEitherInLeftState()
+        public void ImplicitConversion_EitherLeftToEither_ReturnsEitherInLeft()
         {
             // Arrange
             var value = "value";
@@ -24,7 +24,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ImplicitConversion_EitherRightToEither_ReturnsEitherInRightState()
+        public void ImplicitConversion_EitherRightToEither_ReturnsEitherInRight()
         {
             // Arrange
             var value = 1;

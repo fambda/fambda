@@ -6,8 +6,6 @@ namespace Fambda.Helpers
     {
         internal EqResults Null<T>(T obj)
         {
-            //Guard.On(new object[] { obj }, Error.EachParamMustNotBeNull()).EachAgainstNull();
-
             var eqResults = EqResults.Create(new List<EqResult>()
             {
                 EqComponent.ApplyEqualsToNull<T>(obj),
@@ -21,8 +19,6 @@ namespace Fambda.Helpers
 
         internal EqResults Equal<T>(T objA, T objB)
         {
-            //Guard.On(new object[] { objA, objB }, Error.EachParamMustNotBeNull()).EachAgainstNull();
-
             var eqResults = EqResults.Create(new List<EqResult>()
             {
                 EqComponent.ApplyGetHashCodeOnEqualObjects<T>(objA, objB),
@@ -37,8 +33,6 @@ namespace Fambda.Helpers
 
         internal EqResults Unequal<T>(T objA, T objB)
         {
-            //Guard.On(new object[] { objA, objB }, Error.EachParamMustNotBeNull()).EachAgainstNull();
-
             var eqResults = EqResults.Create(new List<EqResult>()
             {
                 EqComponent.ApplyEqualsToNonNullOfOtherType<T>(objA),
