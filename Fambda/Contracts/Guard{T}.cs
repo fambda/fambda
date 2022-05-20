@@ -1,5 +1,3 @@
-using System;
-
 namespace Fambda.Contracts
 {
     /// <summary>
@@ -14,11 +12,6 @@ namespace Fambda.Contracts
         public T? Value { get; }
 
         /// <summary>
-        /// Object values to guard.
-        /// </summary>
-        public object?[] Values { get; } = Array.Empty<object?>();
-
-        /// <summary>
         /// <see cref="GuardException"/>
         /// </summary>
         public GuardException GuardException { get; }
@@ -31,17 +24,6 @@ namespace Fambda.Contracts
         public Guard(T? value, GuardException guardException)
         {
             Value = value;
-            GuardException = guardException;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Guard"/>.
-        /// </summary>
-        /// <param name="values">Object values</param>
-        /// <param name="guardException"><see cref="GuardException"/></param>
-        public Guard(object?[] values, GuardException guardException)
-        {
-            Values = values;
             GuardException = guardException;
         }
     }
