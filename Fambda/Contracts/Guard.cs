@@ -16,16 +16,5 @@ namespace Fambda.Contracts
         {
             return new Guard<T>(value, guardException);
         }
-
-        /// <summary>
-        /// Guard on <see cref="T:object[]"/>.
-        /// </summary>
-        /// <param name="values">The object values.</param>
-        /// <param name="guardException"><see cref="GuardException"/>.</param>
-        /// <returns><see cref="Guard{T}">Guard&lt;object[]></see>.</returns>
-        public static Guard<object?[]> On(object?[] values, GuardException guardException)
-        {
-            return new Guard<object?[]>(values, guardException);
-        }
     }
 }
