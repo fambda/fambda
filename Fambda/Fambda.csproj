@@ -13,12 +13,16 @@
     <PackageProjectUrl>https://github.com/fambda/fambda</PackageProjectUrl>
     <Description>Fambda - advanced, purely functional programming library for C# language. 
 
-Supported .NET Standard 2.0+</Description>
+Supported .NET 6</Description>
     <Summary>Fambda - advanced, purely functional programming library for C# language.</Summary>
     <RepositoryUrl>https://github.com/fambda/fambda</RepositoryUrl>
     <PackageTags>fambda</PackageTags>
-    <PackageReleaseNotes>Type classes and instance implementations. Extensions on Exceptional and Try types. Testing tool changed.</PackageReleaseNotes>
-    <Version>1.0.5</Version>
+    <PackageReleaseNotes>Target framework .NET 6, C# 10.0 language features with enforced nullable reference types. 
+
+    Identity and function composition. Functors and applicatives. 
+
+    Better xml code documentation, easier test naming convention, code simplifications.</PackageReleaseNotes>
+    <Version>2.0.0</Version>
     <AssemblyName>Fambda</AssemblyName>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
