@@ -7,7 +7,7 @@ namespace Fambda.Contracts
     public class GuardExtensionsTests
     {
         [Fact]
-        public void AgainstNullShouldNotThrowWhenReferenceTypeValueIsNotNull()
+        public void AgainstNull_WhenReferenceTypeValueIsNotNull_DoesnNotThrow()
         {
             // Arrange
             string value = "A not null value.";
@@ -23,7 +23,7 @@ namespace Fambda.Contracts
         }
 
         [Fact]
-        public void AgainstNullShouldNotThrowWhenNullableTypeValueIsNotNull()
+        public void AgainstNull_WhenNullableTypeValueIsNotNull_DoesNotThrow()
         {
             // Arrange
             Nullable<int> value = 1;
@@ -39,7 +39,7 @@ namespace Fambda.Contracts
         }
 
         [Fact]
-        public void AgainstNullShouldReturnProvidedExceptionWhenReferenceTypeValueIsNull()
+        public void AgainstNull_WhenReferenceTypeValueIsNull_ReturnsProvidedException()
         {
             // Arrange
             string? value = null;
@@ -55,7 +55,7 @@ namespace Fambda.Contracts
         }
 
         [Fact]
-        public void AgainstNullShouldReturnProvidedExceptionWhenNullableTypeValueIsNull()
+        public void AgainstNull_WhenNullableTypeValueIsNull_ReturnsProvidedException()
         {
             // Arrange
             int? value = null;
