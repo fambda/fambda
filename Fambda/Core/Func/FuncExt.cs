@@ -34,21 +34,23 @@ namespace Fambda
         #region Apply
 
         /// <summary>
-        /// Partially applies a binary function <see cref="Func{T1, T2, Res}"/> to the first argument <c>t1</c>,
-        /// and returns a unary function <see cref="Func{T2, Res}"/> accepting the second argument <c>t2</c>.
+        /// <para>Partially applies a binary function <see cref="Func{T1, T2, Res}">Func&lt;T1, T2, Res></see> to the first argument <c>t1</c>,
+        /// and returns a unary function <see cref="Func{T2, Res}">Func&lt;T2, Res></see> accepting the second argument <c>t2</c>.</para>
+        /// <para><c>(T1 → T2 → Res) → T1 → (T2 → Res)</c></para>
         /// </summary>
         /// <typeparam name="T1">The type of function's first parameter.</typeparam>
         /// <typeparam name="T2">The type of function's second parameter.</typeparam>
         /// <typeparam name="Res">The type of the function's return value.</typeparam>
         /// <param name="func">Function to be applied.</param>
         /// <param name="t1">Value of the first argument.</param>
-        /// <returns>Unary function <see cref="Func{T2, Res}"/> accepting <c>t2</c> argument.</returns>
+        /// <returns>Unary function <see cref="Func{T2, Res}">Func&lt;T2, Res></see> accepting <c>t2</c> argument.</returns>
         public static Func<T2, Res> Apply<T1, T2, Res>(this Func<T1, T2, Res> func, T1 t1)
             => t2 => func(t1, t2);
 
         /// <summary>
-        /// Partially applies a ternary function <see cref="Func{T1, T2, T3, Res}"/> to the first argument <c>t1</c>,
-        /// and returns a binary function <see cref="Func{T2, T3, Res}"/> accepting the second and third arguments <c>t2</c>, <c>t3</c>.
+        /// <para>Partially applies a ternary function <see cref="Func{T1, T2, T3, Res}">Func&lt;T1, T2, T3, Res></see> to the first argument <c>t1</c>,
+        /// and returns a binary function <see cref="Func{T2, T3, Res}">Func&lt;T2, T3, Res></see> accepting the second and third arguments <c>t2</c>, <c>t3</c>.</para>
+        /// <para><c>(T1 → T2 → T3 → Res) → T1 → (T2 → T3 → Res)</c></para>
         /// </summary>
         /// <typeparam name="T1">The type of function's first parameter.</typeparam>
         /// <typeparam name="T2">The type of function's second parameter.</typeparam>
@@ -56,13 +58,14 @@ namespace Fambda
         /// <typeparam name="Res">The type of the function's return value.</typeparam>
         /// <param name="func">Function to be applied.</param>
         /// <param name="t1">Value of the first argument.</param>
-        /// <returns>Binary function <see cref="Func{T2, T3, Res}"/> accepting <c>t2</c> and <c>t3</c> arguments.</returns>
+        /// <returns>Binary function <see cref="Func{T2, T3, Res}">Func&lt;T2, T3, Res></see> accepting <c>t2</c> and <c>t3</c> arguments.</returns>
         public static Func<T2, T3, Res> Apply<T1, T2, T3, Res>(this Func<T1, T2, T3, Res> func, T1 t1)
             => (t2, t3) => func(t1, t2, t3);
 
         /// <summary>
-        /// Partially applies a ternary function <see cref="Func{T1, T2, T3, Res}"/> to the first two arguments <c>t1</c>, <c>t2</c>
-        /// and returns an unary function <see cref="Func{T3, Res}"/> accepting the third arguments <c>t3</c>.
+        /// <para>Partially applies a ternary function <see cref="Func{T1, T2, T3, Res}">Func&lt;T1, T2, T3, Res></see> to the first two arguments <c>t1</c>, <c>t2</c>
+        /// and returns an unary function <see cref="Func{T3, Res}">Func&lt;T3, Res></see> accepting the third arguments <c>t3</c>.</para>
+        /// <para><c>(T1 → T2 → T3 → Res) → T1 → T2 → (T3 → Res)</c></para>
         /// </summary>
         /// <typeparam name="T1">The type of function's first parameter.</typeparam>
         /// <typeparam name="T2">The type of function's second parameter.</typeparam>
@@ -71,13 +74,14 @@ namespace Fambda
         /// <param name="func">Function to be applied.</param>
         /// <param name="t1">Value of the first argument.</param>
         /// <param name="t2">Value of the second argument.</param>
-        /// <returns>Unary function <see cref="Func{T3, Res}"/> accepting <c>t3</c> argument.</returns>
+        /// <returns>Unary function <see cref="Func{T3, Res}">Func&lt;T3, Res></see> accepting <c>t3</c> argument.</returns>
         public static Func<T3, Res> Apply<T1, T2, T3, Res>(this Func<T1, T2, T3, Res> func, T1 t1, T2 t2)
             => (t3) => func(t1, t2, t3);
 
         /// <summary>
-        /// Partially applies a quaternary function <see cref="Func{T1, T2, T3, T4, Res}"/> to the first argument <c>t1</c>
-        /// and returns a ternary function <see cref="Func{T2, T3, T4, Res}"/> accepting second, third and fourth arguments <c>t2</c>, <c>t3</c>, <c>t4</c>.
+        /// <para>Partially applies a quaternary function <see cref="Func{T1, T2, T3, T4, Res}">Func&lt;T1, T2, T3, T4, Res></see> to the first argument <c>t1</c>
+        /// and returns a ternary function <see cref="Func{T2, T3, T4, Res}">Func&lt;T2, T3, T4, Res></see> accepting second, third and fourth arguments <c>t2</c>, <c>t3</c>, <c>t4</c>.</para>
+        /// <para><c>(T1 → T2 → T3 → T4 → Res) → T1 → (T2 → T3 → T4 → Res)</c></para>
         /// </summary>
         /// <typeparam name="T1">The type of function's first parameter.</typeparam>
         /// <typeparam name="T2">The type of function's second parameter.</typeparam>
@@ -86,13 +90,14 @@ namespace Fambda
         /// <typeparam name="Res">The type of the function's return value.</typeparam>
         /// <param name="func">Function to be applied.</param>
         /// <param name="t1">Value of the first argument.</param>
-        /// <returns>Ternary function <see cref="Func{T2, T3, T4, Res}"/> accepting <c>t2</c>, <c>t3</c> and <c>t4</c> arguments.</returns>
+        /// <returns>Ternary function <see cref="Func{T2, T3, T4, Res}">Func&lt;T2, T3, T4, Res></see> accepting <c>t2</c>, <c>t3</c> and <c>t4</c> arguments.</returns>
         public static Func<T2, T3, T4, Res> Apply<T1, T2, T3, T4, Res>(this Func<T1, T2, T3, T4, Res> func, T1 t1)
             => (t2, t3, t4) => func(t1, t2, t3, t4);
 
         /// <summary>
-        /// Partially applies a quaternary function <see cref="Func{T1, T2, T3, T4, Res}"/> to the first two arguments <c>t1</c>, <c>t2</c>
-        /// and returns a binary function <see cref="Func{T3, T4, Res}"/> accepting the third and fourth arguments <c>t3</c>, <c>t4</c>.
+        /// <para>Partially applies a quaternary function <see cref="Func{T1, T2, T3, T4, Res}">Func&lt;T1, T2, T3, T4, Res></see> to the first two arguments <c>t1</c>, <c>t2</c>
+        /// and returns a binary function <see cref="Func{T3, T4, Res}">Func&lt;T3, T4, Res></see> accepting the third and fourth arguments <c>t3</c>, <c>t4</c>.</para>
+        /// <para><c>(T1 → T2 → T3 → T4 → Res) → T1 → T2 → (T3 → T4 → Res)</c></para>
         /// </summary>
         /// <typeparam name="T1">The type of function's first parameter.</typeparam>
         /// <typeparam name="T2">The type of function's second parameter.</typeparam>
@@ -102,13 +107,14 @@ namespace Fambda
         /// <param name="func">Function to be applied.</param>
         /// <param name="t1">Value of the first argument.</param>
         /// <param name="t2">Value of the second argument.</param>
-        /// <returns>Binary function <see cref="Func{T3, T4, Res}"/> accepting <c>t3</c> and <c>t4</c> arguments.</returns>
+        /// <returns>Binary function <see cref="Func{T3, T4, Res}">Func&lt;T3, T4, Res></see> accepting <c>t3</c> and <c>t4</c> arguments.</returns>
         public static Func<T3, T4, Res> Apply<T1, T2, T3, T4, Res>(this Func<T1, T2, T3, T4, Res> func, T1 t1, T2 t2)
             => (t3, t4) => func(t1, t2, t3, t4);
 
         /// <summary>
-        /// Partially applies a quaternary function <see cref="Func{T1, T2, T3, T4, Res}"/> to the first three arguments <c>t1</c>, <c>t2</c>, <c>t3</c> 
-        /// and returns an unary function <see cref="Func{T4, Res}"/> accepting the fourth argument <c>t4</c>.
+        /// <para>Partially applies a quaternary function <see cref="Func{T1, T2, T3, T4, Res}">Func&lt;T1, T2, T3, T4, Res></see> to the first three arguments <c>t1</c>, <c>t2</c>, <c>t3</c> 
+        /// and returns an unary function <see cref="Func{T4, Res}">Func&lt;T4, Res></see> accepting the fourth argument <c>t4</c>.</para>
+        ///<para><c>(T1 → T2 → T3 → T4 → Res) → T1 → T2 → T3 → (T4 → Res)</c></para>
         /// </summary>
         /// <typeparam name="T1">The type of function's first parameter.</typeparam>
         /// <typeparam name="T2">The type of function's second parameter.</typeparam>
@@ -119,7 +125,7 @@ namespace Fambda
         /// <param name="t1">Value of the first argument.</param>
         /// <param name="t2">Value of the second argument.</param>
         /// <param name="t3">Value of the third argument.</param>
-        /// <returns>Binary function <see cref="Func{T4, Res}"/> accepting <c>t4</c> argument.</returns>
+        /// <returns>Binary function <see cref="Func{T4, Res}">Func&lt;T4, Res></see> accepting <c>t4</c> argument.</returns>
         public static Func<T4, Res> Apply<T1, T2, T3, T4, Res>(this Func<T1, T2, T3, T4, Res> func, T1 t1, T2 t2, T3 t3)
             => (t4) => func(t1, t2, t3, t4);
 
