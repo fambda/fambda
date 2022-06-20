@@ -12,7 +12,7 @@ namespace Fambda
         {
             // Arrange
             var value = "value";
-            var eitherRight = new EitherRight<string>(value);
+            var eitherRight = F.Right<string>(value);
 
             // Act
             var result = new Equable().Null(eitherRight);
@@ -27,8 +27,8 @@ namespace Fambda
         {
             // Arrange
             var value = "value";
-            var first = new EitherRight<string>(value);
-            var second = new EitherRight<string>(value);
+            var first = F.Right<string>(value);
+            var second = F.Right<string>(value);
 
             // Act
             var result = new Equable().Equal(first, second);
@@ -44,8 +44,8 @@ namespace Fambda
             // Arrange
             var valueA = "valueA";
             var valueB = "valueB";
-            var first = new EitherRight<string>(valueA);
-            var second = new EitherRight<string>(valueB);
+            var first = F.Right<string>(valueA);
+            var second = F.Right<string>(valueB);
 
             // Act
             var result = new Equable().Unequal(first, second);

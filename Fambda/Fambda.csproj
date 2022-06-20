@@ -30,8 +30,4 @@ Supported .NET 6</Description>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
-  <ItemGroup>
-    <InternalsVisibleTo Include="Fambda.Tests" />
-  </ItemGroup>
-
 </Project>

@@ -46,8 +46,7 @@ namespace Fambda
             Exceptional<string> exceptional = exception;
 
             // Assert
-            exceptional.Exception.Should().Be(exception);
-            exceptional.Value.Should().BeNull();
+            exceptional.ToString().Should().Be($"Exception({exception.Message})");
         }
 
         [Fact]
@@ -60,8 +59,7 @@ namespace Fambda
             Exceptional<string> exceptional = value;
 
             // Assert
-            exceptional.Exception.Should().BeNull();
-            exceptional.Value.Should().Be(value);
+            exceptional.ToString().Should().Be($"Success({value})");
         }
 
         #endregion

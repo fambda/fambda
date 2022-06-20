@@ -12,7 +12,7 @@ namespace Fambda
         {
             // Arrange
             var value = 1;
-            Either<string, int> either = new EitherRight<int>(value);
+            Either<string, int> either = F.Right<int>(value);
 
             // Act
             var mapped = either.Map(F.Identity);
@@ -29,7 +29,7 @@ namespace Fambda
         {
             // Arrange
             var value = 1;
-            Either<string, int> either = new EitherRight<int>(value);
+            Either<string, int> either = F.Right<int>(value);
             Func<int, int> f = x => x + 1;
             Func<int, int> g = x => x * 2;
             var h = g.Compose(f);

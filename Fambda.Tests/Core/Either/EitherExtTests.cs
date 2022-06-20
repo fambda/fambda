@@ -68,7 +68,7 @@ namespace Fambda
 
 
             // Assert
-            result.Right.Should().BeTrue();
+            result.ToString().Should().Be($"Right({true})");
         }
 
         [Fact]
@@ -97,7 +97,7 @@ namespace Fambda
 
 
             // Assert
-            result.Left.Should().Be("value");
+            result.ToString().Should().Be("Left(value)");
         }
 
         #endregion

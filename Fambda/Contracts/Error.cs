@@ -1,8 +1,14 @@
 namespace Fambda.Contracts
 {
-    internal static class Error
+    /// <summary>
+    /// Construction class for errors.
+    /// </summary>
+    public static class Error
     {
-        internal static EachParamMustNotBeNullException EachParamMustNotBeNull()
+        /// <summary>
+        /// Returns an instance of <see cref="EachParamMustNotBeNullException"/>.
+        /// </summary>
+        public static EachParamMustNotBeNullException EachParamMustNotBeNull()
         {
             return new EachParamMustNotBeNullException();
         }

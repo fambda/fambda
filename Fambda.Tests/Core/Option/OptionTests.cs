@@ -29,8 +29,8 @@ namespace Fambda
         public void GetHashCode_OptionsInSomeStateWithSameValues_ReturnSameHash()
         {
             // Arrange
-            Option<int> optionA = new OptionSome<int>(1);
-            Option<int> optionB = new OptionSome<int>(1);
+            Option<int> optionA = F.Some<int>(1);
+            Option<int> optionB = F.Some<int>(1);
 
             // Act
             var result = optionA.GetHashCode();
@@ -43,8 +43,8 @@ namespace Fambda
         public void GetHashCode_OptionsInSomeStateWithDifferentValues_ReturnDifferentHash()
         {
             // Arrange
-            Option<int> optionA = new OptionSome<int>(1);
-            Option<int> optionB = new OptionSome<int>(2);
+            Option<int> optionA = F.Some<int>(1);
+            Option<int> optionB = F.Some<int>(2);
 
             // Act
             var result = optionA.GetHashCode();
@@ -58,7 +58,7 @@ namespace Fambda
         {
             // Arrange
             Option<int> optionA = new OptionNone();
-            Option<int> optionB = new OptionSome<int>(1);
+            Option<int> optionB = F.Some<int>(1);
 
             // Act
             var result = optionA.GetHashCode();
@@ -72,7 +72,7 @@ namespace Fambda
         {
             // Arrange
             var value = "value";
-            var optionSome = new OptionSome<string>(value);
+            var optionSome = F.Some<string>(value);
 
             // Act
             Option<string> option = optionSome;
@@ -129,7 +129,7 @@ namespace Fambda
         public void IsNone_ReturnsFalse()
         {
             // Arrange
-            Option<int> option = new OptionSome<int>(1);
+            Option<int> option = F.Some<int>(1);
 
             // Act
             var result = option.IsNone;
@@ -142,7 +142,7 @@ namespace Fambda
         public void IsSome_ReturnsTrue()
         {
             // Arrange
-            Option<int> option = new OptionSome<int>(1);
+            Option<int> option = F.Some<int>(1);
 
             // Act
             var result = option.IsSome;
