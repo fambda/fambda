@@ -69,38 +69,6 @@ namespace Fambda
 
         [Fact]
         [Trait("Category", "Equable")]
-        public void Equable_EqualWhenOptionInNoneAndOptionNone_DoesPass()
-        {
-            // Arrange
-            Option<int> first = None;
-            OptionNone second = OptionNone.Default;
-
-            // Act
-            var result = new Equable().Equal(first, second);
-
-            // Assert
-            result.Should().Pass();
-        }
-
-        [Fact]
-        [Trait("Category", "Equable")]
-        public void Equable_EqualWhenOptionInSomeAndOptionSome_DoesPass()
-        {
-            // Arrange
-            // Arrange
-            var value = "value";
-            Option<string> first = Some(value);
-            var second = new OptionSome<string>(value);
-
-            // Act
-            var result = new Equable().Equal(first, second);
-
-            // Assert
-            result.Should().Pass();
-        }
-
-        [Fact]
-        [Trait("Category", "Equable")]
         public void Equable_UnequalWhenOptionInSomeAndOptionInSome_DoesPass()
         {
             // Arrange
@@ -124,38 +92,6 @@ namespace Fambda
 
             // Act
             var result = new Equable().Unequal(first, second);
-
-            // Assert
-            result.Should().Pass();
-        }
-
-        [Fact]
-        [Trait("Category", "Equable")]
-        public void Equable_UnequalWhenOptionInNoneAndOptionNone_DoesNotPass()
-        {
-            // Arrange
-            Option<int> first = None;
-            OptionNone second = OptionNone.Default;
-
-            // Act
-            var result = new Equable().Unequal(first, second);
-
-            // Assert
-            result.Should().NotPass();
-        }
-
-        [Fact]
-        [Trait("Category", "Equable")]
-        public void Equable_UnequalWhenOptionInSomeAndOptionSome_DoesPass()
-        {
-            // Arrange
-            // Arrange
-            var value = "value";
-            Option<string> first = Some(value);
-            var second = new OptionSome<string>(value);
-
-            // Act
-            var result = new Equable().Equal(first, second);
 
             // Assert
             result.Should().Pass();

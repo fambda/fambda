@@ -11,7 +11,7 @@ namespace Fambda
         public void Equable_NullWhenEitherInLeftState_DoesPass()
         {
             // Arrange
-            var either = new Either<string, int>("left");
+            Either<string, int> either = F.Left<string>("left");
 
             // Act
             var result = new Equable().Null(either);
@@ -25,7 +25,7 @@ namespace Fambda
         public void Equable_NullWhenEitherInRight_DoesPass()
         {
             // Arrange
-            var either = new Either<string, int>(1);
+            Either<string, int> either = F.Right<int>(1);
 
             // Act
             var result = new Equable().Null(either);
@@ -39,8 +39,8 @@ namespace Fambda
         public void Equable_EqualWhenEitherInLeftAndEitherInLeft_DoesPass()
         {
             // Arrange
-            var first = new Either<string, int>("left");
-            var second = new Either<string, int>("left");
+            var first = F.Left<string>("left");
+            var second = F.Left<string>("left");
 
             // Act
             var result = new Equable().Equal(first, second);
@@ -54,8 +54,8 @@ namespace Fambda
         public void Equable_EqualWhenEitherInRightAndEitherInRight_DoesPass()
         {
             // Arrange
-            var first = new Either<string, int>(1);
-            var second = new Either<string, int>(1);
+            var first = F.Right<int>(1);
+            var second = F.Right<int>(1);
 
             // Act
             var result = new Equable().Equal(first, second);
@@ -69,8 +69,8 @@ namespace Fambda
         public void Equable_UnequalWhenEitherInLeftAndEitherInRight_DoesPass()
         {
             // Arrange
-            var first = new Either<string, int>("left");
-            var second = new Either<string, int>(1);
+            Either<string, int> first = F.Left<string>("left");
+            Either<string, int> second = F.Right<int>(1);
 
             // Act
             var result = new Equable().Unequal(first, second);

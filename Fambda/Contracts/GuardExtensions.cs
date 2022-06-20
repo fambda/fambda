@@ -4,8 +4,14 @@ using Fambda.Extensions;
 
 namespace Fambda.Contracts
 {
-    internal static class GuardAgainst
+    /// <summary>
+    /// Guard against.
+    /// </summary>
+    public static class GuardAgainst
     {
+        /// <summary>
+        /// Againsts the null.
+        /// </summary>
         public static void AgainstNull<T>(this Guard<T?> guard)
         {
             var isReferenceType = !typeof(T).GetTypeInfo().IsValueType;
@@ -18,7 +24,10 @@ namespace Fambda.Contracts
             }
         }
 
-        internal static Guard<string> AgainstEmpty(this Guard<string> guard)
+        /// <summary>
+        /// Againsts the empty.
+        /// </summary>
+        public static Guard<string> AgainstEmpty(this Guard<string> guard)
         {
             if (guard.Value != null && guard.Value.IsEmpty())
             {
@@ -28,7 +37,10 @@ namespace Fambda.Contracts
             return guard;
         }
 
-        internal static Guard<string> AgainstWhiteSpace(this Guard<string> guard)
+        /// <summary>
+        /// Againsts the white space.
+        /// </summary>
+        public static Guard<string> AgainstWhiteSpace(this Guard<string> guard)
         {
             if (guard.Value != null && guard.Value.IsWhiteSpace())
             {
@@ -38,7 +50,10 @@ namespace Fambda.Contracts
             return guard;
         }
 
-        internal static Guard<string> AgainstLeadingSpace(this Guard<string> guard)
+        /// <summary>
+        /// Againsts the leading space.
+        /// </summary>
+        public static Guard<string> AgainstLeadingSpace(this Guard<string> guard)
         {
             if (guard.Value != null && guard.Value.HasLeadingSpace())
             {
@@ -48,7 +63,10 @@ namespace Fambda.Contracts
             return guard;
         }
 
-        internal static Guard<string> AgainstTrailingSpace(this Guard<string> guard)
+        /// <summary>
+        /// Againsts the trailing space.
+        /// </summary>
+        public static Guard<string> AgainstTrailingSpace(this Guard<string> guard)
         {
             if (guard.Value != null && guard.Value.HasTrailingSpace())
             {

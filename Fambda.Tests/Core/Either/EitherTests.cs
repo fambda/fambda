@@ -13,7 +13,7 @@ namespace Fambda
         {
             // Arrange
             var value = "value";
-            var eitherLeft = new EitherLeft<string>(value);
+            var eitherLeft = F.Left<string>(value);
 
             // Act
             Either<string, int> either = eitherLeft;
@@ -28,7 +28,7 @@ namespace Fambda
         {
             // Arrange
             var value = 1;
-            var eitherRight = new EitherRight<int>(value);
+            var eitherRight = F.Right<int>(value);
 
             // Act
             Either<string, int> either = eitherRight;
@@ -46,7 +46,7 @@ namespace Fambda
         public void Match_ThroughFunc_ReturnsLeftResult()
         {
             // Arrange
-            var either = new Either<string, int>("left");
+            Either<string, int> either = F.Left<string>("left");
 
             // Act
             var result = either.Match(l => $"Result=Left({l})", r => $"Result=Right({r})");
@@ -59,7 +59,7 @@ namespace Fambda
         public void Match_ThroughFunc_ReturnsRightResult()
         {
             // Arrange
-            var either = new Either<string, int>(5);
+            Either<string, int> either = F.Right<int>(5);
 
             // Act
             var result = either.Match(l => $"Result=Left({l})", r => $"Result=Right({r})");
@@ -73,7 +73,7 @@ namespace Fambda
         {
             // Arrange
             Log.Init();
-            var either = new Either<string, int>("left");
+            Either<string, int> either = F.Left<string>("left");
 
             // Act
             either.Match(
@@ -91,7 +91,7 @@ namespace Fambda
         {
             // Arrange
             Log.Init();
-            var either = new Either<string, int>(5);
+            Either<string, int> either = F.Right<int>(5);
 
             // Act
             either.Match(
@@ -112,7 +112,7 @@ namespace Fambda
         public void ToString_ReturnsLeftRepresentation()
         {
             // Arrange
-            var either = new Either<string, int>("left");
+            Either<string, int> either = F.Left<string>("left");
 
             // Act
             var result = either.ToString();
@@ -125,7 +125,7 @@ namespace Fambda
         public void ToString_ReturnsRightRepresentation()
         {
             // Arrange
-            var either = new Either<string, int>(5);
+            Either<string, int> either = F.Right<int>(5);
 
             // Act
             var result = either.ToString();
