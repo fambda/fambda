@@ -47,7 +47,7 @@ namespace Fambda
         #region Apply
 
         /// <summary>
-        /// <para>Apply function <see cref="Func{T, Res}">Func&lt;T, Res&gt;</see> to unwrapped value of type <c>T</c>, and wrap the result back in an <c>Option</c> (<see cref="Option{T}">Option&lt;Res&gt;</see>).</para>
+        /// <para>Apply function <see cref="Func{T, Res}">Func&lt;T, Res&gt;</see> to unwrapped value of type <c>T</c>, then wrap the result back in an <c>Option</c> (<see cref="Option{T}">Option&lt;Res&gt;</see>).</para>
         /// <para><c>Option&lt;T → Res> → Option&lt;T> → Option&lt;Res></c></para>
         /// </summary>
         /// <typeparam name="T">The type of wrapped function's parameter.</typeparam>
@@ -65,7 +65,7 @@ namespace Fambda
                    );
 
         /// <summary>
-        /// <para>Apply function <see cref="Func{T1, T2, Res}">Func&lt;T1, T2, Res&gt;</see> to <see cref="Option{T}">Option&lt;T1&gt;</see>'s unwrapped value of type <c>T1</c>, and wrap the result <see cref="Func{T2, Res}">Func&lt;T2, Res&gt;</see> back in an <c>Option</c> (<see cref="Option{T}">Option&lt;Func&lt;T2, Res&gt;&gt;</see>).</para>
+        /// <para>Apply function <see cref="Func{T1, T2, Res}">Func&lt;T1, T2, Res&gt;</see> to <see cref="Option{T}">Option&lt;T1&gt;</see>'s unwrapped value of type <c>T1</c>, then wrap the result <see cref="Func{T2, Res}">Func&lt;T2, Res&gt;</see> back in an <c>Option</c> (<see cref="Option{T}">Option&lt;Func&lt;T2, Res&gt;&gt;</see>).</para>
         /// <para><c>Option&lt;T1 → T2 → Res> → Option&lt;T1> → Option&lt;T2 → Res></c></para>
         /// </summary>
         /// <typeparam name="T1">The type of wrapped function's first parameter.</typeparam>
@@ -76,6 +76,22 @@ namespace Fambda
         /// <returns>An unary function <see cref="Func{T2, Res}">Func&lt;T2, Res&gt;</see> wrapped in an <c>Option</c> applicative (<see cref="Option{T}">Option&lt;Func&lt;T2, Res&gt;&gt;</see>).</returns>
         public static Option<Func<T2, Res>> Apply<T1, T2, Res>(this Option<Func<T1, T2, Res>> self, Option<T1> option)
            => Apply(self.Map(F.Curry), option);
+
+
+
+        /// <summary>
+        /// <para>Apply function <see cref="Func{T1, T2, Res}">Func&lt;T1, T2, Res&gt;</see> to <see cref="Option{T}">Option&lt;T1&gt;</see>'s unwrapped value of type <c>T1</c> and <see cref="Option{T}">Option&lt;T2&gt;</see>'s unwrapped value of type <c>T2</c>, then wrap the result back in an <c>Option</c> (<see cref="Option{T}">Option&lt;Res&gt;</see>).</para>
+        /// <para><c>Option&lt;T1 → T2 → Res> → Option&lt;T1> → Option&lt;T2> → Option&lt;Res></c></para>
+        /// </summary>
+        /// <typeparam name="T1">The type of wrapped function's first parameter.</typeparam>
+        /// <typeparam name="T2">The type of wrapped function's second parameter.</typeparam>
+        /// <typeparam name="Res">The type of the wrapped function's return value.</typeparam>
+        /// <param name="self">The option containing the function <see cref="Func{T1, T2, Res}"/> to be applied on the applicative.</param>
+        /// <param name="optionT1">The option containing the value of type <c>T1</c>.</param>
+        /// <param name="optionT2">The option containing the value of type <c>T2</c>.</param>
+        /// <returns>The result of type <c>Res</c> wrapped in an <c>Option</c> applicative (<see cref="Option{T}">Option&lt;Res&gt;</see>).</returns>
+        public static Option<Res> Apply<T1, T2, Res>(this Option<Func<T1, T2, Res>> self, Option<T1> optionT1, Option<T2> optionT2)
+           => Apply(Apply(self.Map(F.Curry), optionT1), optionT2);
 
         #endregion
 

@@ -137,7 +137,7 @@ namespace Fambda
         #region Apply
 
         [Fact]
-        public void Apply_SomeArgsOnUnaryFunc_ReturnsNone()
+        public void Apply_UnaryFuncToSomeArg_ReturnsNone()
         {
             // Arrange
             var optionArg = None;
@@ -153,7 +153,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void Apply_SomeArgsOnUnaryFunc_ReturnsSome()
+        public void Apply_UnaryFuncToSomeArg_ReturnsSome()
         {
             // Arrange
             var optionArg = Some(1);
@@ -169,7 +169,44 @@ namespace Fambda
         }
 
         [Fact]
-        public void Apply_NoneArgsOnBinaryFunc_ReturnsNone()
+        public void Apply_BinaryFuncToFirstArgNone_Succeeds()
+        {
+            // Arrange
+            var optionArg1 = None;
+            var optionArg2 = Some(2);
+            Func<int, int, int> add2Args = (t1, t2) => t1 + t2;
+            var expected = None;
+
+            // Act
+            var needsOneMoreParam = Some(add2Args)
+                                    .Apply(optionArg1);
+            var result = needsOneMoreParam.Apply(optionArg2);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [Fact]
+        public void Apply_BinaryFuncToFirstArgSome_Succeeds()
+        {
+            // Arrange
+            var optionArg1 = Some(1);
+            var optionArg2 = Some(2);
+            Func<int, int, int> add2Args = (t1, t2) => t1 + t2;
+            var expected = Some(3);
+
+            // Act
+            var needsOneMoreParam = Some(add2Args)
+                                    .Apply(optionArg1);
+            var result = needsOneMoreParam.Apply(optionArg2);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+
+        [Fact]
+        public void Apply_BinaryFuncToFirstArgNoneAndSecondArgSome_ReturnsNone()
         {
             // Arrange
             var optionArg1 = None;
@@ -179,15 +216,31 @@ namespace Fambda
 
             // Act
             var result = Some(add2Args)
-                            .Apply(optionArg1)
-                            .Apply(optionArg2);
+                            .Apply(optionArg1, optionArg2);
 
             // Assert
             result.Should().Be(expected);
         }
 
         [Fact]
-        public void Apply_SomeArgsOnBinaryFunc_ReturnsSome()
+        public void Apply_BinaryFuncToFirstArgSomeAndSecondArgNone_ReturnsNone()
+        {
+            // Arrange
+            var optionArg1 = Some(1);
+            var optionArg2 = None;
+            Func<int, int, int> add2Args = (t1, t2) => t1 + t2;
+            var expected = None;
+
+            // Act
+            var result = Some(add2Args)
+                            .Apply(optionArg1, optionArg2);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [Fact]
+        public void Apply_BinaryFuncToFirstArgSomeAndSecondArgSome_ReturnsSome()
         {
             // Arrange
             var optionArg1 = Some(1);
@@ -197,8 +250,7 @@ namespace Fambda
 
             // Act
             var result = Some(add2Args)
-                            .Apply(optionArg1)
-                            .Apply(optionArg2);
+                            .Apply(optionArg1, optionArg2);
 
             // Assert
             result.Should().Be(expected);
