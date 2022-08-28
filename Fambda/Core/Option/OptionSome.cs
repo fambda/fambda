@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
 
 namespace Fambda
@@ -11,9 +12,9 @@ namespace Fambda
     {
         internal T Value { get; }
 
-        internal OptionSome(T value)
+        internal OptionSome([NotNull] T? value)
         {
-            Value = value;
+            Value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         /// <summary>
