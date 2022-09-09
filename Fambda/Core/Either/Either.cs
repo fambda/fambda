@@ -85,9 +85,12 @@ namespace Fambda
         /// <returns>true if the specified object is equal to the current <see cref="Either{L,R}"/> object; otherwise, false.</returns>
         public override bool Equals(object? obj)
         {
-            if (obj == null) return false;
-            else if (obj is Either<L, R> either) return Equals(either);
-            else return false;
+            return obj switch
+            {
+                null => false,
+                Either<L, R> either => Equals(either),
+                _ => false
+            };
         }
 
         /// <summary>

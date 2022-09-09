@@ -10,7 +10,7 @@ namespace Fambda.Contracts
     public static class GuardAgainst
     {
         /// <summary>
-        /// Againsts the null.
+        /// Against the null.
         /// </summary>
         public static void AgainstNull<T>(this Guard<T?> guard)
         {
@@ -25,7 +25,7 @@ namespace Fambda.Contracts
         }
 
         /// <summary>
-        /// Againsts the empty.
+        /// Against the empty.
         /// </summary>
         public static Guard<string> AgainstEmpty(this Guard<string> guard)
         {
@@ -38,7 +38,7 @@ namespace Fambda.Contracts
         }
 
         /// <summary>
-        /// Againsts the white space.
+        /// Against the white space.
         /// </summary>
         public static Guard<string> AgainstWhiteSpace(this Guard<string> guard)
         {
@@ -51,7 +51,7 @@ namespace Fambda.Contracts
         }
 
         /// <summary>
-        /// Againsts the leading space.
+        /// Against the leading space.
         /// </summary>
         public static Guard<string> AgainstLeadingSpace(this Guard<string> guard)
         {
@@ -64,7 +64,7 @@ namespace Fambda.Contracts
         }
 
         /// <summary>
-        /// Againsts the trailing space.
+        /// Against the trailing space.
         /// </summary>
         public static Guard<string> AgainstTrailingSpace(this Guard<string> guard)
         {

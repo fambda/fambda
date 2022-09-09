@@ -15,7 +15,7 @@ namespace Fambda
         public void Parse_ReturnsOptionFloatNone()
         {
             // Arrange
-            var s = "not a float";
+            const string s = "not a float";
             Option<float> expected = None;
 
             // Act
@@ -29,7 +29,7 @@ namespace Fambda
         public void Parse_ReturnsOptionFloatSome()
         {
             // Arrange
-            var s = "1.1";
+            const string s = "1.1";
             Option<float> expected = Some(1.1F);
 
             // Act
@@ -43,7 +43,7 @@ namespace Fambda
         public void Parse_WithNumberStyles_ReturnsOptionFloatNone()
         {
             // Arrange
-            var s = "not a float";
+            const string s = "not a float";
             Option<float> expected = None;
 
             // Act
@@ -57,7 +57,7 @@ namespace Fambda
         public void Parse_WithNumberStyles_ReturnsOptionFloatSome()
         {
             // Arrange
-            var s = "1.1";
+            const string s = "1.1";
             Option<float> expected = Some(1.1F);
 
             // Act
@@ -71,7 +71,7 @@ namespace Fambda
         public void Parse_WithNumberStylesWhenStringIsNotExpectedHexNumber_ReturnsOptionFloatNone()
         {
             // Arrange
-            var s = "1.0";
+            const string s = "1.0";
             Option<float> expected = None;
 
             // Act
@@ -85,7 +85,7 @@ namespace Fambda
         public void Parse_WithFormatProvider_ReturnsOptionFloatNone()
         {
             // Arrange
-            var s = "positive1234";
+            const string s = "positive1234";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
 
             Option<float> expected = None;
@@ -101,7 +101,7 @@ namespace Fambda
         public void Parse_WithFormatProvider_ReturnsOptionFloatSome()
         {
             // Arrange
-            var s = "p1234";
+            const string s = "p1234";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
 
             Option<float> expected = Some(1234F);
@@ -117,7 +117,7 @@ namespace Fambda
         public void Parse_WithNumberStylesAndFormatProvider_ReturnsOptionFloatNone()
         {
             // Arrange
-            var s = "p1$234";
+            const string s = "p1$234";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
             Option<float> expected = None;
 
@@ -132,7 +132,7 @@ namespace Fambda
         public void Parse_WithNumberStylesAndFormatProvider_ReturnsOptionFloatSome()
         {
             // Arrange
-            var s = "p1";
+            const string s = "p1";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
             Option<float> expected = Some(1F);
 

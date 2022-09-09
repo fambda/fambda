@@ -14,7 +14,7 @@ namespace Fambda
         public void Parse_ReturnsOptionGuidNone()
         {
             // Arrange
-            var input = "not a Guid";
+            const string input = "not a Guid";
             Option<Guid> expected = None;
 
             // Act

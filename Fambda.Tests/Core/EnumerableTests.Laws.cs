@@ -13,7 +13,7 @@ namespace Fambda
         public void LawFunctor_Identity_Holds()
         {
             // Arrange
-            var value = "value";
+            const string value = "value";
             IEnumerable<string> enumerable = new List<string> { value };
 
             // Act

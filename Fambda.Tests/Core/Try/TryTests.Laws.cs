@@ -29,7 +29,7 @@ namespace Fambda
         public void LawFunctor_Composition_Holds()
         {
             // Arrange
-            var value = 1;
+            const int value = 1;
             Exceptional<int> exceptional() => value;
             Try<int> @try = exceptional;
             Func<int, int> f = x => x + 1;

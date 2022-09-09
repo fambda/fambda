@@ -21,7 +21,7 @@ namespace Fambda
         }
 
         [Fact]
-        public void ToString_ReturnsOpenCloseParantheses()
+        public void ToString_ReturnsOpenCloseParentheses()
         {
             // Arrange
             var unit = new Unit();

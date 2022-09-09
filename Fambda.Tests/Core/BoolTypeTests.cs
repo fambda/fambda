@@ -13,7 +13,7 @@ namespace Fambda
         public void Parse_ReturnsOptionBoolNone()
         {
             // Arrange
-            var value = "not an logical boolean";
+            const string value = "not an logical boolean";
             Option<bool> expected = None;
 
             // Act
