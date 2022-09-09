@@ -16,16 +16,7 @@ namespace Fambda
         /// <returns><see cref="Option{T}"/> with <see cref="OptionSome{T}"/> if <paramref name="s" /> was converted successfully; otherwise, <see cref="OptionNone"/>.</returns>
         [Pure]
         public static Option<DateTime> Parse(string s)
-        {
-            if (DateTime.TryParse(s, out var parseResult))
-            {
-                return Some(parseResult);
-            }
-            else
-            {
-                return None;
-            }
-        }
+            => DateTime.TryParse(s, out var parseResult) ? Some(parseResult) : None;
 
         /// <summary>
         /// Converts the string representation of a date and time by using culture-specific format information into <see cref="Option{T}"/>.

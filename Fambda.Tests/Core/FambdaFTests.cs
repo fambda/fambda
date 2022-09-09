@@ -12,7 +12,7 @@ namespace Fambda
         public void Identity_ReturnsSameArgument()
         {
             // Arrange
-            var argument = "some value";
+            const string argument = "some value";
 
             // Act
             var result = F.Identity(argument);

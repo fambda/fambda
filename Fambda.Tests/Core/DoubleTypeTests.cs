@@ -15,7 +15,7 @@ namespace Fambda
         public void Parse_ReturnsOptionDoubleNone()
         {
             // Arrange
-            var s = "not a double";
+            const string s = "not a double";
             Option<double> expected = None;
 
             // Act
@@ -29,7 +29,7 @@ namespace Fambda
         public void Parse_ReturnsOptionDoubleSome()
         {
             // Arrange
-            var s = "1.1";
+            const string s = "1.1";
             Option<double> expected = Some(1.1);
 
             // Act
@@ -43,7 +43,7 @@ namespace Fambda
         public void Parse_WithNumberStyles_ReturnsOptionDoubleNone()
         {
             // Arrange
-            var s = "not a double";
+            const string s = "not a double";
             Option<double> expected = None;
 
             // Act
@@ -57,7 +57,7 @@ namespace Fambda
         public void Parse_WithNumberStyles_ReturnsOptionDoubleSome()
         {
             // Arrange
-            var s = "1.1";
+            const string s = "1.1";
             Option<double> expected = Some(1.1);
 
             // Act
@@ -71,7 +71,7 @@ namespace Fambda
         public void Parse_WithNumberStylesWhenStringIsNotExpectedHexNumber_ReturnsOptionDoubleNone()
         {
             // Arrange
-            var s = "1.0";
+            const string s = "1.0";
             Option<double> expected = None;
 
             // Act
@@ -85,7 +85,7 @@ namespace Fambda
         public void Parse_WithFormatProvider_ReturnsOptionDoubleNone()
         {
             // Arrange
-            var s = "positive1234.5";
+            const string s = "positive1234.5";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
 
             Option<double> expected = None;
@@ -101,7 +101,7 @@ namespace Fambda
         public void Parse_WithFormatProvider_ReturnsOptionDoubleSome()
         {
             // Arrange
-            var s = "p1234.5";
+            const string s = "p1234.5";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
 
             Option<double> expected = Some(1234.5);
@@ -117,7 +117,7 @@ namespace Fambda
         public void Parse_WithNumberStylesAndFormatProvider_ReturnsOptionDoubleNone()
         {
             // Arrange
-            var s = "p1$234.5";
+            const string s = "p1$234.5";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
             Option<double> expected = None;
 
@@ -132,7 +132,7 @@ namespace Fambda
         public void Parse_WithNumberStylesAndFormatProvider_ReturnOptionDoubleSome()
         {
             // Arrange
-            var s = "p1.2";
+            const string s = "p1.2";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
             Option<double> expected = Some(1.2);
 

@@ -17,16 +17,7 @@ namespace Fambda
         /// <returns><see cref="Option{T}"/> with <see cref="OptionSome{T}"/> if <paramref name="s" /> was converted successfully; otherwise, <see cref="OptionNone"/>.</returns>
         [Pure]
         public static Option<long> Parse(string s)
-        {
-            if (long.TryParse(s, out var parseResult))
-            {
-                return Some(parseResult);
-            }
-            else
-            {
-                return None;
-            }
-        }
+            => long.TryParse(s, out var parseResult) ? Some(parseResult) : None;
 
         /// <summary>
         /// Converts the string representation of a number into <see cref="Option{T}"/>.
@@ -77,15 +68,6 @@ namespace Fambda
         /// <returns><see cref="Option{T}"/> with <see cref="OptionSome{T}"/> if <paramref name="s" /> was converted successfully; otherwise, <see cref="OptionNone"/>.</returns>
         [Pure]
         public static Option<long> Parse(string s, NumberStyles style, IFormatProvider provider)
-        {
-            if (long.TryParse(s, style, provider, out var parseResult))
-            {
-                return Some(parseResult);
-            }
-            else
-            {
-                return None;
-            }
-        }
+            => long.TryParse(s, style, provider, out var parseResult) ? Some(parseResult) : None;
     }
 }

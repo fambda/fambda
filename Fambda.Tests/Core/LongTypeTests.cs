@@ -15,7 +15,7 @@ namespace Fambda
         public void Parse_ReturnsOptionLongNone()
         {
             // Arrange
-            var s = "not a long";
+            const string s = "not a long";
             Option<long> expected = None;
 
             // Act
@@ -29,7 +29,7 @@ namespace Fambda
         public void Parse_ReturnsOptionLongSome()
         {
             // Arrange
-            var s = "1";
+            const string s = "1";
             Option<long> expected = Some(1L);
 
             // Act
@@ -43,7 +43,7 @@ namespace Fambda
         public void Parse_WithNumberStyles_ReturnsOptionLongNone()
         {
             // Arrange
-            var s = "not a long";
+            const string s = "not a long";
             Option<long> expected = None;
 
             // Act
@@ -57,7 +57,7 @@ namespace Fambda
         public void Parse_WithNumberStyles_ReturnOptionLongSome()
         {
             // Arrange
-            var s = "1";
+            const string s = "1";
             Option<long> expected = Some(1L);
 
             // Act
@@ -71,7 +71,7 @@ namespace Fambda
         public void Parse_WithNumberStylesWhenStringIsNotExpectedHexNumber_ReturnsOptionLongNone()
         {
             // Arrange
-            var s = "1.0";
+            const string s = "1.0";
             Option<long> expected = None;
 
             // Act
@@ -85,7 +85,7 @@ namespace Fambda
         public void Parse_WithFormatProvider_ReturnsOptionLongNone()
         {
             // Arrange
-            var s = "positive1234";
+            const string s = "positive1234";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
 
             Option<long> expected = None;
@@ -101,7 +101,7 @@ namespace Fambda
         public void Parse_WithFormatProvider_ReturnsOptionLongSome()
         {
             // Arrange
-            var s = "p1234";
+            const string s = "p1234";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
 
             Option<long> expected = Some(1234L);
@@ -117,7 +117,7 @@ namespace Fambda
         public void Parse_WithNumberStylesAndFormatProvider_ReturnsOptionLongNone()
         {
             // Arrange
-            var s = "p1$234";
+            const string s = "p1$234";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
             Option<long> expected = None;
 
@@ -132,7 +132,7 @@ namespace Fambda
         public void Parse_WithNumberStylesAndFormatProvider_ReturnsOptionLongSome()
         {
             // Arrange
-            var s = "p1";
+            const string s = "p1";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
             Option<long> expected = Some(1L);
 

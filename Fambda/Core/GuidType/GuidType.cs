@@ -16,15 +16,6 @@ namespace Fambda
         /// <returns><see cref="Option{T}"/> with <see cref="OptionSome{T}"/> if <paramref name="input" /> was converted successfully; otherwise, <see cref="OptionNone"/>.</returns>
         [Pure]
         public static Option<Guid> Parse(string input)
-        {
-            if (Guid.TryParse(input, out var parseResult))
-            {
-                return Some(parseResult);
-            }
-            else
-            {
-                return None;
-            }
-        }
+            => Guid.TryParse(input, out var parseResult) ? Some(parseResult) : None;
     }
 }

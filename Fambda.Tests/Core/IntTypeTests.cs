@@ -15,7 +15,7 @@ namespace Fambda
         public void Parse_ReturnsOptionIntNone()
         {
             // Arrange
-            var s = "not an int";
+            const string s = "not an int";
             Option<int> expected = None;
 
             // Act
@@ -29,7 +29,7 @@ namespace Fambda
         public void Parse_ReturnsOptionIntSome()
         {
             // Arrange
-            var s = "1";
+            const string s = "1";
             Option<int> expected = Some(1);
 
             // Act
@@ -43,7 +43,7 @@ namespace Fambda
         public void Parse_WithNumberStyles_ReturnOptionIntNone()
         {
             // Arrange
-            var s = "not an int";
+            const string s = "not an int";
             Option<int> expected = None;
 
             // Act
@@ -57,7 +57,7 @@ namespace Fambda
         public void Parse_WithNumberStyles_ReturnsOptionIntSome()
         {
             // Arrange
-            var s = "1";
+            const string s = "1";
             Option<int> expected = Some(1);
 
             // Act
@@ -71,7 +71,7 @@ namespace Fambda
         public void Parse_WithNumberStylesWhenStringIsNotExpectedHexNumber_ReturnsOptionIntNone()
         {
             // Arrange
-            var s = "1.0";
+            const string s = "1.0";
             Option<int> expected = None;
 
             // Act
@@ -85,7 +85,7 @@ namespace Fambda
         public void Parse_WithFormatProvider_ReturnsOptionIntNone()
         {
             // Arrange
-            var s = "positive1234";
+            const string s = "positive1234";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
 
             Option<int> expected = None;
@@ -101,7 +101,7 @@ namespace Fambda
         public void Parse_WithFormatProvider_ReturnsOptionIntSome()
         {
             // Arrange
-            var s = "p1234";
+            const string s = "p1234";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
 
             Option<int> expected = Some(1234);
@@ -117,7 +117,7 @@ namespace Fambda
         public void Parse_WithNumberStylesAndFormatProvider_ReturnsOptionIntNone()
         {
             // Arrange
-            var s = "p1$234";
+            const string s = "p1$234";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
             Option<int> expected = None;
 
@@ -132,7 +132,7 @@ namespace Fambda
         public void Parse_WithNumberStylesAndFormatProvider_ReturnsOptionIntSome()
         {
             // Arrange
-            var s = "p1";
+            const string s = "p1";
             IFormatProvider formatProvider = new NumberFormatInfo() { PositiveSign = "p" };
             Option<int> expected = Some(1);
 

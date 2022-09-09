@@ -15,7 +15,9 @@ namespace Fambda.Concepts.Objects
             Year = year;
         }
 
+#pragma warning disable CS0659
         public override bool Equals(object? obj)
+#pragma warning restore CS0659
         {
             return Brand == ((BikeWithEqualsClassObject)obj!).Brand &&
                    Model == ((BikeWithEqualsClassObject)obj!).Model;

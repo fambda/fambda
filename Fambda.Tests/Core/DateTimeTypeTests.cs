@@ -15,7 +15,7 @@ namespace Fambda
         public void Parse_ReturnsOptionDateTimeNone()
         {
             // Arrange
-            var s = "not a date and time";
+            const string s = "not a date and time";
             Option<DateTime> expected = None;
 
             // Act
@@ -44,7 +44,7 @@ namespace Fambda
         public void Parse_WithFormatProvider_ReturnsOptionDateTimeNone()
         {
             // Arrange
-            var s = "2021-06-21 17:35";
+            const string s = "2021-06-21 17:35";
             IFormatProvider formatProvider = CultureInfo.CreateSpecificCulture("de-DE");
 
             Option<int> expected = None;

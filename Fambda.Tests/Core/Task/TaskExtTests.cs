@@ -9,12 +9,12 @@ namespace Fambda
         #region Map
 
         [Fact]
-        public async void Map_UnaryFuncOverTaskCompletedSuccesfully_ReturnsExpectedResult()
+        public async void Map_UnaryFuncOverTaskCompletedSuccessfully_ReturnsExpectedResult()
         {
             // Arrange
             var task = F.TaskSucc(1);
             Func<int, string> toString = i => i.ToString();
-            var expected = "1";
+            const string expected = "1";
 
             // Act
             var result = await task.Map(toString);

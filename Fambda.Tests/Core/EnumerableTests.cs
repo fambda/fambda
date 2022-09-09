@@ -97,9 +97,9 @@ namespace Fambda
             // Arrange
             var enumerable = new List<List<int>>()
             {
-                new List<int>() { 1, 2 },
-                new List<int>() { 3, 4, 5 },
-                new List<int>() { 6, 7, 8, 9 }
+                new() { 1, 2 },
+                new() { 3, 4, 5 },
+                new() { 6, 7, 8, 9 }
             };
 
             // Act

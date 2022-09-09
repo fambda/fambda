@@ -13,7 +13,7 @@ namespace Fambda
         public void Map_WhenRight_Succeeds()
         {
             // Arrange
-            var value = 1;
+            const int value = 1;
             Either<string, int> either = Right(value);
             Func<int, string> toString = i => i.ToString();
 
@@ -28,7 +28,7 @@ namespace Fambda
         public void Map_WhenLeft_Succeeds()
         {
             // Arrange
-            var value = "left";
+            const string value = "left";
             Either<string, int> either = Left(value);
             Func<int, string> toString = i => i.ToString();
 
@@ -47,7 +47,7 @@ namespace Fambda
         public void Bind_InRightState_Succeeds()
         {
             // Arrange
-            var value = 1;
+            const int value = 1;
             Either<string, int> either = Right(value);
 
             Func<int, Either<string, bool>> toTrueBoolWhenEitherRightAndIntOne = (i) =>
@@ -60,7 +60,7 @@ namespace Fambda
                 {
                     return Left("false");
 
-                };
+                }
             };
 
             // Act
@@ -75,7 +75,7 @@ namespace Fambda
         public void Bind_InLeftState_Succeeds()
         {
             // Arrange
-            var value = "value";
+            const string value = "value";
             var left = Left(value);
             Either<string, int> either = left;
 
@@ -89,7 +89,7 @@ namespace Fambda
                 {
                     return Left("false");
 
-                };
+                }
             };
 
             // Act

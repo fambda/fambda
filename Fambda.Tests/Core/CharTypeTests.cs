@@ -13,7 +13,7 @@ namespace Fambda
         public void Parse_ReturnsOptionCharNone()
         {
             // Arrange
-            var s = "not a char";
+            const string s = "not a char";
             Option<char> expected = None;
 
             // Act
@@ -27,7 +27,7 @@ namespace Fambda
         public void Parse_ReturnsOptionCharSome()
         {
             // Arrange
-            var s = "A";
+            const string s = "A";
             Option<char> expected = Some('A');
 
             // Act
