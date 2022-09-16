@@ -117,19 +117,46 @@ namespace Fambda
         #region Compose
 
         [Fact]
-        public void Compose_Succeeds()
+        public void Compose_2Func_Succeeds()
         {
             // Arrange
-            Func<int, int> f = x => x + 1;
-            Func<int, int> g = x => x * 2;
-            Func<int, int> expected = x => g(f(x));
+            Func<int, string> g = x => $"{x * 2}";
+            Func<bool, int> f = x => x ? 1 : 0;
+
+            Func<bool, string> expectedFuncComposition = x => g(f(x));
+            var expectedValue = "2";
 
             // Act
-            var composedFunc = g.Compose(f);
-            var result = composedFunc(5).Equals(expected(5));
+            var actualFuncComposition = g.Compose(f);
+
+            var result = actualFuncComposition(true).Equals(expectedFuncComposition(true));
+            var actualValue = actualFuncComposition(true);
 
             // Assert
             result.Should().BeTrue();
+            actualValue.Should().Be(expectedValue);
+        }
+
+        [Fact]
+        public void Compose_3Func_Succeeds()
+        {
+            // Arrange
+            Func<string, char> h = x => x == "2" ? '+' : '-';
+            Func<int, string> g = x => $"{x * 2}";
+            Func<bool, int> f = x => x ? 1 : 0;
+
+            Func<bool, char> expectedFuncComposition = x => h(g(f(x)));
+            var expectedValue = '+';
+
+            // Act
+            var actualFuncComposition = h.Compose(g).Compose(f);
+
+            var result = actualFuncComposition(true).Equals(expectedFuncComposition(true));
+            var actualValue = actualFuncComposition(true);
+
+            // Assert
+            result.Should().BeTrue();
+            actualValue.Should().Be(expectedValue);
         }
 
         #endregion
