@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using FluentAssertions;
 using Xunit;
 
@@ -127,6 +128,93 @@ namespace Fambda
 
             // Act
             var result = option.Bind(toTrueBoolWhenOptionIntOne);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+
+        [Fact]
+        public async Task Bind_NoneToTaskReturningSome_ReturnsNone()
+        {
+            // Arrange
+            Option<int> option = None;
+
+            Func<int, Task<Option<bool>>> toTrueBoolWhenOptionIntOne = (i) =>
+            {
+                if (i.Equals(1))
+                {
+                    return TaskSucc(Some(true));
+                }
+                else
+                {
+                    Option<bool> none = None;
+                    return TaskSucc(none);
+                }
+            };
+
+            var expected = None;
+
+            // Act
+            var result = await option.Bind(toTrueBoolWhenOptionIntOne);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [Fact()]
+        public async Task Bind_SomeToTaskReturningNone_ReturnsNone()
+        {
+            // Arrange
+            var value = 2;
+            Option<int> option = Some(value);
+
+            Func<int, Task<Option<bool>>> toTrueBoolWhenOptionIntOne = (i) =>
+            {
+                if (i.Equals(1))
+                {
+                    return TaskSucc(Some(true));
+                }
+                else
+                {
+                    Option<bool> none = None;
+                    return TaskSucc(none);
+                }
+            };
+
+            var expected = None;
+
+            // Act
+            var result = await option.Bind(toTrueBoolWhenOptionIntOne);
+
+            // Assert
+            result.Should().Be(expected);
+        }
+
+        [Fact]
+        public async Task Bind_SomeToTaskReturningSome_ReturnsSome()
+        {
+            // Arrange
+            var value = 1;
+            Option<int> option = Some(value);
+
+            Func<int, Task<Option<bool>>> toTrueBoolWhenOptionIntOne = (i) =>
+            {
+                if (i.Equals(1))
+                {
+                    return TaskSucc(Some(true));
+                }
+                else
+                {
+                    Option<bool> none = None;
+                    return TaskSucc(none);
+                }
+            };
+
+            var expected = Some(true);
+
+            // Act
+            var result = await option.Bind(toTrueBoolWhenOptionIntOne);
 
             // Assert
             result.Should().Be(expected);

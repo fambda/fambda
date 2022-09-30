@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using static Fambda.F;
 
 namespace Fambda
@@ -41,6 +42,17 @@ namespace Fambda
                       None: () => None,
                       Some: (t) => func(t)
                     );
+
+        /// <summary>
+        /// <para>Binds <see cref="Option{T}">Option&lt;T></see> into <see cref="Task{T}">Task&lt;Option&lt;Res>></see>.</para>
+        /// <para><c>Option&lt;T> → (T → Task&lt;Option&lt;Res>>) → Task&lt;Option&lt;Res>></c></para>
+        /// </summary>
+        public static Task<Option<Res>> Bind<T, Res>(this Option<T> self, Func<T, Task<Option<Res>>> func)
+            => self.Match(
+                      None: () => TaskSucc(new Option<Res>()),
+                      Some: (t) => func(t)
+                    );
+
 
         #endregion
 
