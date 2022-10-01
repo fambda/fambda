@@ -16,13 +16,16 @@
 Supported .NET 6</Description>
     <Summary>Fambda - advanced, purely functional programming library for C# language.</Summary>
     <RepositoryUrl>https://github.com/fambda/fambda</RepositoryUrl>
-    <PackageTags>fambda</PackageTags>
-    <PackageReleaseNotes>Target framework .NET 6, C# 10.0 language features with enforced nullable reference types. 
+    <PackageTags>Fambda, Functional, C#, Option, Either, Exceptional, Try</PackageTags>
+    <PackageReleaseNotes>More functional extensions.
 
-    Identity and function composition. Functors and applicatives. 
+    - Allow not null option some construction with nullable values
+    - Graspable function composition
+    - Option with two arguments Apply overload
+    - Bind Option into a Task
 
-    Better xml code documentation, easier test naming convention, code simplifications.</PackageReleaseNotes>
-    <Version>2.0.0</Version>
+More code documentation and tests.</PackageReleaseNotes>
+    <Version>2.1.0</Version>
     <AssemblyName>Fambda</AssemblyName>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
