@@ -9,7 +9,7 @@ namespace Fambda
     /// Represents an Exceptional type.
     /// </summary>
     /// <typeparam name="T">The type of the value to be wrapped.</typeparam>
-    public struct Exceptional<T> : IEquatable<Exceptional<T>>
+    public readonly struct Exceptional<T> : IEquatable<Exceptional<T>>
     {
         internal Exception? Exception { get; }
         internal T? Value { get; }

@@ -8,7 +8,7 @@ namespace Fambda
     /// </summary>
     /// <typeparam name="L">The type of the left value to be wrapped.</typeparam>
     /// <typeparam name="R">The type of the right value to be wrapped.</typeparam>
-    public struct Either<L, R> : IEquatable<Either<L, R>>
+    public readonly struct Either<L, R> : IEquatable<Either<L, R>>
     {
         internal L? Left { get; }
         internal R? Right { get; }

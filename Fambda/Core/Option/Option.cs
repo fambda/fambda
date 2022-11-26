@@ -7,7 +7,7 @@ namespace Fambda
     /// Represents an Option type. 
     /// </summary>
     /// <typeparam name="T">The type of the value to be wrapped.</typeparam>
-    public struct Option<T> : IEquatable<Option<T>>, IEquatable<OptionNone>
+    public readonly struct Option<T> : IEquatable<Option<T>>, IEquatable<OptionNone>
     {
         private readonly T? _value;
         private readonly bool _isSome;

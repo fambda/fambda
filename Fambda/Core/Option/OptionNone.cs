@@ -6,7 +6,7 @@ namespace Fambda
     /// <summary>
     /// Represents an OptionNone type.
     /// </summary>
-    public struct OptionNone : IEquatable<OptionNone>
+    public readonly struct OptionNone : IEquatable<OptionNone>
     {
         private static readonly int _zero = 0;
 
