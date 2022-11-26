@@ -63,7 +63,10 @@ namespace Fambda
         /// </summary>
         /// <returns>A hash code for the current <see cref="Exceptional{T}"/> object.</returns>
         public override int GetHashCode()
-            => ToString().GetHashCode();
+            => Match(
+                Exception: (x) => default(HashableException).GetHashCode(x),
+                Success: (x) => $"Success({x})".GetHashCode()
+               );
 
         /// <summary>
         /// Indicates whether the current <see cref="Exceptional{T}"/> is equal to another <see cref="Exceptional{T}"/>
