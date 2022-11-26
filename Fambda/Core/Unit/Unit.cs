@@ -10,7 +10,7 @@ namespace Fambda
     /// This type that allows only one value (and thus can hold no information).
     /// See <a href="https://en.wikipedia.org/wiki/Unit_type">this link</a> for more information.
     /// </remarks>
-    public struct Unit : IEquatable<Unit>, IComparable<Unit>
+    public readonly struct Unit : IEquatable<Unit>, IComparable<Unit>
     {
         private static readonly int _zero = 0;
 
