@@ -21,7 +21,7 @@ namespace Fambda
             Func<String, int> expected = t => t is null ? 0 : t.GetHashCode();
             Func<String, int> eqGetHashCodeFunc = t => default(EqString).GetHashCode(t);
 
-            Prop.ForAll<String>(t => eqGetHashCodeFunc(t) == expected(t)).VerboseCheckThrowOnFailure();
+            Prop.ForAll<NonNull<String>>(t => eqGetHashCodeFunc(t.Item) == expected(t.Item)).VerboseCheckThrowOnFailure();
         }
     }
 }
