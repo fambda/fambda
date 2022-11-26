@@ -1,6 +1,3 @@
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 using Fambda.DataTypes;
 using FluentAssertions;
 using Xunit;

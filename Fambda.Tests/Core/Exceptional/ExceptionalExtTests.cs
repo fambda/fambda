@@ -1,4 +1,3 @@
-using System;
 using Fambda.DataTypes;
 using FluentAssertions;
 using Xunit;

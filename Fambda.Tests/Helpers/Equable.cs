@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Fambda.Helpers
 {
     internal class Equable

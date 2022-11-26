@@ -1,4 +1,3 @@
-using System;
 using static Fambda.F;
 
 namespace Fambda
