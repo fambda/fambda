@@ -31,14 +31,14 @@ namespace Fambda
         /// </summary>
         /// <param name="exception"><see cref="Exception"/> object.</param>
         public static implicit operator Exceptional<T>(Exception exception)
-            => new Exceptional<T>(exception);
+            => new(exception);
 
         /// <summary>
         /// Implicit conversion operator from <typeparamref name="T"/> to <see cref="Exceptional{T}"/>.
         /// </summary>
         /// <param name="value">T value.</param>
         public static implicit operator Exceptional<T>(T value)
-            => new Exceptional<T>(value);
+            => new(value);
 
         /// <summary>
         /// Match the Exception and Success of the <see cref="Exceptional{T}"/> and return Res.

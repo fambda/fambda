@@ -12,7 +12,7 @@ namespace Fambda.Helpers
             _eqResults = eqResults;
         }
 
-        public static EqResults Create(IEnumerable<EqResult> eqResults) => new EqResults(eqResults);
+        public static EqResults Create(IEnumerable<EqResult> eqResults) => new(eqResults);
 
         public bool Success => _eqResults.All(r => r.IsSuccess);
 

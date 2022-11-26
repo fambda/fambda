@@ -23,14 +23,14 @@ namespace Fambda
         /// </summary>
         /// <param name="_"><see cref="OptionNone"/> object.</param>
         public static implicit operator Option<T>(OptionNone _)
-            => new Option<T>();
+            => new();
 
         /// <summary>
         /// Implicit conversion operator from <see cref="OptionSome{T}"/> to <see cref="Option{T}"/>.
         /// </summary>
         /// <param name="some"><see cref="OptionSome{T}"/> object.</param>
         public static implicit operator Option<T>(OptionSome<T> some)
-            => new Option<T>(some.Value);
+            => new(some.Value);
 
         /// <summary>
         /// Implicit conversion operator from <typeparamref name="T"/> to <see cref="Option{T}"/>.

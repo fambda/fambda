@@ -11,8 +11,8 @@ namespace Fambda.Helpers
             FailureMessage = failureMessage;
         }
 
-        public static EqResult Success() => new EqResult(true, string.Empty);
+        public static EqResult Success() => new(true, string.Empty);
 
-        public static EqResult Failure(string message) => new EqResult(false, message);
+        public static EqResult Failure(string message) => new(false, message);
     }
 }

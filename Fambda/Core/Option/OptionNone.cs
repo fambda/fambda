@@ -13,7 +13,7 @@ namespace Fambda
         /// <summary>
         /// Returns <see cref="OptionNone"/>.
         /// </summary>
-        internal static readonly OptionNone Default = new OptionNone();
+        internal static readonly OptionNone Default = new();
 
         /// <summary>
         /// Returns zero.
