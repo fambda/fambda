@@ -17,7 +17,7 @@ namespace Fambda
         /// <summary>
         /// Returns <see cref="Unit"/>.
         /// </summary>
-        public static readonly Unit Default = new Unit();
+        public static readonly Unit Default = new();
 
         /// <summary>
         /// Returns the hash-code based on <see cref="Unit"/> that is always zero.

@@ -36,14 +36,14 @@ namespace Fambda
         /// </summary>
         /// <param name="left"><see cref="EitherLeft{L}"/> object.</param>
         public static implicit operator Either<L, R>(EitherLeft<L> left)
-            => new Either<L, R>(left.Value);
+            => new(left.Value);
 
         /// <summary>
         /// Implicit conversion operator from <see cref="EitherRight{R}"/> to <see cref="Either{L,R}"/>.
         /// </summary>
         /// <param name="right"><see cref="EitherRight{R}"/> object.</param>
         public static implicit operator Either<L, R>(EitherRight<R> right)
-            => new Either<L, R>(right.Value);
+            => new(right.Value);
 
         /// <summary>
         /// Match the Left and Right states of the <see cref="Either{L,R}"/> and return Res.
