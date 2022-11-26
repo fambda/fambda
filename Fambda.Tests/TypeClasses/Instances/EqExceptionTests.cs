@@ -18,7 +18,7 @@ namespace Fambda
 
         [Theory]
         [MemberData(nameof(GetParams))]
-        public void Equals_ReturnsExpectedResult(Exception? lhs, Exception? rhs, bool expected)
+        public void Equals_ReturnsExpectedResult(Exception lhs, Exception rhs, bool expected)
         {
             var result = default(EqException).Equals(lhs, rhs);
 
@@ -28,21 +28,18 @@ namespace Fambda
         [Fact]
         public void GetHashCode_ReturnsExpectedResult()
         {
-            Func<Exception?, int> expected = t => t is null ? 0 : (t.GetType().FullName, t.HResult, t.Message).GetHashCode();
-            Func<Exception?, int> eqGetHashCodeFunc = t => default(EqException).GetHashCode(t);
+            Func<Exception, int> expected = t => (t.GetType().Name, t.HResult, t.Message).GetHashCode();
+            Func<Exception, int> eqGetHashCodeFunc = t => default(EqException).GetHashCode(t);
 
-            Prop.ForAll<Exception?>(t => eqGetHashCodeFunc(t) == expected(t)).VerboseCheckThrowOnFailure();
+            Prop.ForAll<NonNull<Exception>>(t => eqGetHashCodeFunc(t.Item) == expected(t.Item)).VerboseCheckThrowOnFailure();
         }
 
-        public static IEnumerable<object?[]> GetParams()
+        public static IEnumerable<object[]> GetParams()
         {
-            yield return new object?[] { new Exception(), new Exception(), true };
-            yield return new object?[] { new Exception(), null, false };
-
-            yield return new object?[] { new Exception(), new Exception("exc"), false };
-            yield return new object?[] { new SomeException(), new AnotherException(), false };
-            yield return new object?[] { null, new AnotherException(), false };
-            yield return new object?[] { null, null, true };
+            yield return new object[] { new Exception(), new Exception(), true };
+            yield return new object[] { new Exception(), new Exception("exc"), false };
+            yield return new object[] { new SomeException(), new AnotherException(), false };
+            yield return new object[] { new Exception(), new AnotherException(), false };
         }
 
 
@@ -52,12 +49,12 @@ namespace Fambda
                 => new ArbitraryException();
 
             public static Exception? ExceptionChooser(int index)
-                => new List<Exception?>() { new Exception(), new Exception(), new Exception("exc"), null, new SomeException(), new AnotherException() }.ElementAt(index);
+                => new List<Exception?>() { new Exception(), new Exception(), new Exception("exc"), new SomeException(), new AnotherException() }.ElementAt(index);
 
             public class ArbitraryException : Arbitrary<Exception>
             {
                 public override Gen<Exception> Generator
-                    => from index in Gen.Choose(0, 5)
+                    => from index in Gen.Choose(0, 4)
 
                        select ExceptionChooser(index);
             }

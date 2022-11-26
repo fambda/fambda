@@ -12,7 +12,7 @@ namespace Fambda
         /// </summary>
         /// <param name="t"><see cref="String"/> to get the hash-code.</param>
         /// <returns>The hash-code of <see cref="Int32"/> value.</returns>
-        public int GetHashCode(String? t)
-            => t is null ? 0 : t.GetHashCode();
+        public int GetHashCode(String t)
+            => t.GetHashCode();
     }
 }
