@@ -1,5 +1,3 @@
-using System;
-
 namespace Fambda.Concepts.Objects
 {
     public class BikeWithEqualsOfTClassObject : IEquatable<BikeWithEqualsOfTClassObject>

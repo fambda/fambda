@@ -1,4 +1,3 @@
-using System;
 using Fambda;
 using FluentAssertions;
 using Xunit;
