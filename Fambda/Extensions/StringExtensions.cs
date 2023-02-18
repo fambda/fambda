@@ -14,7 +14,7 @@ namespace Fambda.Extensions
         /// <returns>true if the specified string is not null and empty; otherwise, false.</returns>
         [Pure]
         public static bool IsEmpty(this string str)
-            => str != null && str.Length == 0;
+            => str.Length == 0;
 
         /// <summary>
         /// Indicates whether the specified not null string consists only of white-space characters.
@@ -24,18 +24,14 @@ namespace Fambda.Extensions
         [Pure]
         public static bool IsWhiteSpace(this string str)
         {
-            if (str != null)
+            foreach (var c in str)
             {
-                foreach (var c in str)
+                if (!char.IsWhiteSpace(c))
                 {
-                    if (!char.IsWhiteSpace(c))
-                    {
-                        return false;
-                    }
+                    return false;
                 }
-                return true;
             }
-            return false;
+            return true;
         }
 
         /// <summary>
@@ -45,7 +41,7 @@ namespace Fambda.Extensions
         /// <returns>true if the specified string is not null, not empty and has leading spaces; otherwise, false.</returns>
         [Pure]
         public static bool HasLeadingSpace(this string str)
-            => str != null && str.Length > 0 && char.IsWhiteSpace(str, 0);
+            => str.Length > 0 && char.IsWhiteSpace(str, 0);
 
         /// <summary>
         /// Indicates whether the specified not null, not empty string has trailing spaces.
@@ -54,6 +50,6 @@ namespace Fambda.Extensions
         /// <returns>true if the specified string is not null, not empty and has trailing spaces; otherwise, false.</returns>
         [Pure]
         public static bool HasTrailingSpace(this string str)
-            => str != null && str.Length > 0 && char.IsWhiteSpace(str, str.Length - 1);
+            => str.Length > 0 && char.IsWhiteSpace(str, str.Length - 1);
     }
 }

@@ -6,7 +6,6 @@ namespace Fambda.Extensions
     public class StringExtensionsTests
     {
         [Theory]
-        [InlineData(null, false)]
         [InlineData("not empty", false)]
         [InlineData("", true)]
         public void IsEmpty_ReturnsExpectedResult(string str, bool boolean)
@@ -22,7 +21,6 @@ namespace Fambda.Extensions
         }
 
         [Theory]
-        [InlineData(null, false)]
         [InlineData("not white space", false)]
         [InlineData("", true)]
         [InlineData(" ", true)]
@@ -40,7 +38,6 @@ namespace Fambda.Extensions
         }
 
         [Theory]
-        [InlineData(null, false)]
         [InlineData("", false)]
         [InlineData(" str", true)]
         [InlineData("  str", true)]
@@ -58,7 +55,6 @@ namespace Fambda.Extensions
         }
 
         [Theory]
-        [InlineData(null, false)]
         [InlineData("", false)]
         [InlineData("str ", true)]
         [InlineData("str  ", true)]
