@@ -125,18 +125,5 @@ namespace Fambda
             => (t1, t2, t3, t4) => func(t1)(t2)(t3)(t4);
 
         #endregion
-
-        #region IsNull
-
-        /// <summary>
-        /// Indicates whether the specified <typeparamref name="T" /> value is null.
-        /// </summary>
-        /// <param name="value">The <typeparamref name="T" /> value to test.</param>
-        /// <returns>true if the specified <paramref name="value"/> is null; otherwise, false.</returns>
-        [Pure]
-        public static bool IsNull<T>(T value)
-            => CheckHelper<T>.IsNull(value);
-
-        #endregion
     }
 }
