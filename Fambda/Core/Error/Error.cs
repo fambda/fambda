@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using System.Diagnostics.Contracts;
 
 namespace Fambda
@@ -31,7 +32,6 @@ namespace Fambda
                 ? F.Some(_exception)
                 : F.None;
 
-
         /// <summary>
         /// Initializes a new instance of the <see cref="Error"/> class.
         /// </summary>
@@ -60,6 +60,12 @@ namespace Fambda
         /// </summary>
         public static Error New(string code, string message)
             => new Expected(code, message);
+
+        /// <summary>
+        /// Creates <see cref="Error"/> discriminated-union of <see cref="Multi"/> type.
+        /// </summary>
+        public static Error New(ImmutableList<Error> errors)
+            => new Multi(errors);
 
 
         /// <summary>
@@ -92,6 +98,27 @@ namespace Fambda
         {
             /// <summary/>
             public Expected(string Code, string? Message = null) : base(Code, Message) { }
+        }
+
+
+        /// <summary>
+        /// Represents possible combined errors together as a single <see cref="Error"/>.
+        /// </summary>
+        /// <seealso cref="Fambda.Error" />
+        /// <remarks>
+        /// Allows a function to return an <see cref="Error"/> that might actually be a list of errors.
+        /// If the caller knows this, it can access these errors.
+        /// </remarks>
+        public sealed record Multi : Error
+        {
+            /// <summary/>
+            public Multi(ImmutableList<Error> errors) : base(Code: "MultiError", Message: $"{string.Join(", ", errors.Select(x => x.Message))}")
+            {
+                Errors = errors;
+            }
+
+            /// <summary/>
+            public ImmutableList<Error> Errors { get; set; } = ImmutableList<Error>.Empty;
         }
     }
 }
