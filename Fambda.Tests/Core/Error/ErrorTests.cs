@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using FluentAssertions;
 using Xunit;
 
@@ -51,6 +52,29 @@ namespace Fambda
         }
 
         [Fact]
+        public void New_ReturnsMultiWithCodeAndMessage()
+        {
+            // Arrange
+            const string multiErrorCode = "MultiError";
+            var stackOverflowException = new StackOverflowException();
+            var unexpectedErrorMessage = stackOverflowException.Message;
+            var expectedErrorMessage = "Expected error message.";
+            var technicalError = new Error.Unexpected(new StackOverflowException());
+            var problemError = new Error.Expected("code", expectedErrorMessage);
+
+            // Act
+            var errors = new List<Error>() { technicalError, problemError }.ToImmutableList();
+
+            // Act
+            var error = Error.New(errors);
+
+            // Assert
+            error.Should().BeOfType<Error.Multi>();
+            error.Code.Should().Be(multiErrorCode);
+            error.Message.Should().Be($"{unexpectedErrorMessage}, {expectedErrorMessage}");
+        }
+
+        [Fact]
         public void Expected_DoesNotHaveException()
         {
             // Arrange
@@ -74,6 +98,20 @@ namespace Fambda
 
             // Assert
             error.Exception.Match(None: () => new NotSupportedException(), Some: (ex) => ex).Should().Be(stackOverflowException);
+        }
+
+        [Fact]
+        public void Multi_ShouldContainMultipleErrors()
+        {
+            // Arrange
+            var technicalError = new Error.Unexpected(new StackOverflowException());
+            var problemError = new Error.Expected("code", "message");
+
+            // Act
+            var multiError = new Error.Multi(new List<Error>() { technicalError, problemError }.ToImmutableList());
+
+            // Assert
+            multiError.Errors.Count.Should().Be(2);
         }
     }
 }
