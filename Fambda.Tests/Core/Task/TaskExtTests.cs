@@ -11,7 +11,7 @@ namespace Fambda
         #region Map
 
         [Fact]
-        public async void Map_UnaryFuncOverTaskCompletedSuccessfully_ReturnsExpectedResult()
+        public async Task Map_UnaryFuncOverTaskCompletedSuccessfully_ReturnsExpectedResult()
         {
             // Arrange
             var task = F.TaskSucc(1);
@@ -30,7 +30,7 @@ namespace Fambda
         #region Linq
 
         [Fact]
-        public async void Linq_SingleFromClause_Succeeds()
+        public async Task Linq_SingleFromClause_Succeeds()
         {
             // Arrange
             var expectedResult = Some(1);
@@ -46,7 +46,7 @@ namespace Fambda
         }
 
         [Fact]
-        public async void Linq_TwoFromClauses_Succeeds()
+        public async Task Linq_TwoFromClauses_Succeeds()
         {
             // Arrange
             var expectedResult = Some(3);
@@ -67,7 +67,7 @@ namespace Fambda
         }
 
         [Fact]
-        public async void Linq_ThreeFromClauses_Succeeds()
+        public async Task Linq_ThreeFromClauses_Succeeds()
         {
             // Arrange
             var expectedResult = Some(6);
