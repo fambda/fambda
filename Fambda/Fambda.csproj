@@ -18,19 +18,12 @@
     <PackageProjectUrl>https://github.com/fambda/fambda</PackageProjectUrl>
     <Description>Fambda - advanced, purely functional programming library for C# language. 
 
-Supported .NET 6</Description>
+Supported .NET 10</Description>
     <Summary>Fambda - advanced, purely functional programming library for C# language.</Summary>
     <RepositoryUrl>https://github.com/fambda/fambda</RepositoryUrl>
     <PackageTags>Fambda, Functional, C#, Option, Either, Exceptional, Try</PackageTags>
-    <PackageReleaseNotes>More functional extensions.
-
-    - Allow not null option some construction with nullable values
-    - Graspable function composition
-    - Option with two arguments Apply overload
-    - Bind Option into a Task
-
-More code documentation and tests.</PackageReleaseNotes>
-    <Version>2.1.0</Version>
+    <PackageReleaseNotes>Target framework .NET 10, C# 14.0 language features.</PackageReleaseNotes>
+    <Version>3.0.0-pre</Version>
     <AssemblyName>Fambda</AssemblyName>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
