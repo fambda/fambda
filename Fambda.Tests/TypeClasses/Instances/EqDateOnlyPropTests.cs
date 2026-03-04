@@ -1,4 +1,5 @@
 using FsCheck;
+using FsCheck.Fluent;
 using FsCheck.Xunit;
 using Xunit;
 
@@ -6,10 +7,6 @@ namespace Fambda
 {
     public class EqDateOnlyPropTests
     {
-        public EqDateOnlyPropTests()
-        {
-            Arb.Register<DateOnlyArbitraries>();
-        }
 
         [Fact]
         public void Equals_ReturnsExpectedResult()
@@ -17,7 +14,8 @@ namespace Fambda
             Func<DateOnly, DateOnly, bool> expected = (lhs, rhs) => lhs.Equals(rhs);
             Func<DateOnly, DateOnly, bool> eqEquals = (lhs, rhs) => default(EqDateOnly).Equals(lhs, rhs);
 
-            Prop.ForAll<DateOnly, DateOnly>((lhs, rhs) => eqEquals(lhs, rhs) == expected(lhs, rhs)).VerboseCheckThrowOnFailure();
+            Prop.ForAll<DateOnly, DateOnly>((lhs, rhs) => eqEquals(lhs, rhs) == expected(lhs, rhs))
+                .Check(Config.VerboseThrowOnFailure.WithArbitrary(new[] { typeof(DateOnlyArbitraries) }));
         }
 
         [Fact]
@@ -26,7 +24,8 @@ namespace Fambda
             Func<DateOnly, int> expected = t => t.GetHashCode();
             Func<DateOnly, int> eqGetHashCodeFunc = t => default(EqDateOnly).GetHashCode(t);
 
-            Prop.ForAll<DateOnly>(t => eqGetHashCodeFunc(t) == expected(t)).VerboseCheckThrowOnFailure();
+            Prop.ForAll<DateOnly>(t => eqGetHashCodeFunc(t) == expected(t))
+                .Check(Config.VerboseThrowOnFailure.WithArbitrary(new[] { typeof(DateOnlyArbitraries) }));
         }
 
         public class DateOnlyArbitraries

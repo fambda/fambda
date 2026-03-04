@@ -98,7 +98,7 @@ namespace Fambda
         [Theory]
         [InlineData("value", "Some(value)")]
         [InlineData(null, "None")]
-        public void ImplicitConvertion_ValueToOption_Succeeds(string input, string expected)
+        public void ImplicitConvertion_ValueToOption_Succeeds(string? input, string expected)
         {
             // Arrange
             var value = input;

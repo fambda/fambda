@@ -1,18 +1,13 @@
 using Fambda.DataTypes;
 using FluentAssertions;
 using FsCheck;
-using FsCheck.Xunit;
+using FsCheck.Fluent;
 using Xunit;
 
 namespace Fambda
 {
     public class EqExceptionTests
     {
-        public EqExceptionTests()
-        {
-            Arb.Register<ExceptionArbitraries>();
-        }
-
         [Theory]
         [MemberData(nameof(GetParams))]
         public void Equals_ReturnsExpectedResult(Exception lhs, Exception rhs, bool expected)
@@ -28,7 +23,8 @@ namespace Fambda
             Func<Exception, int> expected = t => (t.GetType().Name, t.HResult, t.Message).GetHashCode();
             Func<Exception, int> eqGetHashCodeFunc = t => default(EqException).GetHashCode(t);
 
-            Prop.ForAll<NonNull<Exception>>(t => eqGetHashCodeFunc(t.Item) == expected(t.Item)).VerboseCheckThrowOnFailure();
+            Prop.ForAll<NonNull<Exception>>(t => eqGetHashCodeFunc(t.Item) == expected(t.Item))
+                .Check(Config.VerboseThrowOnFailure.WithArbitrary(new[] { typeof(ExceptionArbitraries) }));
         }
 
         public static IEnumerable<object[]> GetParams()
