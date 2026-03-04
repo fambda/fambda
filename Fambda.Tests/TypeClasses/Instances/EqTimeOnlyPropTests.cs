@@ -1,23 +1,21 @@
 using FsCheck;
+using FsCheck.Fluent;
 using FsCheck.Xunit;
 using Xunit;
+using static Fambda.EqDateOnlyPropTests;
 
 namespace Fambda
 {
     public class EqTimeOnlyPropTests
     {
-        public EqTimeOnlyPropTests()
-        {
-            Arb.Register<TimeOnlyArbitraries>();
-        }
-
         [Fact]
         public void Equals_ReturnsExpectedResult()
         {
             Func<TimeOnly, TimeOnly, bool> expected = (lhs, rhs) => lhs.Equals(rhs);
             Func<TimeOnly, TimeOnly, bool> eqEquals = (lhs, rhs) => default(EqTimeOnly).Equals(lhs, rhs);
 
-            Prop.ForAll<TimeOnly, TimeOnly>((lhs, rhs) => eqEquals(lhs, rhs) == expected(lhs, rhs)).VerboseCheckThrowOnFailure();
+            Prop.ForAll<TimeOnly, TimeOnly>((lhs, rhs) => eqEquals(lhs, rhs) == expected(lhs, rhs))
+                .Check(Config.VerboseThrowOnFailure.WithArbitrary(new[] { typeof(TimeOnlyArbitraries) }));
         }
 
         [Fact]
@@ -26,7 +24,8 @@ namespace Fambda
             Func<TimeOnly, int> expected = t => t.GetHashCode();
             Func<TimeOnly, int> eqGetHashCodeFunc = t => default(EqTimeOnly).GetHashCode(t);
 
-            Prop.ForAll<TimeOnly>(t => eqGetHashCodeFunc(t) == expected(t)).VerboseCheckThrowOnFailure();
+            Prop.ForAll<TimeOnly>(t => eqGetHashCodeFunc(t) == expected(t))
+                .Check(Config.VerboseThrowOnFailure.WithArbitrary(new[] { typeof(TimeOnlyArbitraries) }));
         }
 
         public class TimeOnlyArbitraries
