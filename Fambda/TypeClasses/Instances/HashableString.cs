@@ -1,16 +1,15 @@
-namespace Fambda
+namespace Fambda;
+
+/// <summary>
+/// String type hash-code.
+/// </summary>
+public struct HashableString : Hashable<String>
 {
     /// <summary>
-    /// String type hash-code.
+    /// Get hash code of the value.
     /// </summary>
-    public struct HashableString : Hashable<String>
-    {
-        /// <summary>
-        /// Get hash code of the value.
-        /// </summary>
-        /// <param name="t"><see cref="String"/> to get the hash-code.</param>
-        /// <returns>The hash-code of <see cref="Int32"/> value.</returns>
-        public int GetHashCode(String t)
-            => t.GetHashCode();
-    }
+    /// <param name="t"><see cref="String"/> to get the hash-code.</param>
+    /// <returns>The hash-code of <see cref="Int32"/> value.</returns>
+    public int GetHashCode(String t)
+        => t.GetHashCode();
 }

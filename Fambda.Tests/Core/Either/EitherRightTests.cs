@@ -1,23 +1,22 @@
 using FluentAssertions;
 using Xunit;
 
-namespace Fambda
+namespace Fambda;
+
+public partial class EitherRightTests
 {
-    public partial class EitherRightTests
+    [Fact]
+    public void ToString_ReturnsExpectedRepresentation()
     {
-        [Fact]
-        public void ToString_ReturnsExpectedRepresentation()
-        {
-            // Arrange
-            var value = "right";
-            var expectedResult = $"Right({value})";
-            var eitherRight = F.Right<string>(value);
+        // Arrange
+        var value = "right";
+        var expectedResult = $"Right({value})";
+        var eitherRight = F.Right<string>(value);
 
-            // Act
-            var result = eitherRight.ToString();
+        // Act
+        var result = eitherRight.ToString();
 
-            // Assert
-            result.Should().Be(expectedResult);
-        }
+        // Assert
+        result.Should().Be(expectedResult);
     }
 }

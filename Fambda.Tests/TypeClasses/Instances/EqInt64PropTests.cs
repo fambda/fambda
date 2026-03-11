@@ -2,26 +2,25 @@ using FsCheck;
 using FsCheck.Fluent;
 using Xunit;
 
-namespace Fambda
+namespace Fambda;
+
+public class EqInt64PropTests
 {
-    public class EqInt64PropTests
+    [Fact]
+    public void Equals_ReturnsExpectedResult()
     {
-        [Fact]
-        public void Equals_ReturnsExpectedResult()
-        {
-            Func<Int64, Int64, bool> expected = (lhs, rhs) => lhs.Equals(rhs);
-            Func<Int64, Int64, bool> eqEquals = (lhs, rhs) => default(EqInt64).Equals(lhs, rhs);
+        Func<Int64, Int64, bool> expected = (lhs, rhs) => lhs.Equals(rhs);
+        Func<Int64, Int64, bool> eqEquals = (lhs, rhs) => default(EqInt64).Equals(lhs, rhs);
 
-            Prop.ForAll<Int64, Int64>((lhs, rhs) => eqEquals(lhs, rhs) == expected(lhs, rhs)).VerboseCheckThrowOnFailure();
-        }
+        Prop.ForAll<Int64, Int64>((lhs, rhs) => eqEquals(lhs, rhs) == expected(lhs, rhs)).VerboseCheckThrowOnFailure();
+    }
 
-        [Fact]
-        public void GetHashCode_ReturnsExpectedResult()
-        {
-            Func<Int64, int> expected = t => t.GetHashCode();
-            Func<Int64, int> eqGetHashCodeFunc = t => default(EqInt64).GetHashCode(t);
+    [Fact]
+    public void GetHashCode_ReturnsExpectedResult()
+    {
+        Func<Int64, int> expected = t => t.GetHashCode();
+        Func<Int64, int> eqGetHashCodeFunc = t => default(EqInt64).GetHashCode(t);
 
-            Prop.ForAll<Int64>(t => eqGetHashCodeFunc(t) == expected(t)).VerboseCheckThrowOnFailure();
-        }
+        Prop.ForAll<Int64>(t => eqGetHashCodeFunc(t) == expected(t)).VerboseCheckThrowOnFailure();
     }
 }

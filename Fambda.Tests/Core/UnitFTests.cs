@@ -2,21 +2,20 @@ using Fambda.Helpers;
 using FluentAssertions;
 using Xunit;
 
-namespace Fambda
+namespace Fambda;
+
+public class UnitFTests
 {
-    public class UnitFTests
+    [Fact]
+    public void Unit_ReturnsDefaultUnit()
     {
-        [Fact]
-        public void Unit_ReturnsDefaultUnit()
-        {
-            // Arrange
-            var expected = default(Unit);
+        // Arrange
+        var expected = default(Unit);
 
-            // Act
-            var result = F.Unit();
+        // Act
+        var result = F.Unit();
 
-            // Assert
-            result.Should().Be(expected);
-        }
+        // Assert
+        result.Should().Be(expected);
     }
 }

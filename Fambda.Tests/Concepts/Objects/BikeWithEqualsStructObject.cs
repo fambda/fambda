@@ -1,27 +1,26 @@
-namespace Fambda.Concepts.Objects
-{
-#pragma warning disable CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
-    public struct BikeWithEqualsStructObject
-#pragma warning restore CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
-    {
-        public string Brand { get; private set; }
-        public string Model { get; private set; }
-        public int Year { get; private set; }
+namespace Fambda.Concepts.Objects;
 
-        public BikeWithEqualsStructObject(string brand, string model, int year)
-        {
-            Brand = brand;
-            Model = model;
-            Year = year;
-        }
+#pragma warning disable CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
+public struct BikeWithEqualsStructObject
+#pragma warning restore CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
+{
+    public string Brand { get; private set; }
+    public string Model { get; private set; }
+    public int Year { get; private set; }
+
+    public BikeWithEqualsStructObject(string brand, string model, int year)
+    {
+        Brand = brand;
+        Model = model;
+        Year = year;
+    }
 
 #pragma warning disable CS0659
-        public override bool Equals(object? obj)
+    public override bool Equals(object? obj)
 #pragma warning restore CS0659
-        {
-            if (obj == null) return false;
-            return Brand == ((BikeWithEqualsStructObject)obj).Brand &&
-                   Model == ((BikeWithEqualsStructObject)obj).Model;
-        }
+    {
+        if (obj == null) return false;
+        return Brand == ((BikeWithEqualsStructObject)obj).Brand &&
+               Model == ((BikeWithEqualsStructObject)obj).Model;
     }
 }

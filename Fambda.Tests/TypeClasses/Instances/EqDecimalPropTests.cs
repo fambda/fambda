@@ -2,26 +2,25 @@ using FsCheck;
 using FsCheck.Fluent;
 using Xunit;
 
-namespace Fambda
+namespace Fambda;
+
+public class EqDecimalPropTests
 {
-    public class EqDecimalPropTests
+    [Fact]
+    public void Equals_ReturnsExpectedResult()
     {
-        [Fact]
-        public void Equals_ReturnsExpectedResult()
-        {
-            Func<Decimal, Decimal, bool> expected = (lhs, rhs) => lhs.Equals(rhs);
-            Func<Decimal, Decimal, bool> eqEquals = (lhs, rhs) => default(EqDecimal).Equals(lhs, rhs);
+        Func<Decimal, Decimal, bool> expected = (lhs, rhs) => lhs.Equals(rhs);
+        Func<Decimal, Decimal, bool> eqEquals = (lhs, rhs) => default(EqDecimal).Equals(lhs, rhs);
 
-            Prop.ForAll<Decimal, Decimal>((lhs, rhs) => eqEquals(lhs, rhs) == expected(lhs, rhs)).VerboseCheckThrowOnFailure();
-        }
+        Prop.ForAll<Decimal, Decimal>((lhs, rhs) => eqEquals(lhs, rhs) == expected(lhs, rhs)).VerboseCheckThrowOnFailure();
+    }
 
-        [Fact]
-        public void GetHashCode_ReturnsExpectedResult()
-        {
-            Func<Decimal, int> expected = t => t.GetHashCode();
-            Func<Decimal, int> eqGetHashCodeFunc = t => default(EqDecimal).GetHashCode(t);
+    [Fact]
+    public void GetHashCode_ReturnsExpectedResult()
+    {
+        Func<Decimal, int> expected = t => t.GetHashCode();
+        Func<Decimal, int> eqGetHashCodeFunc = t => default(EqDecimal).GetHashCode(t);
 
-            Prop.ForAll<Decimal>(t => eqGetHashCodeFunc(t) == expected(t)).VerboseCheckThrowOnFailure();
-        }
+        Prop.ForAll<Decimal>(t => eqGetHashCodeFunc(t) == expected(t)).VerboseCheckThrowOnFailure();
     }
 }

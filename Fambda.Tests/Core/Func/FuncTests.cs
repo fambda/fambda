@@ -1,6 +1,5 @@
-namespace Fambda
+namespace Fambda;
+
+public partial class FuncTests
 {
-    public partial class FuncTests
-    {
-    }
 }

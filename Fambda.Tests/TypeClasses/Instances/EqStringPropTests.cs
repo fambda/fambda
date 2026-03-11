@@ -2,26 +2,25 @@ using FsCheck;
 using FsCheck.Fluent;
 using Xunit;
 
-namespace Fambda
+namespace Fambda;
+
+public class EqStringPropTests
 {
-    public class EqStringPropTests
+    [Fact]
+    public void Equals_ReturnsExpectedResult()
     {
-        [Fact]
-        public void Equals_ReturnsExpectedResult()
-        {
-            Func<String, String, bool> expected = (lhs, rhs) => String.Equals(lhs, rhs);
-            Func<String, String, bool> eqEquals = (lhs, rhs) => default(EqString).Equals(lhs, rhs);
+        Func<String, String, bool> expected = (lhs, rhs) => String.Equals(lhs, rhs);
+        Func<String, String, bool> eqEquals = (lhs, rhs) => default(EqString).Equals(lhs, rhs);
 
-            Prop.ForAll<String, String>((lhs, rhs) => eqEquals(lhs, rhs) == expected(lhs, rhs)).VerboseCheckThrowOnFailure();
-        }
+        Prop.ForAll<String, String>((lhs, rhs) => eqEquals(lhs, rhs) == expected(lhs, rhs)).VerboseCheckThrowOnFailure();
+    }
 
-        [Fact]
-        public void GetHashCode_ReturnsExpectedResult()
-        {
-            Func<String, int> expected = t => t is null ? 0 : t.GetHashCode();
-            Func<String, int> eqGetHashCodeFunc = t => default(EqString).GetHashCode(t);
+    [Fact]
+    public void GetHashCode_ReturnsExpectedResult()
+    {
+        Func<String, int> expected = t => t is null ? 0 : t.GetHashCode();
+        Func<String, int> eqGetHashCodeFunc = t => default(EqString).GetHashCode(t);
 
-            Prop.ForAll<NonNull<String>>(t => eqGetHashCodeFunc(t.Item) == expected(t.Item)).VerboseCheckThrowOnFailure();
-        }
+        Prop.ForAll<NonNull<String>>(t => eqGetHashCodeFunc(t.Item) == expected(t.Item)).VerboseCheckThrowOnFailure();
     }
 }
