@@ -1,16 +1,15 @@
-namespace Fambda
+namespace Fambda;
+
+/// <summary>
+/// Exception type hash-code.
+/// </summary>
+public struct HashableException : Hashable<Exception>
 {
     /// <summary>
-    /// Exception type hash-code.
+    /// Get hash code of the value.
     /// </summary>
-    public struct HashableException : Hashable<Exception>
-    {
-        /// <summary>
-        /// Get hash code of the value.
-        /// </summary>
-        /// <param name="t"><see cref="Exception"/> to get the hash-code.</param>
-        /// <returns>The hash-code of <see cref="Int32"/> value.</returns>
-        public int GetHashCode(Exception t)
-            => (t.GetType().Name, t.HResult, t.Message).GetHashCode();
-    }
+    /// <param name="t"><see cref="Exception"/> to get the hash-code.</param>
+    /// <returns>The hash-code of <see cref="Int32"/> value.</returns>
+    public int GetHashCode(Exception t)
+        => (t.GetType().Name, t.HResult, t.Message).GetHashCode();
 }

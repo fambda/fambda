@@ -1,10 +1,9 @@
-namespace Fambda.Helpers
+namespace Fambda.Helpers;
+
+internal static class EqResultExtensions
 {
-    internal static class EqResultExtensions
+    internal static EqResultAssertions Should(this EqResult instance)
     {
-        internal static EqResultAssertions Should(this EqResult instance)
-        {
-            return new EqResultAssertions(instance);
-        }
+        return new EqResultAssertions(instance);
     }
 }

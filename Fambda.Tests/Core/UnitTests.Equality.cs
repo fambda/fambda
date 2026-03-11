@@ -2,55 +2,54 @@ using Fambda.Helpers;
 using FluentAssertions;
 using Xunit;
 
-namespace Fambda
+namespace Fambda;
+
+public partial class UnitTests
 {
-    public partial class UnitTests
+    [Fact]
+    [Trait("Category", "Equable")]
+    public void Equable_Null_MustPass()
     {
-        [Fact]
-        [Trait("Category", "Equable")]
-        public void Equable_Null_MustPass()
-        {
-            // Arrange
-            Unit unit = new Unit();
+        // Arrange
+        Unit unit = new Unit();
 
-            // Act
-            var result = new Equable().Null(unit);
+        // Act
+        var result = new Equable().Null(unit);
 
-            // Assert
-            result.Should().Pass();
-        }
+        // Assert
+        result.Should().Pass();
+    }
 
-        [Fact]
-        [Trait("Category", "Equable")]
-        public void Equable_Equal_DoesPass()
-        {
-            // Arrange
-            Unit first = new Unit();
-            Unit second = new Unit();
+    [Fact]
+    [Trait("Category", "Equable")]
+    public void Equable_Equal_DoesPass()
+    {
+        // Arrange
+        Unit first = new Unit();
+        Unit second = new Unit();
 
-            // Act
-            var result = new Equable().Equal(first, second);
+        // Act
+        var result = new Equable().Equal(first, second);
 
-            // Assert
-            result.Should().Pass();
-        }
+        // Assert
+        result.Should().Pass();
+    }
 
-        [Fact]
-        [Trait("Category", "Equable")]
-        public void Equable_Unequal_DoesNotPass()
-        {
-            // Arrange
-            Unit first = new Unit();
-            Unit second = new Unit();
+    [Fact]
+    [Trait("Category", "Equable")]
+    public void Equable_Unequal_DoesNotPass()
+    {
+        // Arrange
+        Unit first = new Unit();
+        Unit second = new Unit();
 
-            // Act
-            var result = new Equable().Unequal(first, second);
+        // Act
+        var result = new Equable().Unequal(first, second);
 
-            // Assert
-            result.Should().NotPass("Equals returned 'true' on expected non-equal objects.",
-                                    "Typed Equals returned 'true' on expected non-equal objects.",
-                                    "Equality operator returned 'true' on expected non-equal objects.",
-                                    "Inequality operator returned 'false' on expected non-equal objects.");
-        }
+        // Assert
+        result.Should().NotPass("Equals returned 'true' on expected non-equal objects.",
+                                "Typed Equals returned 'true' on expected non-equal objects.",
+                                "Equality operator returned 'true' on expected non-equal objects.",
+                                "Inequality operator returned 'false' on expected non-equal objects.");
     }
 }

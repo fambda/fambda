@@ -1,9 +1,8 @@
-namespace Fambda.DataTypes
-{
-    public class SomeException : Exception
-    {
-        public SomeException() : base() { }
+namespace Fambda.DataTypes;
 
-        public SomeException(string message) : base(message) { }
-    }
+public class SomeException : Exception
+{
+    public SomeException() : base() { }
+
+    public SomeException(string message) : base(message) { }
 }
