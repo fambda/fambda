@@ -7,6 +7,7 @@
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>Exe</OutputType>
     <IsPackable>false</IsPackable>
     <ProjectGuid>74657374-7064-6164-6c69-46616d626461</ProjectGuid>
     <CodeAnalysisRuleSet>..\rulesets\solution.ruleset</CodeAnalysisRuleSet>
@@ -26,15 +27,15 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="xunit.v3" Version="3.2.2" />
     <PackageReference Include="FluentAssertions" Version="6.12.2" />
     <PackageReference Include="FsCheck" Version="3.3.2" />
-    <PackageReference Include="FsCheck.Xunit" Version="3.3.2" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
-    <PackageReference Include="xunit" Version="2.9.3" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
+    <PackageReference Include="FsCheck.Xunit.v3" Version="3.3.2" />
   </ItemGroup>
 
   <ItemGroup>
