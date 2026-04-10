@@ -1,6 +1,6 @@
 using Fambda;
 
-namespace WorldOfFambda.Domain;
+namespace QuizFambda;
 
 public class Quiz
 {

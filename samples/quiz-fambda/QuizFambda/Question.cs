@@ -1,4 +1,4 @@
-namespace WorldOfFambda.Domain;
+namespace QuizFambda;
 
 public class Question
 {
