@@ -1,19 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31005.135
+# Visual Studio Version 18
+VisualStudioVersion = 18.4.11626.88 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fambda", "Fambda\Fambda.csproj", "{26E2A13C-8F25-48A5-8409-08E502E21C78}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fambda.Tests", "Fambda.Tests\Fambda.Tests.csproj", "{E76F725F-50DC-4C46-8D53-EEABCB1EBBB2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{BCCE4F36-E500-4ED0-AB9D-DA38F051443A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{BCCE4F36-E500-4ED0-AB9D-DA38F051443A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "world-of-fambda", "world-of-fambda", "{B6541A33-E019-4EA1-903E-E956F13C6A52}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "quiz-fambda", "quiz-fambda", "{B6541A33-E019-4EA1-903E-E956F13C6A52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldOfFambda.Domain", "examples\world-of-fambda\WorldOfFambda.Domain\WorldOfFambda.Domain.csproj", "{A4DC7669-95B4-42E2-A8B1-C9DCFC12D47C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizFambda", "samples\quiz-fambda\QuizFambda\QuizFambda.csproj", "{A4DC7669-95B4-42E2-A8B1-C9DCFC12D47C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldOfFambda.Domain.Tests", "examples\world-of-fambda\WorldOfFambda.Domain.Tests\WorldOfFambda.Domain.Tests.csproj", "{DAF4F06A-0140-4527-A17F-D22C8C781167}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizFambda.Tests", "samples\quiz-fambda\QuizFambda.Tests\QuizFambda.Tests.csproj", "{DAF4F06A-0140-4527-A17F-D22C8C781167}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,12 +41,12 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {32DA00B6-A7DB-499F-8B8A-746AD04FB71C}
-	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6541A33-E019-4EA1-903E-E956F13C6A52} = {BCCE4F36-E500-4ED0-AB9D-DA38F051443A}
 		{A4DC7669-95B4-42E2-A8B1-C9DCFC12D47C} = {B6541A33-E019-4EA1-903E-E956F13C6A52}
 		{DAF4F06A-0140-4527-A17F-D22C8C781167} = {B6541A33-E019-4EA1-903E-E956F13C6A52}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32DA00B6-A7DB-499F-8B8A-746AD04FB71C}
 	EndGlobalSection
 EndGlobal
